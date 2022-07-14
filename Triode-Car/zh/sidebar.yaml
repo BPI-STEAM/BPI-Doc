@@ -1,0 +1,28 @@
+items:
+-   label: 硬件介绍
+    file: introduction/hardware.md
+-   label: TriodeCar硬件分析及校准
+    file: hardware/analysis&calibrate.md
+-   label: micro:bit 教程   
+    collapsed: false
+    items:
+    -   label: 初识 micro:bit
+        file: microbit_tutorial/first_meeting.md
+    -   label: 创建MakeCode项目
+        file: microbit_tutorial/new_project.md
+    -   label: 导入扩展积木
+        file: microbit_tutorial/import_extension.md
+    -   label: 用microbit按钮控制电机
+        file: microbit_tutorial/control_motor.md
+    -   label: 调整电机转速
+        file: microbit_tutorial/control_motor2.md
+    -   label: 采集巡线电路的模拟信号
+        file: microbit_tutorial/read_LDR.md
+    -   label: 无线电通讯控制电机
+        file: microbit_tutorial/radio_control.md
+    -   label: 蓝牙控制
+        file: microbit_tutorial/bluetooth_control.md
+    -   label: 校准巡线检测电路
+        file: microbit_tutorial/LDR_calibration.md
+    -   label: 巡线行驶
+        file: microbit_tutorial/Line_Follower.md

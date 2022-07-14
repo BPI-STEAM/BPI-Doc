@@ -1,0 +1,738 @@
+<!-- 
+    BPI-Steam Wiki 官方首页，包含了各种产品介绍和文档
+                      /^--^\     /^--^\     /^--^\
+                      \____/     \____/     \____/
+                     /      \   /      \   /      \
+                    |        | |        | |        |
+                     \__  __/   \__  __/   \__  __/
+|^|^|^|^|^|^|^|^|^|^|^|^\ \^|^|^|^/ /^|^|^|^|^\ \^|^|^|^|^|^|^|^|^|^|^|^|
+| | | | | | | | | | | | |\ \| | |/ /| | | | | | \ \ | | | | | | | | | | |
+########################/ /######\ \###########/ /#######################
+| | | | | | | | | | | | \/| | | | \/| | | | | |\/ | | | | | | | | | | | |
+|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+ -->
+
+ <!DOCTYPE html>
+<html lang="en"  id="home"  class=" md_page "  layout="home" >
+<head>
+     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="BananaPi,  Steam,  Documentation,  Open Source Software,  Open Source Hardware,  Banana Pi,  AI,  AIOT,  Edge Computing,  Face Recognition,  Embedded AI,  Q-Car,  Triode-Car,  WebAI,  WebBit, ">
+        <meta name="description" content="BananaPi, Steam team documentation (Wiki), including open source software and open source hardware information, AIOT information, etc.">
+        <meta name="generator" content="teedoc">
+        <meta name="theme" content="teedoc-plugin-theme-default">
+    
+     
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser"><script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser"><meta name="blog-generator" content="teedoc-plugin-blog"><link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/><script src="/static/js/theme_default/split.js"></script><script src="/static/js/theme_default/jquery.min.js"></script><script src="/static/js/theme_default/pre_main.js"></script><link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script><link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+    
+    
+        <title>BPI Steam - Information and documentation - BPI-Steam</title>
+    
+    
+    
+    <script type="text/javascript">js_vars = {}</script>
+</head>
+<body class="type_page">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  href="">WebBit</a><ul><li class=""><a  href="/WebBit_doc/en/">Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">Development Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/en/">Triode-Car</a></li>
+<li class=""><a  href="/About/en/">About Us</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  href="">language: English</a><ul><li class=""><a  href="/zh_tw/">中文 繁體</a></li>
+<li class="active"><a  href="/en/">English</a></li>
+<li class=""><a  href="/">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page_wrapper">
+        <div id="page_content">
+            <div>
+                
+ 
+ <script src="/static/js/vue.js"></script>
+ <script src="/static/js/vue_i18n.js"></script>
+ 
+ <div id="products">
+     <h1>{[ $t("BPI-Steam Wiki") ]}</h1>
+     <ul>
+         <li v-for="product in products" v-bind:style="{ backgroundColor: product.bg }">
+             <div class="video_wrapper" v-if="product.video">
+                 <video class="video_player" v-bind:src="product.video" v-bind:poster="product.img" preload muted autoplay loop="-1" x5-playsinline="" x5-video-player-fullscreen="true" playsinline="" webkit-playsinline="" x5-video-player-type="h5" >
+                     Your brower not support video play!
+                 </video>
+                 <div class="play_mask" v-on:click="playVideo"></div>
+             </div>
+             <img v-else v-bind:src="product.img">
+             <div class="product_info">
+                 <div class="product_head">
+                     <div class="product_head_content">
+                         <h2>{[ $t(product.title) ]}</h2>
+                         <div>
+                             {[ $t(product.brief) ]}
+                         </div>
+                     </div>
+                 </div>
+                 <div class="product_body" v-if="product.left && product.right">
+                     <ul class="left">
+                         <li class="left_lable category" v-if="product.left_label"><h3>{[ $t(product.left_label) ]}</h3></li>
+                         <li class="info_item" v-for="left in product.left">
+                             <a v-bind:href="$t(left.url)" v-new-tab="left.new_tab">
+                                 <h3 class="title">{[ $t(left.name) ]}</h3>
+                                 <span class="brief">{[ $t(left.brief) ]}</span>
+                             </a>
+                             <span v-if="typeof(left.new)=='string' && left.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
+                             <span v-else-if="left.new" class="new"></span>
+                         </li>
+                     </ul>
+                     <ul class="right">
+                         <li class="right_lable category" v-if="product.right_label"><h3>{[ $t(product.right_label) ]}</h3></li>
+                         <li class="info_item" v-for="right in product.right">
+                             <a v-bind:href="$t(right.url)" v-new-tab="right.new_tab">
+                                 <h3 class="title">{[ $t(right.name) ]}</h3>
+                                 <span class="brief">{[ $t(right.brief) ]}</span>
+                             </a>
+                             <span v-if="typeof(right.new)=='string' && right.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
+                             <span v-else-if="right.new" class="new"></span>
+                         </li>
+                     </ul>
+                 </div>
+                 <div v-else class="product_body product_body_single">
+                     <ul v-if="product.left" class="left">
+                         <li class="left_lable category" v-if="product.left_label"><h3>{[ $t(product.left_label) ]}</h3></li>
+                         <li class="info_item" v-for="left in product.left">
+                             <a v-bind:href="$t(left.url)" v-new-tab="left.new_tab">
+                                 <h3 class="title">{[ $t(left.name) ]}</h3>
+                                 <span class="brief">{[ $t(left.brief) ]}</span>
+                             </a>
+                             <span v-if="typeof(left.new)=='string' && left.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
+                             <span v-else-if="left.new" class="new"></span>
+                         </li>
+                     </ul>
+                     <ul v-if="product.right" class="right">
+                         <li class="right_lable category" v-if="product.right_label"><h3>{[ $t(product.right_label) ]}</h3></li>
+                         <li class="info_item" v-for="right in product.right">
+                             <a v-bind:href="$t(right.url)" v-new-tab="right.new_tab">
+                                 <h3 class="title">{[ $t(right.name) ]}</h3>
+                                 <span class="brief">{[ $t(right.brief) ]}</span>
+                             </a>
+                             <span v-if="typeof(right.new)=='string' && right.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
+                             <span v-else-if="right.new" class="new"></span>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </li>
+     </ul>
+     <div id="msg">
+         <div id="msg_mask" v-on:click="msgCLose"></div>
+         <div id="msg_close" v-on:click="msgCLose">x</div>
+         <div id="msg_content_wrapper">
+             <div id="msg_content"></div>
+         </div>
+     </div>
+ </div>
+ <script>
+     var pageLanguages = ["en", "zh", "zh_tw"] // languages user can select in pages
+     ///////////////////// translate start /////////////////////
+     const messages = {
+         en: {
+             "BPI Steam": "BPI Steam - Information and Docs",
+             BitV1: "WebBit",
+             BitV2: "WebBit V2",
+ 
+             Bit_title: "WebBit",
+             Doc: "Manual",
+             Dev: "Development Manual",
+             Bit_brief: "WebBit comes with a wealth of sensors, only one board is needed to achieve virtual and real interaction and connection, and realize a variety of IoT applications.",
+             BitV1_doc_brief: "Just getting started? Check it out here",
+             BitV1_dev_brief: "Want to learn more? Click here",
+             BitV2_doc_brief: "ESP32-S2, native USB",
+             Webduino_brief: "Graphic programming, easier to get started with",
+             BitV1_doc_url: "/WebBit_doc/en/",
+             BitV2_dev_url: "/WebBit_dev/en/",
+             Webduino_url: "https://webbit.webduino.io/blockly/?demo=default",
+ 
+             WebAI_title: "WebAI",
+             WebAI_brief: "With the image training platform, you can immediately experience the complete process of training AI.",
+             WebAI_doc_title: "User Manual",
+             WebAI_doc_brief: "Quick start? Click here",
+             WebAI_prog: "Graphics Programming",
+             WebAI_Prog_brief: "Graphic programming, easier to get started with",
+             WebAI_train: "Graphics training platform",
+             WebAI_Train_brief: "Train the model here",
+             WebAI_doc_url: "/WebAI/zh/",
+             WebAI_Prog_url: "https://ai-blockly.webduino.io/#/",
+             WebAI_Train_url: "https://vision.webduino.io/",
+
+             LeafS3_title: "Leaf-S3 Development Board",
+             LeafS3_brief: "Development board based on ESP32-S3",
+             LeafS3_doc_title: "User Manual",
+             LeafS3_doc_brief: "Click here to get started",
+             LeafS3_doc_url: "/Leaf_S3_doc/en/",
+
+             Qcar_title: "Q-Car",
+             Qcar_brief: "A robot focused on educational use",
+             Qcar_doc_title: "User Manual",
+             Qcar_doc_brief: "Click here to get started",
+             Qcar_doc_url: "/Q-Car/en/",
+
+             Triodecar_title: "Triode-Car",
+             Triodecar_brief: "Affordable robot focused on educational use",
+             Triodecar_doc_title: "User Manual",
+             Triodecar_doc_brief: "Click here to get started",
+             Triodecar_doc_url: "/Triode-Car/en/",
+ 
+             community_title: "Community",
+             community_brief: "Active community, make open source better together, and be creators together",
+             community_github: "github",
+             community_github_brief: "Open source code organization, welcome to star projects you like, and contribute together",
+             community_bbs: "BBS",
+             community_bbs_brief: "Technical exchanges, project sharing, making technical friends ...",
+             community_facebook: "Facebook",
+             community_facebook_brief: "Blog and news ...",
+             community_more: "More",
+             community_more_brief: "Telegram、 QQ Group ..."
+         },
+         zh: {
+             "BPI Steam": "BPI Steam - 资料和文档",
+             BitV1: "WebBit",
+             BitV2: "WebBit V2",
+ 
+             Bit_title: "WebBit",
+             Doc: "使用手册",
+             Dev: "开发手册",
+             Bit_brief: "WebBit 自带丰富传感器，只需要一块板子就能达成虚实互动串连，实现多样化的物联网应用。",
+             BitV1_doc_brief: "刚入手？可以看看这里",
+             BitV1_dev_brief: "想更深入了解？点击这里",
+             BitV2_doc_brief: "ESP32-S2，原生USB",
+             Webduino_brief: "图形编程，上手更方便",
+             BitV1_doc_url: "/WebBit_doc/zh/",
+             BitV1_dev_url: "/WebBit_dev/zh/",
+             BitV2_doc_url: "/WebBit_V2_doc/zh/",
+             Webduino_url: "https://webbit.webduino.io/blockly/?demo=default",
+             
+             WebAI_title: "WebAI",
+             WebAI_brief: "配合图像训练平台，立即体验训练AI的完整流程。",
+             WebAI_doc_title: "用户手册",
+             WebAI_doc_brief: "快速上手？点击这里",
+             WebAI_prog: "图形编程",
+             WebAI_Prog_brief: "点击这里开始图形编程",
+             WebAI_train: "图形训练平台",
+             WebAI_Train_brief: "训练模型可以点击这里",
+             WebAI_doc_url: "/WebAI/zh/",
+             WebAI_Prog_url: "https://ai-blockly.webduino.io/#/",
+             WebAI_Train_url: "https://vision.webduino.io/",
+
+             LeafS3_title: "Leaf-S3开发板",
+             LeafS3_brief: "基于ESP32-S3的开发板",
+             LeafS3_doc_title: "用户手册",
+             LeafS3_doc_brief: "点击这里开始上手",
+             LeafS3_doc_url: "/Leaf_S3_doc/zh/",
+             
+             Qcar_title: "Q-Car",
+             Qcar_brief: "专注于教育用途的机器人",
+             Qcar_doc_title: "用户手册",
+             Qcar_doc_brief: "点击这里开始上手",
+             Qcar_doc_url: "/Q-Car/zh/",
+ 
+             Triodecar_title: "Triode-Car",
+             Triodecar_brief: "专注于教育用途的售价低廉的机器人",
+             Triodecar_doc_title: "用户手册",
+             Triodecar_doc_brief: "点击这里开始上手",
+             Triodecar_doc_url: "/Triode-Car/zh/",
+ 
+             community_title: "社区",
+             community_brief: "活跃的社区，一起让开源变得更好，一起当创造者",
+             community_github: "github",
+             community_github_brief: "开源代码组织，欢迎 star 你喜欢的项目和参与贡献",
+             community_bbs: "BBS",
+             community_bbs_brief: "技术交流、项目分享、结交技术好友 ...",
+             community_more: "更多",
+             community_more_brief: "Twitter Telegram QQ群 ...",
+         },
+         zh_tw: {"BPI Steam": "BPI Steam - 資料和文檔",
+             BitV1: "WebBit",
+             BitV2: "WebBit V2",
+ 
+             Bit_title: "WebBit",
+             Doc: "使用手冊",
+             Dev: "開發手冊",
+             Bit_brief: "WebBit 自帶豐富傳感器，只需要一塊板子就能達成虛實互動串連，實現多樣化的物聯網應用。",
+             BitV1_doc_brief: "剛入手？可以看看這裡",
+             BitV1_dev_brief: "想更深入了解？點擊這裡",
+             BitV2_doc_brief: "ESP32-S2，原生USB",
+             Webduino_brief: "圖形編程，上手更方便",
+             BitV1_doc_url: "/WebBit_doc/zh/",
+             BitV1_dev_url: "/WebBit_dev/zh/",
+             BitV2_doc_url: "/WebBit_V2_doc/zh/",
+             Webduino_url: "https://webbit.webduino.io/blockly/?demo=default",
+             
+             WebAI_title: "WebAI",
+             WebAI_brief: "配合圖像訓練平台，立即體驗訓練AI的完整流程。",
+             WebAI_doc_title: "用戶手冊",
+             WebAI_doc_brief: "快速上手？點擊這裡",
+             WebAI_prog: "圖形編程",
+             WebAI_Prog_brief: "點擊這裡開始圖形編程",
+             WebAI_train: "圖形訓練平台",
+             WebAI_Train_brief: "訓練模型可以點擊這裡",
+             WebAI_doc_url: "/WebAI/zh/",
+             WebAI_Prog_url: "https://ai-blockly.webduino.io/#/",
+             WebAI_Train_url: "https://vision.webduino.io/",
+
+             LeafS3_title: "Leaf-S3開發板",
+             LeafS3_brief: "基於ESP32-S3的開發板",
+             LeafS3_doc_title: "用戶手冊",
+             LeafS3_doc_brief: "點擊這裡開始上手",
+             LeafS3_doc_url: "/Leaf_S3_doc/zh_tw/",
+ 
+             Qcar_title: "Q-Car",
+             Qcar_brief: "專注於教育用途的機器人",
+             Qcar_doc_title: "用戶手冊",
+             Qcar_doc_brief: "點擊這裡開始上手",
+             Qcar_doc_url: "/Q-Car/zh_tw/",
+
+             Triodecar_title: "Triode-Car",
+             Triodecar_brief: "專注於教育用途的售價低廉的機器人",
+             Triodecar_doc_title: "用戶手冊",
+             Triodecar_doc_brief: "點擊這裡開始上手",
+             Triodecar_doc_url: "/Triode-Car/zh_tw/",
+ 
+             community_title: "社區",
+             community_brief: "活躍的社區，一起讓開源變得更好，一起當創造者",
+             community_github: "github",
+             community_github_brief: "開源代碼組織，歡迎 star 你喜歡的項目和參與貢獻",
+             community_bbs: "BBS",
+             community_bbs_brief: "技術交流、項目分享、結交技術好友 ...",
+             community_more: "更多",
+             community_more_brief: "Twitter Telegram QQ群 ...",
+         }
+     }
+     ///////////////////// translate end /////////////////////
+     ///////////////////// config start /////////////////////
+     const products = [{
+         title: "Bit_title",
+         brief: "Bit_brief",
+         img: "/static/image/Webduino_gif.gif",
+         bg: "#dbdbdb",
+         left_label: "BitV1",
+         right_label: "BitV2",
+         left: [{
+                 name: "Doc",
+                 url: "BitV1_doc_url",
+                 brief: "BitV1_doc_brief"
+             },
+             {
+                 name: "Dev",
+                 url: "BitV1_dev_url",
+                 brief: "BitV1_dev_brief"
+             }
+         ],
+         right: [{
+                 name: "Doc",
+                 url: "BitV2_doc_url",
+                 brief: "BitV2_doc_brief",
+                 new: true
+             },{
+                 name: "Webduino编程平台",
+                 url: "Webduino_url",
+                 brief: "Webduino_brief",
+                 new: true
+             }
+         ]
+         },{
+         title: "WebAI_title",
+         brief: "WebAI_brief",
+         img: "/static/image/WebAI_400x.png",
+         bg: "white",
+         left: [{
+                 name: "WebAI_doc_title",
+                 url: "WebAI_doc_url",
+                 brief: "WebAI_doc_brief",
+                 new_tab: true
+             },{
+                 name: "WebAI_prog",
+                 url: "WebAI_Prog_url",
+                 brief: "WebAI_Prog_brief",
+                 new_tab: true
+             },{
+                 name: "WebAI_train",
+                 url: "WebAI_Train_url",
+                 brief: "WebAI_Train_brief",
+                 new_tab: true
+             }
+         ]
+         },{
+         title: "LeafS3_title",
+         brief: "LeafS3_brief",
+         img: "/static/image/Leaf-S3.png",
+         bg: "#f5fbfb",
+         left: [{
+                 name: "LeafS3_doc_title",
+                 url: "LeafS3_doc_url",
+                 brief: "LeafS3_doc_brief",
+                 new: true
+             },
+         ]
+         },{
+         title: "Qcar_title",
+         brief: "Qcar_brief",
+         img: "/static/image/Q-Car_With_Web_Bit.png",
+         bg: "#f5fbfb",
+         left: [{
+                 name: "Qcar_doc_title",
+                 url: "Qcar_doc_url",
+                 brief: "Qcar_doc_brief"
+             },
+         ]
+         },{
+         title: "Triodecar_title",
+         brief: "Triodecar_brief",
+         img: "/static/image/Triode-Car_With_BPI_Bit.png",
+         bg: "#f5fbfb",
+         left: [{
+                 name: "Triodecar_doc_title",
+                 url: "Triodecar_doc_url",
+                 brief: "Triodecar_doc_brief"
+             },
+         ]
+         },{
+         title: "community_title",
+         brief: "community_brief",
+         img: "/static/image/community.jpg",
+         left: [{
+                 name: "community_github",
+                 url: "https://github.com/BPI-STEAM/",
+                 brief: "community_github_brief"
+             },{
+                 name: "community_bbs",
+                 url: "https://forum.banana-pi.org.cn/",
+                 brief: "community_bbs_brief"
+             },{
+                 name: "community_facebook",
+                 url: "https://www.facebook.com/sinovoipbpi/",
+                 brief: "community_facebook_brief"
+             },{
+                 name: "community_more",
+                 url: "/community.html",
+                 brief: "community_more_brief"
+             }
+         ]
+         }
+     ]
+     ///////////////////// config end /////////////////////
+ 
+     // get page locale
+     var locale = document.getElementsByTagName("html")[0].lang
+     if (locale){
+         locale = locale.toLowerCase().split("-")[0]
+     }
+     // get browser locale
+     var localeBrowser =(navigator.language || navigator.browserLanguage).toLowerCase().split("-")[0];
+     // brower locale not in page lanuage list, use browser locale
+     if (!localeBrowser in pageLanguages){
+         locale = localeBrowser
+     }
+     const i18n = VueI18n.createI18n({
+         locale: locale,
+         messages: messages,
+         fallbackLocale: "en",
+         silentFallbackWarn: true
+     })
+ 
+     function isLimitedNetwork(){
+         var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || { tyep: 'unknown' };
+         const notLimitTypes = ["ethernet", "wifi", "wimax"]
+         const limitTypes = ["bluetooth", "cellular"]
+ 
+         var system = { 
+             win: false, 
+             mac: false, 
+             x11: false, 
+             ipad:false 
+         }; 
+         var p = navigator.platform;
+         system.win = p.indexOf("Win") == 0; 
+         system.mac = p.indexOf("Mac") == 0; 
+         system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
+         system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
+         if(notLimitTypes.indexOf(connection.type) >= 0){
+             return false
+         }
+         if((system.win || system.mac || system.x11 || system.ipad ) && (limitTypes.indexOf(connection.type)<0) ) {
+             return false
+         }
+         return true
+     }
+     function showNew(info){
+         var el = document.getElementById("msg_content")
+         el.innerHTML = info
+         el = document.getElementById("msg")
+         el.style.display = "block"
+     }
+     const allHandling = {
+         compilerOptions: {
+             delimiters:['{[', ']}'],
+         },
+         data(){
+             return {
+                 products: products
+             }
+         },
+         mounted() {
+             var isWechat = window.WeixinJSBridge
+             if (!isWechat) {
+                 document.addEventListener("WeixinJSBridgeReady", function () {
+                     var players_mask = document.getElementsByClassName("play_mask")
+                     for(var i=0; i < players_mask.length; ++i){
+                         players_mask[i].style.display = "block"
+                     }
+                 }, false);
+             }
+             if(isLimitedNetwork() || isWechat){
+                 var players_mask = document.getElementsByClassName("play_mask")
+                 for(var i=0; i < players_mask.length; ++i){
+                     players_mask[i].style.display = "block"
+                 }
+             }else{
+                 var players = document.getElementsByClassName("video_player")
+                 for(var i=0; i < players.length; ++i){
+                     players[i].play();
+                 }
+             }
+         },
+         methods: {
+             playVideo(event) {
+                 // remove play button and paly video
+                 el = event.target
+                 el.style.display="none"
+                 player = el.parentElement.getElementsByTagName("video")[0]
+                 player.play()
+             },
+             newInfo(event) {
+                 el = event.target
+                 info = el.getElementsByClassName("new_info")[0].innerText
+                 if(info != "true" && info != "false" && info.trim() != ""){
+                     showNew(info)
+                 }
+             },
+             msgCLose(event) {
+                 console.log("close")
+                 var el = document.getElementById("msg")
+                 el.style.display = "none"
+             }
+         }
+     }
+     var app = Vue.createApp(allHandling)
+     app.use(i18n)
+     app.directive('new-tab', {
+         mounted(el, binding) {
+             if (binding.value){
+                 el.setAttribute("target", "_blank")
+             }
+         }
+     })
+     var vm = app.mount('#products')
+ </script>
+ 
+ 
+ 
+ 
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="page_footer">
+            <div id="footer">
+                
+                <div id="footer_top">
+                    <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="http://www.banana-pi.org">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.io/en/">Webduino</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/302756">Aliexpress</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">website source files</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source files</a></li>
+</ul>
+</li>
+<li><a>Contact Us</a><ul><li><a>Phone: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@sinovoip.com.cn (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@sinovoip.com.cn (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province, China</a>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "/";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+    
+</body>
+</html>

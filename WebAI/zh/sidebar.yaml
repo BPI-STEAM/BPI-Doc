@@ -1,0 +1,78 @@
+items:
+-   label: 一、开箱 Web:AI 开发板
+    items:
+    -   label: Web:AI 介绍
+        file: Unboxing/Introduction.md
+    -   label: 初始化设定 (第一次使用请看这里)
+        file: Unboxing/Initialization.md
+    -   label: 安裝版更新固件
+        file: Unboxing/Update.md
+    -   label: 开发板 Wi-Fi 设定
+        file: Unboxing/SettingWIFI.md
+    -   label: 操作模式
+        file: Unboxing/Mode.md
+    -   label: 教学示例卡使用教学
+        file: Unboxing/Card.md
+-   label: 二、Web:AI 图形编程
+    items:
+    -   label: 图形编程平台介绍
+        file: Programming/Introduction.md
+    -   label: 基础功能
+        items:
+        -   label: 变量
+            file: Programming/Basic/Variables.md
+        -   label: 逻辑
+            file: Programming/Basic/Logic.md
+        -   label: 循环
+            file: Programming/Basic/Loops.md
+        -   label: 数学
+            file: Programming/Basic/Math.md
+        -   label: 文本
+            file: Programming/Basic/Text.md
+        -   label: 数组
+            file: Programming/Basic/Lists.md
+        -   label: 函数
+            file: Programming/Basic/Functions.md
+    -   label: 進階功能
+        items:
+        -   label: 文件读写
+            file: Programming/Advanced/FileRW.md
+        -   label: 二维码扫描
+            file: Programming/Advanced/QRCode.md
+        -   label: 颜色追踪
+            file: Programming/Advanced/Color.md
+        -   label: 人脸追踪
+            file: Programming/Advanced/Face.md
+        -   label: 影像分类
+            file: Programming/Advanced/Image.md
+        -   label: 物件追踪
+            file: Programming/Advanced/Object.md
+        -   label: 语音辨识
+            file: Programming/Advanced/Speech.md
+        -   label: 侦测
+    -   label: Web:AI
+        items:
+        -   label: 开发板
+            file: Programming/WebAI/Board.md
+        -   label: LCD 屏幕
+            file: Programming/WebAI/LCD.md
+        -   label: 按钮开关
+            file: Programming/WebAI/Button.md
+        -   label: 麦克风
+            file: Programming/WebAI/Mic.md
+        -   label: I/O 脚位
+            file: Programming/WebAI/IO.md
+    -   label: 扩充功能
+        items:
+        -   label: 网络广播
+            file: Programming/Expand/MQTT.md
+        -   label: 舵机
+            file: Programming/Expand/Servo.md
+        -   label: 扬声器
+            file: Programming/Expand/Speaker.md
+-   label: 三、影像训练
+    file: Train/Train.md
+-   label: 四、使用 IDE 开发 Web:AI
+    file: IDE/Dev.md
+-   label: 五、操控 MoonCar
+    file: MoonCar/MoonCar.md

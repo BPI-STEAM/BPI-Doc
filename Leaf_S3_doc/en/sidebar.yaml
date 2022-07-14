@@ -1,0 +1,21 @@
+items:
+-   label: 1. Unpacking Leaf-S3 development board
+    items:
+    -   label: Introduction of Leaf-S3
+        file: Unboxing/Introduction.md
+    -   label: get started quickly (for the first time, please see here)
+        file: Unboxing/Gettingstart.md
+-   label: 2. Programming with MicroPython
+    items:
+    -   label: MicroPython environment construction
+        file: Programming/Environment.md
+    -   label: Micropython firmware download and burning
+        file: Programming/Firmware.md
+    -   label: basic function usage
+        file: Programming/Basic.md
+-   label: 3. Programming with Arduino
+    items:
+    -   label: Arduino environment construction
+        file: Arduino/Environment.md
+    -   label: basic function usage
+        file: Arduino/Basic.md

@@ -1,0 +1,260 @@
+items:
+-   label: 入门
+    items:
+    -   label: 开发板介绍
+        file: getting_started/hardware.md
+    -   label: 驱动安装
+        file: getting_started/driver.md
+-   label: Webduino 目录
+    items:
+    -   label: Web:Bit 软件安装&使用方法
+        file: webduino/install&use.md
+    -   label: Web:Bit 教育版
+        file: webduino/education_edition/introduction.md
+        items:
+        -   label: 编辑器介绍
+            file: webduino/education_edition/software.md
+        -   label: 更新开发板固件
+            file: webduino/education_edition/update.md
+        -   label: 开发板设置
+            file: webduino/education_edition/setup.md
+        -   label: 积木编程基础
+            items:
+            -   label: 变量
+                file: webduino/education_edition/basic/variables.md
+            -   label: 逻辑
+                file: webduino/education_edition/basic/logic.md
+            -   label: 循环
+                file: webduino/education_edition/basic/loop.md
+            -   label: 文字
+                file: webduino/education_edition/basic/text.md
+            -   label: 数组
+                file: webduino/education_edition/basic/array.md
+            -   label: 颜色
+                file: webduino/education_edition/basic/color.md
+            -   label: 函数
+                file: webduino/education_edition/basic/function.md
+            -   label: 数学
+                file: webduino/education_edition/basic/math.md
+        -   label: 小怪兽互动
+            items:
+            -   label: 小怪兽基本操作
+                file: webduino/education_edition/monster/basic.md
+            -   label: 小怪兽互动＆舞台
+                file: webduino/education_edition/monster/event.md
+        -   label: 系统功能
+            items:
+            -   label: 键盘行为
+                file: webduino/education_edition/detect/keyboard.md
+            -   label: 日期＆时间
+                file: webduino/education_edition/detect/time.md
+            -   label: 对话框输入文字
+                file: webduino/education_edition/detect/input.md
+        -   label: 音效＆语音
+            items:
+            -   label: 特殊音效
+                file: webduino/education_edition/sound/sound-effect.md
+        -   label: 开发板功能
+            items:
+            -   label: 开发板
+                file: webduino/education_edition/board_function/board.md
+            -   label: 矩阵 LED
+                file: webduino/education_edition/board_function/rgbled-matrix.md
+            -   label: 按钮开关
+                file: webduino/education_edition/board_function/ab-button.md
+            -   label: 光线＆温度
+                file: webduino/education_edition/board_function/photocell-thermistor.md
+            -   label: 音乐＆声音
+                file: webduino/education_edition/board_function/buzzer.md
+            -   label: 运动＆姿态
+                file: webduino/education_edition/board_function/mpu9250.md
+            -   label: 输入＆输出
+                file: webduino/education_edition/board_function/pin_io.md
+        -   label: 网络功能
+            items:
+            -   label: 网络广播
+                file: webduino/education_edition/network/broadcast.md
+    -   label: Webduino 高阶
+        file: webduino/advanced/readme.md
+        items:
+        -   label: Webduino Bit 初始化设定
+            file: webduino/advanced/setting.md
+        -   label: 认识 Webduino Blockly Bit
+            file: webduino/advanced/blockly.md
+        -   label: 5x5 全彩 LED 点矩阵
+            file: webduino/advanced/rgbmatrix.md
+        -   label: 按钮开关
+            file: webduino/advanced/button.md
+        -   label: 侦测光线
+            file: webduino/advanced/photocell.md
+        -   label: 侦测温度
+            file: webduino/advanced/temperature.md
+        -   label: 蜂鸣器
+            file: webduino/advanced/buzzer.md
+        -   label: 九轴传感器
+            file: webduino/advanced/mpu9250.md
+    -   label: Webduino 拓展积木
+        file: webduino/modules/basic.md
+-   label: MicroPython 目录
+    items:
+    -   label: MicroPython 上手指引
+        file: micropython/guide.md
+    -   label: 基础教程
+        items:
+        -   label: 刷入 MicroPython 固件 
+            file: micropython/basic/flash_mpy.md
+        -   label: 点亮开发板 
+            file: micropython/basic/simple_use.md
+        -   label: 初识 REPL
+            file: micropython/basic/repl.md
+        -   label: LED矩阵显示字符
+            file: micropython/basic/display.md
+        -   label: LED矩阵显示图像 
+            file: micropython/basic/image.md
+        -   label: 检测面板按键
+            file: micropython/basic/button.md
+        -   label: 控制金手指 IO
+            file: micropython/basic/io.md
+        -   label: 播放简单的音乐
+            file: micropython/basic/music.md
+        -   label: 随机数生成器
+            file: micropython/basic/random.md
+        -   label: 板子姿态检测
+            file: micropython/basic/accelerometer.md
+        -   label: 光敏及手势检测
+            file: micropython/basic/light.md
+        -   label: 制作一个指南针
+            file: micropython/basic/compass.md
+        -   label: 获取环境温度
+            file: micropython/basic/temperature.md
+    -   label: 进阶教程
+        file: micropython/advanced/index.md
+        items:
+        -   label: 再谈 REPL
+            file: micropython/advanced/mpfs.md
+        -   label: 再次点亮 LED 灯
+            file: micropython/advanced/leds.md
+        -   label: 让板子联上网
+            file: micropython/advanced/wifi.md
+        -   label: 认识无线编程
+            file: micropython/advanced/wireless.md
+        -   label: 改善一下编程环境（微软加持）
+            file: micropython/advanced/vscode.md
+        -   label: 尝试 MQTT 应用
+            file: micropython/advanced/mqtt.md
+        -   label: 如何使用 scratch3 for bpi:bit
+            file: micropython/advanced/codelab.md
+        -   label: 使用 Pycharm IDE 编程
+            file: micropython/advanced/pycharm.md
+    -   label: 标准案例
+        items:
+        -   label: 如何爬取城市天气
+            file: micropython/samples/weather.md
+    -   label: 内建模块
+        file: micropython/modules/index.md
+        items:
+        -   label: urequests 模块
+            file: micropython/modules/urequests.md
+        -   label: umqtt.simple 模块
+            file: micropython/modules/umqtt.simple.md
+        -   label: display 模块
+            file: micropython/modules/display.md
+        -   label: music 模块
+            file: micropython/modules/music.md
+    -   label: MicroPython 类库
+        file: micropython/library/index.md
+        items:
+        -   label: btree – 简单的 BTree 数据库
+            file: micropython/library/btree.md
+        -   label: framebuf — 帧缓冲操作
+            file: micropython/library/framebuf.md
+        -   label: machine — 与硬件相关的功能
+            file: micropython/library/machine/machine.md
+            items:
+            -   label: 类 Pin – 控制 I/O 引脚
+                file: micropython/library/machine/machine.Pin.md
+            -   label: 类 ADC – 模数转换
+                file: micropython/library/machine/machine.ADC.md
+            -   label: 类 TouchPad – 触摸
+                file: micropython/library/machine/machine.TouchPad.md
+            -   label: 类 PWM – 脉冲宽度调制
+                file: micropython/library/machine/machine.PWM.md
+            -   label: 类 UART – 双工串行通信总线
+                file: micropython/library/machine/machine.UART.md
+            -   label: 类 I2C – 双线串行协议
+                file: micropython/library/machine/machine.I2C.md
+            -   label: 类 SPI – 串行外设接口总线协议 (主端)
+                file: micropython/library/machine/machine.SPI.md
+            -   label: 类 Timer – 控制硬件定时器
+                file: micropython/library/machine/machine.Timer.md
+            -   label: 类 RTC – 实时时钟
+                file: micropython/library/machine/machine.RTC.md
+            -   label: 类 WDT – 看门狗定时器
+                file: micropython/library/machine/machine.WDT.md
+        -   label: network — 网络配置
+            file: micropython/library/network.md
+        -   label: uctypes – 以结构化方式访问二进制数据
+            file: micropython/library/uctypes.md
+        -   label: micropython – 访问和控制MicroPython内部
+            file: micropython/library/micropython.md
+        -   label: neopixel — WS2812 灯带
+            file: micropython/library/neopixel.md
+        -   label: random — 生成随机数
+            file: micropython/library/random.md
+        -   label: ntptime — 时间同步
+            file: micropython/library/ntptime.md
+        -   label: dht — dht模块
+            file: micropython/library/dht.md
+        -   label: _thread — 线程
+            file: micropython/library/_thread.md
+    -   label: Python 标准库
+        file: micropython/pythonStd/index.md
+        items:
+            -   label: builtin – 内建函数
+                file: micropython/pythonStd/builtins.md
+            -   label: array – 数值数组
+                file: micropython/pythonStd/array.md
+            -   label: gc – 回收内存碎片
+                file: micropython/pythonStd/gc.md
+            -   label: math – 数学运算函数
+                file: micropython/pythonStd/math.md
+            -   label: sys – 系统特定功能
+                file: micropython/pythonStd/sys.md
+            -   label: ubinascii – 二进制/ ASCII转换
+                file: micropython/pythonStd/ubinascii.md
+            -   label: ucollections – 容器数据类型
+                file: micropython/pythonStd/ucollections.md
+            -   label: uerrno – 系统错误代码
+                file: micropython/pythonStd/uerrno.md
+            -   label: uhashlib – 散列算法
+                file: micropython/pythonStd/uhashlib.md
+            -   label: uheapq – 堆队列算法
+                file: micropython/pythonStd/uheapq.md
+            -   label: uio – 输入/输出流
+                file: micropython/pythonStd/uio.md
+            -   label: ujson – JSON 编码和解码
+                file: micropython/pythonStd/ujson.md
+            -   label: os – 操作系统
+                file: micropython/pythonStd/uos.md
+            -   label: ure – 正则表达式
+                file: micropython/pythonStd/ure.md
+            -   label: select – 等待流事件
+                file: micropython/pythonStd/uselect.md
+            -   label: usocket – socket 模块
+                file: micropython/pythonStd/usocket.md
+            -   label: ussl – SSL/TLS 模块
+                file: micropython/pythonStd/ussl.md
+            -   label: ustruct – 打包和解压缩原始数据类型
+                file: micropython/pythonStd/ustruct.md
+            -   label: time – 时间相关函数
+                file: micropython/pythonStd/utime.md
+            -   label: uzlib – zlib解压缩
+                file: micropython/pythonStd/uzlib.md
+-   label: Arduino 目录
+    items:
+    -   label: 使用基础
+        items:
+        -   label: 安装Arduino IDE并添加BPI-BIT开发扩展
+            file: arduino/tutorials/basic/arduino-ide.md
+    -   label: 进阶开发
+    -   label: 第三方库

@@ -1,0 +1,28 @@
+items:
+-   label: Hardware introduction
+    file: introduction/hardware.md
+-   label: Hardware analysis and calibration
+    file: hardware/analysis&calibrate.md
+-   label: micro:bit tutorial  
+    collapsed: false
+    items:
+    -   label: First meeting with micro:bit
+        file: microbit_tutorial/first_meeting.md
+    -   label: Create MakeCode project
+        file: microbit_tutorial/new_project.md
+    -   label: Import extension
+        file: microbit_tutorial/import_extension.md
+    -   label: Use buttons to control the motors
+        file: microbit_tutorial/control_motor.md
+    -   label: Adjust motors speed
+        file: microbit_tutorial/control_motor2.md
+    -   label: Collect the signals
+        file: microbit_tutorial/read_LDR.md
+    -   label: Control the motors by radio
+        file: microbit_tutorial/radio_control.md
+    -   label: Control the motors by Bluetooth
+        file: microbit_tutorial/bluetooth_control.md
+    -   label: Calibration line detection circuit
+        file: microbit_tutorial/LDR_calibration.md
+    -   label: Line Tracking
+        file: microbit_tutorial/Line_Follower.md
