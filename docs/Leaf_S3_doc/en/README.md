@@ -1,6 +1,6 @@
 # 【 BPI-Leaf-S3 Development Board 】
 
-## introduce
+## Introduction
 
 ![](assets/images/BPI-Leaf-S3.jpg)
 
