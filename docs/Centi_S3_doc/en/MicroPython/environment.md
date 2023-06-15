@@ -1,4 +1,4 @@
-## Configure the development environment
+## Install and configure the environment
 
 ### System Environment Requirements
 
@@ -67,6 +67,6 @@ VScode documentation that may need to be referred to:
 All in Web people, minimalists, try [VScode on the Web](https://vscode.dev/), open a terminal on the local operating system and use mpremote or mpbridge to synchronize files, MicroPython REPL.
 
 ### Other recommended editors
+* [Thonny](https://github.com/thonny/thonny/releases), an open source graphical python editor sponsored by the Raspberry Pi Foundation, factory integrated with Raspberry Pi OS (Raspbian), the first choice for Raspberry Pi users to get started .
 * [PyCharm Community Edition](https://www.jetbrains.com/pycharm/download/#section=windows), the free community edition is sufficient, and it also has code completion for micropython special libraries, although incomplete and It hasn't been updated for a long time.
 * [Jupyter](https://jupyter.org/) is also an editor on the web side, more professional, more pythonic, and supports web terminals.
-* [Thonny](https://github.com/thonny/thonny/releases), an open source graphical python editor sponsored by the Raspberry Pi Foundation, factory integrated with Raspberry Pi OS (Raspbian), the first choice for Raspberry Pi users to get started .
