@@ -1,14 +1,14 @@
 # 【 BPI-Pico-RP2040 Development Board 】
 
-## introduce
+## Introduction
 
 ![](assets/images/BPI-Pico-RP2040.jpg)
 
-The Banana Pi Pico series is a low-power microcontroller development board designed for the Internet of Things.
+The Banana Pi Pico series is a low-power microcontroller development board designed for IoT (Internet of Things) projects.
 
-BPI-Pico-RP2040 is a microcontroller development board launched by Banana Pi equipped with RP2040 chip. Its most notable feature is to add a Onboard WS2812 color LED; replace the 3-Pin DEBUG interface with a SH 1mm 4-Pin socket, which can be connected with Qwiic & STEMMA QT or any possible peripherals; replace the micro-USB socket with a USB Type-C socket , supports reversible insertion, and is compatible with the USB Type-C cable of most modern smartphones, no additional purchase is required.
+BPI-Pico-RP2040 is a development board launched by Banana Pi equipped with the RP2040 chip. Its most notable feature is retaining most the function of the Raspberry Pi Pico. With the same dimention and pin layout, it has an additional WS2812 LED, replaced the 3-Pin debug socket with a SH 1mm 4-pin socket, which can be paired with Qwiic & STEMMA QT or other compatible peripherals; also replacing the micro-USB socket with a USB Type-C socket, which may be inserted in either orientation.
 
-Jump to [Unboxing BPI-Pico-RP2040 Development Board](Unboxing/Introduction.md) page for details.
+Jump to [Unboxing BPI-Pico-RP2040 Development Board](Unboxing/Introduction.md) page for more details.
 
 ## Programming with MicroPython
 
