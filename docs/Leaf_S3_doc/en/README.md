@@ -4,15 +4,15 @@
 
 ![](assets/images/BPI-Leaf-S3.jpg)
 
-The Banana Pi Leaf series is a low-power microcontroller development board designed for the Internet of Things.
+The Banana Pi Leaf series is a low-power microcontroller development board designed for IoT (Internet of Things) projects.
 
-BPI-Leaf-S3 has an onboard ESP32-S3 chip, supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, is compatible with low-power hardware design, and consumes only 10uA in deep sleep mode .
+BPI-Leaf-S3 is equipped with the latest flagship - ESP32-S3 chip from Espressif, supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, with its low-power hardware design, it consumes only 10uA in deep sleep mode.
 
-It supports two power supply modes: USB and external 3.7V lithium battery, which can realize automatic power switching function under dual power supply, and supports USB charging mode. Small size, convenient interface, easy to use, and can be directly applied to low-power IoT projects.
+The board supports two power supply modes: USB and external 3.7V lithium battery, which can automatically switch to USB power function when both are connected at the same time, and can support reverse charging the battery via USB. Its small size, convenient pins layout, ease of use, and plentiful features that can be directly applied to low-power IoT projects.
 
-The BPI-Leaf-S3 development board supports ESP-IDF, Arduino, MicroPython and other methods for programming and development in terms of software.
+In terms of software, the BPI-Leaf-S3 supports various mainstream platforms including ESP-IDF, Arduino, MicroPython and other methods for programming and development.
 
-All IO pins corresponding to the chip are marked on the BPI-Leaf-S3 development board, and the order of the IO pins is consistent with the Espressif ESP32-S3-DevKitC-1 development board. Developers can support DevKitC-1 according to actual needs. The peripherals are added to the BPI-Leaf-S3, and the development board can also be plugged into the breadboard.
+All I/O pins corresponding to the chip are marked with numbers on the BPI-Leaf-S3, and the order of the I/O pins is consistent with the Espressif ESP32-S3-DevKitC-1 development board. Developers can use peripherals that are compatable with DevKitC-1 according to actual needs, it can also be installed onto the breadboard for ease of use.
 
 ## Programming with MicroPython
 
