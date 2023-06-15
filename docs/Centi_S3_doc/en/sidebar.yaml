@@ -1,16 +1,20 @@
 items:
 -   label: 1. Centi-S3 Homepage
-    file: README.md 
+    file: README.md
+-   label: Getting Started Guide
+    file: getting-started.md 
 -   label: 2. Code with MicroPython
     items:
     -   label: What is MicroPython?
         file: MicroPython/What_is_MicroPython.md
     -   label: Install and configure the environment
         file: MicroPython/environment.md
+    -   label: How to use VScode + mpbridge tool
+        file: MicroPython/VScode_mpbridge.md
+    -   label: REPL Use Case
+        file: MicroPython/REPL_use_case.md
     -   label: Burn firmware
         file: MicroPython/Burn_firmware.md
-    -   label: Connect to the development board
-        file: MicroPython/Connect.md
     -   label: LCD Screen init
         file: MicroPython/lcd_init.md
     -   label: LCD Display jpg images

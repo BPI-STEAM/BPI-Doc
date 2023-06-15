@@ -1,16 +1,20 @@
 items:
 -   label: 一、Centi-S3 主页
     file: README.md
+-   label: 快速上手指南
+    file: getting-started.md
 -   label: 二、使用 MicroPython 快速上手
     items:
     -   label: 什么是 MicroPython
         file: MicroPython/What_is_MicroPython.md
     -   label: 安装与配置环境
         file: MicroPython/environment.md
+    -   label: VScode + mpbridge工具使用方法
+        file: MicroPython/VScode_mpbridge.md
+    -   label: REPL使用技巧
+        file: MicroPython/REPL_use_case.md
     -   label: 烧录固件
         file: MicroPython/Burn_firmware.md
-    -   label: 连接开发板
-        file: MicroPython/Connect.md
     -   label: 屏幕初始化
         file: MicroPython/lcd_init.md
     -   label: 显示jpg图片

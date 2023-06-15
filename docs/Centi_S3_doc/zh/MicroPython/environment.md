@@ -47,7 +47,7 @@ mpbridge 是基于 mpremote 开发的CLI工具，主要提供自动化同步文�
 pip install mpbridge
 ```
 
-### 任选一个编辑器
+### 安装 Visual Studio Code
 
 MicroPython的使用并不依赖于特定的开发工具，只要能与开发板建立串口通信，即可获得 MicroPython的交互式解释器（REPL）。
 
@@ -67,7 +67,7 @@ MicroPython的使用并不依赖于特定的开发工具，只要能与开发板
 
 All in Web 人士，极简主义人士，试试[Web端的VScode](https://vscode.dev/)，本地操作系统开个终端使用mpremote或mpbridge同步文件，MicroPython REPL。
 
-其他推荐的编辑器：
+### 其他推荐的编辑器
+* [Thonny](https://github.com/thonny/thonny/releases) ，树莓派基金会赞助过的开源图形化python编辑器，Raspberry Pi OS（Raspbian）出厂集成，树莓派用户入门首选。
 * [PyCharm 社区版](https://www.jetbrains.com/pycharm/download/#section=windows) ，免费的社区版，够用，还带有micropython特殊库的代码补全，虽然不完整且很久没更新了。
 * [Jupyter](https://jupyter.org/) 同样是Web端的编辑器，专业性更强，更python，还支持网页终端。
-* [Thonny](https://github.com/thonny/thonny/releases) ，树莓派基金会赞助过的开源图形化python编辑器，Raspberry Pi OS（Raspbian）出厂集成，树莓派用户入门首选。
