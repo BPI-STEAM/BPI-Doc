@@ -1,20 +1,20 @@
 # 【 BPI-PicoW-S3 Development Board 】
 
-## introduce
+## Introduction
 
 ![](assets/images/BPI-PicoW-S3_banner.jpg)
 
-Banana Pi BPI-PicoW is a low-power microcontroller, a development board designed for IoT development and Maker DIY. The same size as the Raspberry Pi Pico board, supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, peripherals are compatible with low-power hardware design, and consumes only 10uA in deep sleep mode. In terms of programming, PicoW-S3 supports ESP-IDF, Arduino, micropython, CircuitPython and other methods
+The Banana Pi BPI-PicoW is equipped with a low-power microcontroller, a development board designed for IoT development and Maker DIY projects. The size is same as the Raspberry Pi Pico board, supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, peripherals are compatible with its low-power hardware design, and consumes only 10uA in deep sleep mode. In terms of programming, PicoW-S3 supports ESP-IDF, Arduino, micropython, CircuitPython and other mainstream platforms.
 
 ## Programming with CircuitPython
 
-> BPI-PicoW-S3 has installed tinyUF2 and CircuitPython firmware before leaving the factory. It is recommended to use CircuitPython to quickly get started with the BPI-PicoW-S3 development board.
+> BPI-PicoW-S3 is pre-installed with tinyUF2 and CircuitPython firmware out of box. It is recommended to use CircuitPython to quickly get started with the BPI-PicoW-S3 development board as it is considered to be the most beginners friendly platform.
 
 ![](assets/images/CircuitPython_Repo_header_logo.jpg)
 
 CircuitPython is a programming language designed to simplify programming experiments and learning on microcontroller development boards.
 
-CircuitPython programming with the Mu editor is the least difficult way to get started. Install the software and connect the device to start using it.
+CircuitPython programming with the Mu editor is the least difficult way to get started. Install the software and connect the board to PC for the very first project.
 
 ## Programming with MicroPython
 
@@ -24,9 +24,9 @@ Regardless of the programmer is a beginner or not, MicroPython is considered to 
 
 Its code is easy to understand compared to other programming languages, and it has various resources accumulated over the years by the open source community.
 
-Just like Python, it has strong vitality and application value.
+Just like Python, it has strong community and application value.
 
-By uploading the MicroPython firmware, you can use the Python language to program in the development board.
+By uploading the MicroPython firmware, you can use the Python programming language to program on the development board.
 
 ## Programming with Arduino
 
@@ -34,7 +34,7 @@ Provides software tools and best examples to get started with Arduino, lowering 
 
 ![](assets/images/Arduino_logo_1200x350.png)
 
->Arduino will not explain too much basic content, please have the language development foundation of C/C++.
+>Arduino does not provide much of the beginners' content, basic knowledge of C/C++ programming is required in order to operate.
 
 ## Information and resources
 
