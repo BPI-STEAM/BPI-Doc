@@ -2,17 +2,17 @@
 
 ![](assets/images/BPI-Centi-S3.jpg)
 
-BPI-Centi-S3 is a small-sized ESP32-S3 development board with a 1.9-inch LCD onboard, suitable for the development of comprehensive Internet of Things application projects such as color display, interactive control, wireless communication, and sensor data acquisition.
+BPI-Centi-S3 is a small-sized ESP32-S3 development board with an 1.9-inch LCD onboard, suitable for the development of Internet of Things application projects including color display, interactive control, wireless communication, and sensor data acquisition.
 
 Using the Espressif ESP32-S3 chip, it supports 2.4 GHz Wi-Fi and Bluetooth® Low Energy (Bluetooth® LE) dual-mode wireless communication.
 
-In a compact space, it still provides an incremental rotary encoder, a buzzer, a WS2812 color LED, and all other available pins to meet diverse needs.
+Within the compact board, it also provides an additional rotary encoder, a buzzer, a WS2812 color LED, and all other available pins for external peripherals connection to meet diverse needs.
 
-Support USB and external 3.7V lithium battery power supply, can realize automatic switching power supply function under dual power supply, and support USB charging mode, equipped with battery voltage detection circuit, convenient for power management.
+Support both USB and external 3.7V lithium battery power input. With the board's designed battery voltage detection circuit, it can automatically detect and switch to USB power supply when both are connected. And also supports USB charging mode, convenient for power management.
 
 ## Key Features
 
-* ESP32-S3, Xtensa® 32 bit LX7
+* ESP32-S3, Xtensa® 32 bit LX7 Processor
 * 2M PSRAM, 8M FLASH
 * 2.4G WIFI, Bluetooth 5, Bluetooth mesh
 * GPIO, PWM, I2C, SPI, RMT, I2S, UART, USB, JTAG
@@ -21,12 +21,12 @@ Support USB and external 3.7V lithium battery power supply, can realize automati
 * 1 * Buzzer
 * 1 * full color LED
 * 1 * SH 1mm 4-Pin I2C connector
-* 2 * SH 1mm 6-Pin
-* 1 * USB Type-C
-* 1 * MX 1.25mm 2-Pin battery connector, support charging
-* 2 * M3 Screw Holes
+* 2 * SH 1mm 6-Pin 
+* 1 * USB Type-C connector
+* 1 * MX 1.25mm 2-Pin battery connector, supports charging
+* 2 * M3 Screw Mounting Holes
 
-## hardware
+## Hardware
 
 ### Hardware Interface Schematic Diagram
 
