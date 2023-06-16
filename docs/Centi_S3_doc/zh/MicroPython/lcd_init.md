@@ -105,6 +105,5 @@ tft.deinit()  # Deinitialize the display or it will cause a crash on the next ru
 ```
 
 使用mpbridge同步文件到开发板。
-> [安装mpbridge](#安装mpbridge工具) | [使用mpbridge](#在终端中使用mpbridge)
 
 后续我们就可以像这样简单的导入然后初始化屏幕了。

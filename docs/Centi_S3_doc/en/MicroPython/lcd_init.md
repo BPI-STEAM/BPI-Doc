@@ -104,6 +104,5 @@ tft.deinit() # Deinitialize the display or it will cause a crash on the next run
 ```
 
 Use mpbridge to synchronize files to the development board.
-> [install mpbridge](https://bpi-steam.com/Centi_S3_doc/en/MicroPython/environment.html#Install-the-mpbridge-tool) | [use mpbridge](https://bpi-steam.com/Centi_S3_doc/en/MicroPython/Connect.html#Use-mpbridge-in-terminal)
 
 Later we can simply import and initialize the screen like this.

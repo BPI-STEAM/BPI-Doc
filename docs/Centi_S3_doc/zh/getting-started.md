@@ -20,12 +20,15 @@ BPI-Centi-S3 出厂时已经烧录了MicroPython 1.19.1 固件，并集成了ST7
 
 经过以上三步即可上手开发。
 
-在本网页左侧边栏可以看到一些可能对你有帮助的例程。
+对于 Python 和 MicroPython 的学习，我们建议在[Python 教程](https://docs.python.org/zh-cn/3.10/tutorial/index.html)中上手学习Python，在[MicroPython 文档](https://docs.micropython.org/en/latest/index.html)中应用 Python 所学，你可以快速参考 MicroPython 的特殊库，ESP32 端口特殊库来进行开发，在[MicroPython与CPython的区别](https://docs.micropython.org/en/latest/genrst/index.html#)页面了解二者的部分差异。
 
-BPI-Centi-S3 出厂时集成的 ST7789 C模块 驱动，来自于：
+在本网页左侧边栏可以看到一些可能对你有帮助的MicroPython例程。
+
+ST7789 C模块 驱动，来自于：
 
 [russhughes/st7789s3_esp_lcd](https://github.com/russhughes/st7789s3_esp_lcd) , The MIT License
 
 在此GitHub 仓库中可以查阅st7789模块的所有方法，以及编译的方法，感谢 russhughes 的开源贡献。
 
-对于 Python 和 MicroPython 的学习，我们建议在[Python 教程](https://docs.python.org/zh-cn/3.10/tutorial/index.html)中上手学习Python，在[MicroPython 文档](https://docs.micropython.org/en/latest/index.html)中应用 Python 所学，你可以快速参考 MicroPython 的特殊库，ESP32 端口特殊库来进行开发，在[MicroPython与CPython的区别](https://docs.micropython.org/en/latest/genrst/index.html#)页面了解二者的部分差异。
+如果你在开发产生意外的恶性BUG使开发板无法正常启动，或其他原因导致固件被擦除或损坏，查看[烧录固件](./MicroPython/Burn_firmware.md)。
+

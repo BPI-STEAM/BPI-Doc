@@ -20,16 +20,18 @@ BPI-Centi-S3 has been programmed with MicroPython 1.19.1 firmware and integrated
 
 After the above three steps, you can start developing.
 
-In the left sidebar of this page you can find some routines that may help you.
-
-The ST7789 C module driver integrated in BPI-Centi-S3 factory comes from:
-
-[russhughes/st7789s3_esp_lcd](https://github.com/russhughes/st7789s3_esp_lcd), The MIT License
-
-In this GitHub repository, you can check all the methods of the st7789 module, as well as the compiled methods, thanks to russhughes for his open source contributions.
-
 For learning Python and MicroPython, we recommend getting started with Python in the [Python Tutorial](https://docs.python.org/3.10/tutorial/index.html).
 
 Apply what you have learned in Python, and look at the [MicroPython documentation](https://docs.micropython.org/en/latest/index.html), you can quickly refer to MicroPython's special library, ESP32 port special library for our development.
 
 Learn some of the differences between the two on the page [Differences between MicroPython and CPython](https://docs.micropython.org/en/latest/genrst/index.html#).
+
+In the left sidebar of this page you can find some MicroPython example that may help you.
+
+The ST7789 C module driver comes from:
+
+[russhughes/st7789s3_esp_lcd](https://github.com/russhughes/st7789s3_esp_lcd), The MIT License
+
+In this GitHub repository, you can check all the methods of the st7789 module, as well as the compiled methods, thanks to russhughes for his open source contributions.
+
+If you have an unexpected vicious BUG during development that prevents the development board from starting normally, or other reasons cause the firmware to be erased or damaged, see [Burn firmware](./MicroPython/Burn_firmware.md).
