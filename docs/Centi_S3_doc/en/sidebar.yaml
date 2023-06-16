@@ -21,6 +21,8 @@ items:
         file: MicroPython/Display_jpg_images.md
     -   label: LCD Display text characters
         file: MicroPython/Display_text.md
+    -   label: Make semi-transparent rectangular text box
+        file: MicroPython/Make_semi-transparent_rectangular_text_box.md
 -   label: 3. Code with Arduino
     items:
     -   label: Install and configure the environment
