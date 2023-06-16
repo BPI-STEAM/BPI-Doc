@@ -50,7 +50,6 @@ tft.deinit() # Deinitialize the display or it will cause a crash on the next run
 ```
 
 Use mpbridge to synchronize files to the development board.
-> [install mpbridge](https://bpi-steam.com/Centi_S3_doc/en/MicroPython/environment.html#Install-the-mpbridge-tool) | [use mpbridge](https://bpi-steam.com/Centi_S3_doc/en/MicroPython/Connect.html#Use-mpbridge-in-terminal)
 
 When the synchronization is complete, the BPI-Centi-S3 screen will be full-screen red.
 

@@ -50,8 +50,6 @@ tft.deinit()  # Deinitialize the display or it will cause a crash on the next ru
 ```
 
 使用mpbridge同步文件到开发板。
-> [安装mpbridge](https://bpi-steam.com/Centi_S3_doc/zh/MicroPython/environment.html#安装mpbridge工具) | [使用mpbridge](https://bpi-steam.com/Centi_S3_doc/en/MicroPython/Connect.html#在终端中使用mpbridge)
-
 
 同步完成后，BPI-Centi-S3 屏幕将全屏显示红色。
 

@@ -21,6 +21,8 @@ items:
         file: MicroPython/Display_jpg_images.md
     -   label: 显示文本字符
         file: MicroPython/Display_text.md
+    -   label: 制作半透明矩形文本框
+        file: MicroPython/Make_semi-transparent_rectangular_text_box.md
 -   label: 三、使用 Arduino 快速上手
     items:
     -   label: 安装与配置环境
