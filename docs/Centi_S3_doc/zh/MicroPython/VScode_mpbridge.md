@@ -1,6 +1,6 @@
 ## VScode + mpbridge工具使用方法
 
-> 需要先[安装 Visual Studio Code](./environment.md#安装-visual-studio-code)，[安装mpbridge工具](./environment.md#安装mpbridge工具)。
+> 需要先[安装 Visual Studio Code](./environment.html#安装-visual-studio-code)，[安装mpbridge工具](./environment.html#安装mpbridge工具)。
 
 ### Python扩展
 
