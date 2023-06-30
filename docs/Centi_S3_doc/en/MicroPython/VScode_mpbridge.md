@@ -1,6 +1,6 @@
 ## How to use VScode + mpbridge tool
 
-> [Install Visual Studio Code](./environment.md#install-visual-studio-code), [Install the mpbridge tool](./environment.md#install-the-mpbridge-tool) needs to be done first.
+> [Install Visual Studio Code](./environment.html#install-visual-studio-code), [Install the mpbridge tool](./environment.html#install-the-mpbridge-tool) needs to be done first.
 
 ### Python Extensions
 
