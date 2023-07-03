@@ -21,4 +21,9 @@ items:
         file: Arduino/Environment.md
     -   label: 基础功能使用
         file: Arduino/Basic.md
-        
+-   label: 四、使用 MicroPython 编程
+    items:
+    -   label: 通过UF2安装MicroPython固件
+        file: MicroPython/micropython_uf2_firmware.md
+    -   label: 安装MicroPython.BIN固件
+        file: MicroPython/micropython_bin_firmware.md

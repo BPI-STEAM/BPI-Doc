@@ -1,10 +1,11 @@
-# 烧录tinyUF2固件的方法
+## 安装MicroPython.bin固件
 > 所有对flash的操作不可逆，注意提前备份代码等重要文件。
-## 下载tinyUF2固件
-1. 进入[BPI-PicoW-S3 CircuitPython 下载](https://circuitpython.org/board/bpi_picow_s3/)页面。
-2. 在页面底部找到`Install, Repair, or Update UF2 Bootloader`栏目，点击最下方的`DOWNLOAD BOOTLOADER ZIP`按钮下载压缩包。
-3. 在本地解压压缩包，`combined.bin`文件是我们需要的固件。
-## 将开发板置于ESP bootloader模式
+### 下载tinyUF2固件
+1. 点击此链接：[ESP32S3 SPIRAM micropython固件下载地址](https://micropython.org/download/GENERIC_S3_SPIRAM/)。
+2. 找到下方 Firmware > Nightly builds，下载第一项，最新的，后缀名为 `.bin`的固件。
+![](../assets/images/micropython_downlord_bin.png)
+
+### 将开发板置于ESP bootloader模式
 ![](../assets/images/picow_s3_circuitpython_download_2.jpg)
 1. 通过USB连接开发板与电脑。
 2. 使用任何导体（如金属引脚或镊子）将BOOT0触点短路，以将EPS32S3芯片置于bootloader模式。
@@ -12,7 +13,7 @@
 4. 松开BOOT0触点，进入ESP bootloader模式的特点为没进入tinyUF2或运行其他固件程序，指示灯不会有任何闪烁，且新增的串行设备名称为 USB JTAG/serial debug unit。
 ![](../assets/images/picow_s3_circuitpython_download_5.jpg)
 
-## 在浏览器中烧录固件
+### 在浏览器中烧录固件
 > 支持Chrome，Edge浏览器，内核版本需高于89。
 1. 打开[ESP Web Flasher](https://nabucasa.github.io/esp-web-flasher/)页面。
 2. 点击`Connect`按钮，将弹出一个选项栏，选择开发板所在的串口。
@@ -20,9 +21,9 @@
     ![](../assets/images/picow_s3_tinyuf2_download_2.png)
 3. 正常连接后，点击`Erase`按钮擦除开发板的flash内容，这个过程不可逆。
    ![](../assets/images/picow_s3_tinyuf2_download_3.jpg)
-4. 点击`Choose a file...`按钮，在弹出的文件选择窗口中跳转到`combined.bin`文件所在的目录，选择此文件并点击确认。
+4. 点击`Choose a file...`按钮，在弹出的文件选择窗口中跳转到micropython固件文件所在的目录，选择此文件并点击确认。
 5. 点击`Program`按钮即可开始烧录固件，大约等待五分钟即可完成。
-6. 完成后，手动按一次`Reset`按键，成功烧录的标志是彩灯为长绿灯，如果没有得到此结果，可以重试前五步，或尝试下一个烧录方法。
+6. 完成后，手动按一次`Reset`按键，在任意串口工具中查看MicroPython REPL是否有输出，如果没有，可以重试前五步，或尝试下一个烧录方法。
 
 ## esptool本地烧录固件
 
@@ -66,10 +67,10 @@
    python -m esptool --chip esp32s3 --port COM22 --baud 460800 erase_flash
    ```
 
-8. 通过以下命令烧录`combined.bin`固件，需要修改COM接口为对应的接口，此处为COM22。
+8. 通过以下命令烧录固件，需要修改COM接口为对应的接口，此处为COM22，注意将最后的文件名修改为你所下载的固件文件名。
 
    ```shell
-   python -m esptool --chip esp32s3 --port COM22 --baud 460800 write_flash -z 0x0 combined.bin
+   python -m esptool --chip esp32s3 --port COM22 --baud 460800 write_flash -z 0x0 GENERIC_S3_SPIRAM-20230627-unstable-v1.20.0-261-g813d559bc.bin
    ```
 
-9. 完成后，手动按一次`Reset`按键，成功烧录的标志是彩灯为长绿灯，如果没有得到此结果，可以重试前两步命令。
+9. 完成后，手动按一次`Reset`按键，在任意串口工具中查看MicroPython REPL是否有输出。
