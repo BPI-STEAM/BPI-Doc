@@ -660,7 +660,7 @@ Open the Arduino IDE. Although the code can be copied directly, we recommend tha
 #endif
 
 // Which pin on the Arduino is connected to the NeoPixels?
-#define PIN 18 // On Trinket or Gemma, suggest changing this to 1
+#define PIN 48 // On Trinket or Gemma, suggest changing this to 1
 
 // How many NeoPixels are attached to the Arduino?
 #define NUMPIXELS 1 // Popular NeoPixel ring size
@@ -709,10 +709,10 @@ After the input is complete, click "Compile" to check the code for errors. After
 
 ### WS2812 Experiment: Code Analysis
 
-This project uses the WS2812 light integrated in Leaf-S3, and the default GPIO is 18.
+This project uses the WS2812 light integrated in Leaf-S3, and the default GPIO is 48.
 
 ```
-#define PIN 18
+#define PIN 48
 ```
 
 Set GPIO pin number

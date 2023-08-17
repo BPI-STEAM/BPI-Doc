@@ -660,7 +660,7 @@ Leaf-S3 主板 X 1
 #endif
 
 // Which pin on the Arduino is connected to the NeoPixels?
-#define PIN        18 // On Trinket or Gemma, suggest changing this to 1
+#define PIN        48 // On Trinket or Gemma, suggest changing this to 1
 
 // How many NeoPixels are attached to the Arduino?
 #define NUMPIXELS 1 // Popular NeoPixel ring size
@@ -709,10 +709,10 @@ void loop() {
 
 ### WS2812实验：代码分析
 
-本项目使用 Leaf-S3 集成的WS2812灯，默认GPIO是18。
+本项目使用 Leaf-S3 集成的WS2812灯，默认GPIO是48。
 
 ```
-#define PIN        18
+#define PIN        48
 ```
 
 设置GPIO引脚号
