@@ -22,13 +22,13 @@ BPI-Centi-S3 出厂固件中有包含两个位图字体文件。
 
 我从中选取了这两个最常用的，使用[mpy-cross工具](https://pypi.org/project/mpy-cross/)将它们转化为`.mpy`格式，以此缩小文件体积。
 
-### 下载文件
+### 下载字体文件
 
 如果你误删了字体文件，或擦除过flash，则需再次下载字体文件，你可以从前文链接中下载，也可从下方链接中下载已转化为`.mpy`格式的字体与例程文件。
 
 [从此链接下载字体与例程文件](https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/04_display_text)
 
-### Code
+### 显示文本
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -79,7 +79,7 @@ main()
 
 ```
 
-#### 使用透明背景与Alpha 通道制作阴影字体
+### 使用透明背景与Alpha 通道制作阴影字体
 
 合理利用 st7789.TRANSPARENT 作为文本的背景色，可以使文本的背景不发生变化。
 

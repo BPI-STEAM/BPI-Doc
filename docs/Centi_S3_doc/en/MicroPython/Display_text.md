@@ -8,7 +8,9 @@ Write text to the display using the specified bitmap `font` with the coordinates
 
 The optional arguments `fg` and `bg` can set the foreground and background colors of the text; otherwise the foreground color defaults to `WHITE`, and the background color defaults to `BLACK`. 
 
-`alpha` defaults to 255. See the `README.md` in the `fonts/bitmap` directory for example fonts.
+`alpha` defaults to 255. 
+
+See the [README.md](https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap) in the `fonts/bitmap` directory for example fonts.
 
 ### bitmap font
 
@@ -18,17 +20,17 @@ The BPI-Centi-S3  factory firmware contains two bitmap font files.
 
 `vga1_bold_16x32.mpy`
 
-They come from https://github.com/rushughes/st7789s3_esp_lcd/tree/main/fonts/bitmap.
+They come from https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap.
 
 From this I selected these two most commonly used, using [MPY-CROSS Tool] (https://pypi.org/project/mpy- cross/) to transform them into a `.mpy` format to reduce the volume of files.
 
-### download file
+### download font file
 
 If you mistakenly delete the font file or erase the Flash, you need to download the font file again. You can download it from the previous text link, or you can download the fonts in the link below to the font of the `.mpy` format, including the example below.
 
 [From here to download fonts and examples] (https://github.com/bpi-team/bpi-s3-doc/micropython_example/04_display_text)
 
-### Code
+### Display text
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -79,7 +81,7 @@ main()
 
 ```
 
-#### Use a transparent background and Alpha channel to make shadow fonts
+### Use a transparent background and Alpha channel to make shadow fonts
 
 The reasonable use of `st7789.TRANSPARENT` as the background color of the text can make the background of the text not change.
 
