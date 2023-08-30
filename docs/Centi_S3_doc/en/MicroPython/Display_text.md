@@ -32,6 +32,8 @@ If you mistakenly delete the font file or erase the Flash, you need to download 
 
 ### Display text
 
+![](../assets/images/Display_text_1.jpg)
+
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
 
@@ -82,6 +84,8 @@ main()
 ```
 
 ### Use a transparent background and Alpha channel to make shadow fonts
+
+![](../assets/images/Display_text_2.jpg)
 
 The reasonable use of `st7789.TRANSPARENT` as the background color of the text can make the background of the text not change.
 

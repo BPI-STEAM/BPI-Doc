@@ -30,6 +30,8 @@ BPI-Centi-S3 出厂固件中有包含两个位图字体文件。
 
 ### 显示文本
 
+![](../assets/images/Display_text_1.jpg)
+
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
 
@@ -80,6 +82,8 @@ main()
 ```
 
 ### 使用透明背景与Alpha 通道制作阴影字体
+
+![](../assets/images/Display_text_2.jpg)
 
 合理利用 st7789.TRANSPARENT 作为文本的背景色，可以使文本的背景不发生变化。
 
