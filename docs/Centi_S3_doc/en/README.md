@@ -30,7 +30,7 @@ Support both USB and external 3.7V lithium battery power input. With the board's
 
 ### Hardware Interface Schematic Diagram
 
-![](assets/images/BPI-Centi-S3-V0.2-IO-1920-white.png)
+![](assets/images/BPI-Centi-S3_drawio.png)
 
 ### Hardware Specifications
 

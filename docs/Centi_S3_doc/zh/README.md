@@ -30,7 +30,7 @@ BPI-Centi-S3 是一个板载1.9英寸彩屏的小尺寸ESP32-S3开发板，适�
 
 ### 硬件接口示意图
 
-![](assets/images/BPI-Centi-S3-V0.2-IO-1920-white.png)
+![](assets/images/BPI-Centi-S3_drawio.png)
 
 ### 硬件规格
 
