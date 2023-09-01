@@ -16,6 +16,8 @@
 
 我们可以在这个图片上显示一个半透明的黑色矩形框。
 
+![](../assets/images/semi-transparent_rectangular_text_box_1.jpg)
+
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
 
@@ -48,6 +50,8 @@ main()
 ```
 
 ### 在半透明矩形框内显示文本
+
+![](../assets/images/semi-transparent_rectangular_text_box_2.jpg)
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -92,6 +96,9 @@ main()
 ```
 
 ### 根据字符长度创建半透明文本框
+
+![](../assets/images/semi-transparent_rectangular_text_box_3.jpg)
+
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
 

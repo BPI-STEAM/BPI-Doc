@@ -13,6 +13,8 @@ Fill rectangle `width` by `height` starting at `x`, `y` with `color` optionally 
 
 We can display a semi-transparent black rectangle on top of this image.
 
+![](../assets/images/semi-transparent_rectangular_text_box_1.jpg)
+
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
 
@@ -45,6 +47,8 @@ main()
 ```
 
 ### Display text in a semi-transparent rectangle
+
+![](../assets/images/semi-transparent_rectangular_text_box_2.jpg)
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -89,6 +93,9 @@ main()
 ```
 
 ### Create a semi-transparent text box based on the character length
+
+![](../assets/images/semi-transparent_rectangular_text_box_3.jpg)
+
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
 
