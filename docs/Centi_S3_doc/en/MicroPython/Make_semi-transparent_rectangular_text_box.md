@@ -1,5 +1,7 @@
 ## Make semi-transparent rectangular text box
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qnfZCrlbGss?si=LhywE4zOzX0QtQoT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### fill_rect method
 `fill_rect(x, y, width, height {, color, alpha})`
 

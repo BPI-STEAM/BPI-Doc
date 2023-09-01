@@ -1,5 +1,7 @@
 ## Display text characters
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MAvLjCMQ93s?si=auUGEEG4a_E2GK_j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### text method
 
 `text(font, s, x, y {, fg, bg, alpha})`
