@@ -8,7 +8,7 @@
 
 `color`默认为BLACK黑色，`alpha`默认为255。
 
-> [从此GitHub链接下载例程](https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/05_semi-transparent_rectangular_text_box)
+> [从此GitHub链接下载完整例程](https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/05_semi-transparent_rectangular_text_box)
 
 ### 在图片上显示半透明矩形
 
