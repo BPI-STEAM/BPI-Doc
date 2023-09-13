@@ -1,6 +1,6 @@
 # Micropython firmware download and burning
 
-The firmware supporting ESP32S3 chip can be found on [MicroPython official website](https://micropython.org/) https://micropython.org/download/GENERIC_S3/
+The firmware supporting ESP32S3 chip can be found on [MicroPython official website](https://micropython.org/) https://micropython.org/download/ESP32_GENERIC_S3/
 
 After clicking the link to enter the page, you can see several firmware download addresses below, select a file with a .bin suffix and download it locally.
 

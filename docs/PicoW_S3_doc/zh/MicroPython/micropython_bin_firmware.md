@@ -1,7 +1,7 @@
 ## 安装MicroPython.bin固件
 > 所有对flash的操作不可逆，注意提前备份代码等重要文件。
 ### 下载tinyUF2固件
-1. 点击此链接：[ESP32S3 SPIRAM micropython固件下载地址](https://micropython.org/download/GENERIC_S3_SPIRAM/)。
+1. 点击此链接：[ESP32S3 micropython固件下载地址](https://micropython.org/download/ESP32_GENERIC_S3/)。
 2. 找到下方 Firmware > Nightly builds，下载第一项，最新的，后缀名为 `.bin`的固件。
 ![](../assets/images/micropython_downlord_bin.png)
 

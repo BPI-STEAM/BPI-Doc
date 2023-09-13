@@ -25,6 +25,8 @@ items:
         file: MicroPython/Make_semi-transparent_rectangular_text_box.md
     -   label: 在JPG上刷新文本框
         file: MicroPython/Refres_textbox_on_jpg.md
+    -   label: 显示多种矢量字体
+        file: MicroPython/Display_multiple_vector_fonts.md
 -   label: 三、使用 Arduino 快速上手
     items:
     -   label: 安装与配置环境

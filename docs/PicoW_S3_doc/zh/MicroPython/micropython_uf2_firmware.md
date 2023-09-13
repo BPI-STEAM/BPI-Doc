@@ -3,7 +3,7 @@
 > 出厂已安装 tinyUF2 + CircuitPython固件，安装micropython UF2固件 仅需双击复位键进入UF2 bootloader模式，无需擦除flash。
 > 本方法适用于已具备tinyUF2固件的开发板，如果开发板的flash被擦除或出现无法进入UF2 bootloader模式的故障，则需先参考[烧录tinyUF2固件的方法](../CircuitPython/flash_tinyuf2.md)。
 
-1. 点击此链接：[ESP32S3 SPIRAM micropython固件下载地址](https://micropython.org/download/GENERIC_S3_SPIRAM/)。
+1. 点击此链接：[ESP32S3 micropython固件下载地址](https://micropython.org/download/ESP32_GENERIC_S3/)。
 2. 找到下方 Firmware > Nightly builds，下载第一项，最新的，后缀名为 `.uf2`的固件。
     ![](../assets/images/micropython_downlord_uf2.png)
 3. 使用一根具有供电与数据功能的microUSB线连接开发板与你的计算机。在文件管理页面将出现一个名为`CIRCUITPY`的磁盘，此为CircuitPython模式下的磁盘，通过双击开发板上的`Reset`按键的方式，使其变更为UF2模式下的磁盘，以下为具体操作步骤。

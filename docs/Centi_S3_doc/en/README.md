@@ -107,3 +107,7 @@ Support both USB and external 3.7V lithium battery power input. With the board's
 | EC_A Rotary Encoder               | GPIO37       |
 | EC_B Rotary Encoder               | GPIO47       |
 | WS2812B-2020                      | GPIO48       |
+
+### Buy it
+
+[Aliexpress](https://www.aliexpress.com/item/1005005510964130.html)

@@ -1,6 +1,6 @@
 # Micropython 固件下載與燒錄
 
-在[MicroPython官網](https://micropython.org/)可以找到支持ESP32S3芯片的固件 https://micropython.org/download/GENERIC_S3/
+在[MicroPython官網](https://micropython.org/)可以找到支持ESP32S3芯片的固件 https://micropython.org/download/ESP32_GENERIC_S3/
 
 點擊連接進入頁面後即可在下方看到幾個固件的下載地址，選擇一個.bin 後綴的文件下載到本地即可。
 
