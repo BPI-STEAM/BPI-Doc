@@ -4,7 +4,7 @@
 
 点击连接进入页面后即可在下方看到几个固件的下载地址，选择一个.bin 后缀的文件下载到本地即可。
 
-![](../assets/images/Micropython_operating_env_6.png)
+![](../assets/images/Micropython_operating_env_6.jpg)
 
 注意固件名中标注的日期，离当前时间越近的功能越新。
 

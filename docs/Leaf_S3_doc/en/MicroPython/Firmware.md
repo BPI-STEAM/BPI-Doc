@@ -4,7 +4,7 @@ The firmware supporting ESP32S3 chip can be found on [MicroPython official websi
 
 After clicking the link to enter the page, you can see several firmware download addresses below, select a file with a .bin suffix and download it locally.
 
-![](../assets/images/Micropython_operating_env_6.png)
+![](../assets/images/Micropython_operating_env_6.jpg)
 
 Pay attention to the date marked in the firmware name, the closer to the current time, the newer the function.
 
@@ -21,8 +21,6 @@ There are two methods of operation:
 It can be seen from this that the chip selects the startup mode when reset or re-powered through the GPIO0 controlled by the BOOT key.
 
 Confirm the COM interface in the device manager. The serial number of the COM interface in the firmware download mode and the normal mode is usually different.
-
-![](../assets/images/Micropython_operating_env_5.png)
 
 ## Windows FLASH download tool
 
