@@ -36,9 +36,9 @@ Provides software tools and best examples to get started with Arduino, lowering 
 
 ## Information and resources
 
-- [WIKI](https://wiki.banana-pi.org/BPI-Leaf-S3)
+- [BananaPi Wiki Page](https://wiki.banana-pi.org/BPI-Leaf-S3)
 
-- [GitHub: BPI-Leaf-S3 Development Board Schematic PDF](https://github.com/BPI-STEAM/BPI-Leaf-S3-Doc/blob/main/sch/BPI-Leaf-S3-Chip- V0.1A.pdf)
+- [GitHub: BPI-Leaf-S3 Development Board Schematic PDF](https://github.com/BPI-STEAM/BPI-Leaf-S3-Doc/blob/main/sch/BPI-Leaf-S3-Chip-V0.1A.pdf)
 
 - [ESP32-S3 Specifications](https://github.com/BPI-STEAM/BPI-Leaf-S3-Doc/blob/main/Example/Arduino)
 
