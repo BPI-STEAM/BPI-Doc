@@ -1,0 +1,7 @@
+items:
+-   label: 一、Centi-S3 主頁
+    file: README.md
+-   label: 二、使用 MicroPython 快速上手
+    file: MicroPython.md
+-   label: 三、使用 Arduino 快速上手
+    file: Arduino.md

@@ -1,0 +1,23 @@
+items:
+-   label: 一、开箱 Leaf-S3 开发板
+    items:
+    -   label: Leaf-S3 介绍
+        file: Unboxing/Introduction.md
+    -   label: 快速上手 (第一次使用请看这里)
+        file: Unboxing/Gettingstart.md
+-   label: 二、使用MicroPython编程
+    items:
+    -   label: MicroPython环境搭建
+        file: MicroPython/Environment.md
+    -   label: Micropython 固件下载与烧录
+        file: MicroPython/Firmware.md
+    -   label: 基础用例
+        file: MicroPython/Basic.md
+    -   label: ESP-NOW 用例
+        file: MicroPython/ESPNOW.md
+-   label: 三、使用 Arduino 编程
+    items:
+    -   label: Arduino环境搭建
+        file: Arduino/Environment.md
+    -   label: 基础功能使用
+        file: Arduino/Basic.md

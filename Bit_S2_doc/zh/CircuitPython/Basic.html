@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>基础功能使用 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列Bit-S2使用手册</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class="active"><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/Bit_S2_doc/zh_tw/CircuitPython/Basic.html">中文 繁體</a></li>
+<li class="active"><a  href="/Bit_S2_doc/zh/CircuitPython/Basic.html">中文 简体</a></li>
+<li class=""><a  href="/Bit_S2_doc/en/CircuitPython/Basic.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/index.html"><span class="label">BPI-Bit-S2 主页</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">一、开箱 Bit-S2 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/Unboxing/Introduction.html"><span class="label">Bit-S2 介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">二、使用CircuitPython编程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/CircuitPython/supported_by_circuitpython.html"><span class="label">已得到CircuitPython官方支持</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/CircuitPython/flash_tinyuf2.html"><span class="label">烧录tinyUF2固件的方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/CircuitPython/update_circuitpython.html"><span class="label">更新CircuitPython固件的方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/CircuitPython/config_mu-editor.html"><span class="label">配置使用环境(Mu编辑器)</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Bit_S2_doc/zh/CircuitPython/Basic.html"><span class="label">基础功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">三、使用 Arduino 编程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/Arduino/Environment.html"><span class="label">Arduino环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/zh/Arduino/Basic.html"><span class="label">基础功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>基础功能使用</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Bit_S2_doc/zh/CircuitPython/Basic.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="REPL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">REPL简单使用</h2>
+<h3 id="Hello-World%21">Hello World!</h3>
+<ol>
+<li>确保已在Mu编辑器中正确连接开发板，参考<a href="config_mu-editor.html"  >配置使用环境(Mu编辑器)</a>。</li>
+<li>在CircuitPython REPL窗口中通常会出现如下信息，<code>&gt;&gt;&gt;</code>符号的出现即代表我们可以开始在其后输入命令与其交互了。</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">]0;🐍Wi-Fi: off | Done | 8.0.0-beta.0-49-g14fc4a079\Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+
+Press any key to enter the REPL. Use CTRL-D to reload.
+]0;🐍Wi-Fi: off | Done | 8.0.0-beta.0-49-g14fc4a079\]0;�Wi-Fi: off | REPL | 8.0.0-beta.0-49-g14fc4a079\
+Adafruit CircuitPython 8.0.0-beta.0-49-g14fc4a079 on 2022-09-20; BPI-Bit-S2 with ESP32S3
+&gt;&gt;&gt; 
+</code></pre>
+<ol start="3">
+<li>在<code>&gt;&gt;&gt;</code>符号右侧开始输入命令，例如：<code>print(&quot;Hello World！&quot;)</code>。</li>
+</ol>
+<blockquote>
+<p>注意使用英文输入法，中文字符无法被REPL识别。</p>
+</blockquote>
+
+<pre class="language-py"><code class="language-py">&gt;&gt;&gt; print(&quot;Hello World!&quot;)
+Hello World!
+&gt;&gt;&gt; 
+</code></pre>
+<h3 id="REPL%E5%BF%AB%E6%8D%B7%E9%94%AE">REPL快捷键</h3>
+<ol>
+<li>复制 <code>ctrl + shift + c</code>。</li>
+<li>粘贴 <code>ctrl + shift + v</code>。<br />
+使用鼠标左键在REPL中拖选需要复制的命令，键盘按下复制快捷键，再按下粘贴快捷键即可复制粘贴命令。</li>
+<li>软复位 <code>ctrl + d</code>。</li>
+<li>中断 <code>ctrl + c</code>, 中断当前正在执行的程序，但不会重启复位。</li>
+</ol>
+<h3 id="%E6%9F%A5%E7%9C%8B%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97">查看内置模块</h3>
+<ol>
+<li>在REPL中输入 <code>help(&quot;modules&quot;)</code> 将列出当前CircuitPython开发板内所有模块。</li>
+<li>导入模块后可再使用<code>help()</code>函数查看该模块内部可用的函数名或变量名，例如查看<code>board</code>模块，即可看到开发板所有可用的引脚与外设功能。</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">&gt;&gt;&gt; import board
+&gt;&gt;&gt; help(board)
+object &lt;module 'board'&gt; is of type module
+  __name__ -- board
+  board_id -- bpi_bit_s2
+  IO0 -- board.IO0
+  A0 -- board.IO0
+  D0 -- board.IO0
+  DAC1 -- board.IO0
+  BUZZER -- board.IO0
+  IO1 -- board.IO1
+  A1 -- board.IO1
+  D1 -- board.IO1
+  IO2 -- board.IO2
+  A2 -- board.IO2
+  D2 -- board.IO2
+  IO3 -- board.IO3
+  A3 -- board.IO3
+  D3 -- board.IO3
+  IO4 -- board.IO4
+  A4 -- board.IO4
+  D4 -- board.IO4
+  IO5 -- board.IO5
+  A5 -- board.IO5
+  D5 -- board.IO5
+  IO6 -- board.IO6
+  A6 -- board.IO6
+  D6 -- board.IO6
+  IO7 -- board.IO7
+  A7 -- board.IO7
+  D7 -- board.IO7
+  IO8 -- board.IO8
+  A8 -- board.IO8
+  D8 -- board.IO8
+  IO9 -- board.IO9
+  A9 -- board.IO9
+  D9 -- board.IO9
+  IO10 -- board.IO10
+  A10 -- board.IO10
+  D10 -- board.IO10
+  IO11 -- board.IO11
+  A11 -- board.IO11
+  D11 -- board.IO11
+  IO12 -- board.IO12
+  D12 -- board.IO12
+  IO13 -- board.IO13
+  SCK -- board.IO13
+  D13 -- board.IO13
+  IO14 -- board.IO14
+  MISO -- board.IO14
+  D14 -- board.IO14
+  IO15 -- board.IO15
+  MOSI -- board.IO15
+  D15 -- board.IO15
+  IO16 -- board.IO16
+  CS -- board.IO16
+  D16 -- board.IO16
+  SCL -- board.SCL
+  IO19 -- board.SCL
+  SDA -- board.SDA
+  IO20 -- board.SDA
+  BOOT0 -- board.BOOT0
+  LED -- board.BOOT0
+  BUTTON_A -- board.BUTTON_A
+  BUTTON_B -- board.BUTTON_B
+  LUM1 -- board.LUM1
+  LUM2 -- board.LUM2
+  TEMPERATURE -- board.TEMPERATURE
+  NEOPIXEL -- board.NEOPIXEL
+  TX -- board.TX
+  RX -- board.RX
+  I2C -- &lt;function&gt;
+  SPI -- &lt;function&gt;
+  UART -- &lt;function&gt;
+&gt;&gt;&gt; 
+</code></pre>
+<h2 id="%E4%BD%BF%E4%B8%80%E9%A2%97WS2812%E5%BD%A9%E7%81%AF%E9%97%AA%E7%83%81">使一颗WS2812彩灯闪烁</h2>
+<ol>
+<li><p>在Mu编辑器中点击<strong>Load</strong>按钮，选择CircuitPython开发板上的 code.py 文件，点击 <strong>打开</strong>，即可开始编辑 code.py 。</p>
+</li>
+<li><p>在编辑器中输入如下代码：</p>
+</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import time
+import board
+import neopixel
+
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 25, brightness=0.1)
+
+while 1:
+    pixels[0] = (255,0,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,255,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,0,255)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (255,255,255)
+    pixels.show()
+    time.sleep(0.5)
+</code></pre>
+<ol start="3">
+<li>点击<strong>Save</strong>按钮，编辑的内容将保存到CircuitPython开发板，代码无误的情况下，开发板上的第一颗彩色LED将循环闪烁 红绿蓝白。将开发板复位或重新上电，程序将重新开始运行。</li>
+<li>在REPL中使用中断快捷键即可停止程序的运行。</li>
+<li>代码也可直接复制粘贴到REPL中运行。</li>
+</ol>
+<blockquote>
+<p>后续所有示例都可如此编辑code.py文件或复制粘贴到REPL中运行。但在code.py文件中的程序代码执行完毕后，开发板会恢复未运行时的状态，不会保留状态，但在REPL中执行则会保留状态。</p>
+</blockquote>
+<h2 id="%E4%BD%BF%E7%94%A825%E9%A2%97WS2812%E5%BD%A9%E7%81%AF">使用25颗WS2812彩灯</h2>
+<ol>
+<li>在上一节<strong>使一颗WS2812彩灯闪烁</strong>的代码基础上，使用for循环即可依次点亮25颗WS2812彩灯。</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import time
+import board
+import neopixel
+
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 25, brightness=0.1)
+
+while 1:
+    for i in range(25):
+        pixels[i] = (255,0,0)
+        pixels.show()
+        time.sleep(0.1)
+    for i in range(25):
+        pixels[i] = (0,255,0)
+        pixels.show()
+        time.sleep(0.1)
+    for i in range(25):
+        pixels[i] = (0,0,255)
+        pixels.show()
+        time.sleep(0.1)
+    for i in range(25):
+        pixels[i] = (255,255,255)
+        pixels.show()
+        time.sleep(0.1)
+</code></pre>
+<ol start="2">
+<li>若想同时控制所有彩灯的颜色，则在for循环结束后再使用<code>pixels.show()</code>将数据发送给WS2812彩灯。</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import time
+import board
+import neopixel
+
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 25, brightness=0.1)
+
+while 1:
+    for i in range(25):
+        pixels[i] = (255,0,0)
+    pixels.show()
+    time.sleep(0.5)
+    for i in range(25):
+        pixels[i] = (0,255,0)
+    pixels.show()
+    time.sleep(0.5)
+    for i in range(25):
+        pixels[i] = (0,0,255)
+    pixels.show()
+    time.sleep(0.5)
+    for i in range(25):
+        pixels[i] = (255,255,255)
+    pixels.show()
+    time.sleep(0.5)
+</code></pre>
+<ol>
+<li>WS2812彩灯的通信协议采用单线归零码的通讯方式，即一条信号线即可控制串联在一起的所有灯珠。可以将每一颗灯珠看作一个 8bit RGB 像素点，像素点在上电复位以后，DIN端（数据接收端）接受从控制器传输过来的数据，<strong>首先送过来的24bit数据被第一个像素点提取后，送到像素点内部的数据锁存器，剩余的数据经过内部整形处理电路整形放大后通过DO端（数据发送端）开始转发输出给下一个级联的像素点，每经过一个像素点的传输，信号减少24bit。</strong> WS2812彩灯采用自动整形转发技术，使得像素点的级联个数不受限制，仅受限于信号传输速度的要求。</li>
+</ol>
+<h2 id="%E4%BD%BF%E5%BC%95%E8%84%9A%E8%BE%93%E5%87%BA%E9%AB%98%E4%BD%8E%E7%94%B5%E5%B9%B3%EF%BC%8C%E6%8E%A7%E5%88%B6LED">使引脚输出高低电平，控制LED</h2>
+<ol>
+<li><code>board.LED</code>控制着Bit-S2上的一颗单色LED发光二极管，高电平点亮，低电平熄灭，在REPL中输入以下代码：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.direction = digitalio.Direction.OUTPUT
+ledpin.value = True
+</code></pre>
+<ol start="2">
+<li>或者这么做：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.switch_to_output(value=True) # value=1
+</code></pre>
+<ol start="3">
+<li>让LED间隔0.5秒闪烁：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import digitalio
+import time
+ledpin = digitalio.DigitalInOut(board.LED)
+while True:
+    ledpin.switch_to_output(value=1)
+    time.sleep(0.5)
+    ledpin.switch_to_output(value=0)
+    time.sleep(0.5)
+
+</code></pre>
+<ol start="4">
+<li><p>在REPL中使用中断快捷键即可停止程序的运行。</p>
+</li>
+<li><p>在REPL中输入<code>import board;help(board)</code>即可列出所有可控制的引脚。<code>board.GP25</code> 与 <code>board.LED</code>完全相同。</p>
+</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Bit_S2_doc/zh/CircuitPython/config_mu-editor.html">
+                            <span class="icon"></span>
+                            <span class="label">配置使用环境(Mu编辑器)</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Bit_S2_doc/zh/Arduino/Environment.html">
+                            <span class="label">Arduino环境搭建</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

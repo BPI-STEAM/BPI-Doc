@@ -1,0 +1,21 @@
+items:
+-   label: 一、開箱 Leaf-S3 開發板
+    items:
+    -   label: Leaf-S3 介紹
+        file: Unboxing/Introduction.md
+    -   label: 快速上手 (第一次使用請看這裡)
+        file: Unboxing/Gettingstart.md
+-   label: 二、使用MicroPython編程
+    items:
+    -   label: MicroPython環境搭建
+        file: MicroPython/Environment.md
+    -   label: Micropython 固件下載與燒錄
+        file: MicroPython/Firmware.md
+    -   label: 基礎功能使用
+        file: MicroPython/Basic.md
+-   label: 三、使用 Arduino 編程
+    items:
+    -   label: Arduino環境搭建
+        file: Arduino/Environment.md
+    -   label: 基礎功能使用
+        file: Arduino/Basic.md

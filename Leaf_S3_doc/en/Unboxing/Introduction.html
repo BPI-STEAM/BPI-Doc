@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>【Introduction to development board】 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  >Bit Series</a><ul><li class=""><a  href="/WebBit_doc/en/">WebBit User Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">WebBit Development Manual</a></li>
+<li class=""><a  href="/Bit_S2_doc/en/">Bit-S2 User Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/">Centi-S3</a></li>
+<li class="active"><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/en/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >Accessories</a><ul><li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/en/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">news</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: English</a><ul><li class=""><a  href="/Leaf_S3_doc/zh_tw/Unboxing/Introduction.html">中文 繁體</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/Unboxing/Introduction.html">中文 简体</a></li>
+<li class="active"><a  href="/Leaf_S3_doc/en/Unboxing/Introduction.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Enter keywords, separated by spaces</span>
+                                <span id="search_loading_hint">Loading, please wait...</span>
+                                <span id="search_download_err_hint">Failed to download the file, please refresh and try again or check the network</span>
+                                <span id="search_other_docs_result_hint">Results from other docs</span>
+                                <span id="search_curr_doc_result_hint">Current document search result</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active_parent no_link"><a><span class="label">1. Unpacking Leaf-S3 development board</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/Leaf_S3_doc/en/Unboxing/Introduction.html"><span class="label">Introduction of Leaf-S3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/Unboxing/Gettingstart.html"><span class="label">get started quickly (for the first time, please see here)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">2. Code with MicroPython</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/MicroPython/Environment.html"><span class="label">MicroPython environment construction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/MicroPython/Firmware.html"><span class="label">Micropython firmware download and burning</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/MicroPython/Basic.html"><span class="label">Basic use case</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/MicroPython/ESPNOW.html"><span class="label">ESP-NOW use case</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">3. Code with Arduino</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/Arduino/Environment.html"><span class="label">Install and configure the environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/Arduino/Basic.html"><span class="label">basic function usage</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>【Introduction to development board】</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Leaf_S3_doc/en/Unboxing/Introduction.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>The BPI-Leaf-S3 has an onboard ESP32-S3 chip that supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication. The board supports two power supply modes: USB and external 3.7V lithium battery, which can realize automatic power switching function under dual power supply, and support USB charging mode. Small size, convenient interface, easy to use, and can be directly applied to low-power IoT projects.</p>
+<p>The BPI-Leaf-S3 development board supports ESP-IDF, Arduino, MicroPython and other methods for programming and development in terms of software.</p>
+<p>All IO pins corresponding to the chip are marked on the BPI-Leaf-S3 development board, and the order of the IO pins is consistent with the Espressif ESP32-S3-DevKitC-1 development board. Developers can support DevKitC-1 according to actual needs. The peripherals are added to the BPI-Leaf-S3, and the development board can also be plugged into the breadboard.</p>
+<h2 id="key-features">key features</h2>
+<ul>
+<li>ESP32-S3, Xtensa® 32 bit LX7</li>
+<li>On-Chip Peripherals PSRAM, FLASH</li>
+<li>Ultra-low power 10uA</li>
+<li>2.4G WIFI, Bluetooth 5, Bluetooth mesh</li>
+<li>GPIO , ADC , TOUCH , PWM , I2C , SPI , RMT , I2S , UART , LCD, CAMERA , USB , JTAG</li>
+<li>1*4pin I2C connector</li>
+<li>1*USB Type-C</li>
+<li>1 * 2pin battery connector, support charging</li>
+<li>1 * Full Color LED</li>
+</ul>
+<h2 id="hardware">hardware</h2>
+<h3 id="Interface-diagram">Interface diagram</h3>
+<p><img src="../assets/images/Leaf-S3_board.png" alt="" /></p>
+<h3 id="Hardware-Specifications">Hardware Specifications</h3>
+<table>
+   <tr>
+      <td>BPI-Leaf-S3 Spec Sheet</td>
+   </tr>
+   <tr>
+      <td>SoC main control chip</td>
+      <td>ESP32-S3, Xtensa® 32-bit LX7 Dual-Core Processor</td>
+   </tr>
+   <tr>
+      <td>Frequency</td>
+      <td>240MHz MAX</td>
+   </tr>
+   <tr>
+      <td>Operating Temperature</td>
+      <td>-40℃~+85℃</td>
+   </tr>
+   <tr>
+      <td>On-Chip ROM</td>
+      <td>384KB</td>
+   </tr>
+   <tr>
+      <td>On-chip SRAM</td>
+      <td>320KB</td>
+   </tr>
+   <tr>
+      <td>Off-chip FLASH ROM</td>
+      <td>8MB</td>
+   </tr>
+   <tr>
+      <td>On-Chip Peripherals PSRAM</td>
+      <td>2MB</td>
+   </tr>
+   <tr>
+      <td>WIFI</td>
+      <td>IEEE 802.11 b/g/n, 2.4Ghz band, 150Mbps</td>
+   </tr>
+   <tr>
+      <td>Bluetooth</td>
+      <td>Bluetooth 5, Bluetooth mesh</td>
+   </tr>
+   <tr>
+      <td>GPIO</td>
+      <td>BPI-Leaf-S3 has brought out 36 available GPIOs</td>
+   </tr>
+   <tr>
+      <td>ADC</td>
+      <td>2 × 12-bit SAR ADC supporting 20 analog channel inputs</td>
+   </tr>
+   <tr>
+      <td>TOUCH Capacitive Touch Sensor</td>
+      <td>14</td>
+   </tr>
+   <tr>
+      <td>SPI</td>
+      <td>4</td>
+   </tr>
+   <tr>
+      <td>I2C</td>
+      <td>2, supports master or slave mode</td>
+   </tr>
+   <tr>
+      <td>I2S</td>
+      <td>2, serial stereo data input and output</td>
+   </tr>
+   <tr>
+      <td>LCD</td>
+      <td>1, supports 8-bit ~16-bit parallel RGB, I8080, MOTO6800 interface</td>
+   </tr>
+   <tr>
+      <td>CAMERA</td>
+      <td>1, supports 8-bit ~16-bit DVP image sensor interface</td>
+   </tr>
+   <tr>
+      <td>UART</td>
+      <td>3, supports asynchronous communication (RS232 and RS485) and IrDA</td>
+   </tr>
+   <tr>
+      <td>PWM</td>
+      <td>8 independent channels, 14-bit precision</td>
+   </tr>
+   <tr>
+      <td>MCPWM</td>
+      <td>2</td>
+   </tr>
+   <tr>
+      <td>USB</td>
+      <td>1 × Full Speed ​​USB 2.0 OTG, Type-C Female</td>
+   </tr>
+   <tr>
+      <td>USB Serial/JTAG Controller</td>
+      <td>1, USB Full Speed ​​Standard, CDC-ACM, JTAG</td>
+   </tr>
+   <tr>
+      <td>Temperature Sensor</td>
+      <td>1, measuring from –20 °C to 110 °C, for monitoring chip internal temperature</td>
+   </tr>
+   <tr>
+      <td>SD/MMC</td>
+      <td>1 × SDIO host interface with 2 card slots, supports SD card 3.0 and 3.01, SDIO 3.0, CE-ATA 1.1, MMC 4.41, eMMC 4.5 and 4.51</td>
+   </tr>
+   <tr>
+      <td>TWAI® Controller</td>
+      <td>1, compatible with ISO11898-1 (CAN Specification 2.0)</td>
+   </tr>
+   <tr>
+      <td>Generic DMA Controller</td>
+      <td>5 receive channels and 5 transmit channels</td>
+   </tr>
+   <tr>
+      <td>RMT</td>
+      <td>4 channels transmit, 4 channels receive, shared 384 x 32-bit RAM</td>
+   </tr>
+   <tr>
+      <td>Pulse Counter</td>
+      <td>4 pulse count controllers (units), each with 2 independent channels</td>
+   </tr>
+   <tr>
+      <td>Timer</td>
+      <td>4 × 54-bit general-purpose timers, 16-bit clock prescaler, 1 × 52-bit system timer, 3 × watchdog timers</td>
+   </tr>
+   <tr>
+      <td>External Crystal</td>
+      <td>40Mhz</td>
+   </tr>
+   <tr>
+      <td>RTC and Low Power Management</td>
+      <td>Power Management Unit (PMU) + Ultra Low Power Coprocessor (ULP)</td>
+   </tr>
+   <tr>
+      <td>Low Power Current</td>
+      <td>10uA</td>
+   </tr>
+   <tr>
+      <td>Operating Voltage</td>
+      <td>3.3V</td>
+   </tr>
+   <tr>
+      <td>Input Voltage</td>
+      <td>3.3V~5.5V</td>
+   </tr>
+   <tr>
+      <td>Maximum Discharge Current</td>
+      <td>2A@3.3V DC/DC</td>
+   </tr>
+   <tr>
+      <td>USB charging</td>
+      <td>Support</td>
+   </tr>
+   <tr>
+      <td>Maximum Charge Current</td>
+      <td>500mA</td>
+   </tr>
+   <tr>
+      <td>Controllable full color LED</td>
+      <td>1</td>
+   </tr>
+</table>
+<h3 id="Hardware-Dimensions">Hardware Dimensions</h3>
+<p><img src="../assets/images/Leaf-S3_board_dimension.png" alt="" /></p>
+<table>
+   <tr>
+      <td>BPI-Leaf-S3 Size Chart</td>
+   </tr>
+   <tr>
+      <td>Pin spacing</td>
+      <td>2.54mm</td>
+   </tr>
+   <tr>
+      <td>Mounting Hole Spacing</td>
+      <td>23mm/ 62.25mm</td>
+   </tr>
+   <tr>
+      <td>Mounting Hole Dimensions</td>
+      <td>Inner Diameter 2mm/Outer Diameter 3mm</td>
+   </tr>
+   <tr>
+      <td>Motherboard Dimensions</td>
+      <td>26 × 65.25(mm)/1.02 x 2.57(inches)</td>
+   </tr>
+   <tr>
+      <td>plate thickness</td>
+      <td>1.2mm</td>
+   </tr>
+   <tr>
+      <td></td>
+   </tr>
+</table>
+<p>The pin spacing is compatible with universal boards (hole boards, dot matrix boards) and breadboards, which is convenient for debugging applications.</p>
+<h2 id="Information-and-resources">Information and resources</h2>
+<ul>
+<li><p>[GitHub: BPI-Leaf-S3 Development Board Schematic PDF](<a href="https://github.com/BPI-STEAM/BPI-Leaf-S3-Doc/blob/main/sch/BPI-Leaf-S3-Chip-"  target="_blank">https://github.com/BPI-STEAM/BPI-Leaf-S3-Doc/blob/main/sch/BPI-Leaf-S3-Chip-</a> V0.1A.pdf)</p>
+</li>
+<li><p><a href="https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_cn.pdf"  target="_blank">ESP32-S3 Specifications</a></p>
+</li>
+<li><p><a href="https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_cn.pdf"  target="_blank">ESP32-S3 Technical Reference Manual</a></p>
+</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Leaf_S3_doc/en/Unboxing/Gettingstart.html">
+                            <span class="label">get started quickly (for the first time, please see here)</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Link</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/en_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">Taobao</a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">Source file of this website</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source file</a></li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@banana-pi.com (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@banana-pi.com (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

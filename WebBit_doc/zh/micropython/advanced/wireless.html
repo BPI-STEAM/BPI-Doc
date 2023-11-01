@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>认识无线编程 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列WebBit使用手册</a><ul><li class="active"><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/micropython/advanced/wireless.html">中文 繁體</a></li>
+<li class="active"><a  href="/WebBit_doc/zh/micropython/advanced/wireless.html">中文 简体</a></li>
+<li class=""><a  href="/WebBit_doc/en/micropython/advanced/wireless.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">入门</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/getting_started/hardware.html"><span class="label">开发板介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/getting_started/driver.html"><span class="label">驱动安装</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Webduino 目录</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/install&use.html"><span class="label">Web:Bit 软件安装&使用方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/introduction.html"><span class="label">Web:Bit 教育版</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/software.html"><span class="label">编辑器介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/update.html"><span class="label">更新开发板固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/setup.html"><span class="label">开发板设置</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">积木编程基础</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/variables.html"><span class="label">变量</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/logic.html"><span class="label">逻辑</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/loop.html"><span class="label">循环</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/text.html"><span class="label">文字</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/array.html"><span class="label">数组</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/color.html"><span class="label">颜色</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/function.html"><span class="label">函数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/basic/math.html"><span class="label">数学</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">小怪兽互动</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/monster/basic.html"><span class="label">小怪兽基本操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/monster/event.html"><span class="label">小怪兽互动＆舞台</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/detect/keyboard.html"><span class="label">键盘行为</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/detect/time.html"><span class="label">日期＆时间</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/detect/input.html"><span class="label">对话框输入文字</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">音效＆语音</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/sound/sound-effect.html"><span class="label">特殊音效</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">开发板功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/board_function/board.html"><span class="label">开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/board_function/rgbled-matrix.html"><span class="label">矩阵 LED</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/board_function/ab-button.html"><span class="label">按钮开关</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/board_function/photocell-thermistor.html"><span class="label">光线＆温度</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/board_function/buzzer.html"><span class="label">音乐＆声音</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/board_function/mpu9250.html"><span class="label">运动＆姿态</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/board_function/pin_io.html"><span class="label">输入＆输出</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">网络功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/education_edition/network/broadcast.html"><span class="label">网络广播</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/index.html"><span class="label">Webduino 高阶</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/setting.html"><span class="label">Webduino Bit 初始化设定</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/blockly.html"><span class="label">认识 Webduino Blockly Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/rgbmatrix.html"><span class="label">5x5 全彩 LED 点矩阵</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/button.html"><span class="label">按钮开关</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/photocell.html"><span class="label">侦测光线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/temperature.html"><span class="label">侦测温度</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/buzzer.html"><span class="label">蜂鸣器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/advanced/mpu9250.html"><span class="label">九轴传感器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/webduino/modules/basic.html"><span class="label">Webduino 拓展积木</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">MicroPython 目录</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/guide.html"><span class="label">MicroPython 上手指引</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">基础教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/flash_mpy.html"><span class="label">刷入 MicroPython 固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/simple_use.html"><span class="label">点亮开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/repl.html"><span class="label">初识 REPL</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/display.html"><span class="label">LED矩阵显示字符</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/image.html"><span class="label">LED矩阵显示图像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/button.html"><span class="label">检测面板按键</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/io.html"><span class="label">控制金手指 IO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/music.html"><span class="label">播放简单的音乐</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/random.html"><span class="label">随机数生成器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/accelerometer.html"><span class="label">板子姿态检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/light.html"><span class="label">光敏及手势检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/compass.html"><span class="label">制作一个指南针</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/basic/temperature.html"><span class="label">获取环境温度</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/WebBit_doc/zh/micropython/advanced/index.html"><span class="label">进阶教程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/advanced/mpfs.html"><span class="label">再谈 REPL</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/advanced/leds.html"><span class="label">再次点亮 LED 灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/advanced/wifi.html"><span class="label">让板子联上网</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/WebBit_doc/zh/micropython/advanced/wireless.html"><span class="label">认识无线编程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/advanced/vscode.html"><span class="label">改善一下编程环境（微软加持）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/advanced/mqtt.html"><span class="label">尝试 MQTT 应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/advanced/codelab.html"><span class="label">如何使用 scratch3 for bpi:bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/advanced/pycharm.html"><span class="label">使用 Pycharm IDE 编程</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">标准案例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/samples/weather.html"><span class="label">如何爬取城市天气</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/modules/index.html"><span class="label">内建模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/modules/urequests.html"><span class="label">urequests 模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/modules/umqtt.simple.html"><span class="label">umqtt.simple 模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/modules/display.html"><span class="label">display 模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/modules/music.html"><span class="label">music 模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/index.html"><span class="label">MicroPython 类库</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/btree.html"><span class="label">btree – 简单的 BTree 数据库</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/framebuf.html"><span class="label">framebuf — 帧缓冲操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.html"><span class="label">machine — 与硬件相关的功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.Pin.html"><span class="label">类 Pin – 控制 I/O 引脚</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.ADC.html"><span class="label">类 ADC – 模数转换</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.TouchPad.html"><span class="label">类 TouchPad – 触摸</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.PWM.html"><span class="label">类 PWM – 脉冲宽度调制</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.UART.html"><span class="label">类 UART – 双工串行通信总线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.I2C.html"><span class="label">类 I2C – 双线串行协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.SPI.html"><span class="label">类 SPI – 串行外设接口总线协议 (主端)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.Timer.html"><span class="label">类 Timer – 控制硬件定时器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.RTC.html"><span class="label">类 RTC – 实时时钟</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/machine/machine.WDT.html"><span class="label">类 WDT – 看门狗定时器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/network.html"><span class="label">network — 网络配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/uctypes.html"><span class="label">uctypes – 以结构化方式访问二进制数据</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/micropython.html"><span class="label">micropython – 访问和控制MicroPython内部</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/neopixel.html"><span class="label">neopixel — WS2812 灯带</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/random.html"><span class="label">random — 生成随机数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/ntptime.html"><span class="label">ntptime — 时间同步</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/dht.html"><span class="label">dht — dht模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/library/_thread.html"><span class="label">_thread — 线程</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/index.html"><span class="label">Python 标准库</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/builtins.html"><span class="label">builtin – 内建函数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/array.html"><span class="label">array – 数值数组</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/gc.html"><span class="label">gc – 回收内存碎片</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/math.html"><span class="label">math – 数学运算函数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/sys.html"><span class="label">sys – 系统特定功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/ubinascii.html"><span class="label">ubinascii – 二进制/ ASCII转换</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/ucollections.html"><span class="label">ucollections – 容器数据类型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/uerrno.html"><span class="label">uerrno – 系统错误代码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/uhashlib.html"><span class="label">uhashlib – 散列算法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/uheapq.html"><span class="label">uheapq – 堆队列算法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/uio.html"><span class="label">uio – 输入/输出流</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/ujson.html"><span class="label">ujson – JSON 编码和解码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/uos.html"><span class="label">os – 操作系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/ure.html"><span class="label">ure – 正则表达式</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/uselect.html"><span class="label">select – 等待流事件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/usocket.html"><span class="label">usocket – socket 模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/ussl.html"><span class="label">ussl – SSL/TLS 模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/ustruct.html"><span class="label">ustruct – 打包和解压缩原始数据类型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/utime.html"><span class="label">time – 时间相关函数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_doc/zh/micropython/pythonStd/uzlib.html"><span class="label">uzlib – zlib解压缩</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Arduino 目录</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">使用基础</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_doc/zh/arduino/tutorials/basic/arduino-ide.html"><span class="label">安装Arduino IDE并添加BPI-BIT开发扩展</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">进阶开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">第三方库</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>认识无线编程</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebBit_doc/zh/micropython/advanced/wireless.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>使用有线的方式连接板子已经是上个世纪的特色了，所以我们在以后的开发过程中，是支持且尽量往无线控制的方向上出发的，因为各种简单物联网设备是不会特地留一个有线接口给你连接电脑控制的，例如：一盏智能控制的灯。</p>
+<p>所以这时候无线就派上用处了，可以看到，在板子联网的时候，我们是可以不需要插入电脑的方式来直接帮助板子上网的，所以这便是无线的编程基础，要通过一个简单的方式让板子进入你所在的网络，你才能控制它。</p>
+<h2 id="%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9D%BF%E5%AD%90">远程连接板子</h2>
+<p>MicroPython 的交互接口使用的是 Python REPL，也就是它本身就是一个可再次操作的系统运行环境，与以往的Linux不同，它的特点就是简单容易使用，我们不是本身就是在享受科技给我们带来的美好，如果说编程只会让工具变得难用，那为何还要继续编程呢？</p>
+<p>REPL 是有线的时候常用的交互接口，而在无线上，则推出了<a href="http://micropython.org/webrepl"  target="_blank">WebREPL</a>，顾名思义，就是云端的 REPL ，如下图：</p>
+<p><img src="../../assets/micropython/advanced/wireless/webrepl.png" alt="" /></p>
+<p>可以看到它可以直接操作板子了，像过去的有线连接一样，响应速度非常快，和有线的感受差别不大。</p>
+<p>但这样显然还是不够的，因为这个编辑器只能够用，但并不好用，所以我还专门在 mpfshell 适配了 webrepl 的，也就是说，基于 mpfshell 的 pycharm 插件，也同样支持 无线编程 ，那么，所有觉得好用的功能全都用上了，如下图。</p>
+<p><img src="../../assets/micropython/advanced/wireless/pycharm.png" alt="" /></p>
+<p>运行程序正常，但需要注意两者的路径设定不太一样。</p>
+<ol>
+<li>webrepl 标准路径为 <code>ws://192.168.30.116:8266</code>。</li>
+<li>mpfshell 的路径则为:<code>ws:192.168.30.116,1234</code>，区别在于后者允许顺带密码，从而免去了连接认证。</li>
+</ol>
+<p>至此，你已经可以像过去有线一样使用它了，如果期间出现任何问题，只需要重启板子即可，它会自动上电连接网络并打开 Webrepl 的支持服务。</p>
+<p>未来将会使用电池供电的方式，脱离电脑供电，所以你可以完全脱离有线自由的控制它了，注意必要时刻需要降频至 80Mhz ，不然很快就会没有电的。</p>
+<h2 id="%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86%E6%9D%BF%E5%AD%90">远程管理板子</h2>
+<p>虽然可以使用了 REPL 的方式去对板子进行编程控制了，但我们还需要一些额外的网络支持服务才能让我们的板子玩得更加愉快。</p>
+<p>这里我简单介绍一下它们。</p>
+<h3 id="FTP-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E6%9C%8D%E5%8A%A1">FTP 标准文件系统操作服务</h3>
+<p>使用以下代码即可启动 FTP 服务：</p>
+
+<pre class="language-python"><code class="language-python">import ftptiny
+ftptiny.FtpTiny().start()
+</code></pre>
+<p><img src="../../assets/micropython/advanced/wireless/ftp.png" alt="" /></p>
+<h4 id="WebDAV-HTTP-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%EF%BC%88%E5%9C%A8-20190312-%E5%90%8E%E5%9B%BA%E4%BB%B6%E6%9A%82%E6%97%B6%E7%A7%BB%E9%99%A4%E4%BA%86%EF%BC%89">WebDAV HTTP 文件系统服务（在 20190312 后固件暂时移除了）</h4>
+<p>使用以下代码即可启动：</p>
+
+<pre class="language-python"><code class="language-python">import webdav
+webdav.start()
+</code></pre>
+<p><img src="../../assets/micropython/advanced/wireless/webdav.png" alt="" /></p>
+<p>它和 FTP 不一样的地方就是使用的是 80 端口，访问的时候是用的 http，而不是<br />
+ftp。</p>
+<p><img src="../../assets/micropython/advanced/wireless/webdav_index.png" alt="" /></p>
+<h3 id="Hostname-local-%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1">Hostname local 域名服务</h3>
+<p>这个需要特定的路由服务支持，例如：openwrt(linux)。</p>
+<p>它允许你使用 hostname.lan （或直接 hostname）的方式代替 IP 来访问板子。</p>
+<p>所以不需要再去记忆 IP 地址了，而是自己定义自己的板子名称。</p>
+<p>hostname 保存在下图 wifi_cfg.py 文件中。</p>
+<p><img src="../../assets/micropython/advanced/wireless/wifi_cfg.png" alt="" /></p>
+<p>如图的 bit3D6D，访问方法和测试方法如下。</p>
+<p><img src="../../assets/micropython/advanced/wireless/hostname.png" alt="" /></p>
+<p>而如何使用呢？</p>
+<p><img src="../../assets/micropython/advanced/wireless/hostname_demo.png" alt="" /></p>
+<p>而你之后去其他地方更换网络了，也不需要更换 IP，只需要更换连接的 WIFI 配置就可以了。</p>
+<h3 id="MDns-%E5%8F%8D%E5%90%91%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E6%9C%8D%E5%8A%A1">MDns 反向域名解析服务</h3>
+<p>如果你用不了 hostname 的方式来取代 IP 的记忆，除了请求云端服务商注册 DNS 域名解析外，那还有一个办法，就是反向注册 DNS ，DNS 本是服务端特有的管理服务，底下的客户端是不可以再改动的，所以呢，我们就使用主动申请的域名解析从而获得自己特定的域名。</p>
+<p>说白了，就是把 IP 变成了 自定义的网络路径，例如：hostname.local。</p>
+<p>如下示范，这也同样需要比较新的路由器支持，只要不是上个世纪的路由器，基本都支持了这个服务，但不否认 10 年之前产的路由器，可能都不一定带有这个 MDns 服务，包括电脑也不一定支持，Windows 需要额外安装 Bonjour Print Services 功能，可在<a href="https://support.apple.com/kb/DL999"  target="_blank">此处下载</a>。</p>
+<p>现在我使用如下代码来配置板子拥有 Mdns 的注册功能（所有操作都是基于联网的条件下）。</p>
+
+<pre class="language-python"><code class="language-python">try:
+    import network
+    mdns = network.mDNS()
+    mdns.start(&quot;bpibit&quot;, &quot;MicroPython with mDNS&quot;)
+    _ = mdns.addService('_ftp', '_tcp', 21, &quot;MicroPython&quot;,
+                         {&quot;board&quot;: &quot;ESP32&quot;, &quot;service&quot;: &quot;bpibit FTP File transfer&quot;, &quot;passive&quot;: &quot;True&quot;})
+    _ = mdns.addService('_telnet', '_tcp', 23, &quot;MicroPython&quot;, {&quot;board&quot;: &quot;ESP32&quot;, &quot;service&quot;: &quot;bpibit Telnet REPL&quot;})
+    _ = mdns.addService('_http', '_tcp', 80, &quot;MicroPython&quot;, {&quot;board&quot;: &quot;ESP32&quot;, &quot;service&quot;: &quot;bpibit Web server&quot;})
+    print(&quot;mDNS started&quot;)
+except Exception as e:
+    print(&quot;mDNS not started&quot;)
+</code></pre>
+<p>在电脑中可以使用 <code>bpibit.local</code> 替代 IP 地址访问它，如下图，你也可以取自己想要的名字，改掉代码里的 <code>mdns.start(&quot;bpibit&quot;, &quot;MicroPython with mDNS&quot;)</code> 即可。</p>
+<p><img src="../../assets/micropython/advanced/wireless/mdns.png" alt="" /></p>
+<p>但实际上不仅如此，还可以知道它提供了什么服务等等，我用了其他软件来查看，以下是手机中查看的结果，可以看到 MicroPython 对应的是 mdns.addService 的参数。</p>
+<p><img src="../../assets/micropython/advanced/wireless/mdns_server.png" alt="" /></p>
+<p>看图可以得知是我们注册的时候提供的信息，如 FTP 和 HTTP 服务。</p>
+<h3 id="Python-%E5%8A%A8%E6%80%81%E5%BB%BA%E7%AB%8B%E7%BD%91%E7%AB%99%E6%9C%8D%E5%8A%A1">Python 动态建立网站服务</h3>
+<p>Webdav 实现的是静态的纯粹网站，并不适合利用后台的 Python 进行运算的网站服务。</p>
+<p>所以在固件里提供了 <a href="https://microwebsrv.hc2.fr/"  target="_blank">microwebsrv</a> 用以搭建 Python 动态网站。</p>
+<p>这之后会专门出一个简单应用示例以做说明，它将类似 PHP 语言一样建立网站服务。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/WebBit_doc/zh/micropython/advanced/wifi.html">
+                            <span class="icon"></span>
+                            <span class="label">让板子联上网</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebBit_doc/zh/micropython/advanced/vscode.html">
+                            <span class="label">改善一下编程环境（微软加持）</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

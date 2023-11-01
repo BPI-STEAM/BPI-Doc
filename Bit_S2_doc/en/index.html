@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>【 BPI-Bit-S2 Development Board 】 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  >Bit SeriesBit-S2 User Manual</a><ul><li class=""><a  href="/WebBit_doc/en/">WebBit User Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">WebBit Development Manual</a></li>
+<li class="active"><a  href="/Bit_S2_doc/en/">Bit-S2 User Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/en/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >Accessories</a><ul><li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/en/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">news</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: English</a><ul><li class=""><a  href="/Bit_S2_doc/zh_tw/index.html">中文 繁體</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/index.html">中文 简体</a></li>
+<li class="active"><a  href="/Bit_S2_doc/en/index.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Enter keywords, separated by spaces</span>
+                                <span id="search_loading_hint">Loading, please wait...</span>
+                                <span id="search_download_err_hint">Failed to download the file, please refresh and try again or check the network</span>
+                                <span id="search_other_docs_result_hint">Results from other docs</span>
+                                <span id="search_curr_doc_result_hint">Current document search result</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/Bit_S2_doc/en/index.html"><span class="label">BPI-Bit-S2 Homepage</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">1. Unboxing Bit-S2 Development Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/Unboxing/Introduction.html"><span class="label">Bit-S2 Introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">2. Programming with CircuitPython</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/supported_by_circuitpython.html"><span class="label">has been officially supported by CircuitPython</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/flash_tinyuf2.html"><span class="label">method of burning tinyUF2 firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/update_circuitpython.html"><span class="label">method to update CircuitPython firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/config_mu-editor.html"><span class="label">Configure the usage environment (Mu editor)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/Basic.html"><span class="label">basic function usage</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">3. Programming with Arduino</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/Arduino/Environment.html"><span class="label">Arduino environment construction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/Arduino/Basic.html"><span class="label">basic function usage</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>【 BPI-Bit-S2 Development Board 】</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Bit_S2_doc/en/README.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="Introduce">Introduce</h2>
+<p><img src="assets/images/BPI-Bit-S2_banner.jpg" alt="" /></p>
+<p>BPI-Bit-S2 development board is a successor to BPI-Bit, inheriting most of the hardware functions.</p>
+<p>IO is compatible with micro:bit and can use most peripheral accessories of micro:bit.</p>
+<p>Support Webduino, Arduino, MicroPython &amp; CircuitPython programming environment suitable for STEAM education.</p>
+<p>Check the <a href="Unboxing/Introduction.html"  >Unboxing Bit-S2 Development Board</a> page for details.</p>
+<h2 id="Programming-with-CircuitPython">Programming with CircuitPython</h2>
+<blockquote>
+<p>It is recommended to use CircuitPython to quickly get started with the BPI-Bit-S2 development board.</p>
+</blockquote>
+<p><img src="assets/images/CircuitPython_Repo_header_logo.jpg" alt="" /></p>
+<p>CircuitPython is an open source, educational derivative of MicroPython, support and developed by Adafruit Industries.</p>
+<p>Comparing ease of use, it goes a step further on the basis of MicroPython.</p>
+<p>When the development board running CircuitPython firmware is connected to the PC, the PC will immediately recognize it as a USB storage disk.</p>
+<p>And the python script file can be copied to this disk to allow the program to run on the development board.</p>
+<p>Modern operating systems and home PCs support USB storage disks, this allows users to use it out of the box.</p>
+<p>Of course, in order to use REPL, a serial communication software needs to be installed, or a text editor that supports this function, such as Mu editor.</p>
+<p>The CircuitPython community provides an extremely rich peripheral driver library, APIs documentation, and tutorials.</p>
+<p>Even if there is no programming foundation, no hardware foundation, you can quickly get started from scratch.</p>
+<p>CircuitPython does not support some microcontroller-specific libraries such as timer and hardware interrupt, nor does it support the multi-threaded _thread library. It only provides the asyncio library for writing concurrent code.</p>
+<p>The code is very compatible between microcontrollers supported by CircuitPython and single-board computers (SBCs) supported by Blinka. This is thanks to its efforts to unify APIs.</p>
+<h2 id="Programming-with-MicroPython">Programming with MicroPython</h2>
+<p><img src="assets/images/Mircopython.png" alt="" /></p>
+<p>MicroPython is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.</p>
+<p>Crowdfunded and open sourced in 2013 by Damien P. George.</p>
+<p>The most obvious difference between it and the use of C programs to develop microcontrollers is that there is no need for lengthy compilation when verifying code.</p>
+<p>Using serial communication software, enter commands through the REPL(read-eval-print-loop) to control the microcontroller, just like Python's REPL.</p>
+<p>It is also possible to use some tools to upload a python script file to run inside the microcontroller.</p>
+<p>Its implementation of Python3 includes the _thread library that supports multithreading and the asyncio library for writing concurrent code.</p>
+<p>MicroPython aims to be as compatible with normal Python as possible to allow you to transfer code with ease from the desktop to a microcontroller or embedded system.</p>
+<p>At the same time it also has some libraries specific for microcontrollers in order to take full advantage of the hardware features inside the microcontroller chip, such as timers, hardware interrupts, WiFi, etc., depending on the specific hardware.</p>
+<p>While having the above features, it is compact enough to fit and run within just 256k of code space and 16k of RAM.</p>
+<p>If you know Python you already know MicroPython.</p>
+<p>On the other hand, the more you learn about MicroPython the better you become at Python.</p>
+<h2 id="Programming-with-Arduino">Programming with Arduino</h2>
+<p><img src="assets/images/Arduino_logo_1200x350.png" alt="" /></p>
+<p>Arduino is an open source embedded hardware and software development platform for users to create interactive embedded projects.</p>
+<p>The Arduino integrated development environment (IDE) is the software core of this platform, using the C/C++ programming language to develop projects.</p>
+<p>The biggest feature of Arduino is to provide a unified API to develop all microcontrollers it supports, with very good code portability and reusability.</p>
+<p>In addition, it simplifies the process of building a development environment, and all the development environments of microcontrollers it supports can be installed and configured with a single click.</p>
+<p>It also provides simple one-click mechanisms to compile and upload programs to a microcontroller.</p>
+<p>Arduino IDE alsoprovides many example codes, supplemented by a large number of comments, which can help users get started quickly.</p>
+<p>A large number of excellent open source projects accumulated in the Arduino community are available for reference and learning, and there are quite a few driver libraries and APIs provided by chip manufacturers as well.</p>
+<h2 id="Programming-with-Webduino">Programming with Webduino</h2>
+<blockquote>
+<p>BPI-Bit-S2 has Webduino firmware installed before delivery.</p>
+</blockquote>
+<p><img src="assets/images/Webduino_logo_1200x350.jpg" alt="" /></p>
+<p><a href="https://webbit.webduino.io/blockly/?demo=default"  target="_blank">webduino online building block programming platform</a></p>
+<p><a href="https://ota.webduino.io/WebBitInstaller/WebBitSetup.exe"  target="_blank">webduino building block programming platform Windows installation version</a></p>
+<p><a href="https://webbit.webduino.io/tutorials/doc/zh-cn/education/index.html"  target="_blank">webduino online teaching manual</a></p>
+<h2 id="Materials-and-Resources">Materials and Resources</h2>
+<ul>
+<li><p>[Official WIKI](<a href="https://wiki.banana-pi.org/BPI-Bit-S2_STEAM_%E6%95%99%E8%82%B2%E5%BC%80%E5%8F%91%E6%"  target="_blank">https://wiki.banana-pi.org/BPI-Bit-S2_STEAM_%E6%95%99%E8%82%B2%E5%BC%80%E5%8F%91%E6%</a> 9D%BF)</p>
+</li>
+<li><p>[GitHub: BPI-BPI-Bit-S2 Development Board Schematic PDF](<a href="https://github.com/BPI-STEAM/BPI-BIT-Lite-Doc/blob/main/sch/BPI-BIT-Lite-"  target="_blank">https://github.com/BPI-STEAM/BPI-BIT-Lite-Doc/blob/main/sch/BPI-BIT-Lite-</a> V0.2.pdf)</p>
+</li>
+</ul>
+<h2 id="Sample-Purchase">Sample Purchase</h2>
+<ul>
+<li><p><a href="https://www.aliexpress.us/item/3256804809903732.html"  target="_blank">Official AliExpress</a></p>
+</li>
+<li><p><a href="https://item.taobao.com/item.htm?spm=a213gs.success.result.1.d1187a86CepiGC&amp;id=693462857865"  target="_blank">Official Taobao</a></p>
+</li>
+<li><p>OEM&amp;OEM customized service: sales@banana-pi.com</p>
+</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Bit_S2_doc/en/Unboxing/Introduction.html">
+                            <span class="label">Bit-S2 Introduction</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Link</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/en_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">Taobao</a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">Source file of this website</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source file</a></li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@banana-pi.com (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@banana-pi.com (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

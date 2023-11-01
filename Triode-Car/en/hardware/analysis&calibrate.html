@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>Hardware analysis and calibration - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  >Bit Series</a><ul><li class=""><a  href="/WebBit_doc/en/">WebBit User Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">WebBit Development Manual</a></li>
+<li class=""><a  href="/Bit_S2_doc/en/">Bit-S2 User Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/en/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >AccessoriesTriode-Car</a><ul><li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class="active"><a  href="/Triode-Car/en/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">news</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: English</a><ul><li class=""><a  href="/Triode-Car/zh_tw/hardware/analysis&calibrate.html">中文 繁體</a></li>
+<li class=""><a  href="/Triode-Car/zh/hardware/analysis&calibrate.html">中文 简体</a></li>
+<li class="active"><a  href="/Triode-Car/en/hardware/analysis&calibrate.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Enter keywords, separated by spaces</span>
+                                <span id="search_loading_hint">Loading, please wait...</span>
+                                <span id="search_download_err_hint">Failed to download the file, please refresh and try again or check the network</span>
+                                <span id="search_other_docs_result_hint">Results from other docs</span>
+                                <span id="search_curr_doc_result_hint">Current document search result</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Triode-Car/en/introduction/hardware.html"><span class="label">Hardware introduction</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Triode-Car/en/hardware/analysis&calibrate.html"><span class="label">Hardware analysis and calibration</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">micro:bit tutorial</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/first_meeting.html"><span class="label">First meeting with micro:bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/new_project.html"><span class="label">Create MakeCode project</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/import_extension.html"><span class="label">Import extension</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/control_motor.html"><span class="label">Use buttons to control the motors</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/control_motor2.html"><span class="label">Adjust motors speed</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/read_LDR.html"><span class="label">Collect the signals</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/radio_control.html"><span class="label">Control the motors by radio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/bluetooth_control.html"><span class="label">Control the motors by Bluetooth</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/LDR_calibration.html"><span class="label">Calibration line detection circuit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/Line_Follower.html"><span class="label">Line Tracking</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Hardware analysis and calibration</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Triode-Car/en/hardware/analysis&calibrate.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="Drive-circuit">Drive circuit</h2>
+<p>This is a basic circuit:</p>
+<div align=center>
+<img src="../assets/Triode-Car-Sch1.png" width="30%"/>
+</div>
+<p>Battery, diode, inductor and manual switch are connected in series,two loads are connected in parallel.</p>
+<p>One load is a motor and the other load is a light-emitting diode.</p>
+<p>In order to protect the light-emitting diode, a resistor for voltage division is connected in series.</p>
+<p>In this circuit, the only one that can control the two loads is a manual switch.</p>
+<p>A <strong>bipolar junction transistor (BJT)</strong> is a type of transistor that uses both electrons and electron holes as charge carriers. In contrast, a unipolar transistor, such as a field-effect transistor, uses only one kind of charge carrier. A bipolar transistor allows a small current injected at one of its terminals to control a much larger current flowing between two other terminals, making the device capable of amplification or switching.</p>
+<p>A BJT consists of three differently doped semiconductor regions: the emitter region, the base region and the collector region. These regions are, respectively, p type, n type and p type in a PNP transistor, and n type, p type and n type in an NPN transistor. Each semiconductor region is connected to a terminal, appropriately labeled: emitter (E), base (B) and collector (C).</p>
+<p>PNP transistor：</p>
+<p><img src="../assets/Triode-S8550.png" alt="" /></p>
+<ul>
+<li>pin 1 Emitter</li>
+<li>pin 2 Base</li>
+<li>pin 3 Collector</li>
+</ul>
+<blockquote>
+<p>For more detailed information, you can continue to refer to<a href="https://en.wikipedia.org/wiki/Bipolar_junction_transistor"  target="_blank">Wikipedia：Bipolar junction transistor</a></p>
+</blockquote>
+<p>Add a PNP transistor to the circuit:</p>
+<p><img src="../assets/Triode-Car-Sch2.png" alt="" /></p>
+<p>As shown in figure design circuit may control the PNP transistor of the Base, Base terminal level signal is given, the PNP transistor can be used as a switch.</p>
+<p>The turn-on condition of Emitter and Collector is that the Emitter voltage is greater than the Collector voltage, the Emitter voltage is greater than the Base voltage, and when the Base voltage is greater than or equal to the Emitter voltage, it turns off.</p>
+<p>In this way, the two loads can be controlled by the level signal received by the Base, and this level signal is provided by the output of the voltage comparator.Another button can also be used to switch to micro:bit or web:bit development boards to provide level signals.</p>
+<p>The R7 resistor acts as a pull-up resistor here. When there is no control signal input to the Base, the control signal output terminal is left floating, neither high nor low, similar to an open circuit state. Through the pull-up resistor of R7, Base can also obtain a high level and keep the PNP off state, so that this circuit can only be turned on when Base obtains a low-level signal.</p>
+<blockquote>
+<p>For more detailed information about &quot;high &amp; low level&quot; and &quot;level signal&quot;, please refer to <a href="https://en.wikipedia.org/wiki/Logic_level"  target="_blank">Wikipedia：Logic level</a></p>
+</blockquote>
+<h2 id="Line-detection-circuit">Line detection circuit</h2>
+<p>At the bottom of the Triode-Car, there are two line detection circuits, each of which contains a photoresistor and an LED. When the light of the LED shines on the black and white materials, the resistance value of the photoresistor will change significantly due to the difference in reflectivity.</p>
+<div align=center>
+<img src="../assets/Photoresistor-GL5506.png"/>
+</div>
+<p>On Triode-Car, the photoresistor used is GL5506. The resistance of this model will decrease with the increase of light. The light resistance (10 Lux illumination) is 2-5KΩ, and the dark resistance is 0.2MΩ.</p>
+<p>Light resistance: The resistance value measured under 10 Lux illumination with a standard light source (color temperature of 2854K) after being irradiated with 400-600 Lux illumination for 2 hours.</p>
+<p>Dark resistance: the resistance value measured at 10 seconds after turning off the 10 Lux illumination.</p>
+<p>Design a circuit like this:</p>
+<div align=center>
+<img src="../assets/Triode-Car-Sch3.png" width="65%"/>
+</div>
+<p>It can be seen that the branch composed of RV1 adjustable resistance, R3 resistance, and R5 photoresistor is connected in parallel with the branch composed of RV2 adjustable resistance, R4 resistance, and R6 photoresistor.</p>
+<p>According to the principle of parallel equal-voltage shunting, the voltages of the two branches are equal.</p>
+<p>On the branch where the R5 photoresistor is located, according to the principle of series voltage division and equal current, the voltage at the LDR_L node is equal to the current value multiplied by the (R5+R3) resistance value.</p>
+<p>When the light received by the R5 photoresistor is weakened, its resistance will increase, and the voltage at the LDR_L node will increase accordingly, and vice versa when the light increases.</p>
+<p>The same is true for LDR_R node voltage.</p>
+<p>According to the principle of series voltage division and equal current, if the resistance of the adjustable resistor of RV1 is increased, the voltage at the LDR_L node will decrease, and vice versa.</p>
+<p>The RV2 adjustable resistor is the same.</p>
+<p>In this way, the two adjustable resistors can be used to calibrate the voltage values of the two nodes of LDR_R and LDR_L, and try to ensure that the voltage values of the two nodes are equal under the same light intensity, so as to facilitate subsequent applications on the voltage comparator.</p>
+<h2 id="Voltage-comparator">Voltage comparator</h2>
+<p>This is the schematic diagram of the LM393 voltage comparator:</p>
+<div align=center>
+<img src="../assets/LM393_sch.jpg" width="250"/>
+</div>
+<div align=center>
+<img src="../assets/LM393-1.png" width="400"/>
+</div>
+<p>Two voltage comparators are integrated inside. When the positive input (IN+) of the voltage comparator is greater than the negative input (IN-) voltage, the output is high. Otherwise, the output is low.</p>
+<p>The internal schematic diagram of its voltage comparator is like this:</p>
+<p><img src="../assets/LM393-2.png" alt="" /></p>
+<p>This shows,the realization of such a relatively complex function is also designed and packaged based on basic components such as semiconductor diode and BJT.</p>
+<blockquote>
+<p>If you are interested, you can refer to <a href="https://en.wikipedia.org/wiki/Comparator"  target="_blank">Wikipedia：Comparator</a></p>
+</blockquote>
+<p>Add LM393 voltage comparator to the circuit, and complement the drive circuit and line detection circuit：</p>
+<p><img src="../assets/Triode-Car-sys.jpg" alt="" /></p>
+<p><img src="../assets/Triode-Car-Sch4.png" alt="" /></p>
+<p>At this point, we have basically constructed an automatic control system.</p>
+<p>Under ideal working conditions, it can collect light and dark information on the left and right sides of the line through the photoresistor within a certain range.</p>
+<p>The voltage comparator continuously controls the start and stop of the two wheels during the information change to correct the driving direction and achieve the purpose of automatic line tracking.</p>
+<h2 id="State-relation-table">State relation table</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">Car lean Direction</th>
+  <th style="text-align:center">Right LDR(R6)</th>
+  <th style="text-align:center">Left LDR(R5)</th>
+  <th style="text-align:center">LDR_R Potential</th>
+  <th style="text-align:center">LDR_L Potential</th>
+  <th style="text-align:center">P3 Input</th>
+  <th style="text-align:center">P2 Input</th>
+  <th style="text-align:center">P1 Output</th>
+  <th style="text-align:center">P5 Input</th>
+  <th style="text-align:center">P6 Input</th>
+  <th style="text-align:center">P7 Output</th>
+  <th style="text-align:center">M1 Left Motor</th>
+  <th style="text-align:center">M2 Right Motor</th>
+  <th style="text-align:center">Car Move Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">Right</td>
+  <td style="text-align:center">Bright</td>
+  <td style="text-align:center">Dark</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">Left</td>
+</tr>
+<tr>
+  <td style="text-align:center">Left</td>
+  <td style="text-align:center">Dark</td>
+  <td style="text-align:center">Bright</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">Right</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Conditions are black lines and white roads</p>
+</blockquote>
+<p>When the front of the car is biased to the right compared to the line:</p>
+<ol>
+<li>The R6 photoresistor on the right under the front of the car will come above the white road, and the R5 photoresistor on the left will come above the black line.</li>
+<li>The resistance of R6 decreases and the resistance of R5 increases, and the potential of the LDR_R node will be lower than the potential of the LDR_L node.</li>
+<li>The P3 pin potential of the A comparator will be lower than the P2 pin potential, and the P5 pin potential of the B comparator will be higher than the P6 pin potential.</li>
+<li>The P1 pin of the A comparator will output a low level, and the P7 pin of the B comparator will output a high level.</li>
+<li>Q2 PNP transistor turns on, M2 right motor starts, Q1PNP transistor turns off, M1 left motor stops.</li>
+<li>The car will drive to the left.</li>
+</ol>
+<p>When the front of the car is biased to the left compared to the line, the car will also drive to the right.</p>
+<p>In this way, Triode-Car can automatically reverse correction regardless of the yaw to the left or right to achieve the purpose of tracking the line.</p>
+<h2 id="line-detection-circuit-calibration">line detection circuit calibration</h2>
+<p>In order to make the line detection circuit have higher sensitivity to light and dark changes under the control of the LM393 chip alone, and to reduce the potential difference under the same illumination brightness, it is necessary to manually adjust the adjustable resistance for calibration.</p>
+<p>The calibration steps are as follows:</p>
+<ol>
+<li>use a small object to lift up the back wheels slightly to prevent contact,point a stable light source towards the photoresistors.</li>
+<li>Adjust either side of potentiometers until both motors are operating simultaneously.</li>
+<li>After adjustments, put the car on the track to test the results.</li>
+<li>If the car is still likely to run out of the track, place the car on a white paper, repeat steps 2~3 for fine-tuning, and try to make the line detection circuit more sensitive to light and dark changes.</li>
+</ol>
+<div align=center>
+<img src="../assets/Triodecar_calibration_1.jpg" width="500"/>
+</div>
+<div align=center>
+<img src="../assets/Triodecar_calibration_2.jpg" width="500"/>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Triode-Car/en/introduction/hardware.html">
+                            <span class="icon"></span>
+                            <span class="label">Hardware introduction</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Triode-Car/en/microbit_tutorial/first_meeting.html">
+                            <span class="label">First meeting with micro:bit</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Link</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/en_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">Taobao</a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">Source file of this website</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source file</a></li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@banana-pi.com (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@banana-pi.com (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

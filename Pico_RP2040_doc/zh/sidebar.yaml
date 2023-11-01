@@ -1,0 +1,12 @@
+items:
+-   label: BPI-Pico-RP2040主页
+    file: README.md
+ 
+-   label: 一、开箱 BPI-Pico-RP2040 开发板
+    file: Unboxing/Introduction.md
+    
+-   label: 二、MicroPython 快速上手
+    file: Programming/MicroPython_Gettingstart.md
+
+-   label: 三、Arduino 快速上手
+    file: Programming/Arduino_Gettingstart.md

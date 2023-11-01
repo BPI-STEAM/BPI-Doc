@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>Basic use case - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  >Bit Series</a><ul><li class=""><a  href="/WebBit_doc/en/">WebBit User Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">WebBit Development Manual</a></li>
+<li class=""><a  href="/Bit_S2_doc/en/">Bit-S2 User Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/">Centi-S3</a></li>
+<li class="active"><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/en/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >Accessories</a><ul><li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/en/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">news</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: English</a><ul><li class=""><a  href="/Leaf_S3_doc/zh_tw/MicroPython/Basic.html">中文 繁體</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/MicroPython/Basic.html">中文 简体</a></li>
+<li class="active"><a  href="/Leaf_S3_doc/en/MicroPython/Basic.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Enter keywords, separated by spaces</span>
+                                <span id="search_loading_hint">Loading, please wait...</span>
+                                <span id="search_download_err_hint">Failed to download the file, please refresh and try again or check the network</span>
+                                <span id="search_other_docs_result_hint">Results from other docs</span>
+                                <span id="search_curr_doc_result_hint">Current document search result</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">1. Unpacking Leaf-S3 development board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/Unboxing/Introduction.html"><span class="label">Introduction of Leaf-S3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/Unboxing/Gettingstart.html"><span class="label">get started quickly (for the first time, please see here)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">2. Code with MicroPython</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/MicroPython/Environment.html"><span class="label">MicroPython environment construction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/MicroPython/Firmware.html"><span class="label">Micropython firmware download and burning</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Leaf_S3_doc/en/MicroPython/Basic.html"><span class="label">Basic use case</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/MicroPython/ESPNOW.html"><span class="label">ESP-NOW use case</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">3. Code with Arduino</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/Arduino/Environment.html"><span class="label">Install and configure the environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/en/Arduino/Basic.html"><span class="label">basic function usage</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Basic use case</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Leaf_S3_doc/en/MicroPython/Basic.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p><a href="https://github.com/BPI-STEAM/BPI-Leaf-S3-Doc/tree/main/Example/MicroPython-zh/02.Use_Peripherals"  target="_blank">GitHub BPI-Leaf-S3 routines</a></p>
+</blockquote>
+<h2 id="Light-up-the-onboard-LED-lamp-bead">Light up the onboard LED lamp bead</h2>
+<p>After completing <a href="Environment.html"  >MicroPython runtime environment settings</a>, you can try programming immediately.</p>
+<p>Create a new main.py script file and enter the following code in it:</p>
+
+<pre class="language-py"><code class="language-py">from machine import Pin
+from neopixel import NeoPixel
+import time
+pin_48 = Pin(48)
+np = NeoPixel(pin_48, 1, bpp=3, timing=1)
+while True:
+     np[0] = (25,25,25)
+     np. write()
+     time. sleep_ms(250)
+     np[0] = (0,0,0)
+     np. write()
+     time. sleep_ms(250)
+</code></pre>
+<p>Save the file to the MicroPython device, click the &quot;Run&quot; button to make the onboard colored LED flash.</p>
+<p>Modify the data in the tuple on the right side of <code>np[0] = (25,25,25)</code> to change the color, which corresponds to the brightness levels of R, G, and B respectively. The setting range is 0-255, and the recommended range is 0-25. When the brightness is too high, please do not look directly at it for a long time!</p>
+<p><a href="https://docs.micropython.org/en/latest/library/neopixel.html"  target="_blank">neopixel — control of WS2812 / NeoPixel LEDs — MicroPython documentation</a></p>
+<h2 id="Make-the-lights-cycle-through-nine-colors">Make the lights cycle through nine colors</h2>
+
+<pre class="language-py"><code class="language-py">from machine import Pin
+from neopixel import NeoPixel
+import time
+
+pin_48 = Pin(48, Pin.OUT)
+np = NeoPixel(pin_48, 1, bpp=3, timing=1)
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+brightness = 0.1
+
+while True:
+     for i in color_list:
+         color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+         np[0] = color
+         np. write()
+         time. sleep(1)
+
+</code></pre>
+<h2 id="Full-color-LED-lamp-beads-cycle-display-rainbow-colors">Full-color LED lamp beads cycle display rainbow colors</h2>
+<p>Based on the previous section, we can go one step further and write a loop to automatically change the color of the lamp bead.</p>
+
+<pre class="language-py"><code class="language-py">from machine import Pin
+from neopixel import NeoPixel
+import time
+
+def rainbow(num=1,level=25,delay=100):
+     def write_all(num,delay,red,green,blue):
+         for j in range (num):
+             np[j] = (red,green,blue)
+         np. write()
+         time. sleep_ms(delay)
+
+     red,green,blue = level,0,0
+
+     rainbow_step_list2 = [(0,1,0),(-1,0,0),(0,0,1),(0,-1,0),(1,0,0),(0,0, -1)]
+
+     for step in rainbow_step_list2:
+         for i in range (level):
+             red+=step[0]
+             green+=step[1]
+             blue+=step[2]
+             write_all(num,delay,red,green,blue)
+
+
+
+np = NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)
+
+while True:
+     rainbow(num=1,level=25,delay=10)
+
+</code></pre>
+<p>This routine can be applied to ws2812 light strips of any length.</p>
+<p>Modify the first parameter in <code>NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)</code> to any GPIO pin that you want to connect the light strips in series.</p>
+<p>Modify the num parameter in <code>rainbow(num=1,level=25,delay=100)</code> to be the number of corresponding lamp beads on the light strip.</p>
+<p>Of course, we can also use for loop or while loop to make the color change pattern we want according to our own ideas.</p>
+<h2 id="Design-button-interrupt-program-to-control-colored-lights">Design button interrupt program to control colored lights</h2>
+<p>BPI-Leaf-S3 has two buttons, BOOT and RST, RST controls the hardware reset of the chip, and BOOT is connected to GPIO0, the circuit is shown in the figure below.</p>
+<p><img src="../assets/images/bpi-leaf-s3_boot_sch.png" alt="" /></p>
+<p>It can be seen that when the development board is powered on and working normally, when the BOOT button is not pressed, GPIO0 is connected to 3.3v with a resistor in series, and it is at a high potential at this time. When the BOOT button is pressed, GPIO0 will be directly grounded, and at this time it is a low potential. The ESP32-S3 chip can determine whether the button is pressed by detecting the potential of this GPIO pin.</p>
+<p><a href="https://docs.micropython.org/en/latest/library/machine.Pin.html#machine.Pin.irq"  target="_blank">MicroPython GPIO interrupt program machine.Pin.irq documentation</a></p>
+<p>In the program, by detecting the trigger mode of the GPIO interrupt, you can design a set of interrupt program that records the number of times the button is pressed, and control the color of the colored light by judging the number of times that the button has been pressed.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PQ2x4PayFPc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<pre class="language-python"><code class="language-python">from machine import Pin
+from neopixel import NeoPixel
+from array import array
+import time
+import micropython
+
+micropython.alloc_emergency_exception_buf(100)
+
+p_48 = Pin(48, Pin.OUT)
+np = NeoPixel(p_48, 1, bpp=3, timing=1)
+
+p0 = Pin(0,Pin.IN,Pin.PULL_UP)
+trig_locks = array('B',[0])
+trig_timeticks_list = array('L',[0,0])
+count = array('L',[0])
+
+def p0_irq(pin):
+     if pin.value()==0 and trig_locks[0]==0:
+         trig_timeticks_list[0]=time.ticks_ms()
+         trig_locks[0]=1
+     elif pin.value()==1 and trig_locks[0]==1:
+         trig_timeticks_list[1]=time.ticks_diff(time.ticks_ms(),trig_timeticks_list[0])
+         trig_locks[0]=0
+         if trig_timeticks_list[1] &gt;= 20:
+             count[0] = count[0] + 1
+             if count[0] &gt; 8:
+                 count[0] = 0
+
+p0.irq(handler=p0_irq, trigger= Pin.IRQ_FALLING | Pin.IRQ_RISING )
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+brightness = 0.1
+
+while True:
+     print (count)
+     i = color_list[count[0]]
+     color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+     np[0] = color
+     np. write()
+     time. sleep(0.1)
+</code></pre>
+<h2 id="PWM-Single-Color-LED-Breathing-Light">PWM Single Color LED Breathing Light</h2>
+<h3 id="External-Hardware-Requirements">External Hardware Requirements</h3>
+<p>A LED light that can work on 3.3v.</p>
+<h3 id="connection-method">connection method</h3>
+<p>The GPIO13 pin is used in the routine, and the positive pole of the LED light is connected to the GPIO13 pin, and the negative pole is connected to GND.</p>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin, PWM
+import time
+
+PWM_LED = PWM(Pin(13))
+PWM_LED.freq(1000)
+PWM_LED. duty(0)
+
+while True:
+     for i in range(0,1024,1):
+        PWM_LED. duty(i)
+        time. sleep_ms(2)
+     for i in range(1022,0,-1):
+        PWM_LED. duty(i)
+        time. sleep_ms(1)
+
+</code></pre>
+<h2 id="TB6612FNG-module-PWM-drive-motor">TB6612FNG module PWM drive motor</h2>
+<h3 id="External-hardware-requirements">External hardware requirements</h3>
+<p>A TB6612FNG module, a 3.3~5V DC motor.</p>
+<h3 id="connection-method">connection method</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">TB6612FNG</th>
+  <th style="text-align:center">BPI-Leaf-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">PWMA</td>
+  <td style="text-align:center">11</td>
+</tr>
+<tr>
+  <td style="text-align:center">AIN2</td>
+  <td style="text-align:center">13</td>
+</tr>
+<tr>
+  <td style="text-align:center">AIN1</td>
+  <td style="text-align:center">12</td>
+</tr>
+<tr>
+  <td style="text-align:center">STBY</td>
+  <td style="text-align:center">10</td>
+</tr>
+<tr>
+  <td style="text-align:center">VM</td>
+  <td style="text-align:center">5V</td>
+</tr>
+<tr>
+  <td style="text-align:center">VCC</td>
+  <td style="text-align:center">3.3V</td>
+</tr>
+<tr>
+  <td style="text-align:center">GND</td>
+  <td style="text-align:center">GND</td>
+</tr>
+<tr>
+  <td style="text-align:center">AO1</td>
+  <td style="text-align:center">Motor N pole</td>
+</tr>
+<tr>
+  <td style="text-align:center">AO2</td>
+  <td style="text-align:center">Motor S pole</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The connection sequence between AO1/AO2 and the motor can be exchanged arbitrarily to change the direction of rotation.</p>
+</blockquote>
+<h3 id="running-result">running result</h3>
+<p>The motor will start to rotate in one direction and gradually accelerate to the maximum speed achievable by the current current within 7 seconds, then gradually decelerate to stop within 5 seconds, then reverse the rotation and repeat the process.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3WXCZ1BsPNY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,PWM
+import time
+
+PWM_A = PWM(Pin(11)) #Set PWM output pin
+PWM_A.freq(20000) #Set PWM frequency
+PWM_A. duty(0) #Set PWM duty cycle
+AIN1 = Pin(12,Pin.OUT)
+AIN2 = Pin(13,Pin.OUT)
+STBY = Pin(10,Pin.OUT)
+STBY.on() #When STBY pin is at high level, TB6612FNG starts.
+
+def MOTOR_Forward():
+     AIN1.on()
+     AIN2.off()
+def MOTOR_Reverse():
+     AIN1.off()
+     AIN2.on()
+
+while True:
+     MOTOR_Forward()
+     #for cycle is used to control the PWM duty cycle change.
+     #The PWM duty cycle control precision is 10bit, ie 0~1023.
+     #Some motors require a certain PWM duty cycle to start.
+     for i in range(350,1024,1):
+        PWM_A. duty(i)
+        time. sleep_ms(10)
+     for i in range(1022,0,-1):
+        PWM_A. duty(i)
+        time. sleep_ms(5)
+
+     MOTOR_Reverse()
+     for i in range(350,1024,1):
+        PWM_A. duty(i)
+        time. sleep_ms(10)
+     for i in range(1022,0,-1):
+        PWM_A. duty(i)
+        time. sleep_ms(5)
+
+</code></pre>
+<h2 id="Use-ADC-to-detect-potentiometer-voltage">Use ADC to detect potentiometer voltage</h2>
+<h3 id="External-Hardware-Requirements">External Hardware Requirements</h3>
+<p>a potentiometer.</p>
+<p><img src="https://i.imgur.com/mnuHlMR.jpg" alt="" /></p>
+<h3 id="ESP32-S3-ADC">ESP32-S3 ADC</h3>
+<p>The ESP32-S3 chip integrates two <strong>ADC analog-to-digital converters</strong>, the measurement range is 0mV-3100mV, and the resolution is 12bit, that is, 0mV-3100mV is divided into 2^12=4096 levels, and each level is a digital quantity .</p>
+<p>The two ADC analog-to-digital converters each have 10 measurement channels, ADC1 is GPIO1 ~ 10, and ADC2 is GPIO11 ~ 20.</p>
+<h3 id="connection-method">connection method</h3>
+<p>GND is connected to GND, VCC is connected to 3V3, the S output terminal is connected to GPIO11 pin, and channel 1 of ADC2 is used for measurement.</p>
+<p>GPIO1~20 pins can be used as ADC input pins.</p>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC
+import time
+adc11 = ADC(Pin(11),atten=ADC.ATTN_11DB)
+#adc11 = ADC(Pin(11))
+#adc11.atten(ADC.ATTN_11DB)
+while True:
+     read=adc11.read()
+     read_u16 = adc11.read_u16()
+     read_uv = adc11.read_uv()
+     print(&quot;read={0},read_u16={1},read_uv={2}&quot;.format(read,read_u16,read_uv))
+     time. sleep_ms(100)
+</code></pre>
+<table>
+<thead>
+<tr>
+  <th>Attenuation value</th>
+  <th>Measurable input voltage range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ADC.ATTN_0DB</td>
+  <td>0 mV ~ 950 mV</td>
+</tr>
+<tr>
+  <td>ADC.ATTN_2_5DB</td>
+  <td>0 mV ~ 1250 mV</td>
+</tr>
+<tr>
+  <td>ADC.ATTN_6DB</td>
+  <td>0 mV ~ 1750 mV</td>
+</tr>
+<tr>
+  <td>ADC.ATTN_11DB</td>
+  <td>0 mV ~ 3100 mV</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><code>ADC(*, atten)</code> initializes the ADC channel of a GPIO pin, and you can choose to use <code>atten</code> to set the attenuation value, which controls the measurable input voltage range of the chip. If not set, it will be the default value <code>atten=ADC.ATTN_0DB</code> or the value set last time.</li>
+<li>You can modify the attenuation value through <code>ADC.atten()</code> after initializing an ADC channel.</li>
+<li><code>ADC.read()</code> reads the ADC and returns the read result. The ADC of the ESP32-S3 chip returns data with 12-bit precision.</li>
+<li><code>ADC.read_u16()</code> reads the ADC and returns 16-bit data.</li>
+<li><code>ADC.read_uv()</code> returns the calibrated input voltage in <code>uV</code> microvolts according to the characteristics of the ADC. Return values only have <code>mV</code> millivolt resolution (ie, will always be in multiples of 1000 microvolts).</li>
+</ol>
+<p>The WiFi function also uses ADC2, so trying to read analog values from ADC2's measurement channels GPIO11 ~ 20 while WiFi is active will throw an exception.</p>
+<p>It is recommended to use <code>ADC.read_uv()</code> to read the voltage value, which is a decimal constant returned after calibration according to the characteristics of the ADC analog-to-digital converter, which is more accurate than the other two reading methods. At the same time, it is also recommended to directly divide the operation when using: <code>ADC.read_uv()//1000</code> to get the data of <code>mV</code> millivolt resolution.</p>
+<p>Directly print out <code>ADC.read()</code> or <code>ADC.read_u16()</code> to get the decimal value, you can use the <code>hex()</code> function to convert the data type into hexadecimal, for example <code>hex(ADC.read() )</code>, or use the <code>bin()</code> function to convert the data type to binary.</p>
+<h2 id="Use-the-potentiometer-to-steplessly-adjust-the-brightness-of-the-colored-lights">Use the potentiometer to steplessly adjust the brightness of the colored lights</h2>
+<p>Building on the [Cycle Through Nine Colors] (#Cycle Through Nine Colors) section, you can use a potentiometer to control the brightness of the lights.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d3tm8aYNCx8?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC
+from neopixel import NeoPixel
+from array import array
+import time
+import micropython
+
+adc1 = ADC(Pin(1),atten=ADC.ATTN_11DB)
+
+micropython.alloc_emergency_exception_buf(100)
+
+p_48 = Pin(48, Pin.OUT)
+np = NeoPixel(p_48, 1, bpp=3, timing=1)
+
+p0 = Pin(0,Pin.IN,Pin.PULL_UP)
+trig_locks = array('B',[0])
+trig_timeticks_list = array('L',[0,0])
+count = array('L',[0])
+
+def p0_irq(pin):
+     if pin.value()==0 and trig_locks[0]==0:
+         trig_timeticks_list[0]=time.ticks_ms()
+         trig_locks[0]=1
+     elif pin.value()==1 and trig_locks[0]==1:
+         trig_timeticks_list[1]=time.ticks_diff(time.ticks_ms(),trig_timeticks_list[0])
+         trig_locks[0]=0
+         if trig_timeticks_list[1] &gt;= 20:
+             count[0] = count[0] + 1
+             if count[0] &gt; 8:
+                 count[0] = 0
+
+p0.irq(handler=p0_irq, trigger= Pin.IRQ_FALLING | Pin.IRQ_RISING )
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+
+while True:
+     adc1_read = adc1.read() # 12bit
+     adc1_read_mv = adc1.read_uv()/1000
+     adc1_read_u16 = adc1.read_u16() # 16bit
+     brightness = adc1_read/4095
+     i = color_list[count[0]]
+     color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+     np[0] = color
+     np. write()
+     print(adc1_read,adc1_read_u16,adc1_read_mv,&quot;mv&quot;,count[0],color)
+     time. sleep(0.1)
+</code></pre>
+<h2 id="Use-the-ADC-to-measure-the-potentiometer-to-adjust-the-motor-speed">Use the ADC to measure the potentiometer to adjust the motor speed</h2>
+<h3 id="External-Hardware-Requirements">External Hardware Requirements</h3>
+<ul>
+<li>Potentiometer x 1</li>
+<li>TB6612FNG motor driver module x 1</li>
+<li>5v DC motor x 1</li>
+<li>some connecting wires</li>
+</ul>
+<h3 id="connection-method">connection method</h3>
+<table>
+<thead>
+<tr>
+  <th>Potentiometer</th>
+  <th>BPI-Leaf-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>14</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th>TB6612FNG</th>
+  <th>BPI-Leaf-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>PWMA</td>
+  <td>11</td>
+</tr>
+<tr>
+  <td>AIN2</td>
+  <td>13</td>
+</tr>
+<tr>
+  <td>AIN1</td>
+  <td>12</td>
+</tr>
+<tr>
+  <td>STBY</td>
+  <td>10</td>
+</tr>
+<tr>
+  <td>VM</td>
+  <td>5V</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3.3V</td>
+</tr>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th>TB6612FNG</th>
+  <th>Motor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AO1</td>
+  <td>Motor N pole</td>
+</tr>
+<tr>
+  <td>AO2</td>
+  <td>Motor S pole</td>
+</tr>
+</tbody>
+</table>
+<h3 id="running-result">running result</h3>
+<p>The development board will output the voltage value read by the ADC in the REPL at an interval of 100ms, in mv, and the corresponding controlled PWM duty cycle.</p>
+<p>Adjust the potentiometer by hand to change its output voltage. The higher the voltage, the higher the PWM duty cycle output by the development board, and the faster the motor speed.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2_UeeeOBJwo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC,PWM
+import time
+
+adc14 = ADC(Pin(14),atten=ADC.ATTN_11DB)
+
+PWM_A = PWM(Pin(11)) #Set PWM output pin
+PWM_A.freq(20000) #Set PWM frequency
+PWM_A. duty(0) #Set PWM duty cycle
+AIN1 = Pin(12,Pin.OUT)
+AIN2 = Pin(13,Pin.OUT)
+STBY = Pin(10,Pin.OUT)
+AIN1.on() #MOTOR forward
+AIN2.off()
+STBY.on() #When STBY pin is at high level, TB6612FNG starts.
+
+while True:
+     read_mv=adc14.read_uv()//1000
+     if read_mv &lt;= 3000:
+         duty_set = int(1023/3000 * read_mv)
+     else:
+         duty_set = 1023
+     PWM_A. duty(duty_set)
+     Duty_cycle = int(duty_set/1023*100)
+     print(&quot;ADC_read={0}mv,Duty_cycle={1}%&quot;.format(read_mv,Duty_cycle))
+     time. sleep_ms(100)
+
+</code></pre>
+<h2 id="UART-serial-data-read-and-write">UART serial data read and write</h2>
+<h3 id="External-Hardware-Requirements">External Hardware Requirements</h3>
+<p>USB to UART module (CH340, CP2102, etc.).</p>
+<h3 id="Software-Requirements">Software Requirements</h3>
+<p>A serial port debugging software such as <a href="https://putty.org/"  target="_blank">PuTTY</a>, and the driver required for the USB to UART module.</p>
+<h3 id="Wiring-Reference">Wiring Reference</h3>
+<p>Connect the BPI-Leaf-S3 development board to the computer via USB, connect the RX of the USB to UART module to GPIO17 (TX of BPI-Leaf-S3), connect TX to GPIO18 (RX of BPI-Leaf-S3), and connect GND to GND (common ground) ), the USB interface of the USB to UART module is connected to the computer, which can be the same computer connected to the BPI-Leaf-S3, or two different computers.</p>
+<h3 id="running-result">running result</h3>
+<p>In the MicroPython REPL of the computer where the BPI-Leaf-S3 is located, the data received from the USB to UART module will be output every second.</p>
+<p>In the serial port debugging software window of the computer where the USB to UART module is located, it can be seen that a line of characters <code>Hello World!</code> sent by BPI-Leaf-S3 is output every second.</p>
+<h3 id="Code">Code</h3>
+
+<pre class="language-none"><code class="language-none">from machine import UART
+import time
+
+uart1 = UART(1, tx=17, rx=18)
+# Select the UART interface and specify the pins used by TX and RX
+
+uart1.init(115200, bits=8, parity=None, stop=1)
+# Initialization, set the baud rate, set the number of characters, set the parity, set the stop bit
+
+
+def test():
+     for i in range(50):
+         uart1.write('Hello World!') # write data
+         time. sleep(0.5)
+         print(uart1. read()) # read data
+         time. sleep(0.5)
+
+
+test()
+
+</code></pre>
+<h2 id="I%C2%B2C%2C-SSD1306-OLED-display">I²C, SSD1306 OLED display</h2>
+<p>The SSD1306 OLED screen module is a very common screen module that can use the I2C communication protocol. It can output a maximum image of 128*64 bits, no gray scale, and a single pixel only has two states of on and off. The control logic is relatively simple, which is very suitable for getting started. Learn the project of single-chip microcomputer driving screen display.</p>
+<h3 id="External-Hardware-Requirements">External Hardware Requirements</h3>
+<p>A SSD1306 OLED screen module with I²C interface, preferably 128*64 pixels.</p>
+<h3 id="Driver-library-download">Driver library download</h3>
+<p><a href="https://github.com/micropython/micropython-lib/blob/master/micropython/drivers/display/ssd1306/ssd1306.py"  target="_blank">micropython/ssd1306.py driver</a></p>
+<p>After downloading ssd1306.py locally, upload it to the MicroPython device.</p>
+<h3 id="Wiring-Reference">Wiring Reference</h3>
+<table>
+<thead>
+<tr>
+  <th>SSD1306 OLED</th>
+  <th>Board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>SCL</td>
+  <td>16</td>
+</tr>
+<tr>
+  <td>SDA</td>
+  <td>15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Scan-I%C2%B2C-address">Scan I²C address</h3>
+
+<pre class="language-py"><code class="language-py">from machine import I2C,Pin
+
+sda_pin=Pin(15,Pin. PULL_UP)
+scl_pin=Pin(16,Pin. PULL_UP)
+
+i2c = I2C(1,sda=sda_pin, scl=scl_pin, freq=400_000)
+i2c_list = i2c.scan()
+i2c_total=len(i2c_list)
+print(&quot;Total num:&quot;,i2c_total)
+j=0
+for i in i2c_list:
+     j=j+1
+     print(&quot;NO.{0},address:{1}&quot;.format(j,hex(i)))
+</code></pre>
+<p>Usually the address of SSD1306 is 0x3c.</p>
+<h3 id="Display-characters">Display characters</h3>
+<p><a href="https://docs.micropython.org/en/latest/library/framebuf.html#module-framebuf"  target="_blank">MicroPython framebuf documentation</a></p>
+
+<pre class="language-py"><code class="language-py">from machine import I2C, Pin
+from ssd1306 import SSD1306_I2C
+
+sda_pin = Pin(15, Pin.PULL_UP)
+scl_pin = Pin(16, Pin.PULL_UP)
+
+i2c = I2C(1, sda=sda_pin, scl=scl_pin, freq=800_000)
+print(i2c. scan())
+oled = SSD1306_I2C(128, 64, i2c, addr=0x3c)
+
+
+def display():
+     # The framebuf library only supports ASCII printing characters encoded as 32~126
+     oled.text(&quot; !\&quot;#$%&amp;'()*+,-./&quot;, 0, 0)
+     oled.text(&quot;0123456789:;&lt;=&gt;?&quot;, 0, 8)
+     oled.text(&quot;@ABCDEFGHIJKLMNO&quot;, 0, 16)
+     oled.text(&quot;PQRSTUVWXYZ[\]^_&quot;, 0, 24)
+     oled.text(&quot;`abcdefghijklmno&quot;, 0, 32)
+     oled.text(&quot;pqrstuvwxyz{|}~&quot;, 0, 40)
+     oled. show()
+
+
+def testAscii():
+     # The return value of chr() is the ASCII character corresponding to the current integer
+     Ascii = ''
+     for i in range(32, 127):
+         Ascii = Ascii + chr(i)
+     for i in range(128, 256):
+         Ascii = Ascii + chr(i)
+     return Ascii
+
+
+def display_Ascii():
+     # The framebuf library only supports ASCII printing characters encoded as 32~126
+     oled.text(testAscii()[0:16], 0, 0)
+     oled.text(testAscii()[16:32], 0, 8)
+     oled.text(testAscii()[32:48], 0, 16)
+     oled.text(testAscii()[48:64], 0, 24)
+     oled.text(testAscii()[64:80], 0, 32)
+     oled.text(testAscii()[80:95], 0, 40)
+     oled. show()
+
+
+if __name__ == &quot;__main__&quot;:
+     display()
+     # print(testAscii())
+     # display_Ascii()
+
+# ASCII printing characters (character encoding: 32-127)
+# 32~126 (95 in total) are characters: 32 is a space, among which 48~57 are ten Arabic numerals from 0 to 9,
+# 65～90 are 26 uppercase English letters,
+# 97~122 are 26 lowercase English letters,
+# The rest are some punctuation marks, operation symbols, etc.
+# The 127th character represents the delete command on the keyboard.
+# ASCII extension code (character encoding: 128-255)
+# The last 128 are called extended ASCII codes.
+# Many x86-based systems support the use of extended (or &quot;high&quot;) ASCII.
+# The extended ASCII code allows the 8th bit of each character
+# to be used to determine additional 128 special symbol characters, foreign language letters and graphic symbols.
+
+</code></pre>
+<h2 id="OLED-display-potentiometer-voltage-and-real-time-progress-bar">OLED display potentiometer voltage and real-time progress bar</h2>
+<p>Continue to use the method of using the ADC to detect the voltage of the potentiometer in the chapter [Use the potentiometer to adjust the brightness of the colored lamp steplessly] (#Use the potentiometer steplessly adjust the brightness of the colored lamp) to design an OLED screen to display the potentiometer voltage and real-time progress Article procedure.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I4F8jw2MK1k?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="Wiring-Reference">Wiring Reference</h3>
+<table>
+<thead>
+<tr>
+  <th>Potentiometer</th>
+  <th>Board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>GPIO1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th>SSD1306 OLED</th>
+  <th>Board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>SCL</td>
+  <td>16</td>
+</tr>
+<tr>
+  <td>SDA</td>
+  <td>15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC,I2C
+from ssd1306 import SSD1306_I2C
+import time
+
+adc1 = ADC(Pin(1),atten=ADC.ATTN_11DB)
+
+sda_pin=Pin(15,Pin. PULL_UP)
+scl_pin=Pin(16,Pin. PULL_UP)
+
+i2c = I2C(1,sda=sda_pin, scl=scl_pin, freq=800_000)
+print(i2c. scan())
+oled = SSD1306_I2C(128, 64, i2c, addr=0x3c)
+
+#Init, white background
+oled.fill(1)
+oled.rect(0,32,128,10,0)
+
+while True:
+     #Read ADC
+     adc1_read = adc1.read() # 12bit
+     adc1_read_mv = adc1.read_uv()//1000
+     adc1_read_u16 = adc1.read_u16() # 16bit
+
+     #Set progress bar
+     bar_width = round (adc1_read / 4095 * 128)
+     oled.fill_rect(bar_width,33,128-bar_width,8,0)
+     oled.fill_rect(0,33,bar_width,8,1)
+
+     #Set ADC text, centered
+     text_adc1 = str(adc1_read_mv) + &quot;mV&quot;
+     start_x_text_adc1 = 64 - len(text_adc1)*4
+     oled.fill_rect(36,24,56,8,1)
+     oled.text(text_adc1,start_x_text_adc1,24,0)
+
+     #Show
+     oled. show()
+
+     print(adc1_read, adc1_read_u16, adc1_read_mv,&quot;mv&quot;, bar_width,&quot;width&quot;)
+     time. sleep(0.05)
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Leaf_S3_doc/en/MicroPython/Firmware.html">
+                            <span class="icon"></span>
+                            <span class="label">Micropython firmware download and burning</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Leaf_S3_doc/en/MicroPython/ESPNOW.html">
+                            <span class="label">ESP-NOW use case</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Link</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/en_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">Taobao</a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">Source file of this website</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source file</a></li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@banana-pi.com (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@banana-pi.com (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>Control the motors by Bluetooth - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  >Bit Series</a><ul><li class=""><a  href="/WebBit_doc/en/">WebBit User Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">WebBit Development Manual</a></li>
+<li class=""><a  href="/Bit_S2_doc/en/">Bit-S2 User Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/en/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >AccessoriesTriode-Car</a><ul><li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class="active"><a  href="/Triode-Car/en/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">news</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: English</a><ul><li class=""><a  href="/Triode-Car/zh_tw/microbit_tutorial/bluetooth_control.html">中文 繁體</a></li>
+<li class=""><a  href="/Triode-Car/zh/microbit_tutorial/bluetooth_control.html">中文 简体</a></li>
+<li class="active"><a  href="/Triode-Car/en/microbit_tutorial/bluetooth_control.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Enter keywords, separated by spaces</span>
+                                <span id="search_loading_hint">Loading, please wait...</span>
+                                <span id="search_download_err_hint">Failed to download the file, please refresh and try again or check the network</span>
+                                <span id="search_other_docs_result_hint">Results from other docs</span>
+                                <span id="search_curr_doc_result_hint">Current document search result</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Triode-Car/en/introduction/hardware.html"><span class="label">Hardware introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/hardware/analysis&calibrate.html"><span class="label">Hardware analysis and calibration</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">micro:bit tutorial</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/first_meeting.html"><span class="label">First meeting with micro:bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/new_project.html"><span class="label">Create MakeCode project</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/import_extension.html"><span class="label">Import extension</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/control_motor.html"><span class="label">Use buttons to control the motors</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/control_motor2.html"><span class="label">Adjust motors speed</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/read_LDR.html"><span class="label">Collect the signals</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/radio_control.html"><span class="label">Control the motors by radio</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Triode-Car/en/microbit_tutorial/bluetooth_control.html"><span class="label">Control the motors by Bluetooth</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/LDR_calibration.html"><span class="label">Calibration line detection circuit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/en/microbit_tutorial/Line_Follower.html"><span class="label">Line Tracking</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Control the motors by Bluetooth</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Triode-Car/en/microbit_tutorial/bluetooth_control.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="Introduce">Introduce</h2>
+<p>The bluetooth feature can be enabled through MakeCode extensions, we can control the micro: bit with our smartphones through certain applications.</p>
+<ul>
+<li><p>iOS users:<a href="https://apps.apple.com/cn/app/micro-bit/id1092687276"  target="_blank">Micro:bit App on App Store</a></p>
+</li>
+<li><p>Android users:<a href="https://github.com/microbit-foundation/microbit-blue/raw/master/releases/ble_demo_v1_5_4.apk"  target="_blank">Microbit-blue GitHub link</a>&amp;<a href="https://play.google.com/store/apps/details?id=com.kitronik.blemove"  target="_blank">Kitronik Move on Google Play Store</a></p>
+</li>
+</ul>
+<blockquote>
+<p>There is an official release of the Micro: bit App on both the iOS App Store and Android's Google Play Store, however, the iOS version has support for bluetooth connection, whereas the Google Play store's does not. This is why we require third party apps on Android devices that supports bluetooth connection.</p>
+</blockquote>
+<h2 id="Bluetooth-pairing-process-and-notes%3A">Bluetooth pairing process and notes:</h2>
+<ul>
+<li>In the MakeCode editor, open the extensions on the bottom of advanced tab, click on the bluetooth extension icon to apply.Bluetooth and Radio extensions cannot coexist, choosing bluetooth will automatically remove radio extension.</li>
+</ul>
+<div align=center>
+<img src="../assets/Makecode_bluetooth_extension.jpg" width="200"/>
+</div>
+<ul>
+<li>When pairing the micro: bit with android third-party app, one could turn on &quot;Passkey pairing: Paring requires 6 digit key to pair.&quot; option in Project settings.</li>
+<li>To enter pairing mode, connect micro: bit to power, press reset button once while holding A+B button.</li>
+</ul>
+<p>Do NOT let go of A+B buttons while the progress bar is running, it would interrupt the pairing process and one would need to start over.</p>
+<ul>
+<li>Android devices need to turn on GPS and bluetooth to have a stable connection.</li>
+<li>On Android devices, navigate to bluetooth settings, find and pair with the micro: bit. Once the pairing process starts, micro: bit will hint to press button A once, then it would scroll a 6 digit pairing code. Enter the code on the Andriod device to complete the pairing process.</li>
+<li>Press the reset button on the Micro: bit after pairing to restart.</li>
+<li>iOS devices does not require to enter bluetooth settings. To pair with the micro: bit, please follow the pairing instructions in the official micro: bit app.</li>
+</ul>
+<h2 id="Example-Blocks">Example Blocks</h2>
+<div align=center>
+<img src="../assets/TriodeCar_bluetooth_control_1.png" width="500"/>
+</div>
+<p><a href="https://github.com/Wind-stormger/Makecode/blob/master/microbit-Triode-car_bluetooth_control_1.hex"  target="_blank">Example project file on Github</a></p>
+<blockquote>
+<p>After the project file is downloaded locally, it can be imported into MakeCode for viewing and re-editing, or it can be burned directly to micro:bit via USB to run.</p>
+</blockquote>
+<h2 id="Design-description">Design description</h2>
+<p>When paired successfully with bluetooth, display a red heart, whereas a disconnection would display an &quot;X&quot; symbol. Press the buttons inside the app to control the Triode-Car wirelessly. Press button A to go forward, C to turn left, and D to turn right, release the buttons to stop.</p>
+<p>The &quot;on event from()with value()&quot; block can be found in the Control tab in Makecode.</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Triode-Car/en/microbit_tutorial/radio_control.html">
+                            <span class="icon"></span>
+                            <span class="label">Control the motors by radio</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Triode-Car/en/microbit_tutorial/LDR_calibration.html">
+                            <span class="label">Calibration line detection circuit</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Link</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/en_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">Taobao</a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">Source file of this website</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source file</a></li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@banana-pi.com (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@banana-pi.com (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

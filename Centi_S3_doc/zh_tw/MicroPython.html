@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh_tw/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh_tw/">首頁</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/">WebBit使用手冊</a></li>
+<li class=""><a  href="/WebBit_dev/zh_tw/">WebBit開發手冊</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh_tw/">Bit-S2使用手冊</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh_tw/">WebAI</a></li>
+<li class="active"><a  href="/Centi_S3_doc/zh_tw/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh_tw/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh_tw/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh_tw/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh_tw/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh_tw/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">動態</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 繁體</a><ul><li class="active"><a  href="/Centi_S3_doc/zh_tw/MicroPython.html">中文 繁體</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/MicroPython.html">中文 简体</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/MicroPython.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">輸入關鍵詞，多關鍵詞空格隔開</span>
+                                <span id="search_loading_hint">正在加載，請稍候。。。</span>
+                                <span id="search_download_err_hint">下載文件失敗，請刷新重試或檢查網絡</span>
+                                <span id="search_other_docs_result_hint">來自其它文檔的結果</span>
+                                <span id="search_curr_doc_result_hint">當前文檔搜索結果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh_tw/index.html"><span class="label">一、Centi-S3 主頁</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Centi_S3_doc/zh_tw/MicroPython.html"><span class="label">二、使用 MicroPython 快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh_tw/Arduino.html"><span class="label">三、使用 Arduino 快速上手</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1></h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Centi_S3_doc/zh_tw/MicroPython.md" target="_blank">
+                                    編輯本頁
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E4%BB%80%E9%BA%BC%E6%98%AF-MicroPython%EF%BC%9F">什麼是 MicroPython？</h2>
+<p><img src="assets/images/Mircopython.png" alt="" /></p>
+<p><a href="https://micropython.org/"  target="_blank">MicroPython</a> 是Python 3程式設計語言的精實高效實現，包括Python標準庫的一小部分，並且經過優化，可在微控制器和有限的硬體資源中運行。</p>
+<p>由<a href="https://dpgeorge.net/"  target="_blank">Damien P. George</a>）於2013年眾籌開源。</p>
+<p>它與使用C程式開發微控制器最明顯的差异性，就是驗證程式碼時無需漫長的編譯。</p>
+<p>使用串口通信軟件，通過REPL（read-eval-print-loop）輸入命令來控制微控制器，和Python的REPL一樣。</p>
+<p>也可使用一些工具將python腳本檔案上傳到微控制器內運行。</p>
+<p>它對Python 3的實現，包括了支持多執行緒的_ thread庫，編寫併發程式碼的asyncio庫。</p>
+<p>它盡可能與普通Python相容，允許您輕鬆地將程式碼從案頭端移植到微控制器。</p>
+<p>同時它還具備一些特定用於微控制器的庫，以便充分利用微控制器晶片內的硬體功能，例如計时器，硬體中斷，WiFi等，這取決於具體的硬體。</p>
+<p>在具備上述特性的同時，它的硬體開銷很少，最低只需256k的程式碼空間和16k的RAM即可運行。</p>
+<p>如果你瞭解Python，很大程度上你就已經瞭解MicroPython了。</p>
+<p>在另一方面，你深入地學習MicroPython，也能提升你對Python的理解。</p>
+<h2 id="%E9%85%8D%E7%BD%AE%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83">配置開發環境</h2>
+<h3 id="%E7%B3%BB%E7%B5%B1%E7%92%B0%E5%A2%83%E9%9C%80%E6%B1%82">系統環境需求</h3>
+<p>支持在 Windows 10、Windows 11，MacOS，Ubuntu 或其他 Linux 桌面操作系統中開發。</p>
+<p>本文所有的應用示例基於 Windows 10 操作系統，其他操作系統也可參考使用。</p>
+<h3 id="%E5%AE%89%E8%A3%9DPython%E7%92%B0%E5%A2%83">安裝Python環境</h3>
+<p>打開<a href="https://www.python.org/"  target="_blank">Python官網</a> 。</p>
+<p>對於Windows 系統來說，最便捷的安裝包下載方法就是在官網首頁點擊如下圖所示的圖標進行下載。</p>
+<p><img src="assets/images/Micropython_operating_env_1.png" alt="" /></p>
+<p>其他操作系統或是其他發行版本則可以在 Downloads 選項欄中進行選擇。</p>
+<p>建議使用python 3.7以上的版本。</p>
+<p>開始安裝時一定要記得勾選Add Python 3.x to PATH，這樣可以免除再手動添加進PATH。</p>
+<p><img src="assets/images/Micropython_operating_env_2.png" alt="" /></p>
+<p>按照安裝提示逐步操作即可順利完成安裝 。</p>
+<h3 id="%E5%AE%89%E8%A3%9Dmpremote%E5%B7%A5%E5%85%B7">安裝mpremote工具</h3>
+<p>MicroPython 開源社區現已推出一款開發輔助工具：mpremote ，我們可以通過它與開發板建立串口通信，使用REPL，管理開發板上的檔案系統，它還具有 mount 和 mip 功能，將在後續章節詳述（準備中）。</p>
+<p>安裝完Python環境後，即可在終端使用pip安裝mpremote了。</p>
+<p>在Windows系統中打開PowerShell，其他操作系統則打開對應的終端，輸入以下命令安裝 mpremote。</p>
+
+<pre class="language-none"><code class="language-none">pip install mpremote
+</code></pre>
+<h3 id="%E5%AE%89%E8%A3%9Dmpbridge%E5%B7%A5%E5%85%B7">安裝mpbridge工具</h3>
+<p>mpbridge 是基於 mpremote 開發的CLI工具，主要提供自動化同步檔案的功能，提高開發效率。</p>
+<p>在終端中輸入以下命令安裝 mpbridge。</p>
+
+<pre class="language-none"><code class="language-none">pip install mpbridge
+</code></pre>
+<h3 id="%E4%BB%BB%E9%81%B8%E4%B8%80%E5%80%8B%E7%B7%A8%E8%BC%AF%E5%99%A8">任選一個編輯器</h3>
+<p>MicroPython的使用並不依賴於特定的開發工具，只要能與開發板建立串口通信，即可獲得 MicroPython的交互式解釋器（REPL）。</p>
+<p>很純粹的說，我們基本只需要一個文本編輯器來編輯代碼，然後通過mpremote工具或mpbridge工具上傳我們的 .py 腳本檔案或其他檔案到開發板中即可。</p>
+<p>對於具體的編輯器，綜合基本的代碼補全、語法高亮、集成終端以及輕量化、多平台適配的需求，我推薦使用 Visual Studio Code (VScode) ，它也可能已經是你最熟悉的工具之一了。</p>
+<p><a href="https://code.visualstudio.com/"  target="_blank">Visual Studio Code 官網地址</a></p>
+<p>可能需要參考的VScode文檔：</p>
+<ul>
+<li><a href="https://www.runoob.com/w3cnote/vscode-tutorial.html?ivk_sa=1025883i"  target="_blank">VScode 中文簡易教程</a></li>
+<li><a href="https://code.visualstudio.com/docs"  target="_blank">Visual Studio Code 官方文檔</a><ul>
+<li><a href="https://code.visualstudio.com/docs/setup/setup-overview"  target="_blank">基本安裝，設置</a></li>
+<li><a href="https://code.visualstudio.com/docs/getstarted/locales"  target="_blank">設置顯示語言</a></li>
+<li><a href="https://code.visualstudio.com/docs/terminal/basics"  target="_blank">使用集成終端</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>官方文檔為英文，中文用戶可以使用網頁在線翻譯功能輔助閱覽，<a href="https://support.microsoft.com/zh-cn/topic/%E5%9C%A8microsoft-edge%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E4%BD%BF%E7%94%A8microsoft-%E7%BF%BB%E8%AF%91%E5%B7%A5%E5%85%B7-4ad1c6cb-01a4-4227-be9d-a81e127fcb0b"  target="_blank">Edge瀏覽器的在線翻譯使用方法</a>。</p>
+</blockquote>
+<p>All in Web 人士，極簡主義人士，試試<a href="https://vscode.dev/"  target="_blank">Web端的VScode</a>，本地操作系統開個終端使用mpremote或mpbridge同步檔案，MicroPython REPL。</p>
+<p>其他推薦的編輯器：</p>
+<ul>
+<li><a href="https://www.jetbrains.com/pycharm/download/#section=windows"  target="_blank">PyCharm 社區版</a> ，免費的社區版，夠用，還帶有micropython特殊庫的代碼補全，雖然不完整且很久沒更新了。</li>
+<li><a href="https://jupyter.org/"  target="_blank">Jupyter</a> 同樣是Web端的編輯器，專業性更強，更python，還支持網頁終端。</li>
+<li><a href="https://github.com/thonny/thonny/releases"  target="_blank">Thonny</a> ，樹莓派基金會贊助過的開源圖形化python編輯器，Raspberry Pi OS（Raspbian）出廠集成，樹莓派用戶入門首選。</li>
+</ul>
+<h2 id="%E7%87%92%E9%8C%84%E5%9B%BA%E4%BB%B6">燒錄固件</h2>
+<blockquote>
+<p>BPI-Centi-S3 出廠已燒錄了具備st7789並口驅動的MicroPython固件，通常可跳過此步。</p>
+</blockquote>
+<p>如果你在開發產生意外的惡性BUG使開發板無法正常啟動，或其他原因導致固件被擦除或損壞，你可以從下面的 github 鏈接中找到已編譯好的固件自行燒錄。</p>
+<p><a href="https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_st7789s3_firmware"  target="_blank">BPI-Centi-S3 micropython固件，github存檔</a></p>
+<h3 id="%E5%AE%89%E8%A3%9Desptool%E5%B7%A5%E5%85%B7">安裝esptool工具</h3>
+<p>在終端中輸入以下命令安裝 esptool。</p>
+
+<pre class="language-none"><code class="language-none">pip install esptool
+</code></pre>
+<h3 id="esptool%E5%91%BD%E4%BB%A4">esptool命令</h3>
+<blockquote>
+<p>所有對flash的操作都是不可逆的，注意備份有價值的數據。</p>
+</blockquote>
+<ul>
+<li>擦除flash</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">python -m esptool --chip esp32s3 --port COM1 --baud 460800 erase_flash
+</code></pre>
+<ul>
+<li>寫入flash</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">python -m esptool --chip esp32s3 --port COM1 --baud 460800 --before=usb_reset --after=no_reset write_flash 0x0 esp32s3_micropython_qspram_st7789s3_idf4.4.3.bin
+</code></pre>
+<h2 id="%E9%80%A3%E6%8E%A5%E9%96%8B%E7%99%BC%E6%9D%BF">連接開發板</h2>
+<h3 id="%E5%9C%A8%E7%B5%82%E7%AB%AF%E4%B8%AD%E4%BD%BF%E7%94%A8mpremote">在終端中使用mpremote</h3>
+<p>點擊VScode的Terminal/終端，新建一個終端窗口後即可在終端輸入命令。</p>
+<p>如果使用的是其他編輯器，或是僅使用系統本地終端，亦可直接使用。</p>
+<p><img src="assets/images/vscode_terminal.png" alt="" /></p>
+<p><code>--help</code>可查看所有mpremote的可用命令:</p>
+
+<pre class="language-none"><code class="language-none">mpremote --help
+</code></pre>
+<p>列出所有串行接口的命令：</p>
+
+<pre class="language-none"><code class="language-none">mpremote connect list
+</code></pre>
+<p>連接開發板所在的串行接口並進入MicroPython REPL：</p>
+
+<pre class="language-none"><code class="language-none">mpremote connect COM1 repl
+</code></pre>
+<p><code>COM1</code>是Windows系統中的串行接口的格式，在Linux中可能是<code>/dev/ttyACM0</code>，在MacOS中可能是<code>/dev/cu.usbmodem01</code>。</p>
+<p>進入REPL後，可以輸入MicroPython代碼使其在開發板中運行。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt;print(&quot;Hello&quot;)
+</code></pre>
+<p>退出REPL的方法是鍵盤快捷鍵<code>ctrl + ]</code>。</p>
+<h3 id="%E5%9C%A8%E7%B5%82%E7%AB%AF%E4%B8%AD%E4%BD%BF%E7%94%A8mpbridge">在終端中使用mpbridge</h3>
+<p>mpbridge工具最主要的功能就是將本地一個檔案夾與開發板中的檔案系統同步，所以我們首先就是確定要同步的檔案夾。</p>
+<p>在PC本地某個你認為合適的位置新建一個檔案夾，或是選擇一個檔案夾，然後在VScode中打開此檔案夾。</p>
+<p><img src="assets/images/vscode_open_folder.png" alt="" /></p>
+<p><img src="assets/images/vscode_open_folder2.png" alt="" /></p>
+<p>然後在VScode打開一個終端，即可在終端中進入此檔案夾所在的路徑。</p>
+<p><img src="assets/images/vscode_terminal2.png" alt="" /></p>
+<p>如果你使用的是默認終端，則可使用 <code>cd [目標檔案夾絕對路徑]</code>進入此路徑。</p>
+
+<pre class="language-sh"><code class="language-sh">PS C:\Users\Wind&gt; cd D:\temp\temp
+PS D:\temp\temp&gt;
+</code></pre>
+<p>使用mpbridge工具列出所有串行接口的命令：</p>
+
+<pre class="language-none"><code class="language-none">mpbridge list
+</code></pre>
+<p>使用mpbridge工具同步檔案，命令如下，注意將<code>COM1</code>修改為開發板實際對應的串口：</p>
+
+<pre class="language-none"><code class="language-none">mpbridge dev --auto-reset hard COM1
+</code></pre>
+<p><img src="assets/images/vscode_terminal_mpbridge.png" alt="" /></p>
+<p>當同步完成後，會提示按<code>Enter</code>鍵，按下後開發板硬件復位，終端將進入MicroPython REPL。</p>
+<p>按鍵盤快捷鍵<code>ctrl + ]</code>退出REPL後，會立即再次同步一次檔案，此時可選擇按<code>ctrl + C</code>退出。</p>
+<p>每次同步，mpbridge都將自動進行這些檔案操作：</p>
+<ol>
+<li>將存在於本地但不存在於設備中的檔案推送到設備中。</li>
+<li>將不存在於本地但存在於設備中的檔案拉取到本地。</li>
+<li>對同時存在於本地和設備中的檔案進行哈希檢查，將不同的檔案從本地推送到設備中。</li>
+</ol>
+<h2 id="%E5%9F%BA%E7%A4%8E%E7%94%A8%E4%BE%8B">基礎用例</h2>
+<h3 id="%E8%8D%A7%E5%B9%95">荧幕</h3>
+<p>BPI-Centi-S3正面有一塊1.9英寸TFT LCD彩屏，分辯率是170*320，驅動晶片為ST7789V3，採用8bit平行介面與ESP32S3晶片連接。</p>
+<p>出廠固件中已集成ST7789 C模塊驅動，來自於：</p>
+<p><a href="https://github.com/russhughes/st7789s3_esp_lcd"  target="_blank">russhughes/st7789s3_esp_lcd</a> , The MIT License</p>
+<p>感謝russhughes的開源，在他的GitHub README中可以查閱編譯方法和所有API介面。</p>
+<h4 id="%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%8C%E9%BB%9E%E4%BA%AE%E8%8D%A7%E5%B9%95">初始化，點亮荧幕</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YANtoaNBQw4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p>在本地檔案夾中創建一個 main.py ，將下方代碼拷貝進去，保存檔案。</p>
+<blockquote>
+<p>使用 <code>ctrl + S</code> 快捷鍵即可保存當前窗口中的檔案。</p>
+</blockquote>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+from machine import freq
+
+
+def config(rotation=0, options=0):
+
+    return st7789.ST7789(
+        170,
+        320,
+        15, 14, 13, 12, 11, 10, 9, 8,
+        wr=6,
+        rd=7,
+        reset=3,
+        dc=5,
+        cs=4,
+        backlight=2,
+        power=2,
+        rotation=rotation,
+        options=options)
+
+
+freq(240_000_000)  # Set esp32s3 cpu frequency to 240MHz
+tft = config(rotation=1, options=0)
+tft.init() # Initialize
+tft.fill(st7789.RED) 
+tft.show(True)
+tft.deinit()  # Deinitialize the display or it will cause a crash on the next run
+
+</code></pre>
+<p>使用mpbridge同步檔案到開發板。</p>
+<blockquote>
+<p><a href="#%E5%AE%89%E8%A3%9Dmpbridge%E5%B7%A5%E5%85%B7"  >安裝mpbridge</a> | <a href="#%E5%9C%A8%E7%B5%82%E7%AB%AF%E4%B8%AD%E4%BD%BF%E7%94%A8mpbridge"  >使用mpbridge</a></p>
+</blockquote>
+<p>同步完成後，BPI-Centi-S3 荧幕將全屏顯示紅色。</p>
+<h4 id="%E5%96%AE%E7%8D%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%AA%94%E6%A1%88">單獨的配置檔案</h4>
+<p>我們可以將初始化配置ST7789的代碼單獨置於一個python腳本檔案中，然後在其他地方任意導入使用，包括在REPL中，這可以增強代碼復用性。</p>
+<p>新建一個單獨的配置檔案 tft_config.py ，將下方代碼拷貝進去，保存檔案。</p>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+from machine import freq
+
+
+def config(rotation=0, options=0):
+
+    return st7789.ST7789(
+        170,
+        320,
+        15, 14, 13, 12, 11, 10, 9, 8,
+        wr=6,
+        rd=7,
+        reset=3,
+        dc=5,
+        cs=4,
+        backlight=2,
+        power=2,
+        rotation=rotation,
+        options=options)
+
+freq(240_000_000)  # Set esp32s3 cpu frequency to 240MHz
+
+</code></pre>
+<p>將 main.py 修改為如下代碼：</p>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+import tft_config
+
+tft = tft_config.config(rotation=1, options=0)
+tft.init()
+tft.fill(st7789.RED) 
+tft.show(True)
+tft.deinit()  # Deinitialize the display or it will cause a crash on the next run
+
+</code></pre>
+<p>使用mpbridge同步檔案到開發板。</p>
+<blockquote>
+<p><a href="#%E5%AE%89%E8%A3%9Dmpbridge%E5%B7%A5%E5%85%B7"  >安裝mpbridge</a> | <a href="#%E5%9C%A8%E7%B5%82%E7%AB%AF%E4%B8%AD%E4%BD%BF%E7%94%A8mpbridge"  >使用mpbridge</a></p>
+</blockquote>
+<p>後續我們就可以像這樣簡單的導入然後初始化荧幕了。</p>
+<h4 id="%E9%A1%AF%E7%A4%BAjpg%E5%9C%96%E7%89%87">顯示jpg圖片</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jR3LpkfWWy8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p>sst7789驅動庫內有一個顯示jpg格式圖片的方法，這對於初次上手學習的我們非常友好。</p>
+<h5 id="jpg-%E6%96%B9%E6%B3%95">jpg 方法</h5>
+<p><code>jpg(jpg_filename, x, y)</code></p>
+<p>在給定的 x 和 y 坐標處繪製一個 JPG 檔案，坐標為圖片的左上角。</p>
+<p>此方法需要額外的 3100 字節內存用於其工作緩衝區。</p>
+<h5 id="%E6%BA%96%E5%82%99%E5%90%88%E9%81%A9%E5%A4%A7%E5%B0%8F%E7%9A%84jpg%E6%AA%94%E6%A1%88">準備合適大小的jpg檔案</h5>
+<p>任選自己喜歡的圖片，裁切為長320像素，寬170像素，或小於此尺寸的圖片。</p>
+<p>圖片編輯工具在各種智能終端設備中和各種操作系統中都有大量可選的，可任意使用自己喜歡的工具來編輯。</p>
+<p>這裡隨意推荐一個能免費使用的 Web 在線圖片編輯工具，<a href="https://pixlr.com/cn/x/"  target="_blank">Pixlr X</a> 。</p>
+<p>將裁切好的圖片放入我們本地的MicroPython工作檔案夾中，重命名為 <code>pic_1.jpg</code> ，上傳圖片到MicroPython設備中的方法參考 <a href="#%E5%9C%A8%E7%B5%82%E7%AB%AF%E4%B8%AD%E4%BD%BF%E7%94%A8mpbridge"  >在終端中使用mpbridge</a> 。</p>
+<p>這裡已準備一張已裁切好尺寸的圖片。</p>
+<p><img src="assets/images/pic_1.jpg" alt="" /></p>
+<h5 id="jpg-%E6%96%B9%E6%B3%95%E7%94%A8%E4%BE%8B">jpg 方法用例</h5>
+<p>在 main.py 腳本中使用 jpg 方法。</p>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+import tft_config
+import gc
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        tft.jpg(&quot;pic_1.jpg&quot;, 0, 0)
+        tft.show()
+        gc.collect()
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print(&quot;tft deinit&quot;)
+
+
+main()
+
+</code></pre>
+<p>上傳main.py後，將設備復位，即可在荧幕上看到圖片。</p>
+<p>我們再多準備幾個合適大小的jpg檔案，即可設計一個迴圈，像播放幻燈片一樣在BPI-Centi-S3的荧幕上輪播圖片了。</p>
+<p><img src="assets/images/pic_2.jpg" alt="" /><br />
+<img src="assets/images/pic_3.jpg" alt="" /><br />
+<img src="assets/images/pic_4.jpg" alt="" /><br />
+<img src="assets/images/pic_5.jpg" alt="" /></p>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+import tft_config
+import gc
+import time
+
+pic_list = [&quot;pic_1.jpg&quot;, &quot;pic_2.jpg&quot;, &quot;pic_3.jpg&quot;, &quot;pic_4.jpg&quot;, &quot;pic_5.jpg&quot;]
+
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        while True:
+            for pic in pic_list:
+                tft.jpg(pic, 0, 0)
+                tft.show()
+                gc.collect()
+                time.sleep(1)
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print(&quot;tft deinit&quot;)
+
+
+main()
+
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Centi_S3_doc/zh_tw/index.html">
+                            <span class="icon"></span>
+                            <span class="label">一、Centi-S3 主頁</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Centi_S3_doc/zh_tw/Arduino.html">
+                            <span class="label">三、使用 Arduino 快速上手</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>鏈接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘寶</a></li>
+</ul>
+</li>
+<li><a>源碼</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本網站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>聯繫我們</a><ul><li><a>電話: +86 0755-26475332</a>
+</li>
+<li><a>商業支持: sales@banana-pi.com (銷售部）</a>
+</li>
+<li><a>技術支持: support@banana-pi.com (技術部）</a>
+</li>
+<li><a>地址: 廣東省松山湖高新技術產業開發區融易大廈 7 樓</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

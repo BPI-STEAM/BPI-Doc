@@ -1,0 +1,39 @@
+items:
+-   label: 1. Centi-S3 Homepage
+    file: README.md
+-   label: Getting Started Guide
+    file: getting-started.md 
+-   label: 2. Code with MicroPython
+    items:
+    -   label: What is MicroPython?
+        file: MicroPython/What_is_MicroPython.md
+    -   label: Install and configure the environment
+        file: MicroPython/environment.md
+    -   label: How to use VScode + mpbridge tool
+        file: MicroPython/VScode_mpbridge.md
+    -   label: REPL Use Case
+        file: MicroPython/REPL_use_case.md
+    -   label: Burn firmware
+        file: MicroPython/Burn_firmware.md
+    -   label: LCD Screen init
+        file: MicroPython/lcd_init.md
+    -   label: Display jpg images
+        file: MicroPython/Display_jpg_images.md
+    -   label: Display text characters
+        file: MicroPython/Display_text.md
+    -   label: Make semi-transparent rectangular text box
+        file: MicroPython/Make_semi-transparent_rectangular_text_box.md
+    -   label: Refresh textbox on jpg
+        file: MicroPython/Refres_textbox_on_jpg.md
+    -   label: Display multiple vector fonts
+        file: MicroPython/Display_multiple_vector_fonts.md
+-   label: 3. Code with Arduino
+    items:
+    -   label: Install and configure the environment
+        file: Arduino/Environment.md
+    -   label: Connect, Upload
+        file: Arduino/Arduino_upload.md
+    -   label: Install Arduino GFX library
+        file: Arduino/Arduino_GFX_Install.md
+    -   label: Arduino GFX, show characters
+        file: Arduino/Arduino_GFX_show_characters.md

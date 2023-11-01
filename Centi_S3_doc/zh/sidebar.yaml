@@ -1,0 +1,41 @@
+items:
+-   label: 一、Centi-S3 主页
+    file: README.md
+-   label: 快速上手指南
+    file: getting-started.md
+-   label: 二、使用 MicroPython 快速上手
+    items:
+    -   label: 什么是 MicroPython
+        file: MicroPython/What_is_MicroPython.md
+    -   label: 安装与配置环境
+        file: MicroPython/environment.md
+    -   label: VScode + mpbridge工具使用方法
+        file: MicroPython/VScode_mpbridge.md
+    -   label: REPL使用技巧
+        file: MicroPython/REPL_use_case.md
+    -   label: 烧录固件
+        file: MicroPython/Burn_firmware.md
+    -   label: 屏幕初始化
+        file: MicroPython/lcd_init.md
+    -   label: 显示jpg图片
+        file: MicroPython/Display_jpg_images.md
+    -   label: 显示文本字符
+        file: MicroPython/Display_text.md
+    -   label: 制作半透明矩形文本框
+        file: MicroPython/Make_semi-transparent_rectangular_text_box.md
+    -   label: 在JPG上刷新文本框
+        file: MicroPython/Refres_textbox_on_jpg.md
+    -   label: 显示多种矢量字体
+        file: MicroPython/Display_multiple_vector_fonts.md
+    -   label: 使用旋转编码器与菜单栏交互
+        file: MicroPython/Interacting_with_menu_bar_using_the_rotary_encoder.md
+-   label: 三、使用 Arduino 快速上手
+    items:
+    -   label: 安装与配置环境
+        file: Arduino/Environment.md
+    -   label: 连接, 上传
+        file: Arduino/Arduino_upload.md 
+    -   label: 安装Arduino GFX库
+        file: Arduino/Arduino_GFX_Install.md
+    -   label: Arduino GFX, 显示字符
+        file: Arduino/Arduino_GFX_show_characters.md

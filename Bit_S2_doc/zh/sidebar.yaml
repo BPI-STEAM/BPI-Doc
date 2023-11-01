@@ -1,0 +1,25 @@
+items:
+-   label: BPI-Bit-S2 主页
+    file: README.md
+-   label: 一、开箱 Bit-S2 开发板
+    items:
+    -   label: Bit-S2 介绍
+        file: Unboxing/Introduction.md
+-   label: 二、使用CircuitPython编程
+    items:
+    -   label: 已得到CircuitPython官方支持
+        file: CircuitPython/supported_by_circuitpython.md
+    -   label: 烧录tinyUF2固件的方法
+        file: CircuitPython/flash_tinyuf2.md
+    -   label: 更新CircuitPython固件的方法
+        file: CircuitPython/update_circuitpython.md
+    -   label: 配置使用环境(Mu编辑器)
+        file: CircuitPython/config_mu-editor.md
+    -   label: 基础功能使用
+        file: CircuitPython/Basic.md
+-   label: 三、使用 Arduino 编程
+    items:
+    -   label: Arduino环境搭建
+        file: Arduino/Environment.md
+    -   label: 基础功能使用
+        file: Arduino/Basic.md

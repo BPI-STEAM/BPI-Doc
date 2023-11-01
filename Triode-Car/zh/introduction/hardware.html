@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>硬件介绍 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件Triode-Car</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class="active"><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/Triode-Car/zh_tw/introduction/hardware.html">中文 繁體</a></li>
+<li class="active"><a  href="/Triode-Car/zh/introduction/hardware.html">中文 简体</a></li>
+<li class=""><a  href="/Triode-Car/en/introduction/hardware.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/Triode-Car/zh/introduction/hardware.html"><span class="label">硬件介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/hardware/analysis&calibrate.html"><span class="label">TriodeCar硬件分析及校准</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">micro:bit 教程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/first_meeting.html"><span class="label">初识 micro:bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/new_project.html"><span class="label">创建MakeCode项目</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/import_extension.html"><span class="label">导入扩展积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/control_motor.html"><span class="label">用microbit按钮控制电机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/control_motor2.html"><span class="label">调整电机转速</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/read_LDR.html"><span class="label">采集巡线电路的模拟信号</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/radio_control.html"><span class="label">无线电通讯控制电机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/bluetooth_control.html"><span class="label">蓝牙控制</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/LDR_calibration.html"><span class="label">校准巡线检测电路</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/Line_Follower.html"><span class="label">巡线行驶</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>硬件介绍</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Triode-Car/zh/introduction/hardware.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E7%A1%AC%E4%BB%B6%E5%8F%82%E6%95%B0">硬件参数</h2>
+<ul>
+<li>供电电压：3.6V~3.7V DC(3.6V~3.7V锂电池)</li>
+<li>光敏电阻巡线(模拟值)×2 (P1 P2)</li>
+<li>SR04、SR04P超声波接口(5V)×1 (Trig:P12 Echo:P14)</li>
+<li>I2C接口(3.3V）×1</li>
+<li>IO扩展口 ×2 (P5 P0 P3 P4 P6 P7 P8 P9 P10 P16 P11)</li>
+<li>减速电机×2 (P14 P15)</li>
+<li>电机空载转速（3V）：90rpm</li>
+<li>电机驱动方式：PWM电机驱动</li>
+<li>扩展M3螺丝孔×6（支持乐高接口）</li>
+</ul>
+<h2 id="%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3%E7%A4%BA%E6%84%8F">硬件接口示意</h2>
+<p><img src="../assets/Triode-Car-IO.png" alt="" /></p>
+<p>在Triode-Car的上面，有很多特殊设计：</p>
+<ol>
+<li>在Triode-Car正前方，有两个螺丝孔，可以用来固定避障传感器或者巡线传感器等传感器。</li>
+<li>在可调电阻旁，有两对特殊的电阻，R11和R13，R12和R14，如果选择焊接R11和R12，LED会自动显示电机的状态，是正转还是停止，如果选择焊接R13和R14，LED会变成可编程的LED灯，P11控制左边的LED（D3），P5控制右边的灯（D4）。</li>
+<li>Triode-Car上有为了手动焊接特殊设计的焊盘（Controller Socket标记位置），通过这样的设计，手动焊接Bit底座时更方便，并且使用时如果想快速确认Pin的位置，不用需要反复确认原理图与引脚号。</li>
+<li>在Bit底座后面，有一个切换按钮，可以切换两种控制方式：IC切换和Bit切换。</li>
+<li>在Triode-Car中间偏下部分，有一个30*15mm的方形孔，作用是给测速传感器留下空间。添加完测速传感器之后，可能电池盒的位置被占用，此时我们推荐您使用铜柱，塑料板等，将电池盒垫高。<a href="https://www.adafruit.com/product/3986"  target="_blank">推荐测速传感器</a></li>
+<li>在Triode-Car正下方，有一些可以随意焊接的洞洞，洞洞的最左侧一条连接的是电源的正极，最右侧一条则连接的是负极，最上面一排则放置了一些IO供使用，可以在这个区域添加一些传感器或者蜂鸣器等，让您的小车更加全能。当然，添加之后可能会出现供电不足的情况，建议使用电流更强大的锂电池。</li>
+</ol>
+<h2 id="%E5%8A%9F%E8%83%BD%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89">功能引脚定义</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">Function</th>
+  <th style="text-align:center">web:bit GPIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">Wheel(Left)</td>
+  <td style="text-align:center">P14</td>
+</tr>
+<tr>
+  <td style="text-align:center">Wheel(Right)</td>
+  <td style="text-align:center">P15</td>
+</tr>
+<tr>
+  <td style="text-align:center">ultrasonic (Trig)</td>
+  <td style="text-align:center">P12</td>
+</tr>
+<tr>
+  <td style="text-align:center">ultrasonic (Echo)</td>
+  <td style="text-align:center">P13</td>
+</tr>
+<tr>
+  <td style="text-align:center">Line Detecting(Left)</td>
+  <td style="text-align:center">P2</td>
+</tr>
+<tr>
+  <td style="text-align:center">Line Detecting(Right)</td>
+  <td style="text-align:center">P1</td>
+</tr>
+<tr>
+  <td style="text-align:center">Speed Detection(Left)</td>
+  <td style="text-align:center">P11</td>
+</tr>
+<tr>
+  <td style="text-align:center">Speed Detection(Right)</td>
+  <td style="text-align:center">P5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E5%8E%9F%E7%90%86%E5%9B%BE">原理图</h2>
+<p><img src="../assets/Triode-Car-Sch.png" alt="" /></p>
+<p><a href="https://github.com/BPI-STEAM/Triode-Car/blob/main/HardWare/Sch/BPi-BIT-Triode-Car-V1.0.3.pdf"  target="_blank">原理图下载</a></p>
+<h2 id="%E4%BA%A7%E5%93%81%E6%A0%87%E9%85%8D%E6%B8%85%E5%8D%95">产品标配清单</h2>
+<ol>
+<li>小车PCB ×1</li>
+<li>电阻若干</li>
+<li>Bit底座 ×1</li>
+<li>LM393 ×1</li>
+<li>电机 ×2</li>
+<li>前轮 ×1</li>
+<li>指示灯 ×4</li>
+<li>可调电阻 ×2</li>
+<li>电容 ×2</li>
+<li>三极管 ×2</li>
+<li>开关 ×2</li>
+<li>地图/说明书 ×1</li>
+<li>螺丝若干</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Triode-Car/zh/hardware/analysis&calibrate.html">
+                            <span class="label">TriodeCar硬件分析及校准</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

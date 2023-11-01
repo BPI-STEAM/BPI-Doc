@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class="active"><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/Centi_S3_doc/zh_tw/MicroPython/lcd_init.html">中文 繁體</a></li>
+<li class="active"><a  href="/Centi_S3_doc/zh/MicroPython/lcd_init.html">中文 简体</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/MicroPython/lcd_init.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/index.html"><span class="label">一、Centi-S3 主页</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/getting-started.html"><span class="label">快速上手指南</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">二、使用 MicroPython 快速上手</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/What_is_MicroPython.html"><span class="label">什么是 MicroPython</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/environment.html"><span class="label">安装与配置环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/VScode_mpbridge.html"><span class="label">VScode + mpbridge工具使用方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/REPL_use_case.html"><span class="label">REPL使用技巧</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/Burn_firmware.html"><span class="label">烧录固件</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Centi_S3_doc/zh/MicroPython/lcd_init.html"><span class="label">屏幕初始化</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/Display_jpg_images.html"><span class="label">显示jpg图片</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/Display_text.html"><span class="label">显示文本字符</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/Make_semi-transparent_rectangular_text_box.html"><span class="label">制作半透明矩形文本框</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/Refres_textbox_on_jpg.html"><span class="label">在JPG上刷新文本框</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/Display_multiple_vector_fonts.html"><span class="label">显示多种矢量字体</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/MicroPython/Interacting_with_menu_bar_using_the_rotary_encoder.html"><span class="label">使用旋转编码器与菜单栏交互</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">三、使用 Arduino 快速上手</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/Arduino/Environment.html"><span class="label">安装与配置环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/Arduino/Arduino_upload.html"><span class="label">连接, 上传</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/Arduino/Arduino_GFX_Install.html"><span class="label">安装Arduino GFX库</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh/Arduino/Arduino_GFX_show_characters.html"><span class="label">Arduino GFX, 显示字符</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1></h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Centi_S3_doc/zh/MicroPython/lcd_init.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E5%B1%8F%E5%B9%95%E5%88%9D%E5%A7%8B%E5%8C%96">屏幕初始化</h2>
+<p>BPI-Centi-S3 正面有一块1.9英寸TFT LCD彩屏，分辨率是170*320，驱动芯片为ST7789V3, 采用8bit 并行接口与ESP32S3芯片连接。</p>
+<p>出厂固件中已集成ST7789 C模块 驱动，来自于:</p>
+<p><a href="https://github.com/russhughes/st7789s3_esp_lcd"  target="_blank">russhughes/st7789s3_esp_lcd</a> , The MIT License</p>
+<p>感谢 russhughes 的开源，在他的GitHub README中可以查阅编译方法和所有API接口。</p>
+<h3 id="%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%8C%E7%82%B9%E4%BA%AE%E5%B1%8F%E5%B9%95">初始化，点亮屏幕</h3>
+<iframe src="//player.bilibili.com/player.html?aid=269437418&bvid=BV1hc4115786&cid=1078595731&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<p>在本地文件夹中创建一个 main.py ，将下方代码拷贝进去，保存文件。</p>
+<blockquote>
+<p>使用 <code>ctrl + S</code> 快捷键即可保存当前窗口中的文件。</p>
+</blockquote>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+from machine import freq
+
+
+def config(rotation=0, options=0):
+
+    return st7789.ST7789(
+        170,
+        320,
+        15, 14, 13, 12, 11, 10, 9, 8,
+        wr=6,
+        rd=7,
+        reset=3,
+        dc=5,
+        cs=4,
+        backlight=2,
+        power=2,
+        rotation=rotation,
+        options=options)
+
+
+freq(240_000_000)  # Set esp32s3 cpu frequency to 240MHz
+tft = config(rotation=1, options=0)
+tft.init() # Initialize
+tft.fill(st7789.RED) 
+tft.show(True)
+tft.deinit()  # Deinitialize the display or it will cause a crash on the next run
+
+</code></pre>
+<p>使用mpbridge同步文件到开发板。</p>
+<p>同步完成后，BPI-Centi-S3 屏幕将全屏显示红色。</p>
+<h3 id="%E5%8D%95%E7%8B%AC%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">单独的配置文件</h3>
+<p>我们可以将初始化配置ST7789的代码单独置于一个python脚本文件中，然后在其他地方任意导入使用，包括在REPL中，这可以增强代码复用性。</p>
+<p>新建一个单独的配置文件 tft_config.py ，将下方代码拷贝进去，保存文件。</p>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+from machine import freq
+
+
+def config(rotation=0, options=0):
+
+    return st7789.ST7789(
+        170,
+        320,
+        15, 14, 13, 12, 11, 10, 9, 8,
+        wr=6,
+        rd=7,
+        reset=3,
+        dc=5,
+        cs=4,
+        backlight=2,
+        power=2,
+        rotation=rotation,
+        options=options)
+
+freq(240_000_000)  # Set esp32s3 cpu frequency to 240MHz
+
+</code></pre>
+<p>将 main.py 修改为如下代码：</p>
+
+<pre class="language-py"><code class="language-py">&quot;&quot;&quot; BPI-Centi-S3 170x320 ST7789 display &quot;&quot;&quot;
+
+import st7789
+import tft_config
+
+tft = tft_config.config(rotation=1, options=0)
+tft.init()
+tft.fill(st7789.RED) 
+tft.show(True)
+tft.deinit()  # Deinitialize the display or it will cause a crash on the next run
+
+</code></pre>
+<p>使用mpbridge同步文件到开发板。</p>
+<p>后续我们就可以像这样简单的导入然后初始化屏幕了。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Centi_S3_doc/zh/MicroPython/Burn_firmware.html">
+                            <span class="icon"></span>
+                            <span class="label">烧录固件</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Centi_S3_doc/zh/MicroPython/Display_jpg_images.html">
+                            <span class="label">显示jpg图片</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

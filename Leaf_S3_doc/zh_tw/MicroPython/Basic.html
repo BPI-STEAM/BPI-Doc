@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>基礎功能使用 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh_tw/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh_tw/">首頁</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/">WebBit使用手冊</a></li>
+<li class=""><a  href="/WebBit_dev/zh_tw/">WebBit開發手冊</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh_tw/">Bit-S2使用手冊</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh_tw/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh_tw/">Centi-S3</a></li>
+<li class="active"><a  href="/Leaf_S3_doc/zh_tw/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh_tw/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh_tw/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh_tw/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh_tw/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">動態</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 繁體</a><ul><li class="active"><a  href="/Leaf_S3_doc/zh_tw/MicroPython/Basic.html">中文 繁體</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/MicroPython/Basic.html">中文 简体</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/MicroPython/Basic.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">輸入關鍵詞，多關鍵詞空格隔開</span>
+                                <span id="search_loading_hint">正在加載，請稍候。。。</span>
+                                <span id="search_download_err_hint">下載文件失敗，請刷新重試或檢查網絡</span>
+                                <span id="search_other_docs_result_hint">來自其它文檔的結果</span>
+                                <span id="search_curr_doc_result_hint">當前文檔搜索結果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、開箱 Leaf-S3 開發板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Unboxing/Introduction.html"><span class="label">Leaf-S3 介紹</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Unboxing/Gettingstart.html"><span class="label">快速上手 (第一次使用請看這裡)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">二、使用MicroPython編程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/MicroPython/Environment.html"><span class="label">MicroPython環境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/MicroPython/Firmware.html"><span class="label">Micropython 固件下載與燒錄</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Leaf_S3_doc/zh_tw/MicroPython/Basic.html"><span class="label">基礎功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">三、使用 Arduino 編程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Arduino/Environment.html"><span class="label">Arduino環境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Arduino/Basic.html"><span class="label">基礎功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>基礎功能使用</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Leaf_S3_doc/zh_tw/MicroPython/Basic.md" target="_blank">
+                                    編輯本頁
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p><a href="https://github.com/BPI-STEAM/BPI-Leaf-S3-Doc/tree/main/Example/MicroPython-zh/02.Use_Peripherals"  target="_blank">GitHub BPI-Leaf-S3 例程</a></p>
+</blockquote>
+<h2 id="%E9%BB%9E%E4%BA%AE%E6%9D%BF%E8%BC%89LED%E7%87%88%E7%8F%A0">點亮板載LED燈珠</h2>
+<p>在完成<a href="Environment.html"  >MicroPython 運行環境設置</a>後，可以立即嘗試編程。</p>
+<p>新建一個 main.py 腳本文件，在其中輸入以下代碼：</p>
+
+<pre class="language-py"><code class="language-py">from machine import Pin
+from neopixel import NeoPixel
+import time 
+pin_48 = Pin(48) 
+np = NeoPixel(pin_48, 1,bpp=3, timing=1)
+while True:
+    np[0] = (25,25,25)
+    np.write()
+    time.sleep_ms(250)
+    np[0] = (0,0,0)
+    np.write()
+    time.sleep_ms(250)
+</code></pre>
+<p>保存文件到MicroPython設備中，點擊“Run”運行按鈕，即可讓板載彩色LED燈珠閃爍。</p>
+<p>修改 <code>np[0] = (25,25,25)</code>等號右側元組內的數據，可以改變顏色，分別對應R，G，B三色亮度等級，設定範圍是0-255，建議使用範圍0-25，亮度過高時請勿長時間直視！</p>
+<p><a href="https://docs.micropython.org/en/latest/library/neopixel.html"  target="_blank">neopixel — control of WS2812 / NeoPixel LEDs — MicroPython 文檔</a></p>
+<h2 id="%E4%BD%BF%E5%BD%A9%E7%87%88%E5%BE%AA%E7%92%B0%E9%A1%AF%E7%A4%BA%E4%B9%9D%E7%A8%AE%E9%A1%8F%E8%89%B2">使彩燈循環顯示九種顏色</h2>
+
+<pre class="language-py"><code class="language-py">from machine import Pin
+from neopixel import NeoPixel
+import time
+
+pin_48 = Pin(48, Pin.OUT)
+np = NeoPixel(pin_48, 1,bpp=3, timing=1)
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+brightness = 0.1
+
+while True:
+    for i in color_list:
+        color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+        np[0] = color
+        np.write()
+        time.sleep(1)
+
+</code></pre>
+<h2 id="%E5%85%A8%E5%BD%A9LED%E7%87%88%E7%8F%A0%E5%BE%AA%E7%92%B0%E9%A1%AF%E7%A4%BA%E5%BD%A9%E8%99%B9%E8%89%B2">全彩LED燈珠循環顯示彩虹色</h2>
+<p>基於上一節，我們可以更進一步，編寫循環自動改變燈珠顏色。</p>
+
+<pre class="language-py"><code class="language-py">from machine import Pin
+from neopixel import NeoPixel
+import time
+
+def rainbow(num=1,level=25,delay=100):
+    def write_all(num,delay,red,green,blue):
+        for j in range (num):
+            np[j] = (red,green,blue)
+        np.write()
+        time.sleep_ms(delay)
+
+    red,green,blue = level,0,0
+
+    rainbow_step_list2 = [(0,1,0),(-1,0,0),(0,0,1),(0,-1,0),(1,0,0),(0,0,-1)]
+
+    for step in rainbow_step_list2:
+        for i in range (level):
+            red+=step[0]
+            green+=step[1]
+            blue+=step[2]
+            write_all(num,delay,red,green,blue)
+
+
+np = NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)
+
+while True:
+    rainbow(num=1,level=25,delay=10)
+
+</code></pre>
+<p>此例程可適用於任意長度的ws2812燈帶。</p>
+<p>修改 <code>NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)</code> 中第一個參數至任意想要串接燈帶的GPIO管腳。</p>
+<p>修改 <code>rainbow(num=1,level=25,delay=100)</code> 中的num參數為燈帶上對應燈珠的數量。</p>
+<p>當然我們也可以根據自己的想法使用for循環或while循環製作自己想要的顏色變化規律。</p>
+<h2 id="%E8%A8%AD%E8%A8%88%E6%8C%89%E9%8D%B5%E4%B8%AD%E6%96%B7%E7%A8%8B%E5%BA%8F%2C%E6%8E%A7%E5%88%B6%E5%BD%A9%E7%87%88">設計按鍵中斷程序,控制彩燈</h2>
+<p>BPI-Leaf-S3 有兩顆按鍵，BOOT 與 RST，RST控制芯片硬件復位，而BOOT則與GPIO0相連，其電路如下圖所示。</p>
+<p><img src="../assets/images/bpi-leaf-s3_boot_sch.png" alt="" /></p>
+<p>可見當開發板正常通電工作時，GPIO0在BOOT按鍵未按下時，串聯一顆電阻接到3.3v，此時為高電位；當BOOT按鍵按下時，GPIO0將直接接地，此時則為低電位。 ESP32-S3芯片通過檢測此GPIO管腳的電位即可判斷按鈕是否被按下。</p>
+<p><a href="https://docs.micropython.org/en/latest/library/machine.Pin.html#machine.Pin.irq"  target="_blank">MicroPython GPIO中斷程序 machine.Pin.irq 文檔</a></p>
+<p>在程序中，通過檢測 GPIO中斷的觸發方式，即可設計一套記錄按鍵被按壓的次數的中斷程序，用判斷當前已經按壓的次數來控制彩燈的顏色。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PQ2x4PayFPc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<pre class="language-python"><code class="language-python">from machine import Pin
+from neopixel import NeoPixel
+from array import array
+import time
+import micropython
+
+micropython.alloc_emergency_exception_buf(100)
+
+p_48 = Pin(48, Pin.OUT)
+np = NeoPixel(p_48, 1,bpp=3, timing=1)
+
+p0 = Pin(0,Pin.IN,Pin.PULL_UP)
+trig_locks = array('B',[0])
+trig_timeticks_list = array('L',[0,0])
+count = array('L',[0])
+
+def p0_irq(pin):
+    if pin.value()==0 and trig_locks[0]==0:
+        trig_timeticks_list[0]=time.ticks_ms()
+        trig_locks[0]=1
+    elif pin.value()==1 and trig_locks[0]==1:
+        trig_timeticks_list[1]=time.ticks_diff(time.ticks_ms(),trig_timeticks_list[0])
+        trig_locks[0]=0
+        if trig_timeticks_list[1] &gt;= 20:
+            count[0] = count[0] + 1
+            if count[0] &gt; 8:
+                count[0] = 0
+
+p0.irq(handler=p0_irq,trigger= Pin.IRQ_FALLING | Pin.IRQ_RISING )
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+brightness = 0.1
+
+while True:
+    print (count)
+    i = color_list[count[0]]
+    color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+    np[0] = color
+    np.write()
+    time.sleep(0.1)
+</code></pre>
+<h2 id="PWM-%E5%96%AE%E8%89%B2LED%E5%91%BC%E5%90%B8%E7%87%88">PWM 單色LED呼吸燈</h2>
+<h3 id="%E5%A4%96%E9%83%A8%E7%A1%AC%E4%BB%B6%E9%9C%80%E6%B1%82">外部硬件需求</h3>
+<p>一個可以在3.3v電壓下工作的LED燈。</p>
+<h3 id="%E9%80%A3%E6%8E%A5%E6%96%B9%E6%B3%95">連接方法</h3>
+<p>例程中使用的是GPIO13管腳，將LED燈正極與GPIO13管腳連接，負極與GND連接。</p>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin, PWM
+import time
+
+PWM_LED = PWM(Pin(13))
+PWM_LED.freq(1000)
+PWM_LED.duty(0)
+
+while True:
+    for i in range(0,1024,1):
+       PWM_LED.duty(i)
+       time.sleep_ms(2)
+    for i in range(1022,0,-1):
+       PWM_LED.duty(i)
+       time.sleep_ms(1)
+
+</code></pre>
+<h2 id="TB6612FNG%E6%A8%A1%E5%A1%8A-PWM%E9%A9%85%E5%8B%95%E9%9B%BB%E6%A9%9F">TB6612FNG模塊 PWM驅動電機</h2>
+<h3 id="%E5%A4%96%E9%83%A8%E7%A1%AC%E4%BB%B6%E9%9C%80%E6%B1%82">外部硬件需求</h3>
+<p>一個TB6612FNG模塊，一個3.3~5V直流電機。</p>
+<h3 id="%E9%80%A3%E6%8E%A5%E6%96%B9%E6%B3%95">連接方法</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">TB6612FNG</th>
+  <th style="text-align:center">BPI-Leaf-S3    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">PWMA</td>
+  <td style="text-align:center">11</td>
+</tr>
+<tr>
+  <td style="text-align:center">AIN2</td>
+  <td style="text-align:center">13</td>
+</tr>
+<tr>
+  <td style="text-align:center">AIN1</td>
+  <td style="text-align:center">12</td>
+</tr>
+<tr>
+  <td style="text-align:center">STBY</td>
+  <td style="text-align:center">10</td>
+</tr>
+<tr>
+  <td style="text-align:center">VM</td>
+  <td style="text-align:center">5V</td>
+</tr>
+<tr>
+  <td style="text-align:center">VCC</td>
+  <td style="text-align:center">3.3V</td>
+</tr>
+<tr>
+  <td style="text-align:center">GND</td>
+  <td style="text-align:center">GND</td>
+</tr>
+<tr>
+  <td style="text-align:center">AO1</td>
+  <td style="text-align:center">電機N極</td>
+</tr>
+<tr>
+  <td style="text-align:center">AO2</td>
+  <td style="text-align:center">電機S極</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>AO1/AO2 與電機的連接可任意調換接線順序，以此改變旋轉方向。</p>
+</blockquote>
+<h3 id="%E9%81%8B%E8%A1%8C%E6%95%88%E6%9E%9C">運行效果</h3>
+<p>電機將啟動朝一個方向旋轉並在7秒逐漸加速到當前電流可達到的最大轉速，然後在5秒內逐漸減速至停轉，隨後反向旋轉並重複這個過程。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3WXCZ1BsPNY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,PWM
+import time
+
+PWM_A = PWM(Pin(11)) #Set PWM output pin
+PWM_A.freq(20000) #Set PWM frequency
+PWM_A.duty(0) #Set PWM duty cycle
+AIN1 = Pin(12,Pin.OUT)
+AIN2 = Pin(13,Pin.OUT)
+STBY = Pin(10,Pin.OUT)
+STBY.on() #When STBY pin is at high level, TB6612FNG starts.
+
+def MOTOR_Forward():
+    AIN1.on()
+    AIN2.off()
+def MOTOR_Reverse():
+    AIN1.off()
+    AIN2.on()
+
+while True:
+    MOTOR_Forward()
+    #for cycle is used to control the PWM duty cycle change.
+    #The PWM duty cycle control precision is 10bit, ie 0~1023.
+    #Some motors require a certain PWM duty cycle to start.
+    for i in range(350,1024,1):
+       PWM_A.duty(i)
+       time.sleep_ms(10)
+    for i in range(1022,0,-1):
+       PWM_A.duty(i)
+       time.sleep_ms(5)
+
+    MOTOR_Reverse()
+    for i in range(350,1024,1):
+       PWM_A.duty(i)
+       time.sleep_ms(10)
+    for i in range(1022,0,-1):
+       PWM_A.duty(i)
+       time.sleep_ms(5)
+
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8ADC%E6%AA%A2%E6%B8%AC%E9%9B%BB%E4%BD%8D%E5%99%A8%E9%9B%BB%E5%A3%93">使用ADC檢測電位器電壓</h2>
+<h3 id="%E5%A4%96%E9%83%A8%E7%A1%AC%E4%BB%B6%E9%9C%80%E6%B1%82">外部硬件需求</h3>
+<p>一個電位器。</p>
+<p><img src="https://i.imgur.com/mnuHlMR.jpg" alt="" /></p>
+<h3 id="ESP32-S3%E7%9A%84ADC">ESP32-S3的ADC</h3>
+<p>ESP32-S3芯片內部集成了兩個<strong>ADC模數轉換器</strong> ，測量範圍 0mV-3100mV，分辨率為12bit，即將0mV-3100mV分為2^12=4096級，每一級為一個數字量。</p>
+<p>兩個ADC模數轉換器各有10個測量通道，ADC1為GPIO1 ~ 10,ADC2為GPIO11 ~ 20 。</p>
+<h3 id="%E9%80%A3%E6%8E%A5%E6%96%B9%E6%B3%95">連接方法</h3>
+<p>GND接GND，VCC接3V3，S輸出端接GPIO11管腳，使用的是ADC2的通道1進行測量。</p>
+<p>GPIO1~20管腳都可做ADC輸入管腳。</p>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC
+import time
+adc11 = ADC(Pin(11),atten=ADC.ATTN_11DB)
+#adc11 = ADC(Pin(11)）
+#adc11.atten(ADC.ATTN_11DB)
+while True:
+    read=adc11.read()
+    read_u16=adc11.read_u16()
+    read_uv=adc11.read_uv()
+    print(&quot;read={0},read_u16={1},read_uv={2}&quot;.format(read,read_u16,read_uv))
+    time.sleep_ms(100)
+</code></pre>
+<table>
+<thead>
+<tr>
+  <th>衰減值</th>
+  <th>可測量的輸入電壓範圍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ADC.ATTN_0DB</td>
+  <td>0 mV ~ 950 mV</td>
+</tr>
+<tr>
+  <td>ADC.ATTN_2_5DB</td>
+  <td>0 mV ~ 1250 mV</td>
+</tr>
+<tr>
+  <td>ADC.ATTN_6DB</td>
+  <td>0 mV ~ 1750 mV</td>
+</tr>
+<tr>
+  <td>ADC.ATTN_11DB</td>
+  <td>0 mV ~ 3100 mV</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><code>ADC(*，atten)</code>初始化一個GPIO管腳的ADC通道，可以選擇使用<code>atten</code>設定衰減值，它控制芯片可測量的輸入電壓範圍，如果不設置，將為默認值<code>atten=ADC.ATTN_0DB</code>或上一次所設定的值。</li>
+<li>可以在初始化一個ADC通道後通過<code>ADC.atten()</code>修改衰減值。</li>
+<li><code>ADC.read()</code>讀取ADC並返回讀取結果，ESP32-S3芯片的ADC所返回的是12位精度的數據。</li>
+<li><code>ADC.read_u16()</code>讀取ADC並將返回16位的數據。</li>
+<li><code>ADC.read_uv()</code>根據ADC的特性以<code>uV</code>微伏為單位返回校準的輸入電壓。返回值只有<code>mV</code>毫伏分辨率（即，將始終是1000微伏的倍數）。</li>
+</ol>
+<p>WiFi功能也使用了ADC2，因此在WiFi處於活動狀態時嘗試從ADC2的測量通道GPIO11 ~ 20讀取模擬值將引發異常。</p>
+<p>建議使用<code>ADC.read_uv()</code>來讀取電壓值，它是根據ADC模數轉換器的特性經過校准後返回的十進制常數，較比另外兩個讀取方法更加準確，同時也建議使用時直接經過整除運算：<code>ADC.read_uv()//1000</code> 獲取<code>mV</code>毫伏分辨率的數據。</p>
+<p>直接打印輸出<code>ADC.read()</code>或<code>ADC.read_u16()</code>得到的是十進制數值，可用<code>hex()</code>函數將數據類型轉化為十六進制，例如<code>hex(ADC.read())</code>，或用<code>bin()</code>函數將數據類型轉化為二進制。</p>
+<h2 id="%E7%94%A8%E9%9B%BB%E4%BD%8D%E5%99%A8%E7%84%A1%E6%A5%B5%E8%AA%BF%E6%8E%A7%E5%BD%A9%E7%87%88%E4%BA%AE%E5%BA%A6">用電位器無極調控彩燈亮度</h2>
+<p>在 <a href="#%E4%BD%BF%E5%BD%A9%E7%87%88%E5%BE%AA%E7%92%B0%E9%A1%AF%E7%A4%BA%E4%B9%9D%E7%A8%AE%E9%A1%8F%E8%89%B2"  >使彩燈循環顯示九種顏色</a> 小節的基礎上，可使用電位器來控制彩燈的亮度。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d3tm8aYNCx8?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC
+from neopixel import NeoPixel
+from array import array
+import time
+import micropython
+
+adc1 = ADC(Pin(1),atten=ADC.ATTN_11DB)
+
+micropython.alloc_emergency_exception_buf(100)
+
+p_48 = Pin(48, Pin.OUT)
+np = NeoPixel(p_48, 1,bpp=3, timing=1)
+
+p0 = Pin(0,Pin.IN,Pin.PULL_UP)
+trig_locks = array('B',[0])
+trig_timeticks_list = array('L',[0,0])
+count = array('L',[0])
+
+def p0_irq(pin):
+    if pin.value()==0 and trig_locks[0]==0:
+        trig_timeticks_list[0]=time.ticks_ms()
+        trig_locks[0]=1
+    elif pin.value()==1 and trig_locks[0]==1:
+        trig_timeticks_list[1]=time.ticks_diff(time.ticks_ms(),trig_timeticks_list[0])
+        trig_locks[0]=0
+        if trig_timeticks_list[1] &gt;= 20:
+            count[0] = count[0] + 1
+            if count[0] &gt; 8:
+                count[0] = 0
+
+p0.irq(handler=p0_irq,trigger= Pin.IRQ_FALLING | Pin.IRQ_RISING )
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+
+while True: 
+    adc1_read = adc1.read() # 12bit
+    adc1_read_mv = adc1.read_uv()/1000
+    adc1_read_u16 = adc1.read_u16() # 16bit
+    brightness = adc1_read/4095
+    i = color_list[count[0]]
+    color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+    np[0] = color
+    np.write()
+    print(adc1_read,adc1_read_u16,adc1_read_mv,&quot;mv&quot;,count[0],color)
+    time.sleep(0.1)
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8ADC%E6%B8%AC%E9%87%8F%E9%9B%BB%E4%BD%8D%E5%99%A8%EF%BC%8C%E7%94%A8%E4%BB%A5%E8%AA%BF%E6%95%B4%E9%9B%BB%E6%A9%9F%E8%BD%89%E9%80%9F">使用ADC測量電位器，用以調整電機轉速</h2>
+<h3 id="%E5%A4%96%E9%83%A8%E7%A1%AC%E4%BB%B6%E9%9C%80%E6%B1%82">外部硬件需求</h3>
+<ul>
+<li>電位器 x 1</li>
+<li>TB6612FNG電機驅動模塊 x 1</li>
+<li>5v直流電機 x 1</li>
+<li>一些連接線材</li>
+</ul>
+<h3 id="%E9%80%A3%E6%8E%A5%E6%96%B9%E6%B3%95">連接方法</h3>
+<table>
+<thead>
+<tr>
+  <th>Potentiometer</th>
+  <th>BPI-Leaf-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>14</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th>TB6612FNG</th>
+  <th>BPI-Leaf-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>PWMA</td>
+  <td>11</td>
+</tr>
+<tr>
+  <td>AIN2</td>
+  <td>13</td>
+</tr>
+<tr>
+  <td>AIN1</td>
+  <td>12</td>
+</tr>
+<tr>
+  <td>STBY</td>
+  <td>10</td>
+</tr>
+<tr>
+  <td>VM</td>
+  <td>5V</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3.3V</td>
+</tr>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th>TB6612FNG</th>
+  <th>Motor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AO1</td>
+  <td>Motor N pole</td>
+</tr>
+<tr>
+  <td>AO2</td>
+  <td>Motor S pole</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E9%81%8B%E8%A1%8C%E6%95%88%E6%9E%9C">運行效果</h3>
+<p>開發板將間隔100ms在REPL輸出ADC讀取到的電壓值，單位為mv，以及對應控制的PWM佔空比。</p>
+<p>用手調整電位器，改變其輸出電壓，電壓越大，開發板輸出的PWM佔空比越高，電機轉速越快。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2_UeeeOBJwo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC,PWM
+import time
+
+adc14 = ADC(Pin(14),atten=ADC.ATTN_11DB)
+
+PWM_A = PWM(Pin(11)) #Set PWM output pin
+PWM_A.freq(20000) #Set PWM frequency
+PWM_A.duty(0) #Set PWM duty cycle
+AIN1 = Pin(12,Pin.OUT)
+AIN2 = Pin(13,Pin.OUT)
+STBY = Pin(10,Pin.OUT)
+AIN1.on() #MOTOR forward
+AIN2.off()
+STBY.on() #When STBY pin is at high level, TB6612FNG starts.
+
+while True:
+    read_mv=adc14.read_uv()//1000
+    if read_mv &lt;= 3000:
+        duty_set = int(1023/3000 * read_mv)
+    else:
+        duty_set = 1023
+    PWM_A.duty(duty_set)
+    Duty_cycle = int(duty_set/1023*100)
+    print(&quot;ADC_read={0}mv,Duty_cycle={1}%&quot;.format(read_mv,Duty_cycle))
+    time.sleep_ms(100)
+
+</code></pre>
+<h2 id="UART-%E4%B8%B2%E5%8F%A3%E6%95%B8%E6%93%9A%E8%AE%80%E5%AF%AB">UART 串口數據讀寫</h2>
+<h3 id="%E5%A4%96%E9%83%A8%E7%A1%AC%E4%BB%B6%E9%9C%80%E6%B1%82">外部硬件需求</h3>
+<p>USB轉UART模塊（CH340，CP2102等）。</p>
+<h3 id="%E8%BB%9F%E4%BB%B6%E9%9C%80%E6%B1%82">軟件需求</h3>
+<p>一個串口調試軟件例如<a href="https://putty.org/"  target="_blank">PuTTY</a>，以及USB轉UART模塊所需驅動。</p>
+<h3 id="%E6%8E%A5%E7%B7%9A%E5%8F%83%E8%80%83">接線參考</h3>
+<p>將BPI-Leaf-S3開發板通過USB連接電腦，USB轉UART模塊的RX接GPIO17（BPI-Leaf-S3的TX），TX接GPIO18（BPI-Leaf-S3的RX），GND接GND（共地），USB轉UART模塊的USB接口連接電腦，可以是連接BPI-Leaf-S3的同一台電腦，也可以是不同的兩台電腦。</p>
+<h3 id="%E9%81%8B%E8%A1%8C%E6%95%88%E6%9E%9C">運行效果</h3>
+<p>在BPI-Leaf-S3所在電腦的MicroPython REPL中將間隔一秒輸出一次從USB轉UART模塊中接收到的數據。</p>
+<p>而在USB轉UART模塊所在的電腦的串口調試軟件窗口中則可以看到，每間隔一秒輸出一行由BPI-Leaf-S3發送的字符 <code>Hello World!</code> 。</p>
+<h3 id="Code">Code</h3>
+
+<pre class="language-none"><code class="language-none">from machine import UART
+import time
+
+uart1 = UART(1, tx=17, rx=18)
+# Select the UART interface and specify the pins used by TX and RX
+
+uart1.init(115200, bits=8, parity=None, stop=1)
+# Initialization, set the baud rate, set the number of characters, set the parity, set the stop bit
+
+
+def test():
+    for i in range(50):
+        uart1.write('Hello World!')  # write data
+        time.sleep(0.5)
+        print(uart1.read())  # read data
+        time.sleep(0.5)
+
+
+test()
+
+</code></pre>
+<h2 id="I%C2%B2C%EF%BC%8CSSD1306-OLED-%E9%A1%AF%E7%A4%BA">I²C，SSD1306 OLED 顯示</h2>
+<p>SSD1306 OLED屏幕模塊是一個很常見的可以使用I2C通信協議的屏幕模塊，最大輸出128*64 bit的圖像，無灰階，單顆像素僅有亮滅兩個狀態，控制邏輯相對簡單，很適合入門學習單片機驅動屏幕顯示的項目。</p>
+<h3 id="%E5%A4%96%E9%83%A8%E7%A1%AC%E4%BB%B6%E9%9C%80%E6%B1%82">外部硬件需求</h3>
+<p>一塊具備I²C接口的SSD1306 OLED屏幕模塊，最好為128*64像素的。</p>
+<h3 id="%E9%A9%85%E5%8B%95%E5%BA%AB%E4%B8%8B%E8%BC%89">驅動庫下載</h3>
+<p><a href="https://github.com/micropython/micropython-lib/blob/master/micropython/drivers/display/ssd1306/ssd1306.py"  target="_blank">micropython/ssd1306.py 驅動</a></p>
+<p>將 ssd1306.py 下載到本地後，再上傳到MicroPython設備中。</p>
+<h3 id="%E6%8E%A5%E7%B7%9A%E5%8F%83%E8%80%83">接線參考</h3>
+<table>
+<thead>
+<tr>
+  <th>SSD1306 OLED</th>
+  <th>Board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>SCL</td>
+  <td>16</td>
+</tr>
+<tr>
+  <td>SDA</td>
+  <td>15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E6%8E%83%E6%8F%8FI%C2%B2C%E5%9C%B0%E5%9D%80">掃描I²C地址</h3>
+
+<pre class="language-py"><code class="language-py">from machine import I2C,Pin
+
+sda_pin=Pin(15,Pin.PULL_UP)
+scl_pin=Pin(16,Pin.PULL_UP)
+
+i2c = I2C(1,sda=sda_pin, scl=scl_pin, freq=400_000)
+i2c_list=i2c.scan()
+i2c_total=len(i2c_list)
+print(&quot;Total num:&quot;,i2c_total)
+j=0
+for i in i2c_list:
+    j=j+1
+    print(&quot;NO.{0},address:{1}&quot;.format(j,hex(i)))
+</code></pre>
+<p>通常SSD1306的地址為0x3c。</p>
+<h3 id="%E9%A1%AF%E7%A4%BA%E5%AD%97%E7%AC%A6">顯示字符</h3>
+<p><a href="https://docs.micropython.org/en/latest/library/framebuf.html#module-framebuf"  target="_blank">MicroPython framebuf 文檔</a></p>
+
+<pre class="language-py"><code class="language-py">from machine import I2C, Pin
+from ssd1306 import SSD1306_I2C
+
+sda_pin = Pin(15, Pin.PULL_UP)
+scl_pin = Pin(16, Pin.PULL_UP)
+
+i2c = I2C(1, sda=sda_pin, scl=scl_pin, freq=800_000)
+print(i2c.scan())
+oled = SSD1306_I2C(128, 64, i2c, addr=0x3c)
+
+
+def display():
+    # The framebuf library only supports ASCII printing characters encoded as 32~126
+    oled.text(&quot; !\&quot;#$%&amp;'()*+,-./&quot;, 0,  0)
+    oled.text(&quot;0123456789:;&lt;=&gt;?&quot;, 0,  8)
+    oled.text(&quot;@ABCDEFGHIJKLMNO&quot;, 0, 16)
+    oled.text(&quot;PQRSTUVWXYZ[\]^_&quot;, 0,  24)
+    oled.text(&quot;`abcdefghijklmno&quot;, 0, 32)
+    oled.text(&quot;pqrstuvwxyz{|}~&quot;, 0, 40)
+    oled.show()
+
+
+def testAscii():
+    # The return value of chr() is the ASCII character corresponding to the current integer
+    Ascii = ''
+    for i in range(32, 127):
+        Ascii = Ascii + chr(i)
+    for i in range(128, 256):
+        Ascii = Ascii + chr(i)
+    return Ascii
+
+
+def display_Ascii():
+    # The framebuf library only supports ASCII printing characters encoded as 32~126
+    oled.text(testAscii()[0:16], 0,  0)
+    oled.text(testAscii()[16:32], 0,  8)
+    oled.text(testAscii()[32:48], 0, 16)
+    oled.text(testAscii()[48:64], 0, 24)
+    oled.text(testAscii()[64:80], 0, 32)
+    oled.text(testAscii()[80:95], 0, 40)
+    oled.show()
+
+
+if __name__ == &quot;__main__&quot;:
+    display()
+    # print(testAscii())
+    # display_Ascii()
+
+# ASCII printing characters (character encoding: 32-127)
+# 32~126 (95 in total) are characters: 32 is a space, among which 48~57 are ten Arabic numerals from 0 to 9,
+# 65～90 are 26 uppercase English letters,
+# 97~122 are 26 lowercase English letters,
+# The rest are some punctuation marks, operation symbols, etc.
+# The 127th character represents the delete command on the keyboard.
+# ASCII extension code (character encoding: 128-255)
+# The last 128 are called extended ASCII codes.
+# Many x86-based systems support the use of extended (or &quot;high&quot;) ASCII.
+# The extended ASCII code allows the 8th bit of each character 
+# to be used to determine additional 128 special symbol characters, foreign language letters and graphic symbols.
+
+</code></pre>
+<h2 id="OLED%E9%A1%AF%E7%A4%BA%E9%9B%BB%E4%BD%8D%E5%99%A8%E9%9B%BB%E5%A3%93%E8%88%87%E5%AF%A6%E6%99%82%E9%80%B2%E5%BA%A6%E6%A2%9D">OLED顯示電位器電壓與實時進度條</h2>
+<p>繼續使用<a href="#%E7%94%A8%E9%9B%BB%E4%BD%8D%E5%99%A8%E7%84%A1%E6%A5%B5%E8%AA%BF%E6%8E%A7%E5%BD%A9%E7%87%88%E4%BA%AE%E5%BA%A6"  >用電位器無極調控彩燈亮度</a> 章節中中用ADC檢測電位器電壓的方法，可以設計一個讓OLED屏幕顯示電位器電壓與實時進度條的程序。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I4F8jw2MK1k?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3 id="%E6%8E%A5%E7%B7%9A%E5%8F%83%E8%80%83">接線參考</h3>
+<table>
+<thead>
+<tr>
+  <th>Potentiometer</th>
+  <th>Board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>GPIO1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th>SSD1306 OLED</th>
+  <th>Board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>VCC</td>
+  <td>3V3</td>
+</tr>
+<tr>
+  <td>SCL</td>
+  <td>16</td>
+</tr>
+<tr>
+  <td>SDA</td>
+  <td>15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Code">Code</h3>
+
+<pre class="language-py"><code class="language-py">from machine import Pin,ADC,I2C
+from ssd1306 import SSD1306_I2C
+import time
+
+adc1 = ADC(Pin(1),atten=ADC.ATTN_11DB)
+
+sda_pin=Pin(15,Pin.PULL_UP)
+scl_pin=Pin(16,Pin.PULL_UP)
+
+i2c = I2C(1,sda=sda_pin, scl=scl_pin, freq=800_000)
+print(i2c.scan())
+oled = SSD1306_I2C(128, 64, i2c, addr=0x3c)
+
+#Init, white background
+oled.fill(1)
+oled.rect(0,32,128,10,0)
+
+while True:
+    #Read ADC
+    adc1_read = adc1.read() # 12bit
+    adc1_read_mv = adc1.read_uv()//1000
+    adc1_read_u16 = adc1.read_u16() # 16bit
+
+    #Set progress bar
+    bar_width = round (adc1_read / 4095 * 128)
+    oled.fill_rect(bar_width,33,128-bar_width,8,0)
+    oled.fill_rect(0,33,bar_width,8,1)
+
+    #Set ADC text, centered
+    text_adc1 = str(adc1_read_mv) + &quot; mV&quot;
+    start_x_text_adc1 = 64 - len(text_adc1)*4
+    oled.fill_rect(36,24,56,8,1)
+    oled.text(text_adc1,start_x_text_adc1,24,0)
+
+    #Show
+    oled.show()
+
+    print(adc1_read,adc1_read_u16,adc1_read_mv,&quot;mv&quot;,bar_width,&quot;width&quot;)
+    time.sleep(0.05)
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Leaf_S3_doc/zh_tw/MicroPython/Firmware.html">
+                            <span class="icon"></span>
+                            <span class="label">Micropython 固件下載與燒錄</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Leaf_S3_doc/zh_tw/Arduino/Environment.html">
+                            <span class="label">Arduino環境搭建</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>鏈接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘寶</a></li>
+</ul>
+</li>
+<li><a>源碼</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本網站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>聯繫我們</a><ul><li><a>電話: +86 0755-26475332</a>
+</li>
+<li><a>商業支持: sales@banana-pi.com (銷售部）</a>
+</li>
+<li><a>技術支持: support@banana-pi.com (技術部）</a>
+</li>
+<li><a>地址: 廣東省松山湖高新技術產業開發區融易大廈 7 樓</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

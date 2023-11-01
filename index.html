@@ -1,0 +1,887 @@
+<!-- 
+                      /^--^\     /^--^\     /^--^\
+                      \_能_/     \_运_/     \_ 行_/
+                     /      \   /      \   /      \
+                    |   要   |  |   啥  |  |   车  |
+                     \__  __/   \__  __/   \__  __/
+|^|^|^|^|^|^|^|^|^|^|^|^\ \^|^|^|^/ /^|^|^|^|^\ \^|^|^|^|^|^|^|^|^|^|^|^|
+| | | | | | | | | | | | |\ \| | |/ /| | | | | | \ \ | | | | | | | | | | |
+########################/ /######\ \###########/ /#######################
+| | | | | | | | | | | | \/| | | | \/| | | | | |\/ | | | | | | | | | | | |
+|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+-->
+ <!DOCTYPE html>
+
+<html lang="en"  id="home"  class=" md_page ">
+
+<head>
+     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="BananaPi, Steam, Documentation, Open Source Software, Open Source Hardware, Banana Pi, AI, AIOT, Edge Computing, Face Recognition, Embedded AI, Q-Car, Triode-Car, WebAI, WebBit">
+        <meta name="description" content="BananaPi, Steam team documentation (Wiki), including open source software and open source hardware information, AIOT information, etc.">
+        <meta name="generator" content="teedoc">
+        <meta name="theme" content="teedoc-plugin-theme-default">
+    
+     
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser"><script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser"><meta name="blog-generator" content="teedoc-plugin-blog"><script src="/static/js/theme_default/pre_main.js"></script><link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/><script src="/static/js/theme_default/jquery.min.js"></script><script src="/static/js/theme_default/split.js"></script><link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script><link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+    
+    
+        <title>BPI Steam - Information and documentation - BPI-Steam</title>
+    
+    
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": "", "id": "home", "layout": "home"}</script>
+</head>
+<body class="type_page">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  >Bit Series</a><ul><li class=""><a  href="/WebBit_doc/en/">WebBit User Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">WebBit Development Manual</a></li>
+<li class=""><a  href="/Bit_S2_doc/en/">Bit-S2 User Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/en/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >Accessories</a><ul><li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/en/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">news</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: English</a><ul><li class=""><a  href="/zh_tw/index.html">中文 繁體</a></li>
+<li class=""><a  href="/zh/index.html">中文 简体</a></li>
+<li class="active"><a  href="/index.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Enter keywords, separated by spaces</span>
+                                <span id="search_loading_hint">Loading, please wait...</span>
+                                <span id="search_download_err_hint">Failed to download the file, please refresh and try again or check the network</span>
+                                <span id="search_other_docs_result_hint">Results from other docs</span>
+                                <span id="search_curr_doc_result_hint">Current document search result</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page_wrapper">
+        <div id="page_content">
+            <div>
+                
+ 
+ <!-- <script src="https://unpkg.com/vue"></script> -->
+ <!-- <script src="https://unpkg.com/naive-ui"></script> -->
+ <script src="/static/js/vue.global.prod.js"></script>
+ <script src="/static/js/naive-ui.prod.js"></script>
+ <!-- <script src="/static/js/vue.js"></script> -->
+ <script src="/static/js/vue_i18n.js"></script>
+ 
+ <div id="products">
+     <n-card class="head_background" hoverable>
+         <n-grid cols="9" item-responsive responsive="screen">
+             <n-grid-item span="0 s:0 m:0 l:9" style="margin-left: 6%; margin-right: 6%; margin-bottom: 1%; ">
+                 <n-tabs type="line" trigger='hover' justify-content="space-evenly">
+                     <template v-if="$t('language') === 'zh'">
+                         <n-tab-pane name="Hot on sale">
+                             <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
+                                 <n-carousel effect="card" class="base_background"
+                                     prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
+                                     next-slide-style="transform: translateX(50%) translateZ(-1200px);"
+                                     :show-dots="false" autoplay draggable style="height: 580px">
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                        <n-card size="small" hoverable>
+                                            <a href="Centi_S3_doc/zh/" target="_blank"><img class="carousel-img"
+                                                    src="/static/image/BPI-Centi-S3.jpg" alt="BPI-Centi-S3"></a>
+                                            <n-divider title-placement="right">
+                                                <n-button-group style="margin: 5px; font-size: 16px;">
+                                                    <n-button size="large" href="Centi_S3_doc/zh/" target="_blank"
+                                                        tag="a" type="error" ghost>
+                                                        了解 BPI-Centi-S3 开发板
+                                                    </n-button>
+                                                    <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                        href="https://item.taobao.com/item.htm?id=714936265358" tag="a"
+                                                        target="_blank" round>
+                                                        购买链接
+                                                    </n-button>
+                                                </n-button-group>
+                                            </n-divider>
+                                        </n-card>
+                                     </n-carousel-item>
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                         <n-card size="small" hoverable>
+                                             <a href="/Leaf_S3_doc/zh/" target="_blank"><img class="carousel-img"
+                                                     src="/static/image/BPI-Leaf-S3.jpg" alt="BPI-Leaf-S3"></a>
+                                             <n-divider title-placement="right">
+                                                 <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large" href="/Leaf_S3_doc/zh/" target="_blank"
+                                                         tag="a" type="error" ghost>
+                                                         了解 BPI-Leaf-S3 开发板
+                                                     </n-button>
+                                                     <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                         href="https://item.taobao.com/item.htm?id=677287234553" tag="a"
+                                                         target="_blank" round>
+                                                         购买链接
+                                                     </n-button>
+                                                 </n-button-group>
+                                             </n-divider>
+                                         </n-card>
+                                     </n-carousel-item>
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                         <n-card size="small" hoverable>
+                                             <a href="/Pico_S3_doc/zh/" target="_blank"><img class="carousel-img"
+                                                     src="/static/image/BPI-PicoW-S3.jpg" alt="BPI-Leaf-S3"></a>
+                                             <n-divider title-placement="right">
+                                                 <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large" href="/PicoW_S3_doc/zh/" target="_blank"
+                                                         tag="a" type="error" ghost>
+                                                         了解 BPI-PicoW-S3 开发板
+                                                     </n-button>
+                                                     <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                         href="https://item.taobao.com/item.htm?id=684134360199" tag="a"
+                                                         target="_blank" round>
+                                                         购买链接
+                                                     </n-button>
+                                                 </n-button-group>
+                                             </n-divider>
+                                         </n-card>
+                                     </n-carousel-item>
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                         <n-card size="small" hoverable>
+                                             <a href="/Pico_RP2040_doc/zh/" target="_blank"><img class="carousel-img"
+                                                     src="/static/image/BPI-Pico-RP2040.jpg" alt="BPI-Leaf-S3"></a>
+                                             <n-divider title-placement="right">
+                                                 <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large" href="/Pico_RP2040_doc/zh/" target="_blank"
+                                                         tag="a" type="error" ghost>
+                                                         了解 BPI-Pico-RP2040 开发板
+                                                     </n-button>
+                                                     <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                         href="https://item.taobao.com/item.htm?id=695456693140" tag="a"
+                                                         target="_blank" round>
+                                                         购买链接
+                                                     </n-button>
+                                                 </n-button-group>
+                                             </n-divider>
+                                         </n-card>
+                                     </n-carousel-item>
+                                 </n-carousel>
+                             </n-card>
+                         </n-tab-pane>
+                     </template>
+                     <template v-else>
+                         <n-tab-pane name="Hot on sale">
+                             <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
+                                 <n-carousel effect="card" class="base_background"
+                                     prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
+                                     next-slide-style="transform: translateX(50%) translateZ(-1200px);"
+                                     :show-dots="false" autoplay draggable style="height: 580px">
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                        <n-card size="small" hoverable>
+                                            <a href="Centi_S3_doc/en/" target="_blank"><img class="carousel-img"
+                                                    src="/static/image/BPI-Centi-S3.jpg" alt="BPI-Centi-S3"></a>
+                                            <n-divider title-placement="right">
+                                                <n-button-group style="margin: 5px; font-size: 16px;">
+                                                    <n-button size="large" href="Centi_S3_doc/en/" target="_blank"
+                                                        tag="a" type="error" ghost>
+                                                        See more about BPI-Centi-S3
+                                                    </n-button>
+                                                    <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                        href="https://www.aliexpress.us/item/3256805324649378.html" tag="a"
+                                                        target="_blank" round>
+                                                        Buy it now
+                                                    </n-button>
+                                                </n-button-group>
+                                            </n-divider>
+                                        </n-card>
+                                     </n-carousel-item>
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                         <n-card size="small" hoverable>
+                                             <a href="/Leaf_S3_doc/en/" target="_blank"><img class="carousel-img"
+                                                     src="/static/image/BPI-Leaf-S3.jpg" alt="BPI-Leaf-S3"></a>
+                                             <n-divider title-placement="right">
+                                                 <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large" href="/Leaf_S3_doc/en/" target="_blank"
+                                                         tag="a" type="error" ghost>
+                                                         See more about BPI-Leaf-S3
+                                                     </n-button>
+                                                     <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                         href="https://www.aliexpress.us/item/3256804242630544.html" tag="a"
+                                                         target="_blank" round>
+                                                         Buy it now
+                                                     </n-button>
+                                                 </n-button-group>
+                                             </n-divider>
+                                         </n-card>
+                                     </n-carousel-item>
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                         <n-card size="small" hoverable>
+                                             <a href="/Pico_S3_doc/en/" target="_blank"><img class="carousel-img"
+                                                     src="/static/image/BPI-PicoW-S3.jpg" alt="BPI-Leaf-S3"></a>
+                                             <n-divider title-placement="right">
+                                                 <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large" href="/Pico_S3_doc/en/" target="_blank"
+                                                         tag="a" type="error" ghost>
+                                                         See more about BPI-Leaf-S3
+                                                     </n-button>
+                                                     <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                         href="https://www.aliexpress.us/item/3256804589544325.html" tag="a"
+                                                         target="_blank" round>
+                                                         Buy it now
+                                                     </n-button>
+                                                 </n-button-group>
+                                             </n-divider>
+                                         </n-card>
+                                     </n-carousel-item>
+                                     <n-carousel-item :style="{ width: '75%' }">
+                                         <n-card size="small" hoverable>
+                                             <a href="/Pico_RP2040_doc/en/" target="_blank"><img class="carousel-img"
+                                                     src="/static/image/BPI-Pico-RP2040.jpg" alt="BPI-Leaf-S3"></a>
+                                             <n-divider title-placement="right">
+                                                 <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large" href="/Pico_RP2040_doc/en/" target="_blank"
+                                                         tag="a" type="error" ghost>
+                                                         See more about BPI-Pico-RP2040
+                                                     </n-button>
+                                                     <n-button size="large" style="color:#ffffff; " color="#6391ed"
+                                                         href="https://www.aliexpress.com/item/1005005083227580.html" tag="a"
+                                                         target="_blank" round>
+                                                         Buy it now
+                                                     </n-button>
+                                                 </n-button-group>
+                                             </n-divider>
+                                         </n-card>
+                                     </n-carousel-item>
+                                 </n-carousel>
+                             </n-card>
+                         </n-tab-pane>
+                     </template>
+                 </n-tabs>
+ 
+             </n-grid-item>
+ 
+             <n-grid-item span="9 s:9 m:9 l:9">
+                 <n-card size="small" style="margin: auto; display: flex; min-height: fit-content; " hoverable>
+                     <n-tabs type="line" justify-content="space-evenly"
+                         tab-style="justify-content:center; display: flex; padding-left: 15px; padding-right: 15px; text-align: center; margin: 0 auto; font-size: 20px; "
+                         class="custom-tabs" trigger='hover'>
+                         <n-tab-pane v-bind:tab="key" v-bind:name="key"
+                             v-for="(value, key) in datas['products'][$t('language')]">
+                             <n-layout has-sider position="absolute" style="min-height: 700px; position: relative"
+                                 class="news_background" hoverable>
+                                 <n-grid cols="8" item-responsive responsive="screen">
+                                     <n-grid-item span="8 s:5 m:2 l:2" style="padding: 4%;" v-for="product in value">
+                                         <n-card v-bind:title="product.title" size="small" hoverable>
+                                             <img class="normal-img" v-bind:src="product.src">
+                                             <n-button-group style="margin: 5px; font-size: 16px;">
+                                                 <template v-if="product.lbtn_text === 'btn_eol'">
+                                                     <n-button disabled round>
+                                                         {[ $t(product.lbtn_text) ]}
+                                                     </n-button>
+                                                 </template>
+                                                 <template v-else>
+                                                     <n-button tag="a" v-bind:href="product.lbtn_href" target="_blank"
+                                                         round>
+                                                         {[ $t(product.lbtn_text) ]}
+                                                     </n-button>
+                                                 </template>
+                                                 <n-button style="color:#ffffff;" color="#6391ed" tag="a"
+                                                     v-bind:href="product.rbtn_href" target="_blank" round>
+                                                     {[ $t(product.rbtn_text) ]}
+                                                 </n-button>
+                                             </n-button-group>
+                                         </n-card>
+                                     </n-grid-item>
+                                 </n-grid>
+                             </n-layout>
+                         </n-tab-pane>
+                     </n-tabs>
+                 </n-card>
+         </n-grid>
+         </n-grid>
+     </n-card>
+ 
+ 
+ </div>
+ <script>
+     var pageLanguages = ["en", "zh", "zh_tw"] // languages user can select in pages
+     ///////////////////// translate start /////////////////////
+     const messages = {
+         en: {
+             language: "en",
+             btn_buy: "buy!",
+             btn_eol: "stop",
+             btn_cs: "comming soon",
+             btn_docs: "docs",
+             btn_dev: "dev",
+             btn_detail: "details",
+             btn_repo: "Github",
+             btn_github: "Github",
+             btn_example: "demos",
+             btn_pla: "programming platform"
+         },
+         zh: {
+             language: "zh",
+             btn_buy: "购买链接",
+             btn_eol: "售罄",
+             btn_cs: "即将推出",
+             btn_docs: "使用文档",
+             btn_dev: "开发文档",
+             btn_detail: "产品资料",
+             btn_repo: "源码仓库",
+             btn_github: "Github",
+             btn_example: "示例代码",
+             btn_pla: "编程平台",
+         },
+         zh_tw: {
+             language: "zh_tw",
+             btn_buy: "購買鏈接",
+             btn_eol: "售罄",
+             btn_cs: "即將推出",
+             btn_docs: "使用文檔",
+             btn_dev: "開發文檔",
+             btn_detail: "產品資料",
+             btn_repo: "源碼倉庫",
+             btn_github: "Github",
+             btn_example: "示例代碼",
+             btn_pla: "編程平台",
+         }
+     }
+     ///////////////////// translate end /////////////////////
+     ///////////////////// config start /////////////////////
+     const datas = {
+         'products': {
+             'zh': {
+                 "BPI-Steam Wiki": [
+                     {
+                         title: "WebBit",
+                         src: "/static/image/Webduino_gif.gif",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/WebBit_doc/zh/",
+                         rbtn_text: "btn_dev",
+                         rbtn_href: "/WebBit_dev/zh/",
+                     },
+                     {
+                         title: "Bit-S2",
+                         src: "/static/image/Bit_S2_500x.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Bit_S2_doc/zh/",
+                         rbtn_text: "btn_pla",
+                         rbtn_href: "https://webbit.webduino.io/blockly/?demo=default",
+                     },
+                     {
+                         title: "WebAI",
+                         src: "/static/image/WebAI_400x.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/WebAI/zh/",
+                         rbtn_text: "btn_pla",
+                         rbtn_href: "https://ai-blockly.webduino.io/#/",
+                     },
+                     {
+                         title: "Centi-S3",
+                         src: "/static/image/BPI-Centi-S3_500x.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Centi_S3_doc/zh/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://item.taobao.com/item.htm?id=714936265358",
+                     },
+                     {
+                         title: "Leaf-S3开发板",
+                         src: "/static/image/Leaf-S3.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "Leaf_S3_doc/zh/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://item.taobao.com/item.htm?id=677287234553",
+                     },
+                     {
+                         title: "PicoW-S3开发板",
+                         src: "/static/image/PicoW-S3.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/PicoW_S3_doc/zh/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://item.taobao.com/item.htm?id=684134360199",
+                     },
+                     {
+                         title: "Pico-RP2040开发板",
+                         src: "/static/image/BPI-Pico-RP2040.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Pico_RP2040_doc/zh/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://item.taobao.com/item.htm?id=695456693140",
+                     },
+                     {
+                         title: "Q-Car",
+                         src: "/static/image/Q-Car_With_Web_Bit_400X.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Q-Car/zh/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://item.taobao.com/item.htm?ft=t&id=692759628201",
+                     },
+                     {
+                         title: "Triode-Car",
+                         src: "/static/image/Triode-Car_With_BPI_Bit.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Triode-Car/zh/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://item.taobao.com/item.htm?ft=t&id=692760020445",
+                     },
+                 ],
+             },
+             'en': {"BPI-Steam Wiki": [
+                     {
+                         title: "WebBit:",
+                         src: "/static/image/Webduino_gif.gif",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/WebBit_doc/en/",
+                         rbtn_text: "btn_dev",
+                         rbtn_href: "/WebBit_dev/en/",
+                     },
+                     {
+                         title: "Bit-S2",
+                         src: "/static/image/Bit_S2_500x.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Bit_S2_doc/en/",
+                         rbtn_text: "btn_pla",
+                         rbtn_href: "https://webbit.webduino.io/blockly/?demo=default",
+                     },
+                     {
+                         title: "WebAI",
+                         src: "/static/image/WebAI_400x.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/WebAI/en/",
+                         rbtn_text: "btn_pla",
+                         rbtn_href: "https://ai-blockly.webduino.io/#/",
+                     },
+                     {
+                         title: "Centi-S3",
+                         src: "/static/image/BPI-Centi-S3_500x.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Centi_S3_doc/en/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://www.aliexpress.us/item/3256805324649378.html",
+                     },
+                     {
+                         title: "Leaf-S3",
+                         src: "/static/image/Leaf-S3.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Leaf_S3_doc/en/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://www.aliexpress.com/item/1005004428945296.html",
+                     },
+                     {
+                         title: "PicoW-S3",
+                         src: "/static/image/PicoW-S3.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/PicoW_S3_doc/en/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://www.aliexpress.com/item/1005004775859077.html",
+                     },
+                     {
+                         title: "Pico-RP2040",
+                         src: "/static/image/BPI-Pico-RP2040.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Pico_RP2040_doc/en/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://www.aliexpress.com/item/1005005083227580.html",
+                     },
+                     {
+                         title: "Q-Car",
+                         src: "/static/image/Q-Car_With_Web_Bit_400X.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Q-Car/en/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://www.aliexpress.com/item/3256802129280526.html",
+                     },
+                     {
+                         title: "Triode-Car",
+                         src: "/static/image/Triode-Car_With_BPI_Bit.png",
+                         lbtn_text: "btn_docs",
+                         lbtn_href: "/Triode-Car/en/",
+                         rbtn_text: "btn_buy",
+                         rbtn_href: "https://www.aliexpress.com/item/1005002522563487.html",
+                     },
+                 ],
+             }
+         },
+     }
+     ///////////////////// config end /////////////////////
+     // get page locale
+     var locale = document.getElementsByTagName("html")[0].lang
+     if (locale) {
+         locale = locale.toLowerCase().split("-")[0]
+     }
+     // get browser locale
+     var localeBrowser = (navigator.language || navigator.browserLanguage).toLowerCase().split("-")[0];
+     // brower locale not in page lanuage list, use browser locale
+     if (!localeBrowser in pageLanguages) {
+         locale = localeBrowser
+     }
+     const i18n = VueI18n.createI18n({
+         locale: locale,
+         messages: messages,
+         fallbackLocale: "en",
+         silentFallbackWarn: true
+     })
+     function isLimitedNetwork() {
+         var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || { tyep: 'unknown' };
+         const notLimitTypes = ["ethernet", "wifi", "wimax"]
+         const limitTypes = ["bluetooth", "cellular"]
+         var system = {
+             win: false,
+             mac: false,
+             x11: false,
+             ipad: false
+         };
+         var p = navigator.platform;
+         system.win = p.indexOf("Win") == 0;
+         system.mac = p.indexOf("Mac") == 0;
+         system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+         system.ipad = (navigator.userAgent.match(/iPad/i) != null) ? true : false;
+         if (notLimitTypes.indexOf(connection.type) >= 0) {
+             return false
+         }
+         if ((system.win || system.mac || system.x11 || system.ipad) && (limitTypes.indexOf(connection.type) < 0)) {
+             return false
+         }
+         return true
+     }
+     function showNew(info) {
+         var el = document.getElementById("msg_content")
+         el.innerHTML = info
+         el = document.getElementById("msg")
+         el.style.display = "block"
+     }
+     const allHandling = {
+         compilerOptions: {
+             delimiters: ['{[', ']}'],
+         },
+         data() {
+             return {
+                 datas: datas
+             }
+         },
+         mounted() {
+             var isWechat = window.WeixinJSBridge
+             if (!isWechat) {
+                 document.addEventListener("WeixinJSBridgeReady", function () {
+                     var players_mask = document.getElementsByClassName("play_mask")
+                     for (var i = 0; i < players_mask.length; ++i) {
+                         players_mask[i].style.display = "block"
+                     }
+                 }, false);
+             }
+             if (isLimitedNetwork() || isWechat) {
+                 var players_mask = document.getElementsByClassName("play_mask")
+                 for (var i = 0; i < players_mask.length; ++i) {
+                     players_mask[i].style.display = "block"
+                 }
+             } else {
+                 var players = document.getElementsByClassName("video_player")
+                 for (var i = 0; i < players.length; ++i) {
+                     players[i].play();
+                 }
+             }
+         },
+         methods: {
+             playVideo(event) {
+                 // remove play button and paly video
+                 el = event.target
+                 el.style.display = "none"
+                 player = el.parentElement.getElementsByTagName("video")[0]
+                 player.play()
+             },
+             newInfo(event) {
+                 el = event.target
+                 info = el.getElementsByClassName("new_info")[0].innerText
+                 if (info != "true" && info != "false" && info.trim() != "") {
+                     showNew(info)
+                 }
+             },
+             msgCLose(event) {
+                 console.log("close")
+                 var el = document.getElementById("msg")
+                 el.style.display = "none"
+             }
+         }
+     }
+     var app = Vue.createApp(allHandling)
+     app.use(i18n)
+     app.use(naive)
+     // const meta = document.createElement('meta')
+     // meta.name = 'naive-ui-style'
+     // document.head.appendChild(meta)
+     app.directive('new-tab', {
+         mounted(el, binding) {
+             if (binding.value) {
+                 el.setAttribute("target", "_blank")
+             }
+         }
+     })
+     var vm = app.mount('#products')
+ </script>
+ <style scoped>
+     .n-gradient-text {
+         font-size: 36px;
+     }
+ 
+     .n-layout-header,
+     .n-layout-footer {
+         background: rgba(128, 128, 128, 0.2);
+         padding: 24px;
+     }
+ 
+     .n-layout-sider {
+         background: rgba(128, 128, 128, 0.3);
+     }
+ 
+     .n-layout-content {
+         background: rgba(128, 128, 128, 0.4);
+     }
+ 
+     .card-img {
+         object-fit: scale-down;
+         height: 280px;
+         max-width: fit-content;
+     }
+ 
+     .carousel-img {
+         margin: 0 auto;
+         width: 100%;
+         height: 100%;
+         max-width: 960px;
+         object-fit: cover;
+     }
+ 
+     .mobile-img {
+         width: 100%;
+         object-fit: cover;
+     }
+ 
+     .normal-img {
+         max-width: 80%;
+         height: 200px;
+         object-fit: scale-down;
+     }
+ 
+     .card-tabs .n-tabs-nav--bar-type {
+         padding-left: 4px;
+     }
+ 
+     .custom-tabs .n-tabs-bar {
+         background-color: transparent !important;
+     }
+ 
+     .custom-tabs .n-tabs-bar::after {
+         background-color: rgba(40, 82, 110, 0.80);
+     }
+ 
+     .base_background {
+         background-image: repeating-linear-gradient(135deg, hsla(35, 0%, 71%, 0.09) 0px, hsla(35, 0%, 71%, 0.09) 1px, transparent 1px, transparent 11px), repeating-linear-gradient(45deg, hsla(35, 0%, 71%, 0.09) 0px, hsla(35, 0%, 71%, 0.09) 1px, transparent 1px, transparent 11px), linear-gradient(90deg, hsl(183, 0%, 100%), hsl(183, 0%, 100%));
+     }
+ 
+     .head_background {
+         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 304 304' width='304' height='304'%3E%3Cpath fill='%23000000' fill-opacity='0.04' d='M44.1 224a5 5 0 1 1 0 2H0v-2h44.1zm160 48a5 5 0 1 1 0 2H82v-2h122.1zm57.8-46a5 5 0 1 1 0-2H304v2h-42.1zm0 16a5 5 0 1 1 0-2H304v2h-42.1zm6.2-114a5 5 0 1 1 0 2h-86.2a5 5 0 1 1 0-2h86.2zm-256-48a5 5 0 1 1 0 2H0v-2h12.1zm185.8 34a5 5 0 1 1 0-2h86.2a5 5 0 1 1 0 2h-86.2zM258 12.1a5 5 0 1 1-2 0V0h2v12.1zm-64 208a5 5 0 1 1-2 0v-54.2a5 5 0 1 1 2 0v54.2zm48-198.2V80h62v2h-64V21.9a5 5 0 1 1 2 0zm16 16V64h46v2h-48V37.9a5 5 0 1 1 2 0zm-128 96V208h16v12.1a5 5 0 1 1-2 0V210h-16v-76.1a5 5 0 1 1 2 0zm-5.9-21.9a5 5 0 1 1 0 2H114v48H85.9a5 5 0 1 1 0-2H112v-48h12.1zm-6.2 130a5 5 0 1 1 0-2H176v-74.1a5 5 0 1 1 2 0V242h-60.1zm-16-64a5 5 0 1 1 0-2H114v48h10.1a5 5 0 1 1 0 2H112v-48h-10.1zM66 284.1a5 5 0 1 1-2 0V274H50v30h-2v-32h18v12.1zM236.1 176a5 5 0 1 1 0 2H226v94h48v32h-2v-30h-48v-98h12.1zm25.8-30a5 5 0 1 1 0-2H274v44.1a5 5 0 1 1-2 0V146h-10.1zm-64 96a5 5 0 1 1 0-2H208v-80h16v-14h-42.1a5 5 0 1 1 0-2H226v18h-16v80h-12.1zm86.2-210a5 5 0 1 1 0 2H272V0h2v32h10.1zM98 101.9V146H53.9a5 5 0 1 1 0-2H96v-42.1a5 5 0 1 1 2 0zM53.9 34a5 5 0 1 1 0-2H80V0h2v34H53.9zm60.1 3.9V66H82v64H69.9a5 5 0 1 1 0-2H80V64h32V37.9a5 5 0 1 1 2 0zM101.9 82a5 5 0 1 1 0-2H128V37.9a5 5 0 1 1 2 0V82h-28.1zm16-64a5 5 0 1 1 0-2H146v44.1a5 5 0 1 1-2 0V18h-26.1zm102.2 270a5 5 0 1 1 0 2H98v14h-2v-16h124.1zM242 149.9V160h16v34h-16v62h48v48h-2v-46h-48v-66h16v-30h-16v-12.1a5 5 0 1 1 2 0zM53.9 18a5 5 0 1 1 0-2H64V2H48V0h18v18H53.9zm112 32a5 5 0 1 1 0-2H192V0h50v2h-48v48h-28.1zm-48-48a5 5 0 0 1-9.8-2h2.07a3 3 0 1 0 5.66 0H178v34h-18V21.9a5 5 0 1 1 2 0V32h14V2h-58.1zm0 96a5 5 0 1 1 0-2H137l32-32h39V21.9a5 5 0 1 1 2 0V66h-40.17l-32 32H117.9zm28.1 90.1a5 5 0 1 1-2 0v-76.51L175.59 80H224V21.9a5 5 0 1 1 2 0V82h-49.59L146 112.41v75.69zm16 32a5 5 0 1 1-2 0v-99.51L184.59 96H300.1a5 5 0 0 1 3.9-3.9v2.07a3 3 0 0 0 0 5.66v2.07a5 5 0 0 1-3.9-3.9H185.41L162 121.41v98.69zm-144-64a5 5 0 1 1-2 0v-3.51l48-48V48h32V0h2v50H66v55.41l-48 48v2.69zM50 53.9v43.51l-48 48V208h26.1a5 5 0 1 1 0 2H0v-65.41l48-48V53.9a5 5 0 1 1 2 0zm-16 16V89.41l-34 34v-2.82l32-32V69.9a5 5 0 1 1 2 0zM12.1 32a5 5 0 1 1 0 2H9.41L0 43.41V40.6L8.59 32h3.51zm265.8 18a5 5 0 1 1 0-2h18.69l7.41-7.41v2.82L297.41 50H277.9zm-16 160a5 5 0 1 1 0-2H288v-71.41l16-16v2.82l-14 14V210h-28.1zm-208 32a5 5 0 1 1 0-2H64v-22.59L40.59 194H21.9a5 5 0 1 1 0-2H41.41L66 216.59V242H53.9zm150.2 14a5 5 0 1 1 0 2H96v-56.6L56.6 162H37.9a5 5 0 1 1 0-2h19.5L98 200.6V256h106.1zm-150.2 2a5 5 0 1 1 0-2H80v-46.59L48.59 178H21.9a5 5 0 1 1 0-2H49.41L82 208.59V258H53.9zM34 39.8v1.61L9.41 66H0v-2h8.59L32 40.59V0h2v39.8zM2 300.1a5 5 0 0 1 3.9 3.9H3.83A3 3 0 0 0 0 302.17V256h18v48h-2v-46H2v42.1zM34 241v63h-2v-62H0v-2h34v1zM17 18H0v-2h16V0h2v18h-1zm273-2h14v2h-16V0h2v16zm-32 273v15h-2v-14h-14v14h-2v-16h18v1zM0 92.1A5.02 5.02 0 0 1 6 97a5 5 0 0 1-6 4.9v-2.07a3 3 0 1 0 0-5.66V92.1zM80 272h2v32h-2v-32zm37.9 32h-2.07a3 3 0 0 0-5.66 0h-2.07a5 5 0 0 1 9.8 0zM5.9 0A5.02 5.02 0 0 1 0 5.9V3.83A3 3 0 0 0 3.83 0H5.9zm294.2 0h2.07A3 3 0 0 0 304 3.83V5.9a5 5 0 0 1-3.9-5.9zm3.9 300.1v2.07a3 3 0 0 0-1.83 1.83h-2.07a5 5 0 0 1 3.9-3.9zM97 100a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-48 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 96a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-144a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM49 36a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM33 68a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 240a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm80-176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm112 176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 180a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 84a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'%3E%3C/path%3E%3C/svg%3E");
+     }
+ 
+     .news_background {
+         background-image: radial-gradient(circle at 13% 47%, rgba(140, 140, 140, 0.03) 0%, rgba(140, 140, 140, 0.03) 25%, transparent 25%, transparent 100%), radial-gradient(circle at 28% 63%, rgba(143, 143, 143, 0.03) 0%, rgba(143, 143, 143, 0.03) 16%, transparent 16%, transparent 100%), radial-gradient(circle at 81% 56%, rgba(65, 65, 65, 0.03) 0%, rgba(65, 65, 65, 0.03) 12%, transparent 12%, transparent 100%), radial-gradient(circle at 26% 48%, rgba(60, 60, 60, 0.03) 0%, rgba(60, 60, 60, 0.03) 6%, transparent 6%, transparent 100%), radial-gradient(circle at 97% 17%, rgba(150, 150, 150, 0.03) 0%, rgba(150, 150, 150, 0.03) 56%, transparent 56%, transparent 100%), radial-gradient(circle at 50% 100%, rgba(25, 25, 25, 0.03) 0%, rgba(25, 25, 25, 0.03) 36%, transparent 36%, transparent 100%), radial-gradient(circle at 55% 52%, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 6%, transparent 6%, transparent 100%), linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+     }
+ 
+     .imbox {
+         display: flex;
+         flex-direction: row;
+     }
+ </style>
+ 
+ 
+ 
+ 
+ 
+ 
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="page_footer">
+            <div id="footer">
+                
+                <div id="footer_top">
+                    <ul>
+<li><a>Link</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/en_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">Taobao</a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">Source file of this website</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source file</a></li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@banana-pi.com (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@banana-pi.com (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province</a>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+    
+</body>
+</html>

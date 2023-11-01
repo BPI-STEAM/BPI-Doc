@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>开发板介绍 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列WebBit开发手册</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class="active"><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/WebBit_dev/zh_tw/getting_started/hardware.html">中文 繁體</a></li>
+<li class="active"><a  href="/WebBit_dev/zh/getting_started/hardware.html">中文 简体</a></li>
+<li class=""><a  href="/WebBit_dev/en/getting_started/hardware.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/WebBit_dev/zh/getting_started/hardware.html"><span class="label">开发板介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/getting_started/driver.html"><span class="label">驱动安装</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/index.html"><span class="label">Webduino Blockly 开发指导</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/blockly.html"><span class="label">Blockly 是什么？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/develop.html"><span class="label">了解拓展积木模板</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">修改拓展积木模板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/view_blockly.html"><span class="label">查看范例积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/design_block.html"><span class="label">设计新的积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/add_block.html"><span class="label">添加新的积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/code_test.html"><span class="label">代码生成测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/add_function.html"><span class="label">添加对应功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/function_test.html"><span class="label">积木功能测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/add_lang.html"><span class="label">添加积木语言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/examples.html"><span class="label">积木使用示例</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/mechanism.html"><span class="label">附文：两类积木机制与设计思路</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>开发板介绍</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebBit_dev/zh/getting_started/hardware.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p><img src="../assets/https://img.shields.io/badge/open%20source-bananpi-brightgreen.svg" alt="" /><br />
+<img src="../assets/https://img.shields.io/badge/support-webduino-blue.svg" alt="" /></p>
+<p><img src="../assets/../assets/_static/facade.gif" alt="" /></p>
+<p>本产品采用 ESP-WROOM-32 （ESP32）模组作为核心进行设计，拥有 40nm 工艺、使用 Tensilica LX6 双核32位处理器，频率高达 240 MHz，带有 32 个 I/O 引脚，支持 2.4G Wi-Fi 、蓝牙 4.0 以上等多种通信方式，具备 448KB ROM 和 520 KB SRAM 的内存容量，处理速度达 600 DMIPS，搭配 40nm 工艺的超低功耗，是目前市面上最高效能、最稳定以及最通用的产品之一。</p>
+<p>它又名 Webduino Bit ，是 Webduino 最新的开发板，除了原本的功能一应俱全 ( Wi-Fi 控制、多装置并联、协同工作... 等 )，更是内置了许多有趣的组件与传感器。</p>
+<p>同时 bpi:bit 开源社区还将持续兼容 micro:bit 的大部分配件以及用法。</p>
+<h2 id="%E5%A4%96%E8%A7%82%E4%BB%8B%E7%BB%8D">外观介绍</h2>
+<p><img src="../assets/getting_started/hardware/Interface_CN.jpg" alt="" /></p>
+<p>Webduino Bit 开发板长 5 公分宽 5 公分，重量约 10 ~ 12 公克，除了下方 20 Pin 的「金手指接口」，更内置一个 25 颗全彩 LED 灯的矩阵，两个光敏电阻、两个按钮开关、一个温度感应电阻、一个蜂鸣器和一个九轴传感器 ( 三轴加速度、三轴陀螺仪与三轴磁力指南针 )，脚位配置如下：</p>
+<ul>
+<li>全彩 LED 矩阵：A10 ( GPIO 4 )</li>
+<li>光敏传感器：左上 A0 ( GPIO 36 )、右上 A3 ( GPIO 39 )</li>
+<li>按钮开关：按钮 A P5 ( GPIO 35 )、按钮 B P11 ( GPIO 27 )</li>
+<li>温度传感器：A6 ( GPIO 34 )</li>
+<li>蜂鸣器：P0 ( GPIO 25 )</li>
+<li>九轴传感器 MPU-9250：P20 ( GPIO 21 )、P19 ( GPIO 22 )</li>
+</ul>
+<h2 id="%E6%8B%93%E5%B1%95%E5%BC%95%E8%84%9A">拓展引脚</h2>
+<p><img src="../assets/getting_started/hardware/goldfinger.jpg" alt="" /></p>
+<p><img src="../assets/getting_started/hardware/pin-define.jpg" alt="" /></p>
+<h3 id="LED-%E7%BC%96%E5%8F%B7">LED 编号</h3>
+<p>板子按照 5 * 5 排列方式焊接了 25 颗(编号 0 ~ 24 ) 1600 万色全彩 LED (WS2812) ，所有的 LED 的控制仅使用一个引脚 (GPIO 4) 即可控制。</p>
+<p><img src="../assets/getting_started/hardware/product.jpg" alt="" /></p>
+<p>板子正面 LED 序号排布方式如下（5 * 5）</p>
+<p><img src="../assets/getting_started/hardware/table.png" alt="" /></p>
+<p>（将板子正面朝向自己，并结合底盘金手指可知其位置）</p>
+<h2 id="%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB">版本区别</h2>
+<p>板子分 1.2 和 1.4 版本等多个版本，版本号标识在板子背面右下角。</p>
+<p><img src="../assets/getting_started/hardware/version.jpg" alt="" /></p>
+<h2 id="%E4%BA%A7%E5%93%81%E6%94%AF%E6%8C%81">产品支持</h2>
+<p><a href="driver.html"  ><strong>安装驱动</strong></a></p>
+<h3 id="Webduino">Webduino</h3>
+<ul>
+<li><a href="https://webduino.com.cn/site/zh_cn/tutorials.html"  target="_blank">Webduino 基础教学</a></li>
+<li><a href="https://github.com/BPI-STEAM/BPI-BIT-WebDuino"  target="_blank">Webduino 玩家指南</a></li>
+<li><a href="https://forum.banana-pi.org.cn/c/bpi-bit/webduino"  target="_blank">Webduino 中文社区</a></li>
+</ul>
+<h3 id="MicroPython">MicroPython</h3>
+<ul>
+<li><a href="https://github.com/BPI-STEAM/BPI-BIT-MicroPython"  target="_blank">MicroPython 玩家指南</a></li>
+<li><a href="https://github.com/BPI-STEAM/BPI-BIT-Samples"  target="_blank">MicroPython 示例代码</a></li>
+<li><a href="https://forum.banana-pi.org.cn/c/bpi-bit/micropython"  target="_blank">MicroPython 中文社区</a></li>
+</ul>
+<h3 id="Arduino">Arduino</h3>
+<ul>
+<li><a href="https://github.com/BPI-STEAM/BPI-BIT-Arduino"  target="_blank">Arduino 玩家指南</a></li>
+</ul>
+<h2 id="%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1">硬件设计</h2>
+<h3 id="%E5%BC%95%E8%84%9A%E5%8D%A0%E7%94%A8">引脚占用</h3>
+<p><img src="../assets/getting_started/hardware/extern.png" alt="" /></p>
+<h3 id="%E5%A4%96%E8%A7%82%E8%B5%84%E6%96%99">外观资料</h3>
+<p><img src="../assets/getting_started/hardware/bot.png" alt="" /></p>
+<p><img src="../assets/getting_started/hardware/top.png" alt="" /></p>
+<h3 id="%E7%A1%AC%E4%BB%B6%E8%B5%84%E6%96%99">硬件资料</h3>
+<ul>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/BPI-WEBDUINO-BIT-V1_2.pdf"  target="_blank">BPI-WEBDUINO-BIT-V1_2</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/BPI-WEBDUINO-BIT-V1_4.pdf"  target="_blank">BPI-WEBDUINO-BIT-V1_4</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/Buzzer-SS-S050020Z-120.pdf"  target="_blank">Buzzer-SS-S050020Z-120</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/CH340DS1-ch.pdf"  target="_blank">CH340DS1-ch</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/CH340DS1-en.pdf"  target="_blank">CH340DS1-en</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/esp32_hardware_design_guidelines_en.pdf"  target="_blank">esp32_hardware_design_guidelines_en</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/ESP32-datesheet_english.pdf"  target="_blank">ESP32-datesheet_english</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/esp-wroom-32_datasheet_cn.pdf"  target="_blank">esp-wroom-32_datasheet_cn</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/LightSensor-PTSMD021-0805.pdf"  target="_blank">LightSensor-PTSMD021-0805</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/LM1117.pdf"  target="_blank">LM1117</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/MPU-9250%20Datasheet-v1.1-ch.pdf"  target="_blank">MPU-9250 Datasheet-v1.1-ch</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/MPU-9250%20Datasheet-v1.1-en.pdf"  target="_blank">MPU-9250 Datasheet-v1.1-en</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/MPU-9250%20Register%20Map-v1.6.pdf"  target="_blank">MPU-9250 Register Map-v1.6</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/NTC-0805-103F-3950F.pdf"  target="_blank">NTC-0805-103F-3950F</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/SY7208.pdf"  target="_blank">SY7208</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/WS2812B.pdf"  target="_blank">WS2812B</a></p>
+</li>
+<li><p><a href="https://github.com/BPI-STEAM/BPI-BIT-Hardware/tree/master/docs/DS-000189-ICM-20948-v1.3.pdf"  target="_blank">DS-000189-ICM-20948-v1.3</a></p>
+</li>
+</ul>
+<h2 id="%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99">相关网站</h2>
+<ul>
+<li><a href="https://forum.banana-pi.org.cn/c/bpi-bit"  target="_blank">官方中文社区</a></li>
+<li><a href="http://forum.banana-pi.org/c/bpi-bit"  target="_blank">官方英文社区</a></li>
+<li><a href="https://webduino.com.cn/site/"  target="_blank">Webduino 国内版</a></li>
+<li><a href="https://webduino.io/"  target="_blank">Webduino 国际版</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebBit_dev/zh/getting_started/driver.html">
+                            <span class="label">驱动安装</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

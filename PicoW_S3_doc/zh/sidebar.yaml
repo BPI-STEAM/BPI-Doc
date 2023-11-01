@@ -1,0 +1,29 @@
+items:
+-   label: 一、开箱 PicoW-S3 开发板
+    items:
+    -   label: PicoW-S3 介绍
+        file: Unboxing/Introduction.md
+-   label: 二、使用CircuitPython编程
+    items:
+    -   label: 已得到CircuitPython官方支持
+        file: CircuitPython/supported_by_circuitpython.md
+    -   label: 配置使用环境(Mu编辑器)
+        file: CircuitPython/config_mu-editor.md
+    -   label: 更新CircuitPython固件的方法
+        file: CircuitPython/update_circuitpython.md
+    -   label: 烧录tinyUF2固件的方法
+        file: CircuitPython/flash_tinyuf2.md
+    -   label: 基础功能使用
+        file: CircuitPython/Basic.md
+-   label: 三、使用 Arduino 编程
+    items:
+    -   label: Arduino环境搭建
+        file: Arduino/Environment.md
+    -   label: 基础功能使用
+        file: Arduino/Basic.md
+-   label: 四、使用 MicroPython 编程
+    items:
+    -   label: 通过UF2安装MicroPython固件
+        file: MicroPython/micropython_uf2_firmware.md
+    -   label: 安装MicroPython.BIN固件
+        file: MicroPython/micropython_bin_firmware.md

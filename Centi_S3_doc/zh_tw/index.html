@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh_tw/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh_tw/">首頁</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/">WebBit使用手冊</a></li>
+<li class=""><a  href="/WebBit_dev/zh_tw/">WebBit開發手冊</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh_tw/">Bit-S2使用手冊</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh_tw/">WebAI</a></li>
+<li class="active"><a  href="/Centi_S3_doc/zh_tw/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh_tw/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh_tw/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh_tw/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh_tw/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh_tw/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">動態</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 繁體</a><ul><li class="active"><a  href="/Centi_S3_doc/zh_tw/index.html">中文 繁體</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/index.html">中文 简体</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/index.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">輸入關鍵詞，多關鍵詞空格隔開</span>
+                                <span id="search_loading_hint">正在加載，請稍候。。。</span>
+                                <span id="search_download_err_hint">下載文件失敗，請刷新重試或檢查網絡</span>
+                                <span id="search_other_docs_result_hint">來自其它文檔的結果</span>
+                                <span id="search_curr_doc_result_hint">當前文檔搜索結果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/Centi_S3_doc/zh_tw/index.html"><span class="label">一、Centi-S3 主頁</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh_tw/MicroPython.html"><span class="label">二、使用 MicroPython 快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Centi_S3_doc/zh_tw/Arduino.html"><span class="label">三、使用 Arduino 快速上手</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1></h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Centi_S3_doc/zh_tw/README.md" target="_blank">
+                                    編輯本頁
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E4%BB%8B%E7%B4%B9">介紹</h2>
+<p><img src="assets/images/BPI-Centi-S3.jpg" alt="" /></p>
+<p>BPI-Centi-S3 是一個板載1.9英寸彩屏的小尺寸ESP32-S3開發板，適合用於彩色顯示，交互控制，無線通信，傳感器數據採集等物聯網綜合應用項目的開發。</p>
+<p>使用Espressif ESP32-S3芯片，支持 2.4 GHz Wi-Fi 和低功耗藍牙 (Bluetooth® LE) 雙模無線通信。</p>
+<p>在緊湊的空間下依舊提供一個增量型旋轉編碼器，一個蜂鳴器，一個WS2812彩燈，及其他所有可用引腳引出，滿足多樣化的需求。</p>
+<p>支持USB和外接3.7V鋰電池兩種供電方式，可實現雙電源下自動切換電源功能，並支持USB充電方式，配置了電池電壓檢測電路，方便進行電量管理。</p>
+<h3 id="%E9%97%9C%E9%8D%B5%E7%89%B9%E6%80%A7">關鍵特性</h3>
+<ul>
+<li>ESP32-S3，Xtensa® 32 bit LX7</li>
+<li>2M PSRAM , 8M FLASH</li>
+<li>2.4G WIFI ，Bluetooth 5 ，Bluetooth mesh</li>
+<li>GPIO , PWM , I2C , SPI , RMT , I2S , UART ，USB , JTAG</li>
+<li>1 * ST7789 屏幕，1.9英寸，170*320分辨率，8bit 8080並口</li>
+<li>1 * 旋轉編碼器</li>
+<li>1 * 蜂鳴器</li>
+<li>1 * 全彩色LED</li>
+<li>1 * SH 1mm 4-Pin I2C連接座</li>
+<li>2 * SH 1mm 6-Pin</li>
+<li>1 * USB Type-C</li>
+<li>1 * MX 1.25mm 2-Pin 電池連接座，支持充電</li>
+<li>2 * M3螺絲孔</li>
+</ul>
+<h2 id="%E7%A1%AC%E4%BB%B6">硬件</h2>
+<h3 id="%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3%E7%A4%BA%E6%84%8F%E5%9C%96">硬件接口示意圖</h3>
+<p><img src="assets/images/BPI-Centi-S3-V0.2-IO-1920-white.png" alt="" /></p>
+<h3 id="%E7%A1%AC%E4%BB%B6%E8%A6%8F%E6%A0%BC">硬件規格</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">SoC 主控芯片</td>
+  <td style="text-align:center">ESP32-S3，Xtensa® 32 位 LX7 雙核處理器</td>
+</tr>
+<tr>
+  <td style="text-align:center">主頻</td>
+  <td style="text-align:center">240MHz MAX</td>
+</tr>
+<tr>
+  <td style="text-align:center">片上 ROM</td>
+  <td style="text-align:center">384 KB</td>
+</tr>
+<tr>
+  <td style="text-align:center">片上 SRAM</td>
+  <td style="text-align:center">320 KB</td>
+</tr>
+<tr>
+  <td style="text-align:center">板載 FLASH ROM</td>
+  <td style="text-align:center">8MB</td>
+</tr>
+<tr>
+  <td style="text-align:center">片上外設PSRAM</td>
+  <td style="text-align:center">2MB</td>
+</tr>
+<tr>
+  <td style="text-align:center">WIFI</td>
+  <td style="text-align:center">IEEE 802.11 b/g/n ，2.4Ghz頻帶，150Mbps</td>
+</tr>
+<tr>
+  <td style="text-align:center">藍牙</td>
+  <td style="text-align:center">Bluetooth 5 ，Bluetooth mesh</td>
+</tr>
+<tr>
+  <td style="text-align:center">外部晶振</td>
+  <td style="text-align:center">40Mhz</td>
+</tr>
+<tr>
+  <td style="text-align:center">RTC 和低功耗管理</td>
+  <td style="text-align:center">電源管理單元 (PMU)+ 超低功耗協處理器 (ULP)</td>
+</tr>
+<tr>
+  <td style="text-align:center">GPIO</td>
+  <td style="text-align:center">已引出9個可用GPIO到SH 插座</td>
+</tr>
+<tr>
+  <td style="text-align:center">支持外設</td>
+  <td style="text-align:center">I2C, SPI, PWM, UART, RMT, I2S, SD</td>
+</tr>
+<tr>
+  <td style="text-align:center">SH 1mm 插座</td>
+  <td style="text-align:center">1 * 4Pin，2 * 6Pin</td>
+</tr>
+<tr>
+  <td style="text-align:center">USB</td>
+  <td style="text-align:center">1 * 全速USB 2.0 OTG，Type-C母口</td>
+</tr>
+<tr>
+  <td style="text-align:center">USB Serial/JTAG 控制器</td>
+  <td style="text-align:center">1，USB 全速標準，CDC-ACM ，JTAG</td>
+</tr>
+<tr>
+  <td style="text-align:center">屏幕尺寸</td>
+  <td style="text-align:center">1.9 英寸</td>
+</tr>
+<tr>
+  <td style="text-align:center">屏幕分辨率</td>
+  <td style="text-align:center">170 * 320 RGB</td>
+</tr>
+<tr>
+  <td style="text-align:center">屏幕控制芯片</td>
+  <td style="text-align:center">ST7789V3</td>
+</tr>
+<tr>
+  <td style="text-align:center">屏幕接口</td>
+  <td style="text-align:center">8bit 8080 並口</td>
+</tr>
+<tr>
+  <td style="text-align:center">編碼器</td>
+  <td style="text-align:center">1 * 增量型旋轉編碼器，支持按壓功能</td>
+</tr>
+<tr>
+  <td style="text-align:center">蜂鳴器</td>
+  <td style="text-align:center">1</td>
+</tr>
+<tr>
+  <td style="text-align:center">彩色LED</td>
+  <td style="text-align:center">1 * WS2812 2020</td>
+</tr>
+<tr>
+  <td style="text-align:center">按鈕</td>
+  <td style="text-align:center">RST 按鈕，BOOT按鈕</td>
+</tr>
+<tr>
+  <td style="text-align:center">整機工作溫度</td>
+  <td style="text-align:center">-20℃ ~ +60℃</td>
+</tr>
+<tr>
+  <td style="text-align:center">工作電壓</td>
+  <td style="text-align:center">3.3V</td>
+</tr>
+<tr>
+  <td style="text-align:center">USB輸入電壓</td>
+  <td style="text-align:center">3.3V~5.5V</td>
+</tr>
+<tr>
+  <td style="text-align:center">最大放電電流</td>
+  <td style="text-align:center">2A@3.3V DC/DC</td>
+</tr>
+<tr>
+  <td style="text-align:center">電池連接座</td>
+  <td style="text-align:center">MX 1.25mm 2-Pin</td>
+</tr>
+<tr>
+  <td style="text-align:center">USB充電</td>
+  <td style="text-align:center">支持</td>
+</tr>
+<tr>
+  <td style="text-align:center">最大充電電流</td>
+  <td style="text-align:center">500mA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E7%A1%AC%E4%BB%B6%E5%B0%BA%E5%AF%B8">硬件尺寸</h3>
+<p><img src="assets/images/BPI-Centi-S3-V0.2_Dimensions.jpg" alt="" /></p>
+<h3 id="%E5%B1%8F%E5%B9%95%E6%8E%A5%E7%B7%9A%E5%AE%9A%E7%BE%A9">屏幕接線定義</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">ESP_LCD_BLK</td>
+  <td style="text-align:center">GPIO2</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_RES</td>
+  <td style="text-align:center">GPIO3</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_CS</td>
+  <td style="text-align:center">GPIO4</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D/C</td>
+  <td style="text-align:center">GPIO5</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_WR</td>
+  <td style="text-align:center">GPIO6</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_RD</td>
+  <td style="text-align:center">GPIO7</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D0</td>
+  <td style="text-align:center">GPIO8</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D1</td>
+  <td style="text-align:center">GPIO9</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D2</td>
+  <td style="text-align:center">GPIO10</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D3</td>
+  <td style="text-align:center">GPIO11</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D4</td>
+  <td style="text-align:center">GPIO12</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D5</td>
+  <td style="text-align:center">GPIO13</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D6</td>
+  <td style="text-align:center">GPIO14</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_LCD_D7</td>
+  <td style="text-align:center">GPIO15</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_TP_RESET</td>
+  <td style="text-align:center">GPIO16</td>
+</tr>
+<tr>
+  <td style="text-align:center">II2C_SCL</td>
+  <td style="text-align:center">GPIO17</td>
+</tr>
+<tr>
+  <td style="text-align:center">II2C_SDA</td>
+  <td style="text-align:center">GPIO18</td>
+</tr>
+<tr>
+  <td style="text-align:center">ESP_TP_INT</td>
+  <td style="text-align:center">GPIO21</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E5%A4%96%E8%A8%AD%E6%8E%A5%E7%B7%9A%E5%AE%9A%E7%BE%A9">外設接線定義</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">RST按鍵</td>
+  <td style="text-align:center">RST(CHIP_PU)</td>
+</tr>
+<tr>
+  <td style="text-align:center">BOOT按鍵</td>
+  <td style="text-align:center">GPIO0</td>
+</tr>
+<tr>
+  <td style="text-align:center">BAT_ADC 電池電壓檢測</td>
+  <td style="text-align:center">GPIO1</td>
+</tr>
+<tr>
+  <td style="text-align:center">蜂鳴器</td>
+  <td style="text-align:center">GPIO36</td>
+</tr>
+<tr>
+  <td style="text-align:center">EC_KEY 旋轉編碼器</td>
+  <td style="text-align:center">GPIO35</td>
+</tr>
+<tr>
+  <td style="text-align:center">EC_A 旋轉編碼器</td>
+  <td style="text-align:center">GPIO37</td>
+</tr>
+<tr>
+  <td style="text-align:center">EC_B 旋轉編碼器</td>
+  <td style="text-align:center">GPIO47</td>
+</tr>
+<tr>
+  <td style="text-align:center">WS2812B-2020</td>
+  <td style="text-align:center">GPIO48</td>
+</tr>
+</tbody>
+</table>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Centi_S3_doc/zh_tw/MicroPython.html">
+                            <span class="label">二、使用 MicroPython 快速上手</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>鏈接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘寶</a></li>
+</ul>
+</li>
+<li><a>源碼</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本網站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>聯繫我們</a><ul><li><a>電話: +86 0755-26475332</a>
+</li>
+<li><a>商業支持: sales@banana-pi.com (銷售部）</a>
+</li>
+<li><a>技術支持: support@banana-pi.com (技術部）</a>
+</li>
+<li><a>地址: 廣東省松山湖高新技術產業開發區融易大廈 7 樓</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

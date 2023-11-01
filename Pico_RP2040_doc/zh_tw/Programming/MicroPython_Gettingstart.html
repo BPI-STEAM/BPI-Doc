@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh_tw/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh_tw/">首頁</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/">WebBit使用手冊</a></li>
+<li class=""><a  href="/WebBit_dev/zh_tw/">WebBit開發手冊</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh_tw/">Bit-S2使用手冊</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh_tw/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh_tw/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh_tw/">Leaf-S3</a></li>
+<li class="sub_items "><a  >PicoPico-RP2040</a><ul><li class="active"><a  href="/Pico_RP2040_doc/zh_tw/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh_tw/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh_tw/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh_tw/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">動態</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 繁體</a><ul><li class="active"><a  href="/Pico_RP2040_doc/zh_tw/Programming/MicroPython_Gettingstart.html">中文 繁體</a></li>
+<li class=""><a  href="/Pico_RP2040_doc/zh/Programming/MicroPython_Gettingstart.html">中文 简体</a></li>
+<li class=""><a  href="/Pico_RP2040_doc/en/Programming/MicroPython_Gettingstart.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">輸入關鍵詞，多關鍵詞空格隔開</span>
+                                <span id="search_loading_hint">正在加載，請稍候。。。</span>
+                                <span id="search_download_err_hint">下載文件失敗，請刷新重試或檢查網絡</span>
+                                <span id="search_other_docs_result_hint">來自其它文檔的結果</span>
+                                <span id="search_curr_doc_result_hint">當前文檔搜索結果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Pico_RP2040_doc/zh_tw/index.html"><span class="label">BPI-Pico-RP2040 主頁</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Pico_RP2040_doc/zh_tw/Unboxing/Introduction.html"><span class="label">一、開箱 BPI-Pico-RP2040 開發板</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Pico_RP2040_doc/zh_tw/Programming/MicroPython_Gettingstart.html"><span class="label">二、MicroPython 快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Pico_RP2040_doc/zh_tw/Programming/Arduino_Gettingstart.html"><span class="label">三、Arduino 快速上手</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1></h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Pico_RP2040_doc/zh_tw/Programming/MicroPython_Gettingstart.md" target="_blank">
+                                    編輯本頁
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="MicroPython-%E5%9B%BA%E4%BB%B6%E4%B8%8B%E8%BC%89%E8%88%87%E7%87%92%E9%8C%84">MicroPython 固件下載與燒錄</h2>
+<p>在<a href="https://micropython.org/"  target="_blank">MicroPython官網</a>可以找到支持RP2040芯片的固件，BPI-Pico-RP2040完全兼容Raspberry Pi Pico的固件: <a href="https://micropython.org/download/rp2-pico/"  target="_blank">https://micropython.org/download/rp2-pico/</a></p>
+<p>點擊連接進入頁面後即可在下方看到幾列固件下載地址，推薦選擇下載Releases欄的第一項，兼顧穩定性與新功能特性，後續例程基於v1.19.1固件編寫。</p>
+<p><img src="../assets/images/micropython_env_1.png" alt="" /></p>
+<p>Nightly builds 欄所提供的固件為每日構建，將擁有最新的功能特性，但穩定性可能稍差，且可能尚沒有對應最新功能的使用文檔。</p>
+<p>下載完成後將得到一個 .uf2 擴展名的文件，將其燒錄到BPI-Pico-RP2040開發板的方式非常簡單，先確保有一根type-c數據線，一端連接到PC，拿起開發板，保持上面無任何連線或外圍硬件，按住Boot按鈕，將type-c數據線與開發板連接，鬆開Boot按鈕，PC的系統中將出現一個名為RPI-RP2的新磁盤，將.uf2文件複製到此盤中，複製完成後開發板將自動復位，進入 MicroPython 模式。</p>
+<h2 id="%E5%AE%89%E8%A3%9DThonny-IDE">安裝Thonny IDE</h2>
+<p>以Windows為例，點擊連接下載 <a href="../assets/images/thonny-3.3.13.zip"  >thonny-3.3.13.zip</a>，解壓後得到<code>thonny-3.3.13.exe</code>。</p>
+<p>運行<code>thonny-3.3.13.exe</code>，按照安裝提示逐步操作即可順利完成安裝 。</p>
+<p>也可通過pip安裝，<code>pip install thonny==3.3.13</code>，需要具備<a href="https://www.python.org/"  target="_blank">Python</a>環境，適用於macOS或Linux。</p>
+<h2 id="%E5%BB%BA%E7%AB%8B%E9%96%8B%E7%99%BC%E6%9D%BF%E8%88%87Thonny%E7%9A%84%E9%80%A3%E6%8E%A5">建立開發板與Thonny的連接</h2>
+<p>連接開發板與電腦。</p>
+<p>運行Thonny，點擊 Run &gt; Select interpreter 。<br />
+<img src="../assets/images/micropython_env_2.png" alt="" /></p>
+<p>選擇 MicroPython(Raspberry Pi Pico) 。<br />
+<img src="../assets/images/micropython_env_3.png" alt="" /></p>
+<p>選擇開發板所在的串行接口，點擊OK確認設置。<br />
+<img src="../assets/images/micropython_env_4.png" alt="" /></p>
+<p>勾選 View &gt; Files 即可打開文件管理欄。<br />
+<img src="../assets/images/micropython_env_5.png" alt="" /></p>
+<h2 id="%E4%BD%BF%E7%94%A8REPL%E8%BC%B8%E5%87%BAHello-World">使用REPL輸出Hello World</h2>
+<p><strong>REPL</strong>即<strong>Read-Eval-Print-Loop</strong>的縮寫名詞，譯為 <strong>讀取-求值-輸出-循環</strong>。</p>
+<p>我們可以通過實際操作來明白它的意思。</p>
+<p>將已經安裝了MicroPython固件的開發板連接電腦，運行Thonny IDE並正確配置後，在Shell窗口中將出現這樣的文本內容：</p>
+
+<pre class="language-none"><code class="language-none">MicroPython v1.19.1 on 2022-06-18; Raspberry Pi Pico with RP2040
+Type &quot;help()&quot; for more information.
+&gt;&gt;&gt; 
+</code></pre>
+<p>注意最後一行的<code>&gt;&gt;&gt;</code>提示符，我們可以直接在這後面輸入算式或是代碼，按下鍵盤<code>enter</code>回車鍵就會立即在下一行得到輸出結果。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt; 1+2
+3
+&gt;&gt;&gt; print(&quot;Hello World&quot;)
+Hello World
+&gt;&gt;&gt; 
+</code></pre>
+<p>現在可以很直觀的理解了，它會讀取我們輸入的信息，執行運算求值，輸出結果，然後等待我們後續的輸入，一直循環這個過程，這也是<strong>REPL</strong>又被譯為<strong>交互式解釋器</strong>的原因，我們可以直接通過輸入代碼來和硬件交互，沒有像傳統的C語言那樣需要在中間執行編譯的過程，我們輸入的信息沒有經過編譯就傳輸給芯片自行解釋並運行了，這本就是Python語言的一大重要特性，MicroPython完美繼承了它。</p>
+<p>如果僅僅是使用MicroPython REPL，很多具有串口信息收發功能的軟件都可以操作，感興趣的話可以試試各種串口工具，這可以令人更深刻的理解 “沒有中間執行編譯的過程” 的意思。</p>
+<blockquote>
+<p>關於REPL的應用，更詳盡全面的內容可以參考<a href="https://docs.micropython.org/en/latest/reference/repl.html"  target="_blank">MicroPython文檔：REPL</a></p>
+</blockquote>
+<h2 id="%E4%BB%A3%E7%A2%BC%E7%B7%A8%E8%BC%AF%E5%99%A8">代碼編輯器</h2>
+<p>Thonny IDE當然不僅僅可以進行REPL的操作，作為python代碼編輯器，本職功能還是有的。</p>
+<p>新建一個文件並在其編輯區內輸入代碼。</p>
+
+<pre class="language-python"><code class="language-python">print(1+2)
+print(&quot;Hello World&quot;)
+</code></pre>
+<p>完成代碼編輯後，點擊 <strong>Save</strong>，可以選擇將文件保存到開發板中，這將直接將整個文件傳輸到開發板的flash中。可將文件命名為<code>main.py</code>，設備會在每次上電或複位後執行它。</p>
+<p><img src="../assets/images/Quick_Start.png" alt="" /></p>
+<p>現在點擊 <strong>Run current script</strong> 運行，同樣是無需編譯的，在Shell中會立即得到結果。</p>
+
+<pre class="language-none"><code class="language-none">3
+Hello World
+</code></pre>
+<p>另外也可以嘗試REPL的鍵盤控制快捷鍵<strong>ctrl+D</strong>軟件復位，可以看到復位後程序立即執行並打印出信息。</p>
+<h2 id="%E9%BB%9E%E4%BA%AELED">點亮LED</h2>
+<p>BPI-Pico-RP2040上的板載LED連接到GPIO 25引腳，你可以在REPL上點亮它。當你看到REPL提示<code>&gt;&gt;&gt;</code>時，請輸入以下代碼。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt; from machine import Pin
+&gt;&gt;&gt; led = Pin(25, Pin.OUT)
+</code></pre>
+<blockquote>
+<p><code>machine</code>模塊用於控制開發板上的硬件。這是所有MicroPython端口的標準配置，你可以在<a href="https://docs.micropython.org/en/v1.19.1/library/machine.html"  target="_blank">MicroPython文檔：machine</a>中了解更多有關它的信息。</p>
+</blockquote>
+<p>輸入以下代碼LED將亮起。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt; led.value(1)
+</code></pre>
+<p>輸入以下代碼將熄滅LED。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt; led.value(0)
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%9D%BF%E8%BC%89%E5%BD%A9%E7%87%88">使用板載彩燈</h2>
+<p>BPI-Pico-RP2040上的板載 WS2812 彩燈連接到GPIO 3引腳，它僅需一個信號線即可控制，在REPL中輸入以下代碼。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt; from machine import Pin
+&gt;&gt;&gt; from neopixel import NeoPixel
+&gt;&gt;&gt; neo = NeoPixel(Pin(3), 1)
+</code></pre>
+<blockquote>
+<p><code>neopixel</code>模塊為 WS2812 彩燈提供驅動程序。你可以在<a href="https://docs.micropython.org/en/v1.19.1/library/neopixel.html"  target="_blank">MicroPython文檔：neopixel</a>中了解更多有關它的信息。</p>
+</blockquote>
+<p>輸入以下代碼，彩燈將亮起紅色。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt; neo[0] = (25,0,0)
+&gt;&gt;&gt; neo.write()
+</code></pre>
+<p><code>neo[0] = (25,0,0)</code>設定第一顆彩燈的顏色。</p>
+<p>WS2812 彩燈內有三顆純色LED，它們的顏色分別是紅，綠，藍，<code>(25,0,0)</code>元組中的元素依次對應控制它們的亮度，數值範圍 0 ~ 255， 元素的數值越大，它所控制的純色LED就越亮。<br />
+建議將元素的數值控制在50以下，數值過高時近距離直視會刺眼。</p>
+<p><code>neo.write()</code>執行後，芯片會將控制信號傳輸給這顆板載的 WS2812 彩燈。</p>
+<p>你可以嘗試自行修改元組中的數據，控制彩燈的顏色，例如繼續在REPL中輸入以下代碼，使彩燈亮白色。</p>
+
+<pre class="language-python"><code class="language-python">&gt;&gt;&gt; neo[0] = (25,25,25)
+&gt;&gt;&gt; neo.write()
+</code></pre>
+<h2 id="%E5%8F%83%E8%80%83%E8%B3%87%E6%BA%90">參考資源</h2>
+<ul>
+<li><a href="https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf"  target="_blank">raspberry-pi-pico-python-sdk.pdf</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Pico_RP2040_doc/zh_tw/Unboxing/Introduction.html">
+                            <span class="icon"></span>
+                            <span class="label">一、開箱 BPI-Pico-RP2040 開發板</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Pico_RP2040_doc/zh_tw/Programming/Arduino_Gettingstart.html">
+                            <span class="label">三、Arduino 快速上手</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>鏈接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘寶</a></li>
+</ul>
+</li>
+<li><a>源碼</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本網站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>聯繫我們</a><ul><li><a>電話: +86 0755-26475332</a>
+</li>
+<li><a>商業支持: sales@banana-pi.com (銷售部）</a>
+</li>
+<li><a>技術支持: support@banana-pi.com (技術部）</a>
+</li>
+<li><a>地址: 廣東省松山湖高新技術產業開發區融易大廈 7 樓</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

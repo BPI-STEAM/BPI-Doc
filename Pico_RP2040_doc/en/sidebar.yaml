@@ -1,0 +1,12 @@
+items:
+-   label: BPI-Pico-RP2040 Homepage
+    file: README.md
+    
+-   label: 1. Unboxing BPI-Pico-RP2040 Development Board
+    file: Unboxing/Introduction.md
+    
+-   label: 2. MicroPython Getting Started
+    file: Programming/MicroPython_Gettingstart.md
+
+-   label: 3. Arduino Getting Started
+    file: Programming/Arduino_Gettingstart.md

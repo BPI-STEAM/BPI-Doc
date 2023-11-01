@@ -1,0 +1,32 @@
+items:
+-   label: 开发板介绍
+    file: getting_started/hardware.md
+-   label: 驱动安装
+    file: getting_started/driver.md
+-   label: Webduino Blockly 开发指导
+    file: webduino_dev/README.md
+    items:
+    -   label: Blockly 是什么？
+        file: webduino_dev/blockly.md
+    -   label: 了解拓展积木模板
+        file: webduino_dev/develop.md
+    -   label: 修改拓展积木模板
+        items:
+        -   label: 查看范例积木
+            file: webduino_dev/modify/view_blockly.md
+        -   label: 设计新的积木
+            file: webduino_dev/modify/design_block.md
+        -   label: 添加新的积木
+            file: webduino_dev/modify/add_block.md
+        -   label: 代码生成测试
+            file: webduino_dev/modify/code_test.md
+        -   label: 添加对应功能
+            file: webduino_dev/modify/add_function.md
+        -   label: 积木功能测试
+            file: webduino_dev/modify/function_test.md
+        -   label: 添加积木语言
+            file: webduino_dev/modify/add_lang.md
+        -   label: 积木使用示例
+            file: webduino_dev/modify/examples.md
+    -   label: 附文：两类积木机制与设计思路
+        file: webduino_dev/mechanism.md

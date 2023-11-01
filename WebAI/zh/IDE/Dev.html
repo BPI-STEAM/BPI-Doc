@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>四、使用 IDE 开发 Web:AI - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class="active"><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/WebAI/zh_tw/IDE/Dev.html">中文 繁體</a></li>
+<li class="active"><a  href="/WebAI/zh/IDE/Dev.html">中文 简体</a></li>
+<li class=""><a  href="/WebAI/en/IDE/Dev.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、开箱 Web:AI 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Introduction.html"><span class="label">Web:AI 介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Initialization.html"><span class="label">初始化设定 (第一次使用请看这里)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Update.html"><span class="label">安裝版更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/SettingWIFI.html"><span class="label">开发板 Wi-Fi 设定</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Mode.html"><span class="label">操作模式</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Card.html"><span class="label">教学示例卡使用教学</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">二、Web:AI 图形编程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Introduction.html"><span class="label">图形编程平台介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">基础功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Variables.html"><span class="label">变量</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Logic.html"><span class="label">逻辑</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Loops.html"><span class="label">循环</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Math.html"><span class="label">数学</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Text.html"><span class="label">文本</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Lists.html"><span class="label">数组</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Functions.html"><span class="label">函数</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">進階功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/FileRW.html"><span class="label">文件读写</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/QRCode.html"><span class="label">二维码扫描</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Color.html"><span class="label">颜色追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Face.html"><span class="label">人脸追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Image.html"><span class="label">影像分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Object.html"><span class="label">物件追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Speech.html"><span class="label">语音辨识</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">侦测</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Web:AI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Board.html"><span class="label">开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/LCD.html"><span class="label">LCD 屏幕</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Button.html"><span class="label">按钮开关</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Mic.html"><span class="label">麦克风</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/IO.html"><span class="label">I/O 脚位</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">扩充功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/MQTT.html"><span class="label">网络广播</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/Servo.html"><span class="label">舵机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/Speaker.html"><span class="label">扬声器</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh/Train/Train.html"><span class="label">三、影像训练</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/WebAI/zh/IDE/Dev.html"><span class="label">四、使用 IDE 开发 Web:AI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/MoonCar/MoonCar.html"><span class="label">五、操控 MoonCar</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>四、使用 IDE 开发 Web:AI</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebAI/zh/IDE/Dev.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>Web:AI 开发板除了可以用图形编程平台操作外，甚至也支持直接在 IDE 上编写 Python 程序，并通过开发板执行。</p>
+<blockquote>
+<p>IDE：Integrated Development Environment ( 整合开发环境 )，一种辅助开发软体的应用程序，是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。集成了代码编写功能、分析功能、编译功能、调试功能等一体化的开发软件服务套。</p>
+</blockquote>
+<h3 id="%E8%84%9A%E4%BD%8D%E5%AE%9A%E4%B9%89">脚位定义</h3>
+<p><img src="../assets/images/upload_86f5831686be2d9682c479ea7d912837.png" alt="" /></p>
+<h3 id="%E4%B8%BB%E8%8A%AF%E7%89%87-%28-K210-%29-%26amp%3B-Wi-Fi-%E8%8A%AF%E7%89%87-%28-ESP8285-%29">主芯片 ( K210 ) &amp; Wi-Fi 芯片 ( ESP8285 )</h3>
+<p><img src="../assets/images/upload_44609bc24a5a34baf5a7e554ef92bd8e.png" alt="" /></p>
+<h2 id="%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D">开发环境介绍</h2>
+<p>Web:AI 开发板可配合<a href="https://maixpy.sipeed.com/"  target="_blank">Sipeed公司</a> 推出的MaixPy IDE 使用，该IDE 虽然没有开源，但提供了程序编写整合开发环境，可以编写MicroPython代码并传送到Web:AI开发板中执行，欢迎参考下方操作步骤。</p>
+<p>开发环境画面如下：</p>
+<p><img src="../assets/images/upload_81c4247711446de3b89009483a0f36e5.png" alt="MaixPy" /></p>
+<h2 id="%E4%BD%BF%E7%94%A8-kflash_gui-%E6%9B%B4%E6%96%B0%E6%A0%87%E5%87%86%E7%89%88%E5%9B%BA%E4%BB%B6">使用 kflash_gui 更新标准版固件</h2>
+<p>需要先使用 kflash_gui 将 Web:AI 固件文件烧录至开发板中，才能通过 MaixPy IDE 使用 Web:AI 功能。</p>
+<blockquote>
+<p>烧录前请先通过 USB 线将 Web:AI 开发板接上电脑。</p>
+</blockquote>
+<h3 id="%E4%BD%BF%E7%94%A8-kflash_gui-%E7%83%A7%E5%BD%95">使用 kflash_gui 烧录</h3>
+<ol>
+<li><p>下载 Web:AI 固件文件 <a href="https://drive.google.com/file/d/1c819ka2ng8UgqVvTEjVFMPiEBrzDYyxO/view?usp=sharing"  target="_blank">固件文件</a>。</p>
+</li>
+<li><p>下载 <a href="https://github.com/sipeed/kflash_gui/releases/tag/v1.6.7"  target="_blank">kflash_gui</a>，点击执行，开启 webai.kfpkg 固件文件，等待下载完毕后就烧录完成了。</p>
+<p><img src="../assets/images/upload_ce3be2497b3bbb94d08f5d14df8ffc09.png" alt="" /></p>
+</li>
+<li><p>kflash_gui 参数设定画面如下，如果烧录异常，可尝试调整烧录的速度</p>
+<p><img src="../assets/images/upload_7e9b1dddd437cb218a9afe4119ad4db1.png" alt="" /></p>
+</li>
+</ol>
+<h2 id="%E4%BD%BF%E7%94%A8-MaixPy-IDE-%E6%89%A7%E8%A1%8C%E6%8C%87%E4%BB%A4">使用 MaixPy IDE 执行指令</h2>
+<h3 id="1.-%E4%B8%8B%E8%BD%BD-MaixPy-IDE%EF%BC%9A">1. 下载 MaixPy IDE：</h3>
+<p>点击 <a href="https://drive.google.com/drive/u/0/folders/1AhEgANgd8PxQOlZgmxWc8JhbpstaIXDS"  target="_blank">MaixPy IDE</a> 下载，安装后开启 MaixPy IDE 应用程序，进入开发环境画面。</p>
+<p><img src="../assets/images/upload_ef24ff8d1880128fa54c87a49cc5105f.png" alt="MaixPy IDE 界面" /></p>
+<h3 id="2.-%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%EF%BC%9A">2. 新建文件：</h3>
+<p>点击左侧侧边栏「新建文件」按钮 ( 白色资料图示 )，在页面中可以自行输入 Python 程序码。可以直接复制下方的程序码示例，粘贴在编辑画面中，执行示例演示。</p>
+<h3 id="3.-%E9%80%89%E6%8B%A9%E5%BC%80%E5%8F%91%E6%9D%BF%EF%BC%9A">3. 选择开发板：</h3>
+<p>点击上方「工具」&gt;「选择开发板」&gt;「Sipeed Maix Bit ( with Mic )」，代表选择控制 Web:AI 开发板。</p>
+<p><img src="../assets/images/upload_5cf48d37570d61c20fa0f3cc0f94debe.png" alt="" /></p>
+<h3 id="4.-%E5%BC%80%E5%90%AF%E7%BB%88%E7%AB%AF">4. 开启终端</h3>
+<ol>
+<li><p>点击上方「工具」&gt;「开启终端」&gt;「新终端」</p>
+<p><img src="../assets/images/upload_3abe5bed046bbf41d2914681d4fd0daf.png" alt="" /></p>
+</li>
+<li><p>选择「连线到序列埠」</p>
+<p><img src="../assets/images/upload_6add55ea4c6d108b5fe3cad6542724db.png" alt="" /></p>
+</li>
+</ol>
+<h3 id="5.-%E5%BC%80%E5%90%AF-Web%3AAI">5. 开启 Web:AI</h3>
+<ol>
+<li><p>开启终端后，会看到如下画面：</p>
+<p><img src="../assets/images/upload_e59c37efecb5c1b2527510b9a2889417.png" alt="" /></p>
+</li>
+<li><p>在 IDE 中输入程序码，按下执行，即可在直接终端中查看执行结果。</p>
+</li>
+</ol>
+<h2 id="%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B">程序示例</h2>
+<p>使用 Python 程序时，可以直接复制下方的程序码示例，粘贴在编辑画面中，执行示例演示。</p>
+<h2 id="%E4%BC%A0%E6%84%9F%E5%99%A8">传感器</h2>
+<p><img src="../assets/images/upload_22df52e5a1be1ec587fe04a042634959.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%91%84%E5%83%8F%E5%A4%B4-Sensor">示例：摄像头 Sensor</h3>
+<ul>
+<li>程序内容：使用 Web:AI 内建的摄像头捕捉画面，实时显示到 LCD 屏幕中。</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+
+pic = webai.snapshot()
+webai.show(img=pic)
+</code></pre>
+<p><img src="../assets/images/upload_f733579dd18caea93542ce6b2d672d00.png" alt="" /></p>
+<h2 id="%E5%B1%8F%E5%B9%95-LCD-%E6%98%BE%E7%A4%BA">屏幕 LCD 显示</h2>
+<p><img src="../assets/images/upload_9a95715444776fa01a7afcef8c36b4d5.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%98%BE%E7%A4%BA%E6%96%87%E5%AD%97">示例：显示文字</h3>
+<ul>
+<li><p>程序内容：输入指定的文字、位置、样式，并显示在 LCD 屏幕上。</p>
+</li>
+<li><p>==lcd.draw_string( x 座标 , y 座标 , &quot; 文字 &quot; , 文字颜色 , 背景颜色 )==</p>
+</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+
+webai.draw_string(30,10,&quot;测试 OK&quot;,scale=2)
+</code></pre>
+<p><img src="../assets/images/upload_a8feb305b558a728a5191fc20c98ab12.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E7%94%BB%E7%BA%BF">示例：画线</h3>
+<ul>
+<li><p>程序内容：设定线段的 2 个端点位置、颜色、宽度，绘制在 LCD 屏幕上。也可同时绘制多条线段。</p>
+</li>
+<li><p>==img.draw_line( x 座标 , y 座标 , x 座标 , y 座标 , 颜色 , 线段宽度 )==</p>
+</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+
+webai.img = image.Image()
+webai.img.draw_line(10,150,310,150,color=lcd.RED,thickness=20)
+webai.show(img=webai.img)
+</code></pre>
+<p><img src="../assets/images/upload_bd152fa8f05d75d8a0404446c60be2af.png" alt="" /></p>
+<h2 id="%E6%8C%89%E9%92%AE">按钮</h2>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%8C%89%E9%92%AE%E6%8E%A7%E5%88%B6">示例：按钮控制</h3>
+<ul>
+<li><p>程序内容：按 L 按钮显示 A，按 R 按钮显示 B。</p>
+</li>
+<li><p>==webai.draw_string( x 座标 , y 座标 , &quot; 英文数字 &quot;, 文字缩放 )==</p>
+</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+# state=1:click_down , state=2:click_up , state=3:long_press
+def click(name,state):
+    webai.img.clear()
+    if name == 'btnL' and state == 1:
+        webai.draw_string(60, 100, &quot;A&quot;, scale=4)
+    if name == 'btnR' and state == 1:
+        webai.draw_string(280, 100, &quot;B&quot;, scale=4)
+
+webai.img = image.Image()
+webai.addBtnListener(click)
+</code></pre>
+<p><img src="../assets/images/upload_1ebffb83a09532397e2dd8f9092721f2.png" alt="LR按钮" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%8C%89%E9%92%AE%E6%8E%A7%E5%88%B6---%E7%9B%91%E5%90%AC%E6%89%80%E6%9C%89%E6%8C%89%E9%92%AE%E4%BA%8B%E4%BB%B6">示例：按钮控制 - 监听所有按钮事件</h3>
+<p>按键事件总共有 7 种事件</p>
+<p>L(左键): name=='btnL' , state==1:按下 , state==2:放开 , state==3:长按超过2秒<br />
+R(右键): name=='btnR' , state==1:按下 , state==2:放开 , state==3:长按超过2秒<br />
+L + R : state == 4 (左右按键一起按)</p>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+# state=1:click_down , state=2:click_up , state=3:long_press
+def click(name,state):
+    webai.img.clear()
+    # 按下左键
+    if name == 'btnL' and state == 1:
+        webai.draw_string(60, 100, &quot;A&quot;, scale=4)
+    # 放开左键
+    if name == 'btnL' and state == 2:
+        webai.draw_string(60, 100, &quot; &quot;, scale=4)
+    # 长按左键超过2秒
+    if name == 'btnL' and state == 3:
+        webai.draw_string(50, 100, &quot;A!&quot;, scale=4)
+
+    # 按下右键
+    if name == 'btnR' and state == 1:
+        webai.draw_string(220, 100, &quot;B &quot;, scale=4)
+    # 按下右键
+    if name == 'btnR' and state == 2:
+        webai.draw_string(220, 100, &quot; &quot;, scale=4)
+    # 长按右键超过2秒
+    if name == 'btnR' and state == 3:
+        webai.draw_string(210, 100, &quot;B!&quot;, scale=4)
+
+    # 左键+右键一起按
+    if state == 4:
+        webai.draw_string(50, 100, &quot;A + B&quot;, scale=4)
+
+webai.img = image.Image()
+webai.addBtnListener(click)
+</code></pre>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%8C%89%E9%92%AE%E6%8B%8D%E7%85%A7%E6%98%BE%E7%A4%BA%E7%85%A7%E7%89%87">示例：按钮拍照显示照片</h3>
+<ul>
+<li>示例程序：<ol>
+<li>按下 L 按钮进行拍照并写入文件</li>
+<li>长按 R 按钮将照片显示在 LCD 屏幕上</li>
+<li>再按一下 R 按钮恢复拍摄模式</li>
+</ol>
+</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+
+def click(name,state):
+    global show
+    if name == 'btnL' and state == 2:
+        webai.img = webai.snapshot()
+        webai.img.save('myImg.jpg')
+        print(&quot;save OK&quot;)
+    if name == 'btnR' and state == 1:        
+        show = False
+    if name == 'btnR' and state == 3:
+        show = True
+        webai.show(file = 'myImg.jpg')
+
+show = False
+webai.addBtnListener(click)
+while True:
+    if not show:
+        webai.img = webai.snapshot()
+        webai.show(img = webai.img)
+</code></pre>
+<p><img src="../assets/images/upload_12a14b46fe9eede0762043451dc8dead.png" alt="" /></p>
+<h2 id="%E8%84%9A%E4%BD%8D%E6%8E%A7%E5%88%B6">脚位控制</h2>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%AF%BB%E5%8F%96%E8%84%9A%E4%BD%8D%E7%9A%84%E6%A8%A1%E6%8B%9F%E9%87%8F">示例：读取脚位的模拟量</h3>
+<p><img src="../assets/images/upload_1bf8dec7eceade62de536f34c0b58f74.png" alt="" /></p>
+<ul>
+<li><p>读取 pin4 模拟量信号，数值介于 0~1023 ，电压是 0~1V。</p>
+</li>
+<li><p>程序内容：用手触碰引脚 ( pin4 )，就可以看到屏幕显示数值上升到 1023。</p>
+</li>
+</ul>
+<p><img src="../assets/images/upload_3bdfbbf6eeae5225db112f9998e95362.png" alt="" /></p>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+while True:
+    val = webai.adc()
+    img = image.Image()
+    img.draw_string(120, 100, str(val), scale=4)
+    lcd.display(img)
+    time.sleep(0.1)
+    lcd.clear()
+</code></pre>
+<h2 id="%E5%A4%96%E6%8E%A5%E6%89%AC%E5%A3%B0%E5%99%A8%E3%80%81T-Flash%E5%AD%98%E5%82%A8%E5%8D%A1">外接扬声器、T-Flash存储卡</h2>
+<h3 id="%E4%BD%BF%E7%94%A8%E6%89%AC%E5%A3%B0%E5%99%A8%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6">使用扬声器播放音频文件</h3>
+<p><img src="../assets/images/upload_6e7808c81c364f6a2f5900f878fa8347.png" alt="" /></p>
+<ul>
+<li>程序内容：播放 wav 格式的音频文件。</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+webai.speaker.setVolume(100)
+webai.speaker.play(filename='logo.wav',sample_rate=11025)
+</code></pre>
+<h2 id="Wi-Fi-%E8%AE%BE%E5%AE%9A">Wi-Fi 设定</h2>
+<h3 id="%E8%AE%BE%E5%AE%9A%E5%BC%80%E5%8F%91%E6%9D%BF%E8%BF%9E%E7%BA%BF-Wi-Fi">设定开发板连线 Wi-Fi</h3>
+<ul>
+<li>程序内容：通过 Wi-Fi 连上网络，如果试了三次都连不上，就显示异常。<ul>
+<li>第二行：设定 Wi-Fi 的 SSID 和 PWD</li>
+<li>第六行：储存 Wi-Fi 设定</li>
+<li>第七行：开发板重开机</li>
+</ul>
+</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+wifi = {
+'ssid':'webduino.io',
+'pwd':'webduino'
+}
+webai.cfg.put('wifi', wifi)
+webai.reset()
+</code></pre>
+<h2 id="MQTT">MQTT</h2>
+<blockquote>
+<p>建议使用 Webduino 提供的程序库，比较方便使用。</p>
+</blockquote>
+<h3 id="MQTT-%E8%AE%A2%E9%98%85%E8%B5%84%E6%96%99">MQTT 订阅资料</h3>
+<ul>
+<li>程序内容：订阅频道 &quot; subTest &quot;。<ul>
+<li>第三行：在屏幕上显示广播讯息</li>
+</ul>
+</li>
+</ul>
+<p>可通过Web:Bit示例程序发布讯息进行测试。<br />
+<a href="https://webbit.webduino.io/blockly/?demo=default#7qZr95m27k8qO"  target="_blank">https://webbit.webduino.io/blockly/?demo=default#7qZr95m27k8qO</a></p>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+def msg(topic, msg):
+    webai.lcd.clear()
+    webai.draw_string(130, 100, &quot;%s&quot;%msg, scale=2, x_spacing=10)
+webai.mqtt.sub('subTest', msg)
+</code></pre>
+<h3 id="MQTT-%E5%8F%91%E8%A1%8C%E8%B5%84%E6%96%99">MQTT 发行资料</h3>
+<ul>
+<li>程序内容：向频道 &quot; subTest &quot; 传送 &quot; Hello Web:AI &quot;。<ul>
+<li>第一行：完成 MQTT 连线</li>
+<li>第二行：传送一份资料</li>
+</ul>
+</li>
+</ul>
+
+<pre class="language-python="><code class="language-python=">from webai import *
+webai.mqtt.pub('subTest','Hello Web:AI')
+</code></pre>
+<h2 id="%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%28%E6%A8%A1%E5%9E%8B%E6%96%87%E4%BB%B6%E3%80%81SPIFFS..%E7%AD%89%29-%E7%83%A7%E5%BD%95%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9A%84-flash-address">下载文件(模型文件、SPIFFS..等) 烧录到指定的 flash address</h2>
+<p>下面这示例程序是更新webAI文件系统。</p>
+
+<pre class="language-python="><code class="language-python=">url = 'http://share.webduino.io/storage/download/0605_143342.696_m_0x400000_maixpy_spiffs.img'
+webai.cloud.download(url,address=0x400000,redirect=False,showProgress=True)
+</code></pre>
+<h2 id="%E9%80%9A%E8%BF%87-UART-%E5%92%8C-Arduino%E9%80%9A%E4%BF%A1">通过 UART 和 Arduino通信</h2>
+<p>Arduino 可以通过 UART 和 Web:AI 连线传送资料，下面程序示例是让 ESP8266 传送字符给 Web:AI 进行显示。</p>
+<iframe src="https://www.youtube.com/embed/c9VH46zGpps" allowfullscreen width="100%" style="aspect-ratio:728/410;border:none " ></iframe>
+
+<pre class="language-python="><code class="language-python=">from machine import UART
+import sensor, image, time, lcd
+from fpioa_manager import fm
+from Maix import GPIO
+
+
+fm.register(24, fm.fpioa.UART1_TX, force=True)
+fm.register(25, fm.fpioa.UART1_RX, force=True)
+uart = UART(UART.UART1, 57600, timeout=5000,read_buf_len=2048)
+lcd.init()
+img = image.Image()
+img.draw_string(100,100,'Go',scale=3)
+lcd.display(img)
+while True:
+    while uart.any():
+        myLine = uart.readline()
+        img.draw_string(100,100,myLine,scale=3)
+        lcd.display(img)
+        img.clear()
+</code></pre>
+<p>Arduino</p>
+
+<pre class="language-c="><code class="language-c=">void setup() {
+  Serial.begin(57600);
+  pinMode(15, OUTPUT);
+}
+
+void loop() {
+  Serial.println('A');
+  digitalWrite(15, HIGH);
+  delay(500);
+  Serial.println('B');
+  digitalWrite(15, LOW);
+  delay(500);
+}
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/WebAI/zh/Train/Train.html">
+                            <span class="icon"></span>
+                            <span class="label">三、影像训练</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebAI/zh/MoonCar/MoonCar.html">
+                            <span class="label">五、操控 MoonCar</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

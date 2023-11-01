@@ -1,0 +1,23 @@
+items:
+-   label: 1. Unpacking PicoW-S3 development board
+    items:
+    -   label: Introduction of PicoW-S3
+        file: Unboxing/Introduction.md
+-   label: 2. Code with CircuitPython
+    items:
+    -   label: Supported by CircuitPython
+        file: CircuitPython/supported_by_circuitpython.md
+    -   label: Configure usage environment (Mu editor)
+        file: CircuitPython/config_mu-editor.md
+    -   label: How to update CircuitPython firmware
+        file: CircuitPython/update_circuitpython.md
+    -   label: How to upload tinyUF2 firmware
+        file: CircuitPython/flash_tinyuf2.md
+    -   label: Basic function usage
+        file: CircuitPython/Basic.md
+-   label: 3. Code with Arduino
+    items:
+    -   label: Arduino environment construction
+        file: Arduino/Environment.md
+    -   label: Basic function usage
+        file: Arduino/Basic.md

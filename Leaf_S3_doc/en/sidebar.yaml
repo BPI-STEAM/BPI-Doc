@@ -1,0 +1,23 @@
+items:
+-   label: 1. Unpacking Leaf-S3 development board
+    items:
+    -   label: Introduction of Leaf-S3
+        file: Unboxing/Introduction.md
+    -   label: get started quickly (for the first time, please see here)
+        file: Unboxing/Gettingstart.md
+-   label: 2. Code with MicroPython
+    items:
+    -   label: MicroPython environment construction
+        file: MicroPython/Environment.md
+    -   label: Micropython firmware download and burning
+        file: MicroPython/Firmware.md
+    -   label: Basic use case
+        file: MicroPython/Basic.md
+    -   label: ESP-NOW use case
+        file: MicroPython/ESPNOW.md
+-   label: 3. Code with Arduino
+    items:
+    -   label: Install and configure the environment
+        file: Arduino/Environment.md
+    -   label: basic function usage
+        file: Arduino/Basic.md

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>了解拓展积木模板 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列WebBit开发手册</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class="active"><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/WebBit_dev/zh_tw/webduino_dev/develop.html">中文 繁體</a></li>
+<li class="active"><a  href="/WebBit_dev/zh/webduino_dev/develop.html">中文 简体</a></li>
+<li class=""><a  href="/WebBit_dev/en/webduino_dev/develop.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/WebBit_dev/zh/getting_started/hardware.html"><span class="label">开发板介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/getting_started/driver.html"><span class="label">驱动安装</span><span class=""></span></a></li>
+<li class="active_parent with_link"><a href="/WebBit_dev/zh/webduino_dev/index.html"><span class="label">Webduino Blockly 开发指导</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/blockly.html"><span class="label">Blockly 是什么？</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/WebBit_dev/zh/webduino_dev/develop.html"><span class="label">了解拓展积木模板</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">修改拓展积木模板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/view_blockly.html"><span class="label">查看范例积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/design_block.html"><span class="label">设计新的积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/add_block.html"><span class="label">添加新的积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/code_test.html"><span class="label">代码生成测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/add_function.html"><span class="label">添加对应功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/function_test.html"><span class="label">积木功能测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/add_lang.html"><span class="label">添加积木语言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/modify/examples.html"><span class="label">积木使用示例</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebBit_dev/zh/webduino_dev/mechanism.html"><span class="label">附文：两类积木机制与设计思路</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>了解拓展积木模板</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebBit_dev/zh/webduino_dev/develop.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>从先前的文档中得知什么是 Google Blockly 设计器，那我们就先从模仿一个通用的模板开始吧。</p>
+<p>请先了解一下这个<a href="https://bpi-steam.com/webduino-blockly-template"  target="_blank">webduino-blockly-template</a>示例项目，并下载获得。</p>
+<h2 id="%E6%8B%93%E5%B1%95%E7%A7%AF%E6%9C%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%9E%84%E6%88%90">拓展积木的基本构成</h2>
+<p>先认识一下模板目录文件，如下一系列表格，稍后会详细介绍。</p>
+<h3 id="webduino-blockly-template">webduino-blockly-template</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">文件路径</th>
+  <th style="text-align:center">介绍与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">blockly</td>
+  <td style="text-align:center">积木资源文件夹，内容下述</td>
+</tr>
+<tr>
+  <td style="text-align:center">demes</td>
+  <td style="text-align:center">积木示例、设计文件夹，内容下述</td>
+</tr>
+<tr>
+  <td style="text-align:center">blockly.json</td>
+  <td style="text-align:center">积木类型、依赖、实现的定义</td>
+</tr>
+<tr>
+  <td style="text-align:center">itpk-blockly.js</td>
+  <td style="text-align:center">积木的代码生成函数实现</td>
+</tr>
+<tr>
+  <td style="text-align:center">itpk.html</td>
+  <td style="text-align:center">测试原始积木功能 API 页面</td>
+</tr>
+<tr>
+  <td style="text-align:center">itpk.js</td>
+  <td style="text-align:center">经典 JavaScript 接口实现</td>
+</tr>
+<tr>
+  <td style="text-align:center">README.md</td>
+  <td style="text-align:center">积木的使用说明文档</td>
+</tr>
+<tr>
+  <td style="text-align:center">_config.yml</td>
+  <td style="text-align:center">由 Github Page 创建，并提供外链</td>
+</tr>
+</tbody>
+</table>
+<h3 id="webduino-blockly-template%5Cblockly">webduino-blockly-template\blockly</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">文件路径</th>
+  <th style="text-align:center">介绍与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">msg</td>
+  <td style="text-align:center">积木多语言资源文件夹，内容下述</td>
+</tr>
+<tr>
+  <td style="text-align:center">blocks.js</td>
+  <td style="text-align:center">由 积木设计器 自动生成的样式实现</td>
+</tr>
+<tr>
+  <td style="text-align:center">javascript.js</td>
+  <td style="text-align:center">由 积木设计器 自动生成的积木代码生成函数实现</td>
+</tr>
+<tr>
+  <td style="text-align:center">toolbox.xml</td>
+  <td style="text-align:center">由你提供左侧工具列积木样式设计</td>
+</tr>
+</tbody>
+</table>
+<h3 id="webduino-blockly-template%5Cblockly%5Cmsg">webduino-blockly-template\blockly\msg</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">文件路径</th>
+  <th style="text-align:center">介绍与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">blocks</td>
+  <td style="text-align:center">积木内部的相关的语言文件，内容下述</td>
+</tr>
+<tr>
+  <td style="text-align:center">en.js</td>
+  <td style="text-align:center">定义工具列的 英文 文字变量</td>
+</tr>
+<tr>
+  <td style="text-align:center">zh-hans.js</td>
+  <td style="text-align:center">定义工具列的 简体中文 文字变量</td>
+</tr>
+<tr>
+  <td style="text-align:center">zh-hant.js</td>
+  <td style="text-align:center">定义工具列的 繁体中文 文字变量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="webduino-blockly-template%5Cblockly%5Cmsg%5Cblocks">webduino-blockly-template\blockly\msg\blocks</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">文件路径</th>
+  <th style="text-align:center">介绍与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">en.js</td>
+  <td style="text-align:center">定义积木内部的 英文 文字变量</td>
+</tr>
+<tr>
+  <td style="text-align:center">zh-hans.js</td>
+  <td style="text-align:center">定义积木内部的 简体中文 文字变量</td>
+</tr>
+<tr>
+  <td style="text-align:center">zh-hant.js</td>
+  <td style="text-align:center">定义积木内部的 繁体中文 文字变量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="webduino-blockly-template%5Cdemos">webduino-blockly-template\demos</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">文件路径</th>
+  <th style="text-align:center">介绍与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">blockly.xml</td>
+  <td style="text-align:center">积木的使用范例，可导入 webduino blockly</td>
+</tr>
+<tr>
+  <td style="text-align:center">library.xml</td>
+  <td style="text-align:center">积木的设计库，可导回设计器中重新设计</td>
+</tr>
+</tbody>
+</table>
+<p>这些基本的定义是便于修改模板积木过程中查阅其确切定义。</p>
+<h2 id="%E6%8B%93%E5%B1%95%E7%A7%AF%E6%9C%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">拓展积木的使用方法</h2>
+<p>如果是托管在 Github 上的积木，可以根据<a href="../../../WebBit_doc%5Czh%5Cwebduino%5Cmodules%5Cbasic.html"  >拓展积木的使用说明</a> 可知插件地址外链类似这样：<a href="https://bpi-steam.com/webduino-blockly-template/blockly.json"  target="_blank">https://bpi-steam.com/webduino-blockly-template/blockly.json</a> 的地址，又或者是这样 <a href="https://junhuanchen.github.io/webduino-module-itpk-robot/blockly.json"  target="_blank">https://junhuanchen.github.io/webduino-module-itpk-robot/blockly.json</a> 的地址，请确保在访问的时候，使用 https 访问且内容类似下图的 JSON 效果。</p>
+<p><img src="../assets/webduino_dev/images/blockly_json.png" alt="" /></p>
+<h2 id="%E6%8B%93%E5%B1%95%E7%A7%AF%E6%9C%A8%E7%9A%84%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA">拓展积木的模板创建</h2>
+<p>请尝试使用该项目进行操作，如图点击绿色按钮（Use this template），这将 fork 到你的项目中，此时。</p>
+<p><img src="../assets/webduino_dev/images/use_template.png" alt="" /></p>
+<p>将它配置到你的积木名称和描述，可以随意。</p>
+<p><img src="../assets/webduino_dev/images/create_template.png" alt="" /></p>
+<p>类似这样的效果，注意上述所述的使用方法。</p>
+<p><img src="../assets/webduino_dev/images/template_example.png" alt="" /></p>
+<p>上图的积木插件地址应为：<a href="https://junhuanchen.github.io/webduino-blockly-telecar/blockly.json"  target="_blank">https://junhuanchen.github.io/webduino-blockly-telecar/blockly.json</a> ，而模板插件地址则是 <a href="https://bpi-steam.com/webduino-blockly-template/blockly.json"  target="_blank">https://bpi-steam.com/webduino-blockly-template/blockly.json</a> ，记得在 readme 里修改对应提供的地址，将插件托管到 Github 的方法请继续往下看。</p>
+<h2 id="%E6%8B%93%E5%B1%95%E7%A7%AF%E6%9C%A8%E7%9A%84%E6%89%98%E7%AE%A1%E9%85%8D%E7%BD%AE">拓展积木的托管配置</h2>
+<p>一般来说，我们会将积木托管在 Github 上，这样就不需要自己额外提供一个网络空间了，所以当我们 fork 项目的时候，会发现创建的模板项目，无法直接使用类似上述的插件外链使用，所以这时候需要你设置 Github Pages 的 Source，如下描述，这是因为它需要转换为该链接，以个人的 Github 为例，如下图是没有设置的情况。</p>
+<p><img src="../assets/webduino_dev/images/pages_source.png" alt="" /></p>
+<p>选择了 Source 的 master branch 分支。</p>
+<p><img src="../assets/webduino_dev/images/pages_select.png" alt="" /></p>
+<p>此时将会产生 Github 的外链，这就是在 Github 上提供积木的地址，积木地址务必提供 https 访问，防止被跳转回 http 。</p>
+<p><img src="../assets/webduino_dev/images/pages_result.png" alt="" /></p>
+<p>使用这个刚生成的地址 <a href="https://junhuanchen.github.io/webduino-blockly-template/blockly.json"  target="_blank">https://junhuanchen.github.io/webduino-blockly-template/blockly.json</a> ，在积木载入中确认一遍。</p>
+<p><img src="../assets/webduino_dev/images/pages_commit.png" alt="" /></p>
+<blockquote>
+<p>注意 fork 的 readme 的内容并没有改变，所以发布的时候，别忘了修改积木地址。</p>
+</blockquote>
+<p>现在，你通过 fork 就已经学会了如何创建一个动态积木，那接下来就从修改一个示例模板开始写积木吧。</p>
+<blockquote>
+<p>欲读懂内部工作机制，请学习<a href="https://www.runoob.com/html/html5-intro.html"  target="_blank">HTML5</a>和<a href="https://www.runoob.com/w3cnote/es6-concise-tutorial.html"  target="_blank">ECMAScript 6</a>。</p>
+</blockquote>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/WebBit_dev/zh/webduino_dev/blockly.html">
+                            <span class="icon"></span>
+                            <span class="label">Blockly 是什么？</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebBit_dev/zh/webduino_dev/modify/view_blockly.html">
+                            <span class="label">查看范例积木</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

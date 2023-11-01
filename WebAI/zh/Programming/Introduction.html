@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>图形编程平台介绍 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class="active"><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/WebAI/zh_tw/Programming/Introduction.html">中文 繁體</a></li>
+<li class="active"><a  href="/WebAI/zh/Programming/Introduction.html">中文 简体</a></li>
+<li class=""><a  href="/WebAI/en/Programming/Introduction.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、开箱 Web:AI 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Introduction.html"><span class="label">Web:AI 介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Initialization.html"><span class="label">初始化设定 (第一次使用请看这里)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Update.html"><span class="label">安裝版更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/SettingWIFI.html"><span class="label">开发板 Wi-Fi 设定</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Mode.html"><span class="label">操作模式</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Card.html"><span class="label">教学示例卡使用教学</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">二、Web:AI 图形编程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/WebAI/zh/Programming/Introduction.html"><span class="label">图形编程平台介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">基础功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Variables.html"><span class="label">变量</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Logic.html"><span class="label">逻辑</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Loops.html"><span class="label">循环</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Math.html"><span class="label">数学</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Text.html"><span class="label">文本</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Lists.html"><span class="label">数组</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Functions.html"><span class="label">函数</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">進階功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/FileRW.html"><span class="label">文件读写</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/QRCode.html"><span class="label">二维码扫描</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Color.html"><span class="label">颜色追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Face.html"><span class="label">人脸追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Image.html"><span class="label">影像分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Object.html"><span class="label">物件追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Speech.html"><span class="label">语音辨识</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">侦测</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Web:AI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Board.html"><span class="label">开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/LCD.html"><span class="label">LCD 屏幕</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Button.html"><span class="label">按钮开关</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Mic.html"><span class="label">麦克风</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/IO.html"><span class="label">I/O 脚位</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">扩充功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/MQTT.html"><span class="label">网络广播</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/Servo.html"><span class="label">舵机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/Speaker.html"><span class="label">扬声器</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh/Train/Train.html"><span class="label">三、影像训练</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/IDE/Dev.html"><span class="label">四、使用 IDE 开发 Web:AI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/MoonCar/MoonCar.html"><span class="label">五、操控 MoonCar</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>图形编程平台介绍</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebAI/zh/Programming/Introduction.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>Web:AI图形编程分成网页版和安装版两种，可通过Wi-Fi和USB进行控制，使用上功能几乎相同，可以选择符合自己需求的版本作使用。</p>
+<p><img src="../assets/images/upload_32ec1f0da0cbb09fdf25b6e3e78da96d.png" alt="" /></p>
+<p>关于<strong>网页版</strong>与<strong>安装版</strong>的区别，欢迎参考以下介绍：</p>
+<h2 id="%E7%BD%91%E9%A1%B5%E7%89%88">网页版</h2>
+<p>网页版不需要安装任何软件，只要电脑有连接上网络，通过浏览器打开就能使用，不论是Windows或Mac都能运作，适合快速体验的使用者。</p>
+<h4 id="-%E7%BD%91%E9%A1%B5%E7%89%88%E9%93%BE%E6%8E%A5%EF%BC%9A%3Ca-href%3D%22https%3A//ai-blockly.webduino.io%22--target%3D%22_blank%22%3EWeb%3AAI%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B%3C/a%3E">-网页版链接：<a href="https://ai-blockly.webduino.io"  target="_blank">Web:AI图形编程</a></h4>
+<h3 id="%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD%28%E7%BD%91%E9%A1%B5%E7%89%88%E4%B8%93%E5%B1%9E%29">分享功能(网页版专属)</h3>
+<p>「分享」功能可以快速存盘产生一段「网址」，下次再开启这个网址就可以开启此项目。因为安装版无法开启网址，所以无法使用该选项。</p>
+<p><img src="../assets/images/upload_ee1785fa20430a92283f1c84dc497e16.png" alt="" /></p>
+<blockquote>
+<p>网页版限定Google Chrome浏览器，目前<strong>不支持USB联机</strong>控制!</p>
+</blockquote>
+<h2 id="%E5%AE%89%E8%A3%85%E7%89%88">安装版</h2>
+<p>安装版可以在没有网络的环境下使用，下载后运行，将Web:AI开发板通过USB连接即可使用。</p>
+<h4 id="-%E5%AE%89%E8%A3%85%E7%89%88%E8%BF%9E%E6%8E%A5%EF%BC%9A%3Ca-href%3D%22https%3A//drive.google.com/file/d/1m4qGyWGae-2yytYrSorrJKaP-XBBarHR/view%22--target%3D%22_blank%22%3EWeb%3AAI%E5%AE%89%E8%A3%85%E7%89%88%3C/a%3E">-安装版连接：<a href="https://drive.google.com/file/d/1m4qGyWGae-2yytYrSorrJKaP-XBBarHR/view"  target="_blank">Web:AI安装版</a></h4>
+<blockquote>
+<p>安装版目前仅限定在<strong>Windows系统</strong>使用。</p>
+</blockquote>
+<h2 id="%E7%95%8C%E9%9D%A2">界面</h2>
+<h3 id="%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD">基本功能</h3>
+<p>Web:AI图形编程平台的操作界面分成下列几个功能区：</p>
+<ul>
+<li><p><strong>积木编辑区</strong>：所有图形编程的组装、编辑都会在这个区域内执行。</p>
+</li>
+<li><p><strong>积木清单</strong>：包含基本功能、进阶功能、Web:AI开发板操控和扩充功能积木。</p>
+</li>
+<li><p><strong>主功能菜单</strong>：包含各种常用功能以及程序的下载。</p>
+</li>
+</ul>
+<p>-文件：开启、储存json文件，以及将积木做成网址储存分享。</p>
+<p>-示例：多种现成的积木示例，可以直接打开使用。</p>
+<p>-扩充：具有特殊功能的积木，可以将积木加入使用。</p>
+<p>-教学：前往教学手册。</p>
+<p>-清空：将积木编辑区的积木全部清除。</p>
+<p>-更多：包含Wi-Fi设定、网页互动区、进入商城、下载安装版、切换语言。</p>
+<p>-执行：将积木编辑区做好的积木下载至Web:AI开发板中。</p>
+<ul>
+<li><p><strong>积木/代码切换</strong>：将写好的程序转换为python代码，让学习程序更简单。</p>
+</li>
+<li><p><strong>功能按钮</strong>：够快速缩放画面或删除积木。</p>
+</li>
+</ul>
+<p><img src="../assets/images/upload_5502fb59e0b0bcc9151d0f959a55d6d6.png" alt="" /></p>
+<h2 id="%E7%A7%AF%E6%9C%A8%E4%BB%8B%E7%BB%8D">积木介绍</h2>
+<p>「积木」是翻译自「block」这个英文单字，其操作方式类似「组装积木」或「拼图」的概念。通过互相堆叠和搭配组合，就能判断不同程序的逻辑或依据指定的排列顺序，实现对应的程序功能。</p>
+<p><img src="../assets/images/upload_07aa0c945738c4f6a0ae6f1af56a5595.gif" alt="" /></p>
+<h3 id="%E7%BC%96%E8%BE%91%E7%A7%AF%E6%9C%A8">编辑积木</h3>
+<p>使用鼠标在指定的积木上按<strong>右键</strong>，就能开启积木的功能列表，功能如下：</p>
+<p>-复制：复制这块积木。</p>
+<p>-加入注释：如同程序的注释功能，替这块积木加入注释。</p>
+<p>-外部输入/单行输入：切换积木的样式。(不影响程序执行)</p>
+<p>-收合积木/展开积木：当积木编辑区有太多积木时，可以将积木收合，减少画面中的积木数量。</p>
+<p>-删除积木：删除这块积木。</p>
+<p>-教学：查看积木的教学说明。</p>
+<p>-小工具：特定积木需要配合小工具以作进阶功能使用，点击后可以打开。</p>
+<p><img src="../assets/images/upload_f62c60356d347ec7e2fea40fd2221711.png" alt="" /></p>
+<h2 id="%E5%BC%80%E5%A7%8B%E6%89%A7%E8%A1%8C%E7%AC%AC%E4%B8%80%E6%94%AF%E7%A8%8B%E5%BA%8F">开始执行第一支程序</h2>
+<p>1.首先从左侧的<strong>积木清单</strong>中找到「Web:AI」，下方有「开发板」。</p>
+<p><img src="../assets/images/upload_c6db40883fdb05fc429f4f58a8ab57bf.jpg" alt="" /></p>
+<p>2.点击「开发板」，可以看到「开发板」积木，将积木拉出。</p>
+<p><img src="../assets/images/upload_c406c25ec8b794c4c21fddf2963b2636.gif" alt="" /></p>
+<p>3.在「开发板」积木中输入当前所要使用的开发板Device ID。</p>
+<p><img src="../assets/images/upload_5e9768158864380f4612cc2516820864.jpg" alt="" /></p>
+<blockquote>
+<p>关于开发板的Device ID，欢迎参考：<a href="https://bpi-steam.com/WebAI/zh/Unboxing/Initialization.html"  target="_blank">初始化设定 ( 第一次使用请看这里 )</a>。</p>
+</blockquote>
+<p>4.从左侧的<strong>积木清单</strong>中找到「Web:AI」，点击下方的「LCD屏幕」。</p>
+<p><img src="../assets/images/upload_e45ca69a09bec6a69a1fc9d03b7d48c0.jpg" alt="" /></p>
+<p>5.拉出「LCD显示文字」积木，放进「开发板」积木内。</p>
+<p><img src="../assets/images/upload_89b92fd79b17976d89e90eb32ed9817e.gif" alt="" /></p>
+<p>6.按下右上角「执行」，即可将程序下载到Web:AI中。</p>
+<p><img src="../assets/images/upload_66cfe68177b328caefa52b71c4b055ca.jpg" alt="" /></p>
+<p>7.当下载成功后，可以看到Web:AI开发板的LCD屏幕显示「Hello World」。</p>
+<p><img src="../assets/images/upload_509900dc9341e45fa477c4dbbf2ed5fd.png" alt="" /></p>
+<p>8.成功执行第一支程序后，就可以开始体验后续的更多更强大的Web:AI程序了!</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/WebAI/zh/Unboxing/Card.html">
+                            <span class="icon"></span>
+                            <span class="label">教学示例卡使用教学</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebAI/zh/Programming/Basic/Variables.html">
+                            <span class="label">变量</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

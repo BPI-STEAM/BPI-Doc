@@ -1,0 +1,30 @@
+items:
+-   label: 产品硬件介绍
+    file: introduction/hardware.md
+-   label: micro:bit 教程   
+    collapsed: false
+    items:
+    -   label: 初识 micro:bit
+        file: microbit_tutorial/first_meeting.md
+    -   label: 创建MakeCode项目
+        file: microbit_tutorial/new_project.md
+    -   label: 导入扩展积木
+        file: microbit_tutorial/import_extension.md
+    -   label: 用microbit按钮控制电机
+        file: microbit_tutorial/button_control-1.md
+    -   label: 超声波测距的简单应用
+        file: microbit_tutorial/ultrasonic_ranging.md
+    -   label: 编曲并用蜂鸣器播放
+        file: microbit_tutorial/music_arrangement.md
+    -   label: 设计光电计数器
+        file: microbit_tutorial/photoelectric_counter.md
+    -   label: 利用光电计数器进行转速测量
+        file: microbit_tutorial/RPM_measurement.md
+    -   label: PCA9685芯片的PWM调速
+        file: microbit_tutorial/PCA9685-PWM.md
+    -   label: 详解超声波测距
+        file: microbit_tutorial/ultrasonic_ranging2.md
+    -   label: 利用超声波测距使Q-Car自动保持距离
+        file: microbit_tutorial/ultrasonic_ranging3.md
+    -   label: 巡线行驶（综合应用）
+        file: microbit_tutorial/line_tracking.md

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>函数 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class="active"><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/WebAI/zh_tw/Programming/Basic/Functions.html">中文 繁體</a></li>
+<li class="active"><a  href="/WebAI/zh/Programming/Basic/Functions.html">中文 简体</a></li>
+<li class=""><a  href="/WebAI/en/Programming/Basic/Functions.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、开箱 Web:AI 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Introduction.html"><span class="label">Web:AI 介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Initialization.html"><span class="label">初始化设定 (第一次使用请看这里)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Update.html"><span class="label">安裝版更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/SettingWIFI.html"><span class="label">开发板 Wi-Fi 设定</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Mode.html"><span class="label">操作模式</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Unboxing/Card.html"><span class="label">教学示例卡使用教学</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">二、Web:AI 图形编程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Introduction.html"><span class="label">图形编程平台介绍</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">基础功能</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Variables.html"><span class="label">变量</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Logic.html"><span class="label">逻辑</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Loops.html"><span class="label">循环</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Math.html"><span class="label">数学</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Text.html"><span class="label">文本</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Basic/Lists.html"><span class="label">数组</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/WebAI/zh/Programming/Basic/Functions.html"><span class="label">函数</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">進階功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/FileRW.html"><span class="label">文件读写</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/QRCode.html"><span class="label">二维码扫描</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Color.html"><span class="label">颜色追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Face.html"><span class="label">人脸追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Image.html"><span class="label">影像分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Object.html"><span class="label">物件追踪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Advanced/Speech.html"><span class="label">语音辨识</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">侦测</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Web:AI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Board.html"><span class="label">开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/LCD.html"><span class="label">LCD 屏幕</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Button.html"><span class="label">按钮开关</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/Mic.html"><span class="label">麦克风</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/WebAI/IO.html"><span class="label">I/O 脚位</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">扩充功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/MQTT.html"><span class="label">网络广播</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/Servo.html"><span class="label">舵机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/Programming/Expand/Speaker.html"><span class="label">扬声器</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh/Train/Train.html"><span class="label">三、影像训练</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/IDE/Dev.html"><span class="label">四、使用 IDE 开发 Web:AI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh/MoonCar/MoonCar.html"><span class="label">五、操控 MoonCar</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>函数</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebAI/zh/Programming/Basic/Functions.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>函数积木可以帮助我们简化或管理较为复杂的程序逻辑，因为在写程序的时候，常会遇到需要重复撰写并执行的代码，如果每重复一次都得重写一次，势必会造成整份程序逻辑的复杂度，通过函数，将这些重复的程序集中管理，需要使用的时候再去呼叫函数，就可以执行对应的内容。</p>
+<h2 id="%E5%BB%BA%E7%AB%8B%E5%87%BD%E6%95%B0">建立函数</h2>
+<p>「建立函数」积木可以将许多重复会用到的程序积木包装成函数。</p>
+<p><img src="../../assets/images/upload_a367c134c23f41bcd37af8342f8aae8a.png" alt="" /></p>
+<h3 id="%E3%80%8C%E5%87%BD%E6%95%B0%E3%80%8D%E7%A7%AF%E6%9C%A8%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B">「函数」积木使用流程</h3>
+<p>使用建立函数积木并不会执行函数，因为函数是定义「需要执行的内容」，建立完成函数积木内容后，在函数积木的目录里，就会出现对应的执行函数积木，使用这块积木才表示执行这个函数。</p>
+<p>函数流程：</p>
+<ol>
+<li>建立函数</li>
+<li>执行函数</li>
+</ol>
+<p><img src="../../assets/images/upload_9927eea7e5f49cc07602f9e8ef006cc0.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%BB%BA%E7%AB%8B%E5%B9%B6%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0">示例：建立并执行函数</h3>
+<ol>
+<li>使用「建立函数」积木，放入「LCD 显示文字」积木</li>
+<li>使用「函数」积木</li>
+<li>按下执行，可以看到 Web:AI 屏幕显示 <strong>Hello World</strong>。</li>
+</ol>
+<p><img src="../../assets/images/upload_ba667034437829bdc693c88295b95db0.png" alt="" /></p>
+<h3 id="%E5%87%BD%E6%95%B0%E5%86%85%E5%8F%98%E9%87%8F">函数内变量</h3>
+<p>除了单纯的使用函数，我们也可以建立「函数内的变量」，点选函数积木前方的小齿轮，就可以新增变量。</p>
+<p><img src="../../assets/images/upload_730ffc95b0c683c2ca9896fd3ec1b283.gif" alt="" /></p>
+<p>新增函数内的变量后，执行函数时也会看到放入变量数值的缺口。 ( 有几个函数内的变量就会有几个缺口 )</p>
+<p><img src="../../assets/images/upload_b12dd98ddefa314dadd2e0ad39fcec10.png" alt="" /></p>
+<p>也会看到在「变量」积木列表同时新增了 x、y 变量。</p>
+<p><img src="../../assets/images/upload_c2fa8754b6319a1758fb0c0a337adfcb.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%86%85%E5%8F%98%E9%87%8F%E4%BD%9C%E8%BF%90%E7%AE%97">示例：使用函数内变量作运算</h3>
+<ol>
+<li>使用「建立函数」积木，放入「LCD 显示文字」积木，显示 <strong>x 和 y 相乘</strong> 的结果。</li>
+<li>使用「函数」积木，放入 <strong>变量 x、y</strong>。</li>
+<li>输入 x = 58、y = 63。</li>
+<li>按下执行，可以看到 Web:AI 屏幕显示 3654。</li>
+</ol>
+<p><img src="../../assets/images/upload_b0d50f4e741fc6ebb87e55f254e3a4ad.png" alt="" /></p>
+<h2 id="%E5%BB%BA%E7%AB%8B%E8%BF%94%E5%9B%9E%E5%80%BC%E5%87%BD%E6%95%B0">建立返回值函数</h2>
+<p>「建立返回的函数」积木可以让执行的函数，变成单纯的<strong>数值</strong>。</p>
+<p><img src="../../assets/images/upload_cf7190430a281e0758d5a1c382e86286.png" alt="" /></p>
+<p>使用「建立返回值函数」，会发现执行函数时积木前方多了一个作为组合用的形状。<br />
+( 下图是延伸前一段建立函数内数的函数 )</p>
+<p><img src="../../assets/images/upload_cbfb981e04896726b0ed41b7539720b5.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9Ax%E3%80%81y-%E4%B8%8D%E5%90%8C%E7%9A%84%E8%BF%90%E7%AE%97%E7%BB%93%E6%9E%9C">示例：x、y 不同的运算结果</h3>
+<ol>
+<li>使用「建立返回值函数」积木，返回值为 <strong>x 和 y 相加</strong>。</li>
+<li>使用「按钮开关」积木和「LCD 显示文字」积木，分别用来显示不同的运算结果。</li>
+<li>放入「函数」积木，设定不同的 x、y 值。</li>
+<li>执行后，按下 L、R 按钮，可以看到 Web:AI 屏幕显示不同的运算结果。</li>
+</ol>
+<p><img src="../../assets/images/upload_7142effe680a069803df59f805082d85.gif" alt="" /></p>
+<h2 id="%E5%87%BD%E6%95%B0%E5%86%85%E5%88%A4%E6%96%AD%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%80%BC">函数内判断并返回值</h2>
+<p>「函数内判断并返回值」积木必须和「建立返回值函数」的积木搭配，其作用为在某指定判断条件下成立则使函数返回指定数值。</p>
+<blockquote>
+<p>「函数内判断并返回值」积木必须放在「建立函数」积木内才能正常运作。</p>
+</blockquote>
+<p><img src="../../assets/images/upload_3f635fbacc9cdfda5d4e05d33e8b4bf0.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%88%A4%E6%96%AD-x%E3%80%81y-%E5%A4%A7%E5%B0%8F-%28-1-%29">示例：判断 x、y 大小 ( 1 )</h3>
+<p>通过这个积木，搭配函数内的变量，就可以通过传入的变量数值，最后返回 x 和 y 哪个比较大的结果。</p>
+<p><img src="../../assets/images/upload_218975067b38ed4d9b0c73b103f2bf2a.png" alt="" /></p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%88%A4%E6%96%AD-x%E3%80%81y-%E5%A4%A7%E5%B0%8F-%28-2-%29">示例：判断 x、y 大小 ( 2 )</h3>
+<p>因为「函数内判断并返回值」积木具备逻辑判断的功能，所以也可以使用逻辑积木加上一个变量来做判断，就能做出一模一样的效果。</p>
+<p><img src="../../assets/images/upload_503e5c2f293d0f99b5fdf78c78e6332c.png" alt="" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/WebAI/zh/Programming/Basic/Lists.html">
+                            <span class="icon"></span>
+                            <span class="label">数组</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebAI/zh/Programming/Advanced/FileRW.html">
+                            <span class="label">文件读写</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

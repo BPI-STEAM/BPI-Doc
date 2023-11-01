@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="ESP-IDF, 入门, 开源, ESP32-S3, ">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>香蕉派 BPI-Leaf-S3的正确吃法之ESP-IDF输出日志 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": ["ESP-IDF", "入门", "开源", "ESP32-S3"], "date": "2023-03-27", "update": [], "ts": 1679875200, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class="active"><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>香蕉派 BPI-Leaf-S3的正确吃法之ESP-IDF输出日志</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>ESP-IDF</li>
+                            
+                                <li>入门</li>
+                            
+                                <li>开源</li>
+                            
+                                <li>ESP32-S3</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-03-27">
+                                    2023-03-27
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/news/ESP-IDF/esp_idf_print_log.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><p>本系列旨在交流 ESP32-S3 硬件开发环境的搭建，通过一些基本的示例来展示怎么用 ESP-IDF (Espressif IoT Development Framework) 来安装、配置环境，并编译、下载固件至 BPI-Leaf-S3 开发板等步骤。如果有什么没提到或者有问题的，欢迎各位留言交流。</p>
+<!-- more -->
+<p>原文链接: <a href="https://qubot.org/2023/03/27/print-log-in-esp-idf-with-bananapi-bpi-leaf-s3/"  target="_blank">https://qubot.org/2023/03/27/print-log-in-esp-idf-with-bananapi-bpi-leaf-s3/</a></p>
+<p>作者：<a href="https://qubot.org"  target="_blank">Qubot</a></p>
+<p>参考文献：<a href="https://www.bilibili.com/video/BV1KG4y1d7Ed/"  target="_blank">https://www.bilibili.com/video/BV1KG4y1d7Ed/</a></p>
+<h2 id="%E5%89%8D%E8%A8%80">前言</h2>
+<p>在Arduino中，关于串口输出，只有Serial.print()这一个函数能够通过串口输出日志/报错等，但是在ESP-IDF中，有好几种输出方式。这篇文章我们来聊一聊ESP32-S3在IDF中输出串口的多种方式</p>
+<h2 id="%E5%AE%89%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87">安装前的准备</h2>
+<h3 id="%E5%BF%85%E5%A4%87%E7%A1%AC%E4%BB%B6">必备硬件</h3>
+<ul>
+<li>BPI-Leaf-S3开发板：<a href="https://item.taobao.com/item.htm?id=677287234553"  target="_blank">购买链接</a>（其他ESP32-S3板子也可以）</li>
+</ul>
+<p><img src="../assets/Leaf-S3.png" alt="" /></p>
+<ul>
+<li><p>USB 数据线 (USB-A 转 Type-C)</p>
+</li>
+<li><p>电脑（Windows、Linux 或 macOS都可以）</p>
+</li>
+</ul>
+<h3 id="%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6">必备软件</h3>
+<ul>
+<li><p>安装好的ESP-IDF环境，安装方法可以<a href="./esp_idf_setup.html"  >参考这里</a></p>
+</li>
+<li><p>VS Code</p>
+</li>
+</ul>
+<h2 id="%E8%AE%BE%E7%BD%AE%E4%B8%B2%E5%8F%A3">设置串口</h2>
+<p>在Arduino中，设置ESP32-S3的串口输出波特率是通过Serial.begin(9600)这个方法，而串口监视器的波特率是在打开串口监视器之后，点击右下角菜单选择的，如下图所示。</p>
+<p><img src="../assets/serial_setup_in_idf_1.png" alt="" /></p>
+<p>而在ESP-IDF中不是这样的，在ESP-IDF中，需要在Menuconfig中设置。点击左下角第四个按钮，打开menuconfig设置</p>
+<p><img src="../assets/serial_setup_in_idf_2.png" alt="" /></p>
+<p>然后按照如图步骤：①在搜索框内输入uart，②点击channel for console output下面的下拉菜单，③选择custom UART，④在UART console baud rate这一栏改成你想要的波特率（默认是115200），⑤点击保存并关闭窗口。这样我们就配置完毕了。<br />
+（注意我这里写的时候使用的ESP-IDF版本可能和<a href="https://space.bilibili.com/1375767826"  target="_blank">孤独的二进制</a>使用的不太一样，他使用的版本还有monitor选项，即串口监视器的波特率设置。我这里没有monitor选项，可能集成到uart里面了？我测试过修改波特率之后在IDF的monitor中直接能打开，在Arduino IDE的串口监视器中修改成对应的波特率之后也能打开）</p>
+<p><img src="../assets/serial_setup_in_idf_3.png" alt="" /></p>
+<h2 id="%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8">日志功能的使用</h2>
+<p>要想使用日志功能，我们需要先引入日志的库</p>
+
+<pre class="language-c"><code class="language-c">#include &lt;esp_log.h&gt;
+</code></pre>
+<p>将鼠标对准“esp_log”，并右键&gt;Go to Definition（或者对准这个按下F12，或者Ctrl+左键），会弹出一个小窗口，这个就是这个库的定义。</p>
+<p><img src="../assets/serial_setup_in_idf_4.png" alt="" /></p>
+<p>左键点击图中箭头的位置，会在新窗口中打开这个库</p>
+<p><img src="../assets/serial_setup_in_idf_5.png" alt="" /></p>
+<p>可以看到这里有一些日志类型的定义，我们可以在代码中写下所有的日志，并根据实际情况调整当前输出等级，从而控制日志输出的详细情况，比如调试的时候就切换成debug状态，让他输出debug信息，交付之后调成error，让它只显示报错。</p>
+<p><img src="../assets/serial_setup_in_idf_6.png" alt="" /></p>
+<p>如果你想输出一个信息，就是ESP_LOG后面加信息类型，例如如果你想要错误信息，那就是ESP_LOGE(tag,&quot;你的信息&quot;)</p>
+<p>接下来我们看一个例子</p>
+
+<pre class="language-c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;esp_log.h&gt;
+
+void app_main(void)
+{
+    printf(&quot;Hello World \n&quot;);
+
+    // E error,
+    ESP_LOGE(&quot;香蕉库存&quot;,&quot;一个不剩&quot;);
+    // W warning;
+    ESP_LOGW(&quot;香蕉库存&quot;,&quot;香蕉只剩下2根了&quot;);
+
+    // I Information;
+    ESP_LOGI(&quot;香蕉库存&quot;,&quot;香蕉还剩一吨&quot;);
+
+    // D Debug;
+    ESP_LOGD(&quot;香蕉库存&quot;, &quot;香蕉还剩1吨, 已经消耗2吨.&quot;);
+
+    // V Verbose;
+    ESP_LOGV(&quot;香蕉库存&quot;, &quot;香蕉还剩5吨, 已经消耗3吨. 每天消耗一吨, 还能撑5天&quot;);
+
+}
+</code></pre>
+<p>点击左下角build,flash and monitor按钮，将这个例子下载到板子上面之后，你会发现串口输出只有E，W，I这三种信息，因为默认情况下IDF设置成的是INFO等级，选中这个等级意味着，information及以上的信息都会输出，这个输出等级需要在menuconfig里面设置一下。</p>
+<p><img src="../assets/serial_setup_in_idf_7.png" alt="" /></p>
+<p>点击左下角menuconfig键，并在搜索框中输入log，如图我们能找到一个Log output的配置。将这个配置改成Verbose，这样Verbose及以上的信息才会都输出出来，最后一定记得要保存并关闭窗口。这样我们就能够看到所有的日志信息了。</p>
+<p><img src="../assets/serial_setup_in_idf_8.png" alt="" /></p>
+<p>存储完之后，我们再次点击左下角build,flash and monitor按钮，将这个例子下载到板子上面之后，串口的输出就变成完整的所有信息了。</p>
+<p><img src="../assets/serial_setup_in_idf_9.png" alt="" /></p>
+<p>另外我们在esp_log中可以看到这些输出信息的定义</p>
+<p><img src="../assets/serial_setup_in_idf_10.png" alt="" /></p>
+<p>可以看到上面的&quot;香蕉库存&quot;是一个tag，我们可以用字符给它代替掉，以及后面的变量也可以通过%i代替掉，如下所示：</p>
+
+<pre class="language-c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;esp_log.h&gt;
+
+const char* banana_storage =&quot;香蕉库存&quot;;
+void app_main(void)
+{
+    printf(&quot;Hello World \n&quot;);
+
+    // E error,
+    ESP_LOGE(banana_storage,&quot;一个不剩&quot;);
+    // W warning;
+    ESP_LOGW(banana_storage,&quot;香蕉只剩下%i根了&quot;,2);
+
+    // I Information;
+    ESP_LOGI(banana_storage,&quot;香蕉还剩%i吨&quot;,1);
+
+    // D Debug;
+    ESP_LOGD(banana_storage, &quot;香蕉还剩1吨, 已经消耗2吨.&quot;);
+
+    // V Verbose;
+    ESP_LOGV(banana_storage, &quot;香蕉还剩5吨, 已经消耗3吨. 每天消耗一吨, 还能撑5天&quot;);
+
+}
+</code></pre>
+<h2 id="%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8">日志功能的进阶使用</h2>
+<p>输出怎么使用我们了解了，接下来就是实际应用了，上面只是说到了在menuconfig中手动改，我们也可以在实际程序中利用某个按键或者某个组合键来调整log输出等级。</p>
+<p>在代码中，我们可以通过esp_log_level_set()这个函数来改变输出等级，Ctrl+左键可以看到它的定义和使用方法，前面是tag，后面是log的等级。</p>
+<p><img src="../assets/serial_setup_in_idf_11.png" alt="" /></p>
+<p>至于等级有哪些？我们可以再次Ctrl+左键，可以看到就是我们刚才看到的这几个等级，这样，我们通过esp_log_level_set(banana_storage,ESP_LOG_VERBOSE)就能将输出等级设置为Verbose状态了。</p>
+<p><img src="../assets/serial_setup_in_idf_12.png" alt="" /></p>
+<p>然后我们回到menuconfig中的log设置这里，可以看到这里有两个选项，一个是Default log verbosity，即默认输出等级，另一个是Maximum log verbosity，即最高输出等级。如图设置之后就是，默认输出等级为info，而最高可以调整到Verbose。保存之后退出</p>
+<p><img src="../assets/serial_setup_in_idf_13.png" alt="" /></p>
+<p>然后在代码中加入一个bool变量（这里有些奇怪，可能库的版本不一样，我在Mac上面的IDF可以直接用bool变量，但是在这里需要引入stdbool.h这个库）</p>
+
+<pre class="language-c"><code class="language-c">#include &lt;stdbool.h&gt;
+bool secretLog = false;
+</code></pre>
+<p>加一个判断</p>
+
+<pre class="language-c"><code class="language-c">if (secretLog == true) {
+    esp_log_level_set(banana_storage,ESP_LOG_VERBOSE);
+}
+</code></pre>
+<p>最终如下</p>
+
+<pre class="language-c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;esp_log.h&gt;
+#include &lt;stdbool.h&gt;
+
+const char* banana_storage = &quot;香蕉库存&quot;;
+
+bool secretLog = false;
+
+void app_main(void)
+{
+    if (secretLog == true) {
+        esp_log_level_set(banana_storage,ESP_LOG_VERBOSE);
+    }
+
+    printf(&quot;Hello World \n&quot;);
+
+    // E error,
+    ESP_LOGE(banana_storage,&quot;一个不剩&quot;);
+    // W warning;
+    ESP_LOGW(banana_storage,&quot;香蕉只剩下%i根了&quot;,2);
+
+    // I Information;
+    ESP_LOGI(banana_storage,&quot;香蕉还剩%i吨&quot;,1);
+
+    // D Debug;
+    ESP_LOGD(banana_storage, &quot;香蕉还剩1吨, 已经消耗2吨.&quot;);
+
+    // V Verbose;
+    ESP_LOGV(banana_storage, &quot;香蕉还剩5吨, 已经消耗3吨. 每天消耗一吨, 还能撑5天&quot;);
+
+}
+</code></pre>
+<p>下载到板子上之后会发现，目前串口输出只有E,W,I，如下所示</p>
+<p><img src="../assets/serial_setup_in_idf_14.png" alt="" /></p>
+<p>然后我们将</p>
+
+<pre class="language-c"><code class="language-c">bool secretLog = false;
+</code></pre>
+<p>改为</p>
+
+<pre class="language-c"><code class="language-c">bool secretLog = true;
+</code></pre>
+<p>会发现,输出中E,W,I,D,V都出现了</p>
+<p><img src="../assets/serial_setup_in_idf_15.png" alt="" /></p>
+<h2 id="%E6%80%BB%E7%BB%93">总结</h2>
+<p>日志在我们调试过程中非常重要，本文讨论了如何将日志输出出来，方便我们调试，以及如何通过一个变量隐藏掉部分等级的日志，让用户看不到，或者重新设置为完整输出。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

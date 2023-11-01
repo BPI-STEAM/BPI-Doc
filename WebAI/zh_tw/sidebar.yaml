@@ -1,0 +1,87 @@
+items:
+-   label: 一、開箱 Web:AI 開發板
+    items:
+    -   label: Web:AI 介紹
+        file: Unboxing/Introduction.md
+        items:
+        -   label: 產品內容
+            file: Unboxing/Introduction.md#-1
+        -   label: Web:AI 開發板
+        -   label: Webduino 教育平台
+    -   label: 初始化設定 ( 第一次使用請看這裡 )
+        file: Unboxing/Initialization.md
+    -   label: 安裝版更新韌體
+        file: Unboxing/Update.md
+    -   label: 開發板 Wi-Fi 設定
+        file: Unboxing/SettingWIFI.md
+    -   label: 操作模式
+        file: Unboxing/Mode.md
+        items:
+        -   label: 主程式模式
+        -   label: QRcode 模式
+        -   label: 回復預設狀態
+    -   label: 教學範例卡使用教學
+        file: Unboxing/Card.md
+-   label: 二、Web:AI 程式積木
+    items:
+    -   label: 程式積木平台介紹
+        file: Programming/Introduction.md
+    -   label: 基礎功能
+        items:
+        -   label: 變數
+            file: Programming/Basic/Variables.md
+        -   label: 逻辑
+            file: Programming/Basic/Logic.md
+        -   label: 重複
+            file: Programming/Basic/Loops.md
+        -   label: 數學式
+            file: Programming/Basic/Math.md
+        -   label: 文字
+            file: Programming/Basic/Text.md
+        -   label: 陣列
+            file: Programming/Basic/Lists.md
+        -   label: 函式
+            file: Programming/Basic/Functions.md
+    -   label: 進階功能
+        items:
+        -   label: 檔案讀寫
+            file: Programming/Advanced/FileRW.md
+        -   label: 掃描條碼
+            file: Programming/Advanced/QRCode.md
+        -   label: 顏色追蹤
+            file: Programming/Advanced/Color.md
+        -   label: 人臉追蹤
+            file: Programming/Advanced/Face.md
+        -   label: 影像分類
+            file: Programming/Advanced/Image.md
+        -   label: 物件追蹤
+            file: Programming/Advanced/Object.md
+        -   label: 語音辨識
+            file: Programming/Advanced/Speech.md
+        -   label: 偵測
+    -   label: Web:AI
+        items:
+        -   label: 開發板
+            file: Programming/WebAI/Board.md
+        -   label: LCD 螢幕
+            file: Programming/WebAI/LCD.md
+        -   label: 按鈕開關
+            file: Programming/WebAI/Button.md
+        -   label: 麥克風
+            file: Programming/WebAI/Mic.md
+        -   label: I/O 引腳
+            file: Programming/WebAI/IO.md
+    -   label: 擴充功能
+        items:
+        -   label: 網路廣播
+            file: Programming/Expand/MQTT.md
+        -   label: 伺服馬達
+            file: Programming/Expand/Servo.md
+        -   label: 喇叭
+            file: Programming/Expand/Speaker.md
+-   label: 三、影像訓練
+    file: Train/Train.md
+-   label: 四、使用 IDE 開發 Web:AI
+    file: IDE/Dev.md
+-   label: 五、操控 MoonCar
+    file: MoonCar/MoonCar.md

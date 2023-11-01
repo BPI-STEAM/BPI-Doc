@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>Micropython 運行環境搭建 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh_tw/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh_tw/">首頁</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/">WebBit使用手冊</a></li>
+<li class=""><a  href="/WebBit_dev/zh_tw/">WebBit開發手冊</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh_tw/">Bit-S2使用手冊</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh_tw/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh_tw/">Centi-S3</a></li>
+<li class="active"><a  href="/Leaf_S3_doc/zh_tw/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh_tw/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh_tw/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh_tw/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh_tw/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">動態</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 繁體</a><ul><li class="active"><a  href="/Leaf_S3_doc/zh_tw/MicroPython/Environment.html">中文 繁體</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/MicroPython/Environment.html">中文 简体</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/MicroPython/Environment.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">輸入關鍵詞，多關鍵詞空格隔開</span>
+                                <span id="search_loading_hint">正在加載，請稍候。。。</span>
+                                <span id="search_download_err_hint">下載文件失敗，請刷新重試或檢查網絡</span>
+                                <span id="search_other_docs_result_hint">來自其它文檔的結果</span>
+                                <span id="search_curr_doc_result_hint">當前文檔搜索結果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、開箱 Leaf-S3 開發板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Unboxing/Introduction.html"><span class="label">Leaf-S3 介紹</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Unboxing/Gettingstart.html"><span class="label">快速上手 (第一次使用請看這裡)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">二、使用MicroPython編程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/Leaf_S3_doc/zh_tw/MicroPython/Environment.html"><span class="label">MicroPython環境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/MicroPython/Firmware.html"><span class="label">Micropython 固件下載與燒錄</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/MicroPython/Basic.html"><span class="label">基礎功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">三、使用 Arduino 編程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Arduino/Environment.html"><span class="label">Arduino環境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Leaf_S3_doc/zh_tw/Arduino/Basic.html"><span class="label">基礎功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Micropython 運行環境搭建</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Leaf_S3_doc/zh_tw/MicroPython/Environment.md" target="_blank">
+                                    編輯本頁
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>Micropython運行環境依賴於Python，所以在使用前我們需要先安裝Python，這裡我們使用的IDE是Thonny。</p>
+<h2 id="%E5%AE%89%E8%A3%9DPython%E7%92%B0%E5%A2%83">安裝Python環境</h2>
+<p>打開<a href="https://www.python.org/"  target="_blank">Python官網</a> 。</p>
+<p>對於Windows 系統來說，最便捷的安裝包下載方法就是在官網首頁點擊如下圖所示的圖標進行下載。</p>
+<p><img src="../assets/images/Micropython_operating_env_1.png" alt="" /></p>
+<p>其他操作系統或是其他發行版本則可以在 Downloads 選項欄中進行選擇。</p>
+<p>建議使用python 3.7以上的版本。</p>
+<p>開始安裝時一定要記得勾選Add Python 3.x to PATH，這樣可以免除再手動添加進PATH。</p>
+<p><img src="../assets/images/Micropython_operating_env_2.png" alt="" /></p>
+<p>按照安裝提示逐步操作即可順利完成安裝 。</p>
+<h2 id="%E5%AE%89%E8%A3%9DThonny-IDE">安裝Thonny IDE</h2>
+<p>以Windows PowerShell的具體操作步驟為例。</p>
+<p>其他系統或安裝方法可參考<a href="https://thonny.org/"  target="_blank">Thonny官網</a>上的說明。</p>
+<p>右鍵Windows開始菜單即可看到Windows PowerShell ，單擊打開。</p>
+<p><img src="../assets/images/Micropython_operating_env_3.png" alt="" /></p>
+<p>我們在此處通過pip來安裝Thonny IDE。</p>
+<p>pip是 Python 包管理工具，首先要確認pip是否是最新版，直接使用以下命令升級pip：</p>
+
+<pre class="language-shell"><code class="language-shell">pip install -U pip
+</code></pre>
+<p>使用以下命令安裝Thonny：</p>
+
+<pre class="language-shell"><code class="language-shell">pip install thonnyapp
+</code></pre>
+<p>如果未來有需要，則可以使用以下命令升級Thonny：</p>
+
+<pre class="language-shell"><code class="language-shell">pip install -U thonnyapp
+</code></pre>
+<p>用Windows搜索即可快速找到Thonny，也可以在開始菜單欄裡找到它。</p>
+<p><img src="../assets/images/Micropython_operating_env_4.png" alt="" /></p>
+<h2 id="%E9%80%A3%E6%8E%A5%E9%96%8B%E7%99%BC%E6%9D%BF%E8%87%B3%E9%9B%BB%E8%85%A6">連接開發板至電腦</h2>
+<p>將開發板通過USB數據線連接至電腦。</p>
+<p>正確連接時開發板的電源指示燈會亮起。</p>
+<p>我們需要知道開發板是否被電腦識別，並找出連接到了哪一個 COM 口（用於串口通信，下載程序等）。</p>
+<p>首先在桌面找到“此電腦”,右鍵，選擇“管理”，打開“設備管理器”，點開“端口（COM 和 LPT）”。</p>
+<p>此時會在列表中新加入一個 COM 口（示例圖中是 COM21）。</p>
+<p><img src="../assets/images/Micropython_operating_env_5.png" alt="" /></p>
+<h2 id="%E7%87%92%E9%8C%84MicroPython%E5%9B%BA%E4%BB%B6">燒錄MicroPython固件</h2>
+<p>Leaf-S3開發板默認出廠固件是MicroPython，如果您需要燒錄固件，可以<a href="Firmware.html"  >參考這裡</a></p>
+<h2 id="%E9%85%8D%E7%BD%AEThonny-IDE">配置Thonny IDE</h2>
+<p>打開Thonny，單擊 運行，單擊 選擇解釋器：</p>
+<p><img src="../assets/images/Micropython_operating_env_9.png" alt="" /></p>
+<p>將解釋器設置為 MicroPython(ESP32)：</p>
+<p><img src="../assets/images/Micropython_operating_env_10.png" alt="" /></p>
+<p>選擇開發板的COM口：</p>
+<p><img src="../assets/images/Micropython_operating_env_11.png" alt="" /></p>
+<p>確認設置後，就在Shell中打開了MicroPython REPL。</p>
+<p><img src="../assets/images/Micropython_operating_env_12.png" alt="" /></p>
+<p>REPL啟動並輸出信息即意味著MicroPython固件燒錄成功，可以開始正常使用了。</p>
+<p>單擊 視圖，勾選 文件，即可看到本地文件目錄和開發板上的文件目錄：</p>
+<p><img src="../assets/images/Micropython_operating_env_13.png" alt="" /></p>
+<p><img src="../assets/images/Micropython_operating_env_14.png" alt="" /></p>
+<p>其他視圖窗口也可按需設置使用。</p>
+<p>在設置中可以選擇個人喜歡的主題風格。</p>
+<p><img src="../assets/images/Micropython_operating_env_15.png" alt="" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Leaf_S3_doc/zh_tw/Unboxing/Gettingstart.html">
+                            <span class="icon"></span>
+                            <span class="label">快速上手 (第一次使用請看這裡)</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Leaf_S3_doc/zh_tw/MicroPython/Firmware.html">
+                            <span class="label">Micropython 固件下載與燒錄</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>鏈接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘寶</a></li>
+</ul>
+</li>
+<li><a>源碼</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本網站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>聯繫我們</a><ul><li><a>電話: +86 0755-26475332</a>
+</li>
+<li><a>商業支持: sales@banana-pi.com (銷售部）</a>
+</li>
+<li><a>技術支持: support@banana-pi.com (技術部）</a>
+</li>
+<li><a>地址: 廣東省松山湖高新技術產業開發區融易大廈 7 樓</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

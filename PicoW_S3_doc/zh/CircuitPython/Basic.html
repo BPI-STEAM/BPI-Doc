@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>基础功能使用 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >PicoPicoW-S3</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class="active"><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/PicoW_S3_doc/zh_tw/CircuitPython/Basic.html">中文 繁體</a></li>
+<li class="active"><a  href="/PicoW_S3_doc/zh/CircuitPython/Basic.html">中文 简体</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/CircuitPython/Basic.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、开箱 PicoW-S3 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/Unboxing/Introduction.html"><span class="label">PicoW-S3 介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">二、使用CircuitPython编程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/CircuitPython/supported_by_circuitpython.html"><span class="label">已得到CircuitPython官方支持</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/CircuitPython/config_mu-editor.html"><span class="label">配置使用环境(Mu编辑器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/CircuitPython/update_circuitpython.html"><span class="label">更新CircuitPython固件的方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/CircuitPython/flash_tinyuf2.html"><span class="label">烧录tinyUF2固件的方法</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/PicoW_S3_doc/zh/CircuitPython/Basic.html"><span class="label">基础功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">三、使用 Arduino 编程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/Arduino/Environment.html"><span class="label">Arduino环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/Arduino/Basic.html"><span class="label">基础功能使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">四、使用 MicroPython 编程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/MicroPython/micropython_uf2_firmware.html"><span class="label">通过UF2安装MicroPython固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/PicoW_S3_doc/zh/MicroPython/micropython_bin_firmware.html"><span class="label">安装MicroPython.BIN固件</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>基础功能使用</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/PicoW_S3_doc/zh/CircuitPython/Basic.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="REPL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">REPL简单使用</h2>
+<h3 id="Hello-World%21">Hello World!</h3>
+<ol>
+<li>确保已在Mu编辑器中正确连接开发板，参考<a href="config_mu-editor.html"  >配置使用环境(Mu编辑器)</a>。</li>
+<li>在CircuitPython REPL窗口中通常会出现如下信息，<code>&gt;&gt;&gt;</code>符号的出现即代表我们可以开始在其后输入命令与其交互了。</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">]0;🐍Wi-Fi: off | Done | 8.0.0-beta.0-49-g14fc4a079\Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+
+Press any key to enter the REPL. Use CTRL-D to reload.
+]0;🐍Wi-Fi: off | Done | 8.0.0-beta.0-49-g14fc4a079\]0;�Wi-Fi: off | REPL | 8.0.0-beta.0-49-g14fc4a079\
+Adafruit CircuitPython 8.0.0-beta.0-49-g14fc4a079 on 2022-09-20; BPI-PicoW-S3 with ESP32S3
+&gt;&gt;&gt; 
+</code></pre>
+<ol start="3">
+<li>在<code>&gt;&gt;&gt;</code>符号右侧开始输入命令，例如：<code>print(&quot;Hello World！&quot;)</code>。</li>
+</ol>
+<blockquote>
+<p>注意使用英文输入法，中文字符无法被REPL识别。</p>
+</blockquote>
+
+<pre class="language-py"><code class="language-py">&gt;&gt;&gt; print(&quot;Hello World!&quot;)
+Hello World!
+&gt;&gt;&gt; 
+</code></pre>
+<h3 id="REPL%E5%BF%AB%E6%8D%B7%E9%94%AE">REPL快捷键</h3>
+<ol>
+<li>复制 <code>ctrl + shift + c</code>。</li>
+<li>粘贴 <code>ctrl + shift + v</code>。<br />
+使用鼠标左键在REPL中拖选需要复制的命令，键盘按下复制快捷键，再按下粘贴快捷键即可复制粘贴命令。</li>
+<li>软复位 <code>ctrl + d</code>。</li>
+<li>中断 <code>ctrl + c</code>, 中断当前正在执行的程序，但不会重启复位。</li>
+</ol>
+<h3 id="%E6%9F%A5%E7%9C%8B%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97">查看内置模块</h3>
+<ol>
+<li>在REPL中输入 <code>help(&quot;modules&quot;)</code> 将列出当前CircuitPython开发板内所有模块。</li>
+<li>导入模块后可再使用<code>help()</code>函数查看该模块内部可用的函数名或变量名，例如查看<code>board</code>模块，即可看到开发板所有可用的引脚与外设功能。</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">&gt;&gt;&gt; import board
+&gt;&gt;&gt; help(board)
+object &lt;module 'board'&gt; is of type module
+  __name__ -- board
+  board_id -- bpi_picow_s3
+  GP0 -- board.GP0
+  GP1 -- board.GP1
+  GP2 -- board.GP2
+  GP3 -- board.GP3
+  GP4 -- board.GP4
+  GP5 -- board.GP5
+  GP6 -- board.GP6
+  GP7 -- board.GP7
+  GP8 -- board.GP8
+  GP9 -- board.GP9
+  GP10 -- board.GP10
+  GP11 -- board.GP11
+  GP12 -- board.GP12
+  GP13 -- board.GP13
+  GP14 -- board.GP14
+  GP15 -- board.GP15
+  GP16 -- board.GP16
+  GP17 -- board.GP17
+  GP18 -- board.GP18
+  GP19 -- board.GP19
+  GP20 -- board.GP20
+  GP21 -- board.GP21
+  GP22 -- board.GP22
+  GP25 -- board.GP25
+  LED -- board.GP25
+  GP26 -- board.GP26
+  GP26_A0 -- board.GP26
+  A0 -- board.GP26
+  GP27 -- board.GP27
+  GP27_A1 -- board.GP27
+  A1 -- board.GP27
+  GP28 -- board.GP28
+  GP28_A2 -- board.GP28
+  A2 -- board.GP28
+  GP29 -- board.GP29
+  GP29_A3 -- board.GP29
+  A3 -- board.GP29
+  NEOPIXEL -- board.NEOPIXEL
+  TX -- board.GP0
+  RX -- board.GP1
+  BOOT0 -- board.BOOT0
+  UART -- &lt;function&gt;
+&gt;&gt;&gt; 
+</code></pre>
+<h2 id="%E4%BD%BFWS2812%E5%BD%A9%E7%81%AF%E9%97%AA%E7%83%81">使WS2812彩灯闪烁</h2>
+<ol>
+<li><p>在Mu编辑器中点击<strong>Load</strong>按钮，选择CircuitPython开发板上的 code.py 文件，点击 <strong>打开</strong>，即可开始编辑 code.py 。</p>
+</li>
+<li><p>在编辑器中输入如下代码：</p>
+</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import time
+import board
+import neopixel
+
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.1)
+
+while 1:
+    pixels[0] = (255,0,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,255,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,0,255)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (255,255,255)
+    pixels.show()
+    time.sleep(0.5)
+</code></pre>
+<ol start="3">
+<li>点击<strong>Save</strong>按钮，编辑的内容将保存到CircuitPython开发板，代码无误的情况下，开发板上的彩色LED将循环闪烁 红绿蓝白。将开发板复位或重新上电，程序将重新开始运行。</li>
+<li>在REPL中使用中断快捷键即可停止程序的运行。</li>
+<li>代码也可直接复制粘贴到REPL中运行。</li>
+</ol>
+<blockquote>
+<p>后续所有示例都可如此编辑code.py文件或复制粘贴到REPL中运行。但在code.py文件中的程序代码执行完毕后，开发板会恢复未运行时的状态，不会保留状态，但在REPL中执行则会保留状态。</p>
+</blockquote>
+<h2 id="%E4%BD%BF%E5%BC%95%E8%84%9A%E8%BE%93%E5%87%BA%E9%AB%98%E4%BD%8E%E7%94%B5%E5%B9%B3%EF%BC%8C%E6%8E%A7%E5%88%B6LED">使引脚输出高低电平，控制LED</h2>
+<ol>
+<li><code>board.LED</code>控制着PicoW-S3上的一颗单色LED发光二极管，高电平点亮，低电平熄灭，在REPL中输入以下代码：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.direction = digitalio.Direction.OUTPUT
+ledpin.value = True
+</code></pre>
+<ol start="2">
+<li>或者这么做：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.switch_to_output(value=True) # value=1
+</code></pre>
+<ol start="3">
+<li>让LED间隔0.5秒闪烁：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import digitalio
+import time
+ledpin = digitalio.DigitalInOut(board.LED)
+while True:
+    ledpin.switch_to_output(value=1)
+    time.sleep(0.5)
+    ledpin.switch_to_output(value=0)
+    time.sleep(0.5)
+
+</code></pre>
+<ol start="4">
+<li><p>在REPL中使用中断快捷键即可停止程序的运行。</p>
+</li>
+<li><p>在REPL中输入<code>import board;help(board)</code>即可列出所有可控制的引脚。<code>board.GP25</code> 与 <code>board.LED</code>完全相同。</p>
+</li>
+</ol>
+<h2 id="PWM%E8%BE%93%E5%87%BA%EF%BC%8C%E6%8E%A7%E5%88%B6LED%E4%BA%AE%E5%BA%A6">PWM输出，控制LED亮度</h2>
+<ol>
+<li>可通过控制PWM占空比来控制LED灯亮度，控制占空比从0%~100%，采用16位精度，十进制为 0~65535 ，16进制为 0~FFFF 。在REPL中输入以下代码：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import pwmio
+ledpin = pwmio.PWMOut(board.LED, frequency=25000, duty_cycle=0)
+ledpin.duty_cycle = 32768  # mid-point 0-65535 = 50 % duty-cycle
+</code></pre>
+<ol start="2">
+<li>仅需在REPL中再次输入最后一行代码即可改变PWM占空比，使LED达到最大亮度：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">ledpin.duty_cycle = 65535
+</code></pre>
+<ol start="3">
+<li>使用<code>while</code>和<code>for</code>循环生成呼吸灯：：</li>
+</ol>
+
+<pre class="language-py"><code class="language-py">import board
+import pwmio
+import time
+
+ledpin = pwmio.PWMOut(board.LED, frequency=25000, duty_cycle=0)
+
+while True:
+    for i in range(0, 65535, 1):
+        ledpin.duty_cycle = i
+    for i in range(65535, 0, -1):
+        ledpin.duty_cycle = i
+</code></pre>
+<h2 id="PWM%E8%BE%93%E5%87%BA%EF%BC%8C%E6%8E%A7%E5%88%B6180%E5%BA%A6%E8%88%B5%E6%9C%BA">PWM输出，控制180度舵机</h2>
+<p><img src="../assets/images/MG90S-Wiring-Diagram.jpg" alt="" /></p>
+<p>以MG90S舵机为例，其他各种舵机参考其对应的使用手册，在以下代码中修改相应的参数。</p>
+<ol>
+<li>MG90S舵机关键参数：<ul>
+<li>控制角度，0° ~ 180°</li>
+<li>PWM 占空时长控制，500us ~ 2500us 对应 0° ~ 180°</li>
+<li>工作电压：4.8V 至 6V（典型值为 5V）</li>
+<li>失速扭矩：1.8 kg/cm (4.8V)</li>
+<li>最大失速扭矩：2.2 kg/cm (6V)</li>
+<li>工作速度为 0.1s/60° (4.8V)</li>
+</ul>
+</li>
+<li>求取任意一个旋转角度所需的占空时长的表达式为：
+<pre class="language-none"><code class="language-none"> 设y为占空时长，x为旋转角度
+ y=(2500-500)/180*x+500
+ y=(100*x+4500)/9
+</code></pre>
+</li>
+<li>根据参数，可以确定舵机角度由PWM波的高电平持续时长所控制，且由于舵机的控制必须由周期性的PWM波形控制，所以一个周期时长必须超过控制此舵机达到180°所需的占空时长，即超过2500us，则PWM频率要低于400hz。</li>
+<li>设定PWM频率为200hz，则周期时长为5000us，对应控制此舵机旋转 0° ~ 180°的占空比为10% ~ 50% 。</li>
+<li>circuitpython的PWM占空比控制精度为16bit，100%占空比在 2进制中表达为 1111 1111 1111 1111，16进制表达为 FFFF，10进制表达为 65535。</li>
+<li>求取任意一个旋转角度所需的占空比的表达式为：
+<pre class="language-none"><code class="language-none">设y为占空比，x为旋转角度
+y=((50-10)/180*x+10)/100*65535
+y=(4369*x+196605)/30
+</code></pre>
+</li>
+<li>舵机与BPI-PicoW-S3的接线方式:<blockquote>
+BPI-PicoW-S3的VBS引脚可输出+5V；除GP0以外，所有GP引脚都可以用于输出PWM，仅需在程序中修改到对应引脚即可。</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">舵机</th>
+  <th style="text-align:center">BPI-PicoW-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">GND 棕色</td>
+  <td style="text-align:center">GND</td>
+</tr>
+<tr>
+  <td style="text-align:center">+5V 红色</td>
+  <td style="text-align:center">VBS</td>
+</tr>
+<tr>
+  <td style="text-align:center">PWM 橙色</td>
+  <td style="text-align:center">GP0</td>
+</tr>
+</tbody>
+</table>
+<ol start="8">
+<li><p>根据以上表达式与参数设计一个可以任意控制此舵机旋转角度的程序：</p>
+
+<pre class="language-py"><code class="language-py">import board
+import pwmio
+import time
+servo_1 = pwmio.PWMOut(board.GP0, frequency=200, duty_cycle=0)#200hz, one cycle 5000us
+
+def get_duty_cycle(x):
+    return int((4369*x+196605)/30)
+
+servo_1.duty_cycle = get_duty_cycle(90)# 90 degrees
+</code></pre>
+</li>
+<li><p>通过一个逻辑分析仪可以读出此程序所控制输出的PWM占空时长，与计算的数值应当相符。<br />
+<img src="../assets/images/MG90S_pulseveiw_2.png" alt="" /><br />
+<img src="../assets/images/MG90S_pulseveiw_1.png" alt="" /></p>
+</li>
+<li><p>使用列表设计一套连续的舵机动作：</p>
+
+<pre class="language-py"><code class="language-py">import board
+import pwmio
+import time
+servo_1 = pwmio.PWMOut(board.GP0, frequency=200, duty_cycle=0)#200hz, one cycle 5000us
+
+def get_duty_cycle(x):
+   return int((4369*x+196605)/30) 
+
+action_list1 = [0,45,90,135,180,0,180,45,135,90]
+
+while True:
+   for i in action_list1:
+       servo_1.duty_cycle = get_duty_cycle(i)
+       time.sleep(0.5)
+</code></pre>
+</li>
+</ol>
+<h2 id="ADC%E8%BE%93%E5%85%A5%EF%BC%8C%E8%AF%BB%E5%8F%96%E5%8F%8C%E8%BD%B4%E6%91%87%E6%9D%86%E5%9D%90%E6%A0%87">ADC输入，读取双轴摇杆坐标</h2>
+<p><img src="../assets/images/Dual-axis_joystick.jpg" alt="" /></p>
+<p>这是一个常见的双轴XY摇杆模块，使用了两个电位器最为其核心器件，通过芯片的ADC 模/数转换器 读取它们各自的电压数值，即可将读数转化为其在XY坐标轴上的位置。</p>
+<p><strong>接线参考</strong></p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">双轴摇杆</th>
+  <th style="text-align:center">BPI-PicoW-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">GND</td>
+  <td style="text-align:center">GND</td>
+</tr>
+<tr>
+  <td style="text-align:center">+5V</td>
+  <td style="text-align:center">3V3</td>
+</tr>
+<tr>
+  <td style="text-align:center">VRx</td>
+  <td style="text-align:center">GP27_A1</td>
+</tr>
+<tr>
+  <td style="text-align:center">VRY</td>
+  <td style="text-align:center">GP26_A0</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p>在CircuitPython中提供的ADC精度是16bit，即最大值的16进制表达为 FFFF，10进制表达为 65535，对应的电压量程为0mv ~ 3300mv。BPI-PicoW-S3所使用的EPS32S3芯片实际ADC电压量程为0mv ~ 3100mv，所以实际应用时仅能测量到3100mv。</p>
+</li>
+<li><p>基础ADC读数，读取两个电位器的数值，转换为电压数值。</p>
+</li>
+</ol>
+<blockquote>
+<p>请注意，xy轴在代码中是反向的，在逆时针旋转90°后可以使用双轴操纵杆模块。该方法可以在操纵杆沿y轴向上移动时使ADC读数增加，反之亦然，这符合普通直角坐标系的规律。</p>
+</blockquote>
+
+<pre class="language-python"><code class="language-python">import board,analogio,time
+
+x_axis_pin = analogio.AnalogIn(board.A0)
+y_axis_pin = analogio.AnalogIn(board.A1)
+
+while True:
+    x_axis = x_axis_pin.value
+    y_axis = y_axis_pin.value
+    # print((x_axis,y_axis))
+    x_value = x_axis / 65535 * 3300
+    y_value = y_axis / 65535 * 3300
+    print(&quot;{0}mv,{1}mv&quot;.format(x_value,y_value))
+    time.sleep(0.1)
+</code></pre>
+<ol start="3">
+<li>在Mu编辑器中，点击<code>Plotter</code>图标即可显示绘图仪，可以实时将REPL输出的数值显示为与时间相关的折线图。</li>
+</ol>
+<p><img src="../assets/images/circuitpython_plotter.png" alt="" /></p>
+<ol start="4">
+<li>以下程序可实现校准坐标零点的功能。开始运行的前五秒，请静止摇杆等待获取零点数值。</li>
+</ol>
+<blockquote>
+<p>注意代码中将xy轴对换了，将双轴摇杆模块逆时针旋转90°即可对应使用。此做法可使摇杆在y轴上移时ADC读数增加，反之减少，符合常见直角坐标系的规律。</p>
+</blockquote>
+
+<pre class="language-python"><code class="language-python">import board,analogio,time
+
+x_axis_pin = analogio.AnalogIn(board.A0)
+y_axis_pin = analogio.AnalogIn(board.A1)
+
+def get_zero(times =500, sleep = 0.01):
+    x_total = 0
+    y_total = 0
+    for i in range (times):
+        x_axis = x_axis_pin.value
+        y_axis = y_axis_pin.value
+        x_total += x_axis
+        y_total += y_axis
+        time.sleep(sleep)
+    x_zero = x_total // times
+    y_zero = y_total // times
+    return (x_zero,y_zero)
+
+zero = get_zero(times =500, sleep = 0.01)
+print(zero)
+
+while True:
+    x_axis = x_axis_pin.value - zero[0]
+    y_axis = y_axis_pin.value - zero[1]
+    print((x_axis,y_axis))
+    time.sleep(0.1)
+</code></pre>
+<ol start="5">
+<li>以下程序可获取摇杆方向，这是双轴摇杆最常见的应用。</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import board,analogio,time
+
+x_axis_pin = analogio.AnalogIn(board.A0)
+y_axis_pin = analogio.AnalogIn(board.A1)
+
+direction_list = [&quot;East&quot;,&quot;Southeast&quot;,&quot;South&quot;,&quot;Southwest&quot;,&quot;West&quot;,&quot;Northwest&quot;,&quot;North&quot;,&quot;Northeast&quot;,&quot;Centre&quot;]
+
+def get_zero(times =500, sleep = 0.01):
+    x_total = 0
+    y_total = 0
+    for i in range (times):
+        x_axis = x_axis_pin.value
+        y_axis = y_axis_pin.value
+        x_total += x_axis
+        y_total += y_axis
+        time.sleep(sleep)
+    x_zero = x_total // times
+    y_zero = y_total // times
+    return (x_zero,y_zero)
+
+def get_direction(zero = (32767,32767)):
+    x_axis = x_axis_pin.value - zero[0]
+    y_axis = y_axis_pin.value - zero[1]
+    if x_axis &gt;= 10000 and -10000 &lt; y_axis &lt; 10000:
+        return direction_list[0]
+    elif x_axis &gt;= 10000 and y_axis &lt;= -10000:
+        return direction_list[1]
+    elif -10000 &lt; x_axis &lt; 10000 and y_axis &lt;= -10000:
+        return direction_list[2]
+    elif x_axis &lt;= -10000 and y_axis &lt;= -10000:
+        return direction_list[3]
+    elif x_axis &lt;= -10000 and -10000 &lt; y_axis &lt; 10000:
+        return direction_list[4]
+    elif x_axis &lt;= -10000 and y_axis &gt;= 10000:
+        return direction_list[5]
+    elif -10000 &lt; x_axis &lt; 10000 and y_axis &gt;= 10000:
+        return direction_list[6]
+    elif x_axis &gt;=10000 and y_axis &gt;= 10000:
+        return direction_list[7]
+    else :
+        return direction_list[8]
+
+zero = get_zero(times =50, sleep = 0.01)
+print(zero)
+
+while True:
+    x_axis = x_axis_pin.value - zero[0]
+    y_axis = y_axis_pin.value - zero[1]
+    print((x_axis,y_axis))
+    print(get_direction(zero = zero))
+    time.sleep(0.1)
+</code></pre>
+<ol start="6">
+<li>以下程序可设置坐标精度等级，计算每级跨度，可以按需求消除抖动，增强数据的实用性。</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import board,analogio,time
+
+x_axis_pin = analogio.AnalogIn(board.A0)
+y_axis_pin = analogio.AnalogIn(board.A1)
+
+def get_zero(times =500, sleep = 0.01):
+    x_total = 0
+    y_total = 0
+    for i in range (times):
+        x_axis = x_axis_pin.value
+        y_axis = y_axis_pin.value
+        x_total += x_axis
+        y_total += y_axis
+        time.sleep(sleep)
+    x_zero = x_total // times
+    y_zero = y_total // times
+    return (x_zero,y_zero)
+
+def get_extremum(times =500, sleep = 0.01):
+    x_list = []
+    y_list = []
+    for i in range (times):
+        x_axis = x_axis_pin.value
+        y_axis = y_axis_pin.value
+        x_list.append(x_axis)
+        y_list.append(y_axis)
+        time.sleep(sleep)
+    x_extremum = (min(x_list),max(x_list))
+    y_extremum = (min(y_list),max(y_list))
+    return (x_extremum,y_extremum)
+
+def get_spacing(level = 16 , zero =(32767,32767) ,x_extremum = (0,65535),y_extremum = (0,65535)):
+    x_temp_1 = (zero[0] - x_extremum[0]) // level
+    x_temp_2 = (x_extremum[1] - zero[0] ) // level
+    y_temp_1 = (zero[1] - y_extremum[0]) // level
+    y_temp_2 = (y_extremum[1] - zero[1] ) // level
+    x_spacing = (x_temp_1,x_temp_2)
+    y_spacing = (y_temp_1,y_temp_2)
+    return (x_spacing,y_spacing)
+
+def get_coordinates(zero = (32767,32767), x_spacing = (2048,2048),y_spacing = (2048,2048)):
+    x_value = x_axis_pin.value - zero[0]
+    y_value = y_axis_pin.value - zero[1]
+    if x_value &gt;= 0:
+        x_axis = x_value // x_spacing[1]
+    else:
+        x_axis = - ((-x_value) // x_spacing[0])
+    if y_value &gt;= 0:
+        y_axis = y_value // y_spacing[1]
+    else:
+        y_axis = - ((-y_value) // y_spacing[0])
+    return (x_axis,y_axis)
+
+zero = get_zero(times =500, sleep = 0.01)
+print(zero)
+(x_extremum,y_extremum) = get_extremum(times = 500, sleep = 0.01)
+print((x_extremum, y_extremum))
+(x_spacing,y_spacing) = get_spacing(level = 128 , zero = zero, x_extremum = x_extremum,y_extremum = y_extremum)
+print((x_spacing, y_spacing))
+
+while True:
+    coordinates = get_coordinates(zero = zero, x_spacing = x_spacing, y_spacing = y_spacing)
+    print(coordinates)
+    time.sleep(0.1)
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8%E5%A2%9E%E9%87%8F%E5%9E%8B%E6%97%8B%E8%BD%AC%E7%BC%96%E7%A0%81%E5%99%A8">使用增量型旋转编码器</h2>
+<p><img src="../assets/images/rotary_incremental_encoder_pic.png" alt="" /> <img src="../assets/images/rotary_incremental_encoder_pic_1.jpg" alt="" /></p>
+<p><strong>接线参考</strong></p>
+<table>
+<thead>
+<tr>
+  <th><strong>增量型旋转编码器</strong></th>
+  <th><strong>BPI-PicoW-S3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GND</td>
+  <td>GND</td>
+</tr>
+<tr>
+  <td>+</td>
+  <td>VBUS</td>
+</tr>
+<tr>
+  <td>SW</td>
+  <td></td>
+</tr>
+<tr>
+  <td>DT</td>
+  <td>GP0</td>
+</tr>
+<tr>
+  <td>CLK</td>
+  <td>GP1</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p>增量型旋转编码器外观粗看与一些常见的旋转电位器相似，其关键的不同之处大致分为三点。</p>
+<ol>
+<li>微控制器使用ADC外设来读取旋转电位器输出的模拟信号（电压值），确定转轴当前角位；微控制器通过GPIO接收增量型旋转编码器输出的数字信号，可通过软件程序判断信号所对应的转轴动作。</li>
+<li>微控制器可在一定精度下，确定旋转电位器转轴当前角位，但因为模拟信号的持续性与抗干扰能力差的原因，无法准确判断它是否有动作；增量型旋转编码器仅在转轴运动到一个触点时，向微控制器发出一段动作数字信号，如果一个增量型旋转编码器一周有20个触点，它旋转一周就触发20次动作信号，微控制器可以精确的判断它是否动作，向哪个方向转动，信号触发了多少次。</li>
+<li>旋转电位器通常不可向任意转向进行无限旋转，会停止在最大或最小限位点；增量型旋转编码器可向任意转向进行无限旋转。</li>
+</ol>
+</li>
+<li><p>增量型旋转编码器采用正交编码器生成其A和B的输出信号。从A和B输出发射的脉冲是正交编码的，这意味着当增量编码器以恒定速度运动时，A和B波形是方波，A和B之间存在90度的相位差。最终A和B信号将从两个管脚传输给微控制器。<br />
+ <img src="../assets/images/rotary_incremental_encoder_pic_2.gif" alt="" /></p>
+</li>
+<li><p>理论上，在任何特定时间，对于旋转编码器，A和B信号之间，顺时针旋转的相位差为+90°，逆时针旋转的相位差为−90°，具体则取决于设备内部的正交编码器设计。</p>
+</li>
+<li><p>A或B输出上的脉冲频率与转轴的速度（位置变化率）成正比。较高的频率表示较快的速度，而较低的频率表示较慢的速度。当转轴静止时，静态、不变的信号输出在A和B上，所以有很多测速方案使用增量型旋转编码器。</p>
+</li>
+</ol>
+<blockquote>
+<p>参考 <a href="https://en.wikipedia.org/wiki/Incremental_encoder#Quadrature_decoder"  target="_blank">维基百科: 增量编码器</a> 。</p>
+</blockquote>
+<ol start="5">
+<li>用CircuitPython设计一个程序读取在GP0与GP1引脚上的信号，当其中一个发生变化时同时输出两个引脚当前的值，连接开发板与增量型旋转编码器后运行程序。</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import board
+import digitalio
+
+dt = digitalio.DigitalInOut(board.GP0)
+clk = digitalio.DigitalInOut(board.GP1)
+dt.switch_to_input()
+clk.switch_to_input()
+dt_last_value = 0
+clk_last_value = 0
+
+while True:
+    if dt.value != dt_last_value or clk.value != clk_last_value:
+        dt_last_value = int(dt.value)
+        clk_last_value = int(clk.value)
+        print((dt_last_value,clk_last_value))
+</code></pre>
+<ol start="6">
+<li><p>逐级转动转轴，观察输出信号，如果有逻辑分析仪或示波器也可接入观察。</p>
+<ol>
+<li>转轴逆时针旋转时，REPL的输出。</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">(1, 1)
+(1, 0)
+(0, 0)
+(0, 1)
+(1, 1)
+(1, 0)
+(0, 0)
+(0, 1)
+(1, 1)
+</code></pre>
+<ol start="2">
+<li>转轴逆时针旋转时，逻辑分析仪所观察到的波形。</li>
+</ol>
+<p><img src="../assets/images/rotary_incremental_encoder_0.png" alt="" /></p>
+<ol start="3">
+<li>转轴顺时针旋转时，REPL的输出。</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">(1, 1)
+(0, 1)
+(0, 0)
+(1, 0)
+(1, 1)
+(0, 1)
+(0, 0)
+(1, 0)
+(1, 1)
+</code></pre>
+<ol start="4">
+<li>转轴逆时针旋转时，逻辑分析仪所观察到的波形。</li>
+</ol>
+<p><img src="../assets/images/rotary_incremental_encoder_1.png" alt="" /></p>
+</li>
+<li><p>首先可以观察到的现象是，转轴完成一级动作后，两个引脚上的信号都为1，可以设计程序，当值都变为1时输出一次计数值，计数值可作为判断编码器完成一次动作的依据。</p>
+</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import board
+import digitalio
+
+dt = digitalio.DigitalInOut(board.GP0)
+clk = digitalio.DigitalInOut(board.GP1)
+dt.switch_to_input()
+clk.switch_to_input()
+dt_last_value = 0
+clk_last_value = 0
+count = 0
+
+while True:
+    if dt.value != dt_last_value or clk.value != clk_last_value:
+        dt_last_value = int(dt.value)
+        clk_last_value = int(clk.value)
+        print((dt_last_value,clk_last_value))
+        if (dt_last_value,clk_last_value) == (1,1):
+            print('--',count_1,'--')
+            count += 1
+</code></pre>
+<ol start="8">
+<li>再确定编码器顺时针旋转与逆时针旋转的动作，在两个引脚上输出的信号变化的规律与差异。</li>
+<li>逆时针旋转的规律为(1, 1)&gt;(1, 0)&gt;(0, 0)&gt;(0, 1)&gt;(1, 1)。</li>
+<li>顺时针旋转的规律为(1, 1)&gt;(0, 1)&gt;(0, 0)&gt;(1, 0)&gt;(1, 1)。</li>
+</ol>
+<p>由此可设计一个顺时针旋转使计数+1，逆时针旋转使计数-1的程序，并加入消抖除错的功能。</p>
+
+<pre class="language-python"><code class="language-python">import board
+import digitalio
+import time
+dt = digitalio.DigitalInOut(board.GP0)
+clk = digitalio.DigitalInOut(board.GP1)
+dt.switch_to_input()
+clk.switch_to_input()
+dt_last_value = 0
+clk_last_value = 0
+count = 0
+start_sign = 0
+clockwise_sign = 0
+while True:
+    if dt.value != dt_last_value or clk.value != clk_last_value:
+        dt_last_value = int(dt.value)
+        clk_last_value = int(clk.value)
+        print((dt_last_value,clk_last_value))
+        if start_sign == 0 and (dt_last_value,clk_last_value) == (0,0):
+            start_sign = 1
+        elif start_sign == 1:
+            if (dt_last_value,clk_last_value) == (1, 0):
+                clockwise_sign = 1
+            elif (dt_last_value,clk_last_value) == (0, 1):
+                clockwise_sign = -1
+            elif (dt_last_value,clk_last_value) == (1, 1):
+                count = count + clockwise_sign
+                clockwise_sign = 0
+                start_sign = 0
+                print('--',count,'--')
+</code></pre>
+<ol start="9">
+<li>此程序中的消抖除错功能的实现，并不是逐步判断验证是否符合信号规律，或许还有更多办法可以实现消抖除错，欢迎讨论。</li>
+<li>另外 CircuitPython 的rotaryio模块可直接实现正反转计数功能。（内部程序有所差异，但最终实现功能基本一致）。</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import rotaryio
+import board
+
+encoder = rotaryio.IncrementalEncoder(board.GP0,board.GP1) 
+last_position = 0
+
+while True:
+    position = encoder.position
+    if position != last_position:
+        print(position)
+    last_position = position
+</code></pre>
+<h2 id="%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85CircuitPython%E5%BA%93%EF%BC%8C%E9%A9%B1%E5%8A%A8ssd1306-oled%E5%B1%8F%E5%B9%95">下载安装CircuitPython库，驱动ssd1306 oled屏幕</h2>
+<p><img src="../assets/images/adafruit_ssd1306_4.jpg" alt="" /></p>
+<p><a href="https://circuitpython.org/libraries"  target="_blank">CircuitPython库 官网页面</a><br />
+<a href="https://docs.circuitpython.org/projects/bundle/en/latest/index.html"  target="_blank">Adafruit CircuitPython库 文档页面</a><br />
+<a href="https://docs.circuitpython.org/projects/ssd1306/en/latest/index.html"  target="_blank">Adafruit SSD1306 库 文档页面</a><br />
+<a href="https://docs.circuitpython.org/projects/framebuf/en/latest/"  target="_blank">Adafruit framebuf 库 文档页面</a></p>
+<p>本节以ssd1306驱动库与framebuf库为例，指导如何下载安装CircuitPython库。</p>
+<ol>
+<li>在新页面打开<a href="https://docs.circuitpython.org/projects/bundle/en/latest/index.html"  target="_blank">Adafruit CircuitPython库 文档页面</a>。</li>
+<li>在页面中找到并打开 <strong>SSD1306 OLED (framebuf)</strong> 项，然后点击左侧的<strong>Download from GitHub</strong>项，跳转到其GitHub releases页面，点击 <strong>adafruit-circuitpython-ssd1306-8.x-mpy-2.12.12.zip</strong> 项将其下载到本地。</li>
+</ol>
+<p><img src="../assets/images/adafruit_ssd1306_1.jpg" alt="" /><br />
+<img src="../assets/images/adafruit_ssd1306_2.jpg" alt="" /><br />
+<img src="../assets/images/adafruit_ssd1306_3.jpg" alt="" /><br />
+3. 回到Adafruit CircuitPython库 文档页面，在页面中找到并打开 <strong>Framebuf Module</strong> 项，然后点击左侧的<strong>Download from GitHub</strong>项，跳转到其GitHub releases页面，点击 <strong>adafruit-circuitpython-framebuf-8.x-mpy-1.4.14.zip</strong> 项将其下载到本地。</p>
+<blockquote>
+<p>下载最新版本即可。</p>
+</blockquote>
+<ol start="4">
+<li>将下载的两个压缩包解压，内部文件夹结构如下：</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">├─examples
+│  ├─xxx.py
+│  ├─xxx.py
+│  └─......
+├─lib
+│  ├─a.mpy
+│  ├─b.mpy
+│  └─......
+└─requirements
+   ├─a
+   │ └─requirements.txt
+   ├─b
+   │ └─requirements.txt
+   └─......
+</code></pre>
+<ol start="5">
+<li>examples文件夹中的是一些库的使用例程，lib文件夹中扩展名为<code>.mpy</code>的即是库文件，requirements文件夹中的 requirements.txt 文件，其中记录了各库文件所依赖的，必要的其他库文件名称，有一些已经包含在CircuitPython固件中，而不在其内的则需另外下载安装。例如 <strong>adafruit_ssd1306</strong> 库绘制图形和文字的方法全部依赖于<strong>adafruit_framebuf</strong> 库，所以我们在第3步中也将其下载到本地。</li>
+<li>将两个lib文件夹中扩展名为<code>.mpy</code>的库文件复制到 <strong>CIRCUITPY</strong> 磁盘中的lib文件夹内，即可在程序中调用这两个库。</li>
+<li>adafruit_framebuf 库还需将其examples文件夹中的 <strong>font5x8.bin</strong> 文件复制到<strong>CIRCUITPY</strong> 磁盘中的根目录，即 code.py 文件所在的地方。此为字库文件，显示文字需要使用它。</li>
+<li>将一块i2c协议的ssd1306 oled屏幕模块与开发板连接。</li>
+</ol>
+<p><strong>接线参考</strong></p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">ssd1306</th>
+  <th style="text-align:center">BPI-PicoW-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">GND</td>
+  <td style="text-align:center">GND</td>
+</tr>
+<tr>
+  <td style="text-align:center">VCC</td>
+  <td style="text-align:center">3V3</td>
+</tr>
+<tr>
+  <td style="text-align:center">SCL</td>
+  <td style="text-align:center">GP0</td>
+</tr>
+<tr>
+  <td style="text-align:center">SDA</td>
+  <td style="text-align:center">GP1</td>
+</tr>
+</tbody>
+</table>
+<ol start="9">
+<li>编辑 code.py 文件，在其中输入以下代码即可驱动此屏幕模块输出图形和字符。<br />
+ 修改代码中的变量 <code>bgColor</code>数值为1，即可使显示背景为白色，显示图形为黑色。<br />
+ 在两个库的文档中可查找到API参考，配合例程即可快速理解，上手使用ssd1306显示模块。</li>
+</ol>
+
+<pre class="language-python"><code class="language-python">import board
+import busio
+import adafruit_ssd1306
+import time
+
+i2c = busio.I2C(board.GP0, board.GP1)
+display = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
+bgColor=0
+
+display.fill(bgColor)
+for i in range(0,display.height,4):
+    for j in range(0,display.width,4):
+        display.pixel(j, i, not bgColor)
+    display.show()
+
+display.fill(bgColor)
+for i in range(0,display.height,4):
+    display.hline(0, i,display.width, not bgColor)
+    display.show()
+
+display.fill(bgColor)
+for i in range(0,display.width,8):
+    display.vline(i, 0,display.height, not bgColor)
+    display.show()
+
+display.fill(bgColor)
+for i in range(0,display.height,4):
+    display.line(0, 0, display.width, i, not bgColor)
+    display.line(display.width, display.height, 0, display.height-i, not bgColor)
+    display.show()
+
+display.fill(bgColor)
+for i in range(0,display.width//2,4):
+    display.circle(display.width//2, display.height//2, i, not bgColor)
+    display.show()
+
+display.fill(bgColor)
+for i in range(0,display.height,16):
+    for j in range(0,display.width,16):
+        display.rect(j, i, 12, 12, not bgColor)
+        display.show()
+
+for i in range(0,display.height,16):
+    for j in range(0,display.width,16):
+        display.fill_rect(j+2, i+2, 8, 8, not bgColor)
+        display.show()
+
+display.fill(bgColor)
+display.text(&quot;Hello&quot;, 0, 24, not bgColor, font_name='font5x8.bin', size=2)
+display.show()
+time.sleep(0.25)
+display.text(&quot;World!&quot;, 0, 40, not bgColor, font_name='font5x8.bin', size=3)
+display.show()
+time.sleep(0.25)
+display.text(&quot;&gt;&gt;&gt;&quot;, 60, 0, not bgColor, font_name='font5x8.bin', size=4)
+display.show()
+time.sleep(1)
+
+display.fill(bgColor)
+char_width = 6
+char_height = 8
+chars_per_line = display.width // 6
+for i in range(255):
+    x = char_width * (i % chars_per_line)
+    y = char_height * (i // chars_per_line)
+    display.text(chr(i), x, y, not bgColor, font_name='font5x8.bin', size=1)
+display.show()
+</code></pre>
+<h1 id="%E5%A4%9A%E5%8A%9F%E8%83%BD%E5%BA%94%E7%94%A8">多功能应用</h1>
+<h2 id="OLED%E5%AE%9E%E6%97%B6%E5%8A%A8%E7%94%BB%E6%98%BE%E7%A4%BA%E5%8F%8C%E8%BD%B4%E6%91%87%E6%9D%86%E4%BD%8D%E7%BD%AE">OLED实时动画显示双轴摇杆位置</h2>
+<p>基于前文:</p>
+<p><a href="#adc%E8%BE%93%E5%85%A5%E8%AF%BB%E5%8F%96%E5%8F%8C%E8%BD%B4%E6%91%87%E6%9D%86%E5%9D%90%E6%A0%87"  >ADC输入，读取双轴摇杆坐标</a></p>
+<p><a href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85circuitpython%E5%BA%93%E9%A9%B1%E5%8A%A8ssd1306-oled%E5%B1%8F%E5%B9%95"  >下载安装CircuitPython库，驱动ssd1306 oled屏幕</a></p>
+<p>我们可设计一个使OLED实时动画显示双轴摇杆位置的程序。</p>
+<p><strong>接线参考</strong></p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">ssd1306</th>
+  <th style="text-align:center">BPI-PicoW-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">GND</td>
+  <td style="text-align:center">GND</td>
+</tr>
+<tr>
+  <td style="text-align:center">VCC</td>
+  <td style="text-align:center">3V3</td>
+</tr>
+<tr>
+  <td style="text-align:center">SCL</td>
+  <td style="text-align:center">GP0</td>
+</tr>
+<tr>
+  <td style="text-align:center">SDA</td>
+  <td style="text-align:center">GP1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">双轴摇杆</th>
+  <th style="text-align:center">BPI-PicoW-S3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">GND</td>
+  <td style="text-align:center">GND</td>
+</tr>
+<tr>
+  <td style="text-align:center">+5V</td>
+  <td style="text-align:center">3V3</td>
+</tr>
+<tr>
+  <td style="text-align:center">VRx</td>
+  <td style="text-align:center">GP27_A1</td>
+</tr>
+<tr>
+  <td style="text-align:center">VRY</td>
+  <td style="text-align:center">GP26_A0</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="language-python"><code class="language-python">import time
+import board
+import busio
+import analogio
+import adafruit_ssd1306
+
+def get_zero(times =500, sleep = 0.01):
+    x_total = 0
+    y_total = 0
+    for i in range (times):
+        x_axis = x_axis_pin.value
+        y_axis = y_axis_pin.value
+        x_total += x_axis
+        y_total += y_axis
+        time.sleep(sleep)
+    x_zero = x_total // times
+    y_zero = y_total // times
+    return (x_zero,y_zero)
+
+def get_extremum(times =500, sleep = 0.01):
+    x_list = []
+    y_list = []
+    for i in range (times):
+        x_axis = x_axis_pin.value
+        y_axis = y_axis_pin.value
+        x_list.append(x_axis)
+        y_list.append(y_axis)
+        time.sleep(sleep)
+    x_extremum = (min(x_list),max(x_list))
+    y_extremum = (min(y_list),max(y_list))
+    return (x_extremum,y_extremum)
+
+def get_spacing(level = 16 , zero =(32767,32767) ,x_extremum = (0,65535),y_extremum = (0,65535)):
+    x_temp_1 = (zero[0] - x_extremum[0]) // level
+    x_temp_2 = (x_extremum[1] - zero[0] ) // level
+    y_temp_1 = (zero[1] - y_extremum[0]) // level
+    y_temp_2 = (y_extremum[1] - zero[1] ) // level
+    x_spacing = (x_temp_1,x_temp_2)
+    y_spacing = (y_temp_1,y_temp_2)
+    return (x_spacing,y_spacing)
+
+def get_coordinates(zero = (32767,32767), x_spacing = (2048,2048),y_spacing = (2048,2048)):
+    x_value = x_axis_pin.value - zero[0]
+    y_value = y_axis_pin.value - zero[1]
+    if x_value &gt;= 0:
+        x_axis = x_value // x_spacing[1]
+    else:
+        x_axis = - ((-x_value) // x_spacing[0])
+    if y_value &gt;= 0:
+        y_axis = y_value // y_spacing[1]
+    else:
+        y_axis = - ((-y_value) // y_spacing[0])
+    return (x_axis,y_axis)
+
+# i2c init
+i2c = busio.I2C(board.GP0, board.GP1)
+display = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
+
+# Uniformly set the color and background color of displayed characters or graphics.
+# Monochrome OLEDs only need to set one and then negate the other.
+display_color = 0
+bg_color = not display_color
+
+# Fill background color.
+display.fill(bg_color)
+display.show()
+
+# Set 2-axis rocker pin.
+x_axis_pin = analogio.AnalogIn(board.A0)
+y_axis_pin = analogio.AnalogIn(board.A1)
+
+# Calibrate the zero point.
+# Take the xy-axis reading when the dual-axis joystick is at rest and set it to zero point.
+display.text('Zero adjustment', 0, 20, display_color, font_name='font5x8.bin', size=1)
+display.text('Do not touch', 0, 28, display_color, font_name='font5x8.bin', size=1)
+display.show()
+zero = get_zero(times =200, sleep = 0.01)
+display.text('Do not touch', 0, 28, bg_color, font_name='font5x8.bin', size=1)
+str_zero = &quot;x={},y={}&quot;.format(zero[0],zero[1])
+display.text(str_zero, 0, 28, display_color, font_name='font5x8.bin', size=1)
+display.show()
+print(str_zero)
+time.sleep(2)
+
+# Different hardware measures different extreme values.
+display.fill(bg_color)
+display.text('Extremum adjustment', 0, 20, display_color, font_name='font5x8.bin', size=1)
+display.text('Rotary rocker', 0, 28, display_color, font_name='font5x8.bin', size=1)
+display.show()
+(x_extremum,y_extremum) = get_extremum(times = 400, sleep = 0.01)
+display.text('Extremum adjustment', 0, 20, bg_color, font_name='font5x8.bin', size=1)
+display.text('Rotary rocker', 0, 28, bg_color, font_name='font5x8.bin', size=1)
+str_x_extremum = &quot;x_min={},x_max={}&quot;.format(x_extremum[0],x_extremum[1])
+str_y_extremum = &quot;y_min={},y_max={}&quot;.format(y_extremum[0],y_extremum[1])
+display.text(str_x_extremum, 0, 20, display_color, font_name='font5x8.bin', size=1)
+display.text(str_y_extremum, 0, 28, display_color, font_name='font5x8.bin', size=1)
+print((str_x_extremum, str_y_extremum))
+display.show()
+time.sleep(2)
+
+# Setting the scale spacing can eliminate unnecessary jitter.
+(x_spacing,y_spacing) = get_spacing(level = 32 , zero = zero, x_extremum = x_extremum,y_extremum = y_extremum)
+print((x_spacing, y_spacing))
+
+display.fill(bg_color)
+display.text('x=', 70, 16, display_color, font_name='font5x8.bin', size=2)
+display.text('y=', 70, 32, display_color, font_name='font5x8.bin', size=2)
+(x_axis,y_axis) = (0,0)
+(x_axis_1,y_axis_1) = (1,1)
+(x_axis_2,y_axis_2) = (0,0)
+display.show()
+while True:
+    # Get the coordinate value in a loop.
+    (x_axis,y_axis) = get_coordinates(zero = zero, x_spacing = x_spacing, y_spacing = y_spacing)
+    # Only refresh the display when the coordinates change.
+    if (x_axis,y_axis) == (x_axis_1,y_axis_1):
+        pass
+    else:
+        # Using background color inversion for identical pixels,
+        # pixels can be refreshed with minimal performance cost.
+        display.fill_rect(x_axis_2-3, y_axis_2-3, 6, 6, bg_color)
+        display.text(str(x_axis_1), 90, 16, bg_color, font_name='font5x8.bin', size=2)
+        display.text(str(y_axis_1), 90, 32, bg_color, font_name='font5x8.bin', size=2)
+        (x_axis_1,y_axis_1) = (x_axis,y_axis)
+        (x_axis_2,y_axis_2) = (x_axis+32, -y_axis+32)
+        display.fill_rect(x_axis_2-3, y_axis_2-3, 6, 6, display_color)
+        display.text(str(x_axis_1), 90, 16, display_color, font_name='font5x8.bin', size=2)
+        display.text(str(y_axis_1), 90, 32, display_color, font_name='font5x8.bin', size=2)
+        display.show()
+
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/PicoW_S3_doc/zh/CircuitPython/flash_tinyuf2.html">
+                            <span class="icon"></span>
+                            <span class="label">烧录tinyUF2固件的方法</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/PicoW_S3_doc/zh/Arduino/Environment.html">
+                            <span class="label">Arduino环境搭建</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

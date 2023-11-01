@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>陣列 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh_tw/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh_tw/">首頁</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/">WebBit使用手冊</a></li>
+<li class=""><a  href="/WebBit_dev/zh_tw/">WebBit開發手冊</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh_tw/">Bit-S2使用手冊</a></li>
+</ul></li>
+<li class="active"><a  href="/WebAI/zh_tw/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh_tw/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh_tw/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh_tw/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh_tw/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh_tw/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh_tw/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">動態</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 繁體</a><ul><li class="active"><a  href="/WebAI/zh_tw/Programming/Basic/Lists.html">中文 繁體</a></li>
+<li class=""><a  href="/WebAI/zh/Programming/Basic/Lists.html">中文 简体</a></li>
+<li class=""><a  href="/WebAI/en/Programming/Basic/Lists.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">輸入關鍵詞，多關鍵詞空格隔開</span>
+                                <span id="search_loading_hint">正在加載，請稍候。。。</span>
+                                <span id="search_download_err_hint">下載文件失敗，請刷新重試或檢查網絡</span>
+                                <span id="search_other_docs_result_hint">來自其它文檔的結果</span>
+                                <span id="search_curr_doc_result_hint">當前文檔搜索結果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、開箱 Web:AI 開發板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Introduction.html"><span class="label">Web:AI 介紹</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Introduction.html"><span class="label">產品內容</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Web:AI 開發板</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Webduino 教育平台</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Initialization.html"><span class="label">初始化設定 ( 第一次使用請看這裡 )</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Update.html"><span class="label">安裝版更新韌體</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/SettingWIFI.html"><span class="label">開發板 Wi-Fi 設定</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Mode.html"><span class="label">操作模式</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">主程式模式</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">QRcode 模式</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">回復預設狀態</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Card.html"><span class="label">教學範例卡使用教學</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">二、Web:AI 程式積木</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Introduction.html"><span class="label">程式積木平台介紹</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">基礎功能</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Variables.html"><span class="label">變數</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Logic.html"><span class="label">逻辑</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Loops.html"><span class="label">重複</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Math.html"><span class="label">數學式</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Text.html"><span class="label">文字</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Lists.html"><span class="label">陣列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Functions.html"><span class="label">函式</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">進階功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/FileRW.html"><span class="label">檔案讀寫</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/QRCode.html"><span class="label">掃描條碼</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Color.html"><span class="label">顏色追蹤</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Face.html"><span class="label">人臉追蹤</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Image.html"><span class="label">影像分類</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Object.html"><span class="label">物件追蹤</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Speech.html"><span class="label">語音辨識</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">偵測</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Web:AI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/Board.html"><span class="label">開發板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/LCD.html"><span class="label">LCD 螢幕</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/Button.html"><span class="label">按鈕開關</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/Mic.html"><span class="label">麥克風</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/IO.html"><span class="label">I/O 引腳</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">擴充功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Expand/MQTT.html"><span class="label">網路廣播</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Expand/Servo.html"><span class="label">伺服馬達</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Expand/Speaker.html"><span class="label">喇叭</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Train/Train.html"><span class="label">三、影像訓練</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/IDE/Dev.html"><span class="label">四、使用 IDE 開發 Web:AI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/MoonCar/MoonCar.html"><span class="label">五、操控 MoonCar</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>陣列</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebAI/zh_tw/Programming/Basic/Lists.md" target="_blank">
+                                    編輯本頁
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>陣列可以將數字、文字、列表或變數，按照順序組合起來，這些按序排列資料集合就稱作陣列。一個陣列可以再細分為多個項目，或是一個陣列內還包含其他陣列。在進行比較複雜的運算時，也會透過陣列的操作來實現。</p>
+<h2 id="%E5%BB%BA%E7%AB%8B%E9%99%A3%E5%88%97%E3%80%81%E7%A9%BA%E9%99%A3%E5%88%97">建立陣列、空陣列</h2>
+<ul>
+<li>「建立陣列」積木可以透過指定位置放入對應的內容，建立一個帶有數值的陣列。</li>
+<li>「空陣列」積木會建立一個陣列容器，也就是裡面沒有包含任何項目的陣列。</li>
+</ul>
+<p>點擊積木的「設定」按鈕，可以改變陣列內的項目數量，當數量為 0，積木就會變成空陣列，可以藉由後續操作改變陣列內的項目內容。</p>
+<p><img src="../../assets/images/upload_ed6e185aa95bf4fc4fab8982e2a7478d.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E5%B1%95%E7%A4%BA%E9%99%A3%E5%88%97%E5%85%A7%E7%9A%84%E6%89%80%E6%9C%89%E6%B0%B4%E6%9E%9C">範例：展示陣列內的所有水果</h3>
+<ol>
+<li><p>將「變數 fruit」設定為陣列，並在陣列項目中放入各種水果名稱。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木顯示「變數 fruit」。</p>
+</li>
+<li><p>避免文字顯示超出螢幕，調整 x 成 50。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>['apple', 'orange', 'banana']</strong>。</p>
+<p><img src="../../assets/images/upload_884e654b486f5a19ac7a8dbbd3db7521.png" alt="" /></p>
+</li>
+</ol>
+<h2 id="%E9%87%8D%E8%A4%87%E9%99%A3%E5%88%97%E5%85%A7%E9%A0%85%E7%9B%AE">重複陣列內項目</h2>
+<p>「重複陣列內項目」積木可以建立一個陣列，並讓陣列內的項目重複特定數量。當陣列內需要填入大量重複的項目時，就只需要設定一次。</p>
+<p><img src="../../assets/images/upload_7893cbd4e0063912006f14e9dbc7f98c.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E9%89%9B%E7%AD%86%E7%9B%92%E5%85%A7%E6%9C%89-5-%E6%94%AF%E7%AD%86">範例：鉛筆盒內有 5 支筆</h3>
+<ol>
+<li><p>使用「變數 pencil box」，後面放入「重複陣列內項目」積木。</p>
+</li>
+<li><p>將「文字」積木放入陣列中，並輸入「pen」。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木顯示「變數 pencil box」。</p>
+</li>
+<li><p>避免文字顯示超出螢幕，調整 x 成 50。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>['pen', 'pen', 'pen', 'pen', 'pen']</strong>。</p>
+<p><img src="../../assets/images/upload_d0bb47652d48444d1831be9e325a905b.png" alt="" /></p>
+</li>
+</ol>
+<h2 id="%E9%99%A3%E5%88%97%E9%95%B7%E5%BA%A6">陣列長度</h2>
+<p>「陣列長度」積木可以取得個陣列的項目總數。</p>
+<p><img src="../../assets/images/upload_47561b9a47ba4faab6c3ccee6547d539.png" alt="" /></p>
+<p>如果是空陣列則陣列長度為 0。</p>
+<p><img src="../../assets/images/upload_95a27df38f0aa6739749bbde7d8a6aff.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E6%9F%A5%E7%9C%8B%E9%99%A3%E5%88%97%E4%B8%AD%E6%9C%89%E5%A4%9A%E5%B0%91%E6%B0%B4%E6%9E%9C%E6%AC%84%E4%BD%8D%EF%BC%9F">範例：查看陣列中有多少水果欄位？</h3>
+<ol>
+<li><p>將「變數 fruit」設定為陣列，並在陣列項目中放入各種水果名稱。</p>
+</li>
+<li><p>使用「變數 number」作為水果欄位的數量，放入「陣列長度」積木，後方放入「變數 fruit」。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木顯示「變數 number」。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>6</strong>。</p>
+<p><img src="../../assets/images/upload_17cc5c62f7ce60f2c84ce6d3172c67eb.png" alt="" /></p>
+</li>
+<li><p>因為「陣列長度」積木讀取的是陣列的項目數量 ( 水果欄位數量 )，所以即使項目中沒有放入水果，螢幕也會顯示相同的數字。</p>
+<p><img src="../../assets/images/upload_bace1a5878ebf047f155130b75b4b927.png" alt="" /></p>
+</li>
+</ol>
+<h2 id="%E7%B4%A2%E5%BC%95%E9%A0%85%E7%9B%AE%E4%BD%8D%E7%BD%AE">索引項目位置</h2>
+<p>「索引項目位置」積木能在一個陣列中，從最前面或最後面，找到特定項目所在的位置，並回傳該位置的順序號碼。<br />
+<img src="../../assets/images/upload_9db2dd194ff822aa83060d8b0e614505.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E6%B0%B4%E6%9E%9C%E9%99%A3%E5%88%97%E4%B8%AD%EF%BC%8C%E7%AC%AC%E4%B8%80%E9%A1%86%E6%A9%98%E5%AD%90%E5%87%BA%E7%8F%BE%E5%9C%A8%E4%BB%80%E9%BA%BC%E4%BD%8D%E7%BD%AE%EF%BC%9F">範例：水果陣列中，第一顆橘子出現在什麼位置？</h3>
+<ol>
+<li><p>使用「變數 fruit」和「陣列」積木，並在陣列項目中放入各種水果名稱。</p>
+</li>
+<li><p>設定「變數 order」，後方放入「索引項目位置」積木，從「fruit」陣列最前面索引項目「orange」。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木顯示「變數 order」。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>4</strong>，代表第一顆橘子出現在 <strong>第 4 個位置</strong>。</p>
+<p><img src="../../assets/images/upload_53325524181d38607e41a53ba7abee27.png" alt="" /></p>
+</li>
+</ol>
+<h2 id="%E5%8F%96%E5%BE%97%E9%99%A3%E5%88%97%E5%85%A7%E5%AE%B9">取得陣列內容</h2>
+<p>「取得陣列內容」積木可以取得陣列中某個項目的值、或是取得某個項目的值之後，同時移除該項目。( 項目取得方式包含：第幾個、倒數第幾個、第一個、最後一個和隨機 )</p>
+<p><img src="../../assets/images/upload_6f5882aaa141ae10aae06249e203dacc.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E6%89%BE%E5%88%B0%E7%AC%AC-3-%E5%80%8B%E6%B0%B4%E6%9E%9C">範例：找到第 3 個水果</h3>
+<ol>
+<li><p>使用「變數 fruit」和「陣列」積木，並在陣列項目中放入各種水果名稱。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木，顯示「取得陣列」積木取得陣列中的第 3 項。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>cherry</strong>，代表陣列中的第 3 個項目是 cherry。</p>
+<p><img src="../../assets/images/upload_d8cf61566a59081dbdc818d062cfd868.png" alt="" /></p>
+</li>
+</ol>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E7%A7%BB%E9%99%A4%E7%AC%AC-3-%E5%80%8B%E6%B0%B4%E6%9E%9C%EF%BC%8C%E4%B8%A6%E8%AA%AA%E5%87%BA%E5%BE%8C%E4%BE%86%E7%9A%84%E7%AC%AC-3-%E5%80%8B%E6%B0%B4%E6%9E%9C">範例：移除第 3 個水果，並說出後來的第 3 個水果</h3>
+<ol>
+<li><p>接續上一個範例，完成建立陣列。</p>
+</li>
+<li><p>在陣列後面使用自「陣列 fruit」移除第 3 個項目。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木，顯示「取得陣列」積木取得陣列中的第 3 項。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>orange</strong>，代表原本陣列中的第 3 個項目 cherry 被移除，改由原本的第 4 個項目 orange 遞補。</p>
+<p><img src="../../assets/images/upload_2599f4b2fda422c2ecfb5df97b79a44e.png" alt="" /></p>
+</li>
+</ol>
+<h2 id="%E8%A8%AD%E5%AE%9A%E9%99%A3%E5%88%97%E5%85%A7%E5%AE%B9">設定陣列內容</h2>
+<p>「設定陣列內容」積木可以針對陣列的項目進行設定或移除。( 項目取得方式包含：第幾個、倒數第幾個、第一個、最後一個和隨機 )</p>
+<p><img src="../../assets/images/upload_5602a5b1b00a3c60cd134600f44d1214.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E5%B0%87%E7%AC%AC-3-%E5%80%8B%E6%B0%B4%E6%9E%9C%E6%94%B9%E7%82%BA-cherry">範例：將第 3 個水果改為 cherry</h3>
+<ol>
+<li><p>使用「變數 fruit」和「陣列」積木，並在陣列項目中放入各種水果名稱。</p>
+</li>
+<li><p>下方使用自「陣列 fruit」中設定第 3 個項目為 cherry。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木，顯示「陣列 fruit」，並設定 x 為 40，避免文字超出螢幕。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>[‘apple’, ‘banana’, ‘cherry’]</strong>，代表第 3 個水果已經被改為 <strong>cherry</strong>。</p>
+<p><img src="../../assets/images/upload_d38af28745d3d75ab576ad3eaf803350.png" alt="" /></p>
+</li>
+</ol>
+<!-- ## 取得指定區間的項目
+
+「取得指定區間的項目」積木會取出一段指定區間內的項目，並將這些項目建立成一個子陣列。
+
+> 請注意第一個空格的數字需要比第二個空格內的數字小！
+
+![](../../assets/images/upload_bf209fecdd85453b57213eba10de5a86.png)
+
+### 範例：取得第 2 個水果 ~ 倒數第 2 個水果
+
+1. 使用「變數 fruit」和「陣列」積木，並在陣列項目中放入各種水果名稱。
+2. 加入另一個變數「變數 list」，在後方使用：自「陣列 fruit」中取得第 2 個項目至倒數第 2 個項目。
+3. 使用「LCD 顯示文字」積木，顯示「陣列 list」，並設定 x 為 40，避免文字超出螢幕。
+4. 按下執行，可以看到 Web:AI 螢幕顯示 **[‘banana’, ‘orange’, ‘cherry’]**。
+
+![](../../assets/images/upload_d83aba208f12ef7d13371ca274801662.png)
+
+![image alt](https:// "title") -->
+<h2 id="%E6%96%87%E5%AD%97%E8%88%87%E9%99%A3%E5%88%97%E8%BD%89%E6%8F%9B">文字與陣列轉換</h2>
+<p>「文字與陣列轉換」積木可以將帶有「分隔符」( 類似空白、逗號、分號...等分隔符號 ) 的文字轉換為陣列，或是將陣列合併為一串文字。</p>
+<ul>
+<li>從文本製作陣列：文字 → 陣列</li>
+<li>從陣列拆出文本：陣列 → 文字</li>
+</ul>
+<p><img src="../../assets/images/upload_7aae6f7038f74c6d33c6d6ddd3110828.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E7%94%A8%E6%96%87%E5%AD%97%E5%B1%95%E7%A4%BA%E6%B0%B4%E6%9E%9C%E9%99%A3%E5%88%97%EF%BC%8C%E4%B8%A6%E7%94%A8%E9%80%97%E8%99%9F%E5%88%86%E9%96%8B">範例：用文字展示水果陣列，並用逗號分開</h3>
+<ol>
+<li><p>使用「變數 fruit」和「陣列」積木，並在陣列項目中放入各種水果名稱。</p>
+</li>
+<li><p>使用「把陣列合併為文字」，將陣列變成文字形式。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木，並設定 x 為 40，避免文字超出螢幕。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>apple,banana,orange,cherry,guava</strong>。</p>
+<p><img src="../../assets/images/upload_466cfd47b5e350508c57da544e6f99ab.png" alt="" /></p>
+</li>
+<li><p>如果將「分隔符」改成「/」符號，可以看到 Web:AI 螢幕顯示 <strong>apple/banana/orange/cherry/guava</strong>。</p>
+<p><img src="../../assets/images/upload_da1a8336911bad031ec8e5a68686a007.png" alt="" /></p>
+</li>
+</ol>
+<h2 id="%E9%99%A3%E5%88%97%E6%8E%92%E5%BA%8F">陣列排序</h2>
+<p>「陣列排序」積木會將指定的陣列做數字、字母的排序，排序後會形成一個新的陣列，不會影響原本陣列的排序。</p>
+<blockquote>
+<ul>
+<li>依英文升序：a ~ z</li>
+<li>依英文降序：z ~ a</li>
+<li>依數字升序：小 ~ 大</li>
+<li>依數字降序：大 ~ 小</li>
+</ul>
+</blockquote>
+<p><img src="../../assets/images/upload_0cb245b7be3711400d494a42a08c0f81.png" alt="" /></p>
+<h3 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E8%AE%93%E6%B0%B4%E6%9E%9C%E4%BE%9D%E8%8B%B1%E6%96%87%E5%AD%97%E6%AF%8D%E9%A0%86%E5%BA%8F%E6%8E%92%E5%88%97">範例：讓水果依英文字母順序排列</h3>
+<ol>
+<li><p>使用「變數 fruit」和「陣列」積木，並在陣列項目中放入各種水果名稱。</p>
+</li>
+<li><p>加入另一個變數「變數 text」，使用「陣列排序」積木讓陣列依照英文字母排序。</p>
+</li>
+<li><p>使用「LCD 顯示文字」積木，顯示「order」，並設定 x 為 40，避免文字超出螢幕。</p>
+</li>
+<li><p>按下執行，可以看到 Web:AI 螢幕顯示 <strong>[‘apple’, ‘guava’, ‘orange’]</strong>，陣列中的項目依照 a~z 的順序排列。</p>
+<p><img src="../../assets/images/upload_2b46378f90a8b7f1b1ef6882d302c6db.png" alt="" /></p>
+</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/WebAI/zh_tw/Programming/Basic/Text.html">
+                            <span class="icon"></span>
+                            <span class="label">文字</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebAI/zh_tw/Programming/Basic/Functions.html">
+                            <span class="label">函式</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>鏈接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘寶</a></li>
+</ul>
+</li>
+<li><a>源碼</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本網站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>聯繫我們</a><ul><li><a>電話: +86 0755-26475332</a>
+</li>
+<li><a>商業支持: sales@banana-pi.com (銷售部）</a>
+</li>
+<li><a>技術支持: support@banana-pi.com (技術部）</a>
+</li>
+<li><a>地址: 廣東省松山湖高新技術產業開發區融易大廈 7 樓</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

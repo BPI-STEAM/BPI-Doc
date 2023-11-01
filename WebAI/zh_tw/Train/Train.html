@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>三、影像訓練 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh_tw/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh_tw/">首頁</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh_tw/">WebBit使用手冊</a></li>
+<li class=""><a  href="/WebBit_dev/zh_tw/">WebBit開發手冊</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh_tw/">Bit-S2使用手冊</a></li>
+</ul></li>
+<li class="active"><a  href="/WebAI/zh_tw/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh_tw/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh_tw/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh_tw/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh_tw/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件</a><ul><li class=""><a  href="/Q-Car/zh_tw/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh_tw/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">動態</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 繁體</a><ul><li class="active"><a  href="/WebAI/zh_tw/Train/Train.html">中文 繁體</a></li>
+<li class=""><a  href="/WebAI/zh/Train/Train.html">中文 简体</a></li>
+<li class=""><a  href="/WebAI/en/Train/Train.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">輸入關鍵詞，多關鍵詞空格隔開</span>
+                                <span id="search_loading_hint">正在加載，請稍候。。。</span>
+                                <span id="search_download_err_hint">下載文件失敗，請刷新重試或檢查網絡</span>
+                                <span id="search_other_docs_result_hint">來自其它文檔的結果</span>
+                                <span id="search_curr_doc_result_hint">當前文檔搜索結果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">一、開箱 Web:AI 開發板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Introduction.html"><span class="label">Web:AI 介紹</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Introduction.html"><span class="label">產品內容</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Web:AI 開發板</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Webduino 教育平台</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Initialization.html"><span class="label">初始化設定 ( 第一次使用請看這裡 )</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Update.html"><span class="label">安裝版更新韌體</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/SettingWIFI.html"><span class="label">開發板 Wi-Fi 設定</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Mode.html"><span class="label">操作模式</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">主程式模式</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">QRcode 模式</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">回復預設狀態</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Unboxing/Card.html"><span class="label">教學範例卡使用教學</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">二、Web:AI 程式積木</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Introduction.html"><span class="label">程式積木平台介紹</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">基礎功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Variables.html"><span class="label">變數</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Logic.html"><span class="label">逻辑</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Loops.html"><span class="label">重複</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Math.html"><span class="label">數學式</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Text.html"><span class="label">文字</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Lists.html"><span class="label">陣列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Basic/Functions.html"><span class="label">函式</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">進階功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/FileRW.html"><span class="label">檔案讀寫</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/QRCode.html"><span class="label">掃描條碼</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Color.html"><span class="label">顏色追蹤</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Face.html"><span class="label">人臉追蹤</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Image.html"><span class="label">影像分類</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Object.html"><span class="label">物件追蹤</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Advanced/Speech.html"><span class="label">語音辨識</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">偵測</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Web:AI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/Board.html"><span class="label">開發板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/LCD.html"><span class="label">LCD 螢幕</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/Button.html"><span class="label">按鈕開關</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/Mic.html"><span class="label">麥克風</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/WebAI/IO.html"><span class="label">I/O 引腳</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">擴充功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Expand/MQTT.html"><span class="label">網路廣播</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Expand/Servo.html"><span class="label">伺服馬達</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/Programming/Expand/Speaker.html"><span class="label">喇叭</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active with_link"><a href="/WebAI/zh_tw/Train/Train.html"><span class="label">三、影像訓練</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/IDE/Dev.html"><span class="label">四、使用 IDE 開發 Web:AI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/WebAI/zh_tw/MoonCar/MoonCar.html"><span class="label">五、操控 MoonCar</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>三、影像訓練</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/WebAI/zh_tw/Train/Train.md" target="_blank">
+                                    編輯本頁
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>Web:AI 影像辨識分為 <strong>影像分類</strong> 以及 <strong>物件追蹤</strong>，可以使用 Web:AI 開發板拍攝影像上傳至 Webduino 影像訓練平台進行影像訓練，將訓練完成的模型下載，再使用程式積木執行影像辨識。</p>
+<h2 id="%E5%BD%B1%E5%83%8F%E8%BE%A8%E8%AD%98%E6%B5%81%E7%A8%8B">影像辨識流程</h2>
+<p>進行影像辨識的流程中，需要先分別建立影像分類，接著選擇要建立的模型種類 ( 影像分類、物件追蹤 )，並將分類放入模型中，就可以使用模型來進行影像辨識了。</p>
+<p><img src="../assets/images/upload_499be377eb3ef3848cd92334209b9b78.png" alt="" /></p>
+<h2 id="A.-%E7%99%BB%E5%85%A5%E5%BD%B1%E5%83%8F%E8%A8%93%E7%B7%B4%E5%B9%B3%E5%8F%B0">A. 登入影像訓練平台</h2>
+<ol>
+<li><p>點擊連結進入 <a href="https://vision.webduino.io"  target="_blank">Webduino 影像訓練平台</a>。</p>
+<p>![登入畫面](../assets/images/upload_c05bf863042a5e058ff175a0bdfc1ecf.png =600x)</p>
+</li>
+<li><p>點擊「Register」按鈕註冊帳號或使用 Google、FB 帳號直接登入。</p>
+<p>![同意授權](../assets/images/upload_5c92d56778b31b686d9116fe16d79bfd.png =600x)</p>
+</li>
+<li><p>點擊「同意授權」，進入 Webduino 影像訓練平台。</p>
+</li>
+</ol>
+<h2 id="B.-%E5%BB%BA%E7%AB%8B%E5%88%86%E9%A1%9E">B. 建立分類</h2>
+<ol>
+<li><p>在 Webduino 影像訓練平台中可以看到左側的側邊欄有「分類」和「模型」兩個選項，點擊「分類」進入分類列表。</p>
+<p>![分類列表](../assets/images/upload_95f140f81372466c615d54ec195f0268.png =600x)</p>
+</li>
+<li><p>點擊藍色「新增」按鈕，跳出「建立分類」視窗。</p>
+<p>![建立分類](../assets/images/upload_8a3c86c0cd8325837d4ccdddf39badb0.png =600x)</p>
+<ul>
+<li>輸入分類名稱，<strong>請勿輸入中文、空格、符號</strong></li>
+<li>選擇分享狀態</li>
+<li>影像上傳方式點選「Web:AI」，進入下一步</li>
+</ul>
+<p>![](../assets/images/upload_51dee50233ff9b3067dbde3e1179b8e7.jpg =600x)</p>
+<ul>
+<li>輸入要拍照的數量</li>
+<li>輸入 Web:AI 開發板的 DeviceID</li>
+<li>選擇是否旋轉鏡頭<ul>
+<li>是：使用後鏡頭 ( 鏡頭在螢幕背面 )</li>
+<li>否：使用前鏡頭 ( 鏡頭和螢幕在同一側 )</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>目前因為鏡頭旋轉功能外殼尚未上市，因此旋轉鏡頭選項<strong>不需勾選</strong>，敬請期待！</p>
+</blockquote>
+</li>
+<li><p>點擊「建立分類」按鈕</p>
+<p>![](../assets/images/upload_26143c122bdc6adeac5cf1bb124805fa.png =600x)</p>
+</li>
+<li><p>看到「傳送指令成功」訊息，就可以開始使用 Web:AI 開發板拍照。</p>
+</li>
+</ol>
+<h2 id="C.-%E4%BD%BF%E7%94%A8%E9%96%8B%E7%99%BC%E6%9D%BF%E6%8B%8D%E6%94%9D%E5%BD%B1%E5%83%8F">C. 使用開發板拍攝影像</h2>
+<p>傳送指令成功後，開發板會重新啟動，進入拍照模式。</p>
+<h3 id="%E6%8B%8D%E7%85%A7%E6%A8%A1%E5%BC%8F">拍照模式</h3>
+<ul>
+<li><p>左上角白色數字：目前拍照張數</p>
+</li>
+<li><p>L 按鈕：拍攝照片</p>
+</li>
+<li><p>R 按鈕：調整白框大小</p>
+</li>
+<li><p>中間白色方框：拍照時，讓拍攝物件跟方框相當大小</p>
+<p><img src="../assets/images/upload_cf63b2e27ef9efa9f58fe5127e8447a7.png" alt="" /></p>
+</li>
+</ul>
+<p>讓<strong>拍攝物件跟方框相當大小</strong>時按下 <strong>L 按鈕</strong> 拍攝，並且稍微轉動角度，拍攝不同角度影像。</p>
+<h3 id="%E4%B8%8A%E5%82%B3%E5%BD%B1%E5%83%8F">上傳影像</h3>
+<ol>
+<li><p>拍完設定的照片數量後，畫面會變全黑，開始上傳圖片。</p>
+<p>![](../assets/images/upload_bc218c4a4f6d483fed0da9390e9418d6.png =600x)</p>
+</li>
+<li><p>等待上傳完成後，畫面中央會顯示白色 ok，正下方顯示上傳時間。</p>
+<p>![](../assets/images/upload_746aa7aef3c1e1fb295eb7470ad46a11.png =600x)</p>
+</li>
+<li><p>點擊視窗中的 ✕ 或「回到主畫面」，將視窗關閉。</p>
+</li>
+</ol>
+<h3 id="%E5%BB%BA%E7%AB%8B-2~4-%E5%80%8B%E5%88%86%E9%A1%9E">建立 2~4 個分類</h3>
+<p>進行影像辨識時，模型內需要放入 2~4 個分類才能進行辨識，<br />
+因此重複上述 <strong>建立分類</strong>、<strong>使用開發板拍攝影像</strong> 步驟，建立兩個以上的分類。</p>
+<h2 id="D.-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B">D. 建立模型</h2>
+<ol>
+<li><p>建立完分類後，在左側的側邊欄選擇「模型」，進入模型列表。</p>
+<p>![模型列表](../assets/images/upload_23e1965f689c02c67697c9a98e97bb72.png =600x)</p>
+</li>
+<li><p>點擊藍色「新增」按鈕，跳出「新增模型」視窗。</p>
+<p>![](../assets/images/upload_4aee1e16f5e3bd4278a1d948575f85c7.png =600x)</p>
+<ul>
+<li>輸入模型名稱，<strong>請勿輸入中文、空格、符號或使用過的名稱</strong></li>
+<li>選擇模型種類 ( 影像分類、物件追蹤 )<br />
+  ![](../assets/images/upload_04e57bcc782a11a41b773fd0286a7fb7.png =560x)</li>
+<li>選擇分享狀態</li>
+<li>模型建立方式點選「挑選分類」</li>
+</ul>
+</li>
+<li><p>從分類列表中點選 2~4 個要進行影像辨識的分類，點擊「建立模型」。</p>
+<p>![新增模型](../assets/images/upload_3d978d4eed334b5f7460c9d2a847be91.png =600x)</p>
+</li>
+<li><p>等待模型訓練完成後，就可以在模型列表中找到建立的模型，並且可以看到模型內的<strong>分類名稱</strong>以及<strong>模型種類</strong>。</p>
+<p>![](../assets/images/upload_e70d83463d16c7cc32c71c18eed6018f.png =600x)</p>
+<blockquote>
+<p>因為物件追蹤的演算法較複雜，因此訓練時間較久是正常的！</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="E.-%E4%B8%8B%E8%BC%89%E6%A8%A1%E5%9E%8B">E. 下載模型</h2>
+<ol>
+<li><p>點擊要進行影像辨識的模型，跳出「模型選項」視窗。</p>
+<p>a. 點擊下載模型。</p>
+<p>![模型選項](../assets/images/upload_421b3cf5d2bacd5a44e760e55acbaab2.png =600x)</p>
+<p>b. 輸入開發板 Device ID。</p>
+<p>![](../assets/images/upload_85120262df264ff7c6ef18185de48ff0.jpg =600x)</p>
+<p>c. 點擊「下載模型」後傳送指令。</p>
+<p>![](../assets/images/upload_8bb31a114b474f607cfd999f12b2de6d.png =600x)</p>
+</li>
+<li><p>點擊「下載模型」按鈕，出現「傳送指令成功」訊息即開始下載模型。</p>
+<p>![下載模型](../assets/images/upload_4c9f64a09ca70542b7bd7cf1a83c276b.png =600x)</p>
+</li>
+<li><p>完成 100% 後，畫面會顯示 <strong>ok</strong> 字樣代表完成下載，就可以開始進行影像辨識了。</p>
+</li>
+</ol>
+<h2 id="F.-%E4%BD%BF%E7%94%A8%E7%A8%8B%E5%BC%8F%E7%A9%8D%E6%9C%A8%E5%9F%B7%E8%A1%8C%E5%BD%B1%E5%83%8F%E8%BE%A8%E8%AD%98">F. 使用程式積木執行影像辨識</h2>
+<p>在程式積木平台中，可以分別使用影像分類和物件追蹤積木，來達到不同的影像辨識。</p>
+<h3 id="%E5%BD%B1%E5%83%8F%E5%88%86%E9%A1%9E">影像分類</h3>
+<ol>
+<li><p>先依照上面步驟，將訓練過的影像分類模型下載到 Web:AI 開發板中。</p>
+</li>
+<li><p>開啟 Web:AI 程式積木平台。</p>
+</li>
+<li><p>使用「設定模型」積木，輸入模型名稱，</p>
+</li>
+</ol>
+<p>在陣列內放入和分類數量相同的積木，按照模型列表的<strong>分類順序</strong>輸入<strong>分類名稱</strong>。<br />
+並將寬、高都輸入 224。</p>
+<blockquote>
+<ul>
+<li>使用 Webduino 影像訓練平台訓練的模型尺寸為 224*224。</li>
+<li>自行使用其它工具訓練，則需輸入各別的尺寸。</li>
+</ul>
+</blockquote>
+<p><img src="../assets/images/upload_5f7a955964d7920ceeaad38699898af5.png" alt="" /></p>
+<ol start="4">
+<li><p>在下方加入「無限重複」積木，裡面放入「開始辨識影像」積木和「LCD 顯示文字」積木。</p>
+<p><img src="../assets/images/upload_a000127272667e0c386638e579685627.png" alt="" /></p>
+</li>
+<li><p>「LCD 顯示文字」積木內放入「字串組合」積木，後方放入「取得辨識到的影像 ( 名稱 )」積木、「文字」積木輸入底線、「取得辨識到的影像 ( 信心度 )」積木。</p>
+<p><img src="../assets/images/upload_7c33811336f28996d01ff70a6a7586cb.png" alt="" /></p>
+</li>
+<li><p>程式編輯完成後，按下右上角綠色「執行」按鈕，出現「正在努力搬運 Blockly 中...」和「正在組裝積木...」，讀取結束後 Web:AI 開發板會自動開啟辨識畫面。</p>
+</li>
+<li><p>使用鏡頭對準辨識物件就能看到文字顯示辨識結果和信心度。</p>
+<p>![影像辨識結果](../assets/images/upload_18ff3d4a326a6123cb54fb20940150f9.png =600x)</p>
+</li>
+</ol>
+<blockquote>
+<p>若要使用其它模型來進行影像辨識，需要回到步驟 <strong>下載模型</strong>，再次下載模型。</p>
+</blockquote>
+<h3 id="%E7%89%A9%E4%BB%B6%E8%BF%BD%E8%B9%A4">物件追蹤</h3>
+<ol>
+<li><p>先依照上面步驟，將訓練過的物件追蹤模型下載到 Web:AI 開發板中。</p>
+</li>
+<li><p>開啟 Web:AI 程式積木平台。</p>
+</li>
+<li><p>使用「設定模型」積木，輸入模型名稱，</p>
+</li>
+</ol>
+<p>在陣列內放入和分類數量相同的積木，按照模型列表的<strong>分類順序</strong>輸入<strong>分類名稱</strong>。<br />
+並將寬、高都輸入 224。</p>
+<blockquote>
+<ul>
+<li>使用 Webduino 影像訓練平台訓練的模型尺寸為 224*224。</li>
+<li>使用開發板預設的模型請輸入 320*240。</li>
+<li>自行使用其它工具訓練，則需輸入各別的尺寸。</li>
+</ul>
+</blockquote>
+<p><img src="../assets/images/upload_ac15f02988b89b8dc37d75892320e602.png" alt="" /></p>
+<ol start="4">
+<li><p>在下方加入「無限重複」積木，裡面放入「開始偵測物件」積木和「LCD 顯示文字」積木。</p>
+<p><img src="../assets/images/upload_4216bd52f357fbf566cc5f86857aeef5.png" alt="" /></p>
+</li>
+<li><p>編輯物件追蹤的相關程式，讓偵測時可以讀取到模型 ( 陣列 ) 內的分類，並且在螢幕上顯示需要的數值，如下圖設定：</p>
+<p><img src="../assets/images/upload_22315fc7fc92b0ebb011c02fba679ebf.png" alt="" /></p>
+</li>
+<li><p>將編輯好的程式放在「開始偵測物件」積木下方。</p>
+<p><img src="../assets/images/upload_89d2a0352b277bb63e702afa93c5285e.png" alt="" /></p>
+</li>
+<li><p>程式編輯完成後，按下右上角「執行」按鈕，出現「正在努力搬運 Blockly 中…」和「正在組裝積木…」，讀取結束後 Web:AI 開發板會自動開啟辨識畫面。</p>
+</li>
+<li><p>使用鏡頭對準辨識物件就能看到白框顯示辨識結果和座標。</p>
+<p>![](../assets/images/upload_530ef50e37b082fdaea2397df9d0832f.png =600x)</p>
+</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/WebAI/zh_tw/Programming/Expand/Speaker.html">
+                            <span class="icon"></span>
+                            <span class="label">喇叭</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/WebAI/zh_tw/IDE/Dev.html">
+                            <span class="label">四、使用 IDE 開發 Web:AI</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>鏈接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘寶</a></li>
+</ul>
+</li>
+<li><a>源碼</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本網站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>聯繫我們</a><ul><li><a>電話: +86 0755-26475332</a>
+</li>
+<li><a>商業支持: sales@banana-pi.com (銷售部）</a>
+</li>
+<li><a>技術支持: support@banana-pi.com (技術部）</a>
+</li>
+<li><a>地址: 廣東省松山湖高新技術產業開發區融易大廈 7 樓</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>利用光电计数器进行转速测量 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件Q-Car</a><ul><li class="active"><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/Q-Car/zh_tw/microbit_tutorial/RPM_measurement.html">中文 繁體</a></li>
+<li class="active"><a  href="/Q-Car/zh/microbit_tutorial/RPM_measurement.html">中文 简体</a></li>
+<li class=""><a  href="/Q-Car/en/microbit_tutorial/RPM_measurement.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Q-Car/zh/introduction/hardware.html"><span class="label">产品硬件介绍</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">micro:bit 教程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/first_meeting.html"><span class="label">初识 micro:bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/new_project.html"><span class="label">创建MakeCode项目</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/import_extension.html"><span class="label">导入扩展积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/button_control-1.html"><span class="label">用microbit按钮控制电机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/ultrasonic_ranging.html"><span class="label">超声波测距的简单应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/music_arrangement.html"><span class="label">编曲并用蜂鸣器播放</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/photoelectric_counter.html"><span class="label">设计光电计数器</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Q-Car/zh/microbit_tutorial/RPM_measurement.html"><span class="label">利用光电计数器进行转速测量</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/PCA9685-PWM.html"><span class="label">PCA9685芯片的PWM调速</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/ultrasonic_ranging2.html"><span class="label">详解超声波测距</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/ultrasonic_ranging3.html"><span class="label">利用超声波测距使Q-Car自动保持距离</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Q-Car/zh/microbit_tutorial/line_tracking.html"><span class="label">巡线行驶（综合应用）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>利用光电计数器进行转速测量</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Q-Car/zh/microbit_tutorial/RPM_measurement.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="RPM%E8%BD%AC%E9%80%9F%E7%9A%84%E5%AE%9A%E4%B9%89">RPM转速的定义</h2>
+<p>每分钟转速，或称之每分钟回转数，英文RPM，全写是Revolution(s) Per Minute，是转动性物体在转动速度上的一种衡量单位，所指的是一个物体在一分钟内的旋转圈数，一圈即是指一次的绕周转动，若以数学上的角度单位来衡量即是转动了360度。</p>
+<h2 id="%E6%8E%A8%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1">推理与设计</h2>
+<p>现在我们有几个可以明确采集到的条件：</p>
+<ol>
+<li>12线编码轮，12道凹槽，12道凸块。</li>
+<li>编码轮与红外对管相对处，由凸转凹时，光电计数器程序的计数值加1，车轮带动编码轮向某一方向持续旋转一周，计数值加12。</li>
+<li>RPM转速为一个物体在一分钟内的旋转圈数。</li>
+</ol>
+<p>通过这些已知条件，RPM转速值可以这么计算出来：</p>
+<p><strong>一分钟总计数值 ÷ 12 = RPM</strong></p>
+<p>这个方程式中的 RPM 单位时间是 <strong>旋转圈数/每分钟</strong> ，也可以是 <strong>旋转圈数/每60秒</strong> 。</p>
+<p>那么方程式也可以换成这样的：</p>
+<p><strong>60秒总计数值 ÷ 12 = RPM</strong></p>
+<p>这个方程式可以明确，采集60秒的计数值即可算出RPM，如果我们想尽快算出转速值呢？</p>
+<p>试试仅采集5秒的计数值，为了保持等式依旧成立，即需要这么做：</p>
+<p><strong>(5秒总计数值 × 12) ÷ 12 = RPM</strong></p>
+<p><strong>5秒总计数值 = RPM</strong></p>
+<p>采集5秒的总计数值恰好等于 RPM数值，若是仅采集1秒呢？</p>
+<p><strong>1秒总计数值  × 5 = RPM</strong></p>
+<p>至此我们对如何着手设计程序就会很明了了，仅需在光电计数器程序的基础上改进即可。</p>
+<h3 id="%E4%BE%8B%E7%A8%8B1">例程1</h3>
+<div align=center>
+<img src="../assets/microbit-RPM_measurement_1-2.png" width="500"/>
+</div>
+<p><a href="https://github.com/Wind-stormger/Makecode/blob/master/microbit-RPM_measurement_1-2.hex"  target="_blank">在Github上的例程项目文件</a></p>
+<blockquote>
+<p>项目文件下载到本地后可导入MakeCode中查看和再编辑，也可直接通过USB烧录到Micro:Bit中运行。</p>
+</blockquote>
+<h3 id="%E8%AE%BE%E8%AE%A1%E8%AF%B4%E6%98%8E">设计说明</h3>
+<p>在程序开始时使用扩展积木初始化PCA9685芯片，使右轮电机全速运行。</p>
+<p>every 1000ms 积木即间隔1S执行一次，设置一个变量将计数值通过计算后算出的转速储存起来以便显示，再使计数值清零。</p>
+<h2 id="%E6%8D%A2%E5%90%91%E6%8E%A8%E7%90%86">换向推理</h2>
+<p>前文中方程式：</p>
+<p><strong>60秒总计数值 ÷ 12 = RPM</strong></p>
+<p>这其中 <strong>总计数值</strong> 是一个变量，具体多少需要采集60秒钟的计数值才可得知，而时间是我们人为设置且确定的数值。</p>
+<p>假设我们将变量设为时间呢？例如我们人为设置一个计数值 24 ，即旋转 2 圈，而从0一直计数到24所需要花费的时间，则设为变量。我们再一次确定 RPM 为单位时间60秒内物体旋转的圈数，那么将有以下方程式：</p>
+<p><strong>计数到24所需要花费的时间 ÷ (24 ÷ 12) = 60秒 ÷ RPM</strong></p>
+<p>等式左边是为了计算出 这段时间内平均每旋转一圈所需要的时间，而等式右边则是为了计算出在这个转速每旋转一圈所需要的时间，等式左右所计算出的时间一定相等。</p>
+<p>将方程式转化：</p>
+<p><strong>RPM = 60秒 ÷ (计数到24所需要花费的时间 ÷ (24 ÷ 12))</strong></p>
+<p><strong>RPM = 60秒 ÷ (计数到24所需要花费的时间 ÷ 2)</strong></p>
+<p><strong>RPM = 60秒 ÷ 计数到24所需要花费的时间 × 2</strong></p>
+<p><strong>RPM = 120秒 ÷ 计数到24所需要花费的时间</strong></p>
+<p>此时若改变计数值，即计数到12，那么方程式将如下：</p>
+<p><strong>RPM = 60秒 ÷ 计数到12所需要花费的时间</strong></p>
+<p>依据此方程式，我们需要在程序中添加能采集到时间的积木才可实现功能，即需要采集到计数值为0时的开始时间，和计数值达到12时的结束时间。</p>
+<h3 id="%E4%BE%8B%E7%A8%8B2">例程2</h3>
+<div align=center>
+<img src="../assets/microbit-RPM_measurement_2-2.png" width="700"/>
+</div>
+<p><a href="https://github.com/Wind-stormger/Makecode/blob/master/microbit-RPM_measurement_2-2.hex"  target="_blank">在Github上的例程项目文件</a></p>
+<blockquote>
+<p>项目文件下载到本地后可导入MakeCode中查看和再编辑，也可直接通过USB烧录到Micro:Bit中运行。</p>
+</blockquote>
+<h3 id="%E8%AE%BE%E8%AE%A1%E8%AF%B4%E6%98%8E">设计说明</h3>
+<p>running time(ms) 积木将会获取从程序启动以来至读取这个积木为止的时间，单位为毫秒。</p>
+<p>设计一个变量储存计数值为0时的开始时间，而在计数值达到12时，用在那一刻由running time(ms) 积木获取的时间减去变量储存的开始时间，即可得到计数到12所需要花费的时间。</p>
+<p>round 积木使计算值化为整数以便显示。</p>
+<h2 id="%E6%80%BB%E7%BB%93%E4%B8%8E%E5%8F%91%E6%95%A3%E6%80%A7%E6%80%9D%E8%80%83">总结与发散性思考</h2>
+<p>我们会发现例程2的程序所算得的RPM转速值比例程1的程序所算得的精度更高一些，如果不进行取整，还能有更高的精度。</p>
+<p>这样的差异来源于我们设计所要采集的自变量的信息精度不同。</p>
+<p>因为编码盘仅有12线，例程1中每1秒所采集的次数都可能因为凹槽与凸块存在实际物理间距而产生误差，最小精度也就仅局限在 5 ，计算的数值都是 5 的倍数。</p>
+<p>而例程2采集的自变量信息为时间，其精度受限于micro:bit的时钟精度，但也能做到1ms，这样相对于我们最终计算的RPM的单位 分钟（min）则已经相当精准了，所以这样设计出的程序所能计算出的结果自然有更高的精度。</p>
+<p>但我们的程序还有完善的空间，例如万一中途停转，而计数值仍旧卡在0-12中间，那么上一次存储的开始时间就会一直得不到清零，经过很长时间，再到下一次电机开始运行，这样的问题会导致这个时候的第一圈所算得的转速有极大的错误，该如何改善？</p>
+<p>除了 <strong>转速</strong> 这一个物理量以外，还有一个很重要的 <strong>加速度</strong> ，又该如何设计程序？</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Q-Car/zh/microbit_tutorial/photoelectric_counter.html">
+                            <span class="icon"></span>
+                            <span class="label">设计光电计数器</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Q-Car/zh/microbit_tutorial/PCA9685-PWM.html">
+                            <span class="label">PCA9685芯片的PWM调速</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

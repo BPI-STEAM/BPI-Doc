@@ -1,0 +1,25 @@
+items:
+-   label: BPI-Bit-S2 Homepage
+    file: README.md
+-   label: 1. Unboxing Bit-S2 Development Board
+    items:
+    -   label: Bit-S2 Introduction
+        file: Unboxing/Introduction.md
+-   label: 2. Programming with CircuitPython
+    items:
+    -   label: has been officially supported by CircuitPython
+        file: CircuitPython/supported_by_circuitpython.md
+    -   label: method of burning tinyUF2 firmware
+        file: CircuitPython/flash_tinyuf2.md
+    -   label: method to update CircuitPython firmware
+        file: CircuitPython/update_circuitpython.md
+    -   label: Configure the usage environment (Mu editor)
+        file: CircuitPython/config_mu-editor.md
+    -   label: basic function usage
+        file: CircuitPython/Basic.md
+-   label: 3. Programming with Arduino
+    items:
+    -   label: Arduino environment construction
+        file: Arduino/Environment.md
+    -   label: basic function usage
+        file: Arduino/Basic.md

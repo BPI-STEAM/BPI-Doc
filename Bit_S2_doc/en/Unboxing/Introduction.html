@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>Development Board Introduction - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Home</a></li>
+<li class="sub_items "><a  >Bit SeriesBit-S2 User Manual</a><ul><li class=""><a  href="/WebBit_doc/en/">WebBit User Manual</a></li>
+<li class=""><a  href="/WebBit_dev/en/">WebBit Development Manual</a></li>
+<li class="active"><a  href="/Bit_S2_doc/en/">Bit-S2 User Manual</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/en/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/en/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/en/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/en/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/en/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >Accessories</a><ul><li class=""><a  href="/Q-Car/en/">Q-Car</a></li>
+<li class=""><a  href="/Triode-Car/en/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">news</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: English</a><ul><li class=""><a  href="/Bit_S2_doc/zh_tw/Unboxing/Introduction.html">中文 繁體</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/Unboxing/Introduction.html">中文 简体</a></li>
+<li class="active"><a  href="/Bit_S2_doc/en/Unboxing/Introduction.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Enter keywords, separated by spaces</span>
+                                <span id="search_loading_hint">Loading, please wait...</span>
+                                <span id="search_download_err_hint">Failed to download the file, please refresh and try again or check the network</span>
+                                <span id="search_other_docs_result_hint">Results from other docs</span>
+                                <span id="search_curr_doc_result_hint">Current document search result</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/index.html"><span class="label">BPI-Bit-S2 Homepage</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">1. Unboxing Bit-S2 Development Board</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/Bit_S2_doc/en/Unboxing/Introduction.html"><span class="label">Bit-S2 Introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">2. Programming with CircuitPython</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/supported_by_circuitpython.html"><span class="label">has been officially supported by CircuitPython</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/flash_tinyuf2.html"><span class="label">method of burning tinyUF2 firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/update_circuitpython.html"><span class="label">method to update CircuitPython firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/config_mu-editor.html"><span class="label">Configure the usage environment (Mu editor)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/CircuitPython/Basic.html"><span class="label">basic function usage</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">3. Programming with Arduino</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/Arduino/Environment.html"><span class="label">Arduino environment construction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Bit_S2_doc/en/Arduino/Basic.html"><span class="label">basic function usage</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Development Board Introduction</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Bit_S2_doc/en/Unboxing/Introduction.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>BPI-Bit-S2 development board is a successor to BPI-Bit, inheriting most of the hardware functions.</p>
+<p>IO is compatible with micro:bit and can use most peripheral accessories of micro:bit.</p>
+<p>Support Webduino, Arduino, MicroPython &amp; CircuitPython programming environment suitable for STEAM education.</p>
+<h2 id="Key-features">Key features</h2>
+<ul>
+<li>ESP32-S2</li>
+<li>5x5 RGB LED matrix</li>
+<li>1 buzzer</li>
+<li>1 thermistor sensor</li>
+<li>2 photosensitive sensors</li>
+<li>2 programmable keys,1 BOOT key,1 Reset key</li>
+<li>Type-C USB interface</li>
+<li>Size 5x5cm</li>
+<li>The Goldfinger Edge Connector definition is fully compatible with Micro: Bit</li>
+</ul>
+<h2 id="Hardware">Hardware</h2>
+<h3 id="Diagram">Diagram</h3>
+<p><img src="../assets/images/bpi_bit_v2_interface_en.jpg" alt="" /></p>
+<h3 id="Hardware-Specifications">Hardware Specifications</h3>
+<table>
+<thead>
+<tr>
+  <th>Features</th>
+  <th>Specs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>MCU</td>
+  <td>ESP32-S2FN4R2，Xtensa® 32 bit LX7 Single-Core Processer</td>
+</tr>
+<tr>
+  <td>Frequency</td>
+  <td>240MHz MAX</td>
+</tr>
+<tr>
+  <td>operating temperature</td>
+  <td>-40℃~+85℃</td>
+</tr>
+<tr>
+  <td>ROM</td>
+  <td>128 KB</td>
+</tr>
+<tr>
+  <td>SRAM</td>
+  <td>320 KB</td>
+</tr>
+<tr>
+  <td>FLASH ROM</td>
+  <td>4 MB</td>
+</tr>
+<tr>
+  <td>PSRAM</td>
+  <td>2 MB</td>
+</tr>
+<tr>
+  <td>WIFI</td>
+  <td>IEEE 802.11 b/g/n ，2.4Ghz</td>
+</tr>
+<tr>
+  <td>GPIO</td>
+  <td>19 available GPIO pins have been introduced</td>
+</tr>
+<tr>
+  <td>Peripheral functions</td>
+  <td>ADC,TOUCH,PWM,SPI,I2C,I2S,Pulse counter, RMT,TWAI® Controller,SD/MMC,LCD_CAMERA</td>
+</tr>
+<tr>
+  <td>External crystal</td>
+  <td>40Mhz</td>
+</tr>
+<tr>
+  <td>Buzzer</td>
+  <td>8.5x8.5mm buzzer</td>
+</tr>
+<tr>
+  <td>LED</td>
+  <td>25 WS2812 rgb LED, single line GPIO control; 1 monochrome LED, controlled by GPIO0</td>
+</tr>
+<tr>
+  <td>Photosensitive sensor</td>
+  <td>2 photosensitive sensor</td>
+</tr>
+<tr>
+  <td>Thermistor sensor</td>
+  <td>1 thermistor sensor</td>
+</tr>
+<tr>
+  <td>IO</td>
+  <td>19 pins Goldfinger IO,19 pins contacts on the back</td>
+</tr>
+<tr>
+  <td>Key</td>
+  <td>2 programmable keys,1 BOOT key,1 Reset key</td>
+</tr>
+<tr>
+  <td>USB</td>
+  <td>USB Type-C interface，full speed USB OTG,USB-ACM</td>
+</tr>
+<tr>
+  <td>Operating voltage</td>
+  <td>3.3V</td>
+</tr>
+<tr>
+  <td>Power</td>
+  <td>USB Type-C input 5V，or Goldfinger IO input 3.3V power supply</td>
+</tr>
+<tr>
+  <td>Size</td>
+  <td>5 * 5 cm</td>
+</tr>
+</tbody>
+</table>
+<h3 id="On-board-peripherals">On-board peripherals</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">On-board peripherals</th>
+  <th style="text-align:center">GPIO</th>
+  <th style="text-align:center">Signal type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">Photosensitive sensor(L)</td>
+  <td style="text-align:center">GPIO 12</td>
+  <td style="text-align:center">Analog Input</td>
+</tr>
+<tr>
+  <td style="text-align:center">Photosensitive sensor(R)</td>
+  <td style="text-align:center">GPIO 13</td>
+  <td style="text-align:center">Analog Input</td>
+</tr>
+<tr>
+  <td style="text-align:center">Key A</td>
+  <td style="text-align:center">GPIO 38</td>
+  <td style="text-align:center">Digital Input</td>
+</tr>
+<tr>
+  <td style="text-align:center">Key B</td>
+  <td style="text-align:center">GPIO 33</td>
+  <td style="text-align:center">Digital Input</td>
+</tr>
+<tr>
+  <td style="text-align:center">Key BOOT</td>
+  <td style="text-align:center">GPIO 0</td>
+  <td style="text-align:center">Digital Input</td>
+</tr>
+<tr>
+  <td style="text-align:center">Thermistor sensor</td>
+  <td style="text-align:center">GPIO 14</td>
+  <td style="text-align:center">Analog Input</td>
+</tr>
+<tr>
+  <td style="text-align:center">Buzzer</td>
+  <td style="text-align:center">GPIO 17</td>
+  <td style="text-align:center">PWM(Digital Output)</td>
+</tr>
+<tr>
+  <td style="text-align:center">RGB_LED</td>
+  <td style="text-align:center">GPIO 18</td>
+  <td style="text-align:center">Digital Output</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5%2A5-RGB-LED">5*5 RGB LED</h3>
+<p>BPI-Bit-S2 have 25 WS2812 full color RGB LED, single GPIO ontrol.</p>
+<p>The three primary color pixels of each LED can achieve 8bit 256 level brightness display,</p>
+<p>and achieve 16777216 color full color display,</p>
+<p>scanning frequency is not less than 400Hz/s.</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:center"></th>
+  <th style="text-align:center"></th>
+  <th style="text-align:center"></th>
+  <th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">20</td>
+  <td style="text-align:center">15</td>
+  <td style="text-align:center">10</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center">0</td>
+</tr>
+<tr>
+  <td style="text-align:center">21</td>
+  <td style="text-align:center">16</td>
+  <td style="text-align:center">11</td>
+  <td style="text-align:center">6</td>
+  <td style="text-align:center">1</td>
+</tr>
+<tr>
+  <td style="text-align:center">22</td>
+  <td style="text-align:center">17</td>
+  <td style="text-align:center">12</td>
+  <td style="text-align:center">7</td>
+  <td style="text-align:center">2</td>
+</tr>
+<tr>
+  <td style="text-align:center">23</td>
+  <td style="text-align:center">18</td>
+  <td style="text-align:center">13</td>
+  <td style="text-align:center">8</td>
+  <td style="text-align:center">3</td>
+</tr>
+<tr>
+  <td style="text-align:center">24</td>
+  <td style="text-align:center">19</td>
+  <td style="text-align:center">14</td>
+  <td style="text-align:center">9</td>
+  <td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Goldfinger-GPIO-define">Goldfinger GPIO define</h3>
+<p><img src="../assets/images/bpi_bit_v2_goldfinger.jpg" alt="" /></p>
+<h3 id="SPI-and-I2C-preset-pins">SPI and I2C preset pins</h3>
+<table>
+<thead>
+<tr>
+  <th>Function</th>
+  <th>Pin Name</th>
+  <th>GPIO Num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SPI_SCK</td>
+  <td>P13</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>SPI_MISO</td>
+  <td>P14</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>SPI_MOSI</td>
+  <td>P15</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>SPI_CS</td>
+  <td>P16</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>I2C_SCL</td>
+  <td>P19</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>I2C_SDA</td>
+  <td>P20</td>
+  <td>GPIO15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Power">Power</h3>
+<p>BPI-Bit-S2 supports two power supply modes</p>
+<ol>
+<li><p>Type-C USB：Use USB cable power supply, connect USB interface of computer or other 5V USB charger to power the development board.</p>
+</li>
+<li><p>Gold finger: At the bottom of the development board, the gold finger contains a power interface with both input and output functions. It uses 3.3V power supply, positive terminal is connected to 3V3, and negative terminal is connected to GND.</p>
+</li>
+</ol>
+<h2 id="Resources">Resources</h2>
+<ul>
+<li>[GitHub: BPI-BPI-Bit-S2 Development Board Schematic PDF](<a href="https://github.com/BPI-STEAM/BPI-BIT-Lite-Doc/blob/main/sch/BPI-BIT-Lite-"  target="_blank">https://github.com/BPI-STEAM/BPI-BIT-Lite-Doc/blob/main/sch/BPI-BIT-Lite-</a> V0.2.pdf)</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Bit_S2_doc/en/index.html">
+                            <span class="icon"></span>
+                            <span class="label">BPI-Bit-S2 Homepage</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Bit_S2_doc/en/CircuitPython/supported_by_circuitpython.html">
+                            <span class="label">has been officially supported by CircuitPython</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Link</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/en_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">Taobao</a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">Source file of this website</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi source file</a></li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-26475332</a>
+</li>
+<li><a>Business Support: sales@banana-pi.com (Sales Department)</a>
+</li>
+<li><a>Technical Support: support@banana-pi.com (Technical Department)</a>
+</li>
+<li><a>Address: 7th Floor, Rongyi Building, Songshan Lake High-tech Industrial Development Zone, Guangdong Province</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

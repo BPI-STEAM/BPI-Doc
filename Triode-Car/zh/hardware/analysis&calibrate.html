@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?789a62aac0b25ad52089ddb4f85128cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHWDDNYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-MRHWDDNYB6');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>TriodeCar硬件分析及校准 - BPI-Steam</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/zh/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="Banana Pi logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/zh/">首页</a></li>
+<li class="sub_items "><a  >Bit系列</a><ul><li class=""><a  href="/WebBit_doc/zh/">WebBit使用手册</a></li>
+<li class=""><a  href="/WebBit_dev/zh/">WebBit开发手册</a></li>
+<li class=""><a  href="/Bit_S2_doc/zh/">Bit-S2使用手册</a></li>
+</ul></li>
+<li class=""><a  href="/WebAI/zh/">WebAI</a></li>
+<li class=""><a  href="/Centi_S3_doc/zh/">Centi-S3</a></li>
+<li class=""><a  href="/Leaf_S3_doc/zh/">Leaf-S3</a></li>
+<li class="sub_items "><a  >Pico</a><ul><li class=""><a  href="/Pico_RP2040_doc/zh/">Pico-RP2040</a></li>
+<li class=""><a  href="/PicoW_S3_doc/zh/">PicoW-S3</a></li>
+</ul></li>
+<li class="sub_items "><a  >配件Triode-Car</a><ul><li class=""><a  href="/Q-Car/zh/">Q-Car</a></li>
+<li class="active"><a  href="/Triode-Car/zh/">Triode-Car</a></li>
+</ul></li>
+<li class=""><a  href="/news/">动态</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class="sub_items "><a  >language: 中文 简体</a><ul><li class=""><a  href="/Triode-Car/zh_tw/hardware/analysis&calibrate.html">中文 繁體</a></li>
+<li class="active"><a  href="/Triode-Car/zh/hardware/analysis&calibrate.html">中文 简体</a></li>
+<li class=""><a  href="/Triode-Car/en/hardware/analysis&calibrate.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/Triode-Car/zh/introduction/hardware.html"><span class="label">硬件介绍</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/Triode-Car/zh/hardware/analysis&calibrate.html"><span class="label">TriodeCar硬件分析及校准</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">micro:bit 教程</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/first_meeting.html"><span class="label">初识 micro:bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/new_project.html"><span class="label">创建MakeCode项目</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/import_extension.html"><span class="label">导入扩展积木</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/control_motor.html"><span class="label">用microbit按钮控制电机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/control_motor2.html"><span class="label">调整电机转速</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/read_LDR.html"><span class="label">采集巡线电路的模拟信号</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/radio_control.html"><span class="label">无线电通讯控制电机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/bluetooth_control.html"><span class="label">蓝牙控制</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/LDR_calibration.html"><span class="label">校准巡线检测电路</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/Triode-Car/zh/microbit_tutorial/Line_Follower.html"><span class="label">巡线行驶</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>TriodeCar硬件分析及校准</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-11-01">
+                                    2023-11-01
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/BPI-STEAM/BPI-Doc/blob/main/docs/Triode-Car/zh/hardware/analysis&calibrate.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF">驱动电路</h2>
+<p>这是一个最基础的电路：</p>
+<div align=center>
+<img src="../assets/Triode-Car-Sch1.png" width="30%"/>
+</div>
+<p>电池，二极管，电感，手动开关四者串联，两个负载并联接入，一个负载是电机，一个负载是发光二极管，作为对发光二极管的保护又给其串联了一个用于分压的电阻。</p>
+<p>在这样的电路中唯一能控制两个负载的只有一个手动开关。</p>
+<p>这是PNP型三极管：</p>
+<p><img src="../assets/Triode-S8550.png" alt="" /></p>
+<ul>
+<li>1脚 Emitter发射极</li>
+<li>2脚 Base基极</li>
+<li>3脚 Collector集电极</li>
+</ul>
+<blockquote>
+<p>一般在原理图中三极管的E、B、C指的就是此三脚。</p>
+</blockquote>
+<p><strong>双极性结型晶体管</strong>（bipolar junction transistor, BJT），俗称<strong>三极管</strong>，是一种具有三个终端的电子器件，由三部分掺杂程度不同的半导体制成。双极性晶体管是电子学历史上具有革命意义的一项发明，其发明者威廉·肖克利、约翰·巴丁和沃尔特·布喇顿被授予1956年的诺贝尔物理学奖。</p>
+<p>在双极性晶体管电学符号中， Base基极 和 Emitter发射极 之间的箭头指向电流的方向，这里的电流为电子流动的反方向。PNP型晶体管的箭头从 Emitter发射极 指向 Base基极 ，而NPN型与之相反。</p>
+<blockquote>
+<p>想了解其更详尽的信息，可以继续参考<a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E6%9E%81%E6%80%A7%E6%99%B6%E4%BD%93%E7%AE%A1"  target="_blank">维基百科：双极性晶体管</a>，或者检索其他相关的文献资料，需要具备相应的 数理化 前置知识才能更好的理解。</p>
+</blockquote>
+<p>将一个PNP型三极管加入电路：</p>
+<p><img src="../assets/Triode-Car-Sch2.png" alt="" /></p>
+<p>设计这样的电路可以控制PNP型三极管的2脚 Base基极 电压，这个PNP型三极管即可作为一个<strong>开关</strong>使用。</p>
+<p>1脚 Emitter发射极 与 3脚 Collector集电极<strong>导通</strong>条件为，Emitter发射极电压大于Collector集电极电压，Emitter发射极电压大于Base基极电压。而当Base基极电压大于或等于Emitter发射极电压时则<strong>关断</strong>。</p>
+<p>两个负载被 Base基极 所接收到的电平信号所控制，而此电平信号则由 电压比较器 的输出端提供，通过另一个开关还可切换至由 micro:bit 或 web:bit 开发板来提供。</p>
+<p>R7 在这里起到一个<strong>上拉电阻</strong>的作用，即使没有给2脚 Base基极输入控制信号，控制信号输出端悬空，既没有给高电平也没给低电平，类似于开路的状态，通过R7上拉电阻，也能使2脚 Base基极获得一个高电平，保持PNP三极管关断的状态，使得此电路仅在2脚 Base基极获得低电平信号时才可导通。</p>
+<blockquote>
+<p>有关“高低电平”、“电平信号”更详尽的信息可以参考<a href="https://baike.baidu.com/item/%E9%80%BB%E8%BE%91%E7%94%B5%E5%B9%B3"  target="_blank">百度百科：逻辑电平</a>，或者检索其他相关的文献资料。</p>
+</blockquote>
+<h2 id="%E5%B7%A1%E7%BA%BF%E6%A3%80%E6%B5%8B%E7%94%B5%E8%B7%AF">巡线检测电路</h2>
+<p>在Triode-Car的底部，有两个巡线检测电路，每一路包含了一个光敏电阻和一个LED。当LED的光照到黑色和白色的材料上面时，由于反射率的不同，光敏电阻的阻值会发生明显的变化。</p>
+<p><img src="../assets/Photoresistor-GL5506.png" alt="" /></p>
+<p>在Triode-Car上，光敏电阻使用的器件型号是GL5506，<strong>其电阻值会随着光照的加强而减小</strong>，亮电阻（10Lux）是2-5KΩ，暗电阻是0.2MΩ。<br />
+亮电阻：用400-600Lux光照射2小时后，在标准光源（色温2854K）10Lux光照下的测量的电阻值。<br />
+暗电阻：关闭10Lux光照后第10秒测量的电阻值。</p>
+<p>设计这样的电路：</p>
+<div align=center>
+<img src="../assets/Triode-Car-Sch3.png" width="65%"/>
+</div>
+<p>可以看到，由RV1可调电阻、R3电阻、R5光敏电阻组成的支路与由RV2可调电阻、R4电阻、R6光敏电阻组成的支路是并联的。</p>
+<p>根据并联等压分流的原理，两条支路电压相等。</p>
+<p>在R5光敏电阻所在的支路上，根据串联等流分压的原理，LDR_L 节点电压等于电流值乘以（R5+R3）阻值，当R5光敏电阻所受光照减弱，其阻值将增大， LDR_L 节点电压随之增大，反之光照增强时也同理。</p>
+<p>LDR_R 节点电压亦同理。</p>
+<p>根据串联等流分压的原理，若使RV1可调电阻的阻值增大，LDR_L 节点电压则会减小，反之同理。</p>
+<p>RV2可调电阻亦同理。</p>
+<p>这样，两个可调电阻即可用于校准 LDR_R 与 LDR_L 两个节点的电压值，尽量保证相同光照强度下两个节点电压值相等，以便后续 电压比较器 的应用。</p>
+<h2 id="%E7%94%B5%E5%8E%8B%E6%AF%94%E8%BE%83%E5%99%A8">电压比较器</h2>
+<p>这是LM393电压比较器的原理图:</p>
+<div align=center>
+<img src="../assets/LM393_sch.jpg" width="250"/>
+</div>
+<div align=center>
+<img src="../assets/LM393-1.png" width="400"/>
+</div>
+<p>其内部集成了两个电压比较器，当电压比较器的同相输入端(IN+)大于反相输入端(IN-)电压时，输出高电平，反之则输出低电平。而其电压比较器的内部原理图则是这样：</p>
+<p><img src="../assets/LM393-2.png" alt="" /></p>
+<p>由此可见，实现 <strong>“比较两个输入端的电压大小”</strong> 这样相对复杂的功能，也是基于二极管、三极管等基础元件来设计并封装而成的。</p>
+<blockquote>
+<p>此处不对其做更深入的原理分析，感兴趣的可以参考<a href="https://zh.wikipedia.org/wiki/%E6%AF%94%E8%BE%83%E5%99%A8"  target="_blank">维基百科：比较器</a>，或者检索其他相关的文献资料。</p>
+</blockquote>
+<p>将LM393电压比较器加入电路中，并补全驱动电路和巡线检测电路(<code>单击图片可放大查看</code>)：</p>
+<p><img src="../assets/Triode-Car-sys.jpg" alt="" /></p>
+<p><img src="../assets/Triode-Car-Sch4.png" alt="" /></p>
+<p>至此，我们就基本构建出一个自动控制系统，在其较为理想的工作状况下，它可以在一定范围内经由光敏电阻采集左右两侧道路明暗的信息，电压比较器在信息变化中不断的分别控制着两个轮子启停，以修正行驶方向。</p>
+<h2 id="%E5%90%84%E5%85%83%E4%BB%B6%E7%9A%84%E4%BF%A1%E5%8F%B7%E4%B8%8E%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81%E5%85%B3%E7%B3%BB%E8%A1%A8">各元件的信号与工作状态关系表</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">车头相较线路偏向</th>
+  <th style="text-align:center">(右)R6 LDR光感</th>
+  <th style="text-align:center">(左)R5 LDR光感</th>
+  <th style="text-align:center">LDR_R 电位</th>
+  <th style="text-align:center">LDR_L 电位</th>
+  <th style="text-align:center">P3输入</th>
+  <th style="text-align:center">P2输入</th>
+  <th style="text-align:center">P1输出</th>
+  <th style="text-align:center">P5输入</th>
+  <th style="text-align:center">P6输入</th>
+  <th style="text-align:center">P7输出</th>
+  <th style="text-align:center">M2右电机</th>
+  <th style="text-align:center">M1左电机</th>
+  <th style="text-align:center">小车行进方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">右</td>
+  <td style="text-align:center">明</td>
+  <td style="text-align:center">暗</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">左</td>
+</tr>
+<tr>
+  <td style="text-align:center">左</td>
+  <td style="text-align:center">暗</td>
+  <td style="text-align:center">明</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">右</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>条件为黑色线路与白色路面</p>
+</blockquote>
+<p>以车头相较线路偏向 右 为例：</p>
+<ol>
+<li>车头下部右侧R6光敏电阻将来到白色路面上方，而左侧R5光敏电阻将来到黑色线路上方。</li>
+<li>R6阻值减小，R5阻值增大，LDR_R节点电位将低于LDR_L节点电位。</li>
+<li>A比较器的P3引脚电位将低于P2引脚电位，B比较器的P5引脚电位将高于P6引脚电位。</li>
+<li>A比较器的P1引脚将输出低电平，B比较器的P7引脚将输出高电平。</li>
+<li>Q2PNP三极管导通，M2右电机启动，Q1PNP三极管截止，M1左电机停止。</li>
+<li>小车将向左行驶。</li>
+</ol>
+<p>当车头相较线路偏向 左 时，小车同样会向右行驶。</p>
+<p>这样无论偏左偏右，Triode-Car都能自动的反向修正，达到沿着线路行驶的目的。</p>
+<h2 id="%E5%B7%A1%E7%BA%BF%E6%A3%80%E6%B5%8B%E7%94%B5%E8%B7%AF%E7%9A%84%E6%A0%A1%E5%87%86">巡线检测电路的校准</h2>
+<p>为了使巡线检测电路在单独使用LM393芯片控制的状态下有着对明暗变化更高的灵敏度，以及减少相同光照亮度下的电势差，需要通过手动调整可调电阻来进行校准。</p>
+<p>校准步骤如下：</p>
+<ol>
+<li>将小车用小物件微微将轮子抬起以防接触表面，将小车的光敏电阻对准一个稳定光源（台灯或手电筒）。</li>
+<li>随意调整任一边可调电组，直到两侧马达同时运转。</li>
+<li>调整完成后，放置在跑道上测试结果。</li>
+<li>若小车还是有概率冲出跑道，将小车放置于白纸上，重复2~3步骤进行微调，尝试使巡线检测电路对明暗变化有更高的灵敏度。</li>
+</ol>
+<p><img src="../assets/Triodecar_calibration_1.jpg" alt="" /></p>
+<p><img src="../assets/Triodecar_calibration_2.jpg" alt="" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/Triode-Car/zh/introduction/hardware.html">
+                            <span class="icon"></span>
+                            <span class="label">硬件介绍</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/Triode-Car/zh/microbit_tutorial/first_meeting.html">
+                            <span class="label">初识 micro:bit</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.banana-pi.org.cn">Banana Pi</a></li>
+<li><a target="_blank" href="http://wiki.banana-pi.org/Main_Page">Wiki</a></li>
+<li><a target="_blank" href="https://webduino.com.cn/site/zh_cn/index.html">Webduino</a></li>
+<li><a target="_blank" href="https://shop108780008.taobao.com/">淘宝</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/BPI-STEAM/BPI-Doc">本网站源文件</a></li>
+<li><a target="_blank" href="https://github.com/BPI-SINOVOIP">BananaPi源文件</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-26475332</a>
+</li>
+<li><a>商业支持: sales@banana-pi.com (销售部）</a>
+</li>
+<li><a>技术支持: support@banana-pi.com (技术部）</a>
+</li>
+<li><a>地址: 广东省松山湖高新技术产业开发区融易大厦 7 楼</a>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://bpi-steam.com/">Copyright © 2022 Banana Pi</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>
