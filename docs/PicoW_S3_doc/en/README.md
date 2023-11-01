@@ -2,7 +2,7 @@
 
 ## Introduction
 
-![](assets/images/BPI-PicoW-S3_banner.jpg)
+![](assets/images/BPI-PicoW-S3.jpg)
 
 The Banana Pi BPI-PicoW is equipped with a low-power microcontroller, a development board designed for IoT development and Maker DIY projects. The size is same as the Raspberry Pi Pico board, supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, peripherals are compatible with its low-power hardware design, and consumes only 10uA in deep sleep mode. In terms of programming, PicoW-S3 supports ESP-IDF, Arduino, micropython, CircuitPython and other mainstream platforms.
 

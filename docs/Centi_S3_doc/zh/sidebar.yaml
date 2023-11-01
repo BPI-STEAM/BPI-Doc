@@ -27,6 +27,8 @@ items:
         file: MicroPython/Refres_textbox_on_jpg.md
     -   label: 显示多种矢量字体
         file: MicroPython/Display_multiple_vector_fonts.md
+    -   label: 使用旋转编码器与菜单栏交互
+        file: MicroPython/Interacting_with_menu_bar_using_the_rotary_encoder.md
 -   label: 三、使用 Arduino 快速上手
     items:
     -   label: 安装与配置环境
