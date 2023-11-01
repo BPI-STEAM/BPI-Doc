@@ -185,11 +185,11 @@ while True:
         ledpin.duty_cycle = i
 ```
 
-## PWM Controlled Servo
+## PWM controlled servo
 
 ![](../assets/images/MG90S-Wiring-Diagram.jpg)
 
-以MG90S舵机为例，其他各种舵机参考其对应的使用手册，在以下代码中修改相应的参数。
+Take the MG90S servo as an example. For other servos, refer to their corresponding user manuals and modify the corresponding parameters in the following code.
 
 1. The key parameters of MG90S servo:
    * Control angle, 0° ~ 180°
